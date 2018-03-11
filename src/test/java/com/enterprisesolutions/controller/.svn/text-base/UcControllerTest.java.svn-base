@@ -1,0 +1,61 @@
+package com.enterprisesolutions.controller;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javassist.bytecode.Descriptor.Iterator;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.enterprisesolutions.hibernate.model.UcDet;
+import com.enterprisesolutions.hibernate.model.UcMst;
+
+import junit.framework.TestCase;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:enterprise-solution-servlet.xml")
+public class UcControllerTest extends TestCase{
+@Autowired
+UcController ucController;
+	@Test
+	public void handleRequestTest(){
+		//UcController ucController = new UcController();
+		try {
+			ModelAndView modelAndView = ucController.handleRequest(null, null);
+			@SuppressWarnings("unchecked")
+			Map modelMap =   (Map) modelAndView.getModel().get("modelUc");
+			
+			ArrayList<UcMst> ucMstList = (ArrayList<UcMst>) modelMap.get("ucMstList");
+			for(UcMst ucMst:ucMstList){
+				System.out.println("---UC------>"+ucMst.getUcName());
+			}
+			ArrayList<UcDet> ucLinkedObjDetList = (ArrayList<UcDet>) modelMap.get("ucLinkedObjDetList");
+			for(UcDet ucLinkedObjDet:ucLinkedObjDetList){
+//				System.out.println("---LinkedObj------>"+ucLinkedObjDet.getObjType());
+			}			
+			
+			
+			for(UcDet ucLinkedObjDet:ucLinkedObjDetList){
+//				System.out.println("--------->"+ucLinkedObjDet.getObjType());
+			}
+				
+			
+//			for (UcLinkedObjDet ucLinkedObjDet:a){
+//				System.out.println("ObjType="+ucLinkedObjDet.getObjType());
+//			}
+			assertEquals("UseCase.jsp", modelAndView.getViewName());
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

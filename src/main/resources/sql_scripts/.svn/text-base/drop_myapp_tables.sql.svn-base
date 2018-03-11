@@ -1,0 +1,22 @@
+drop table uc_parent;
+drop table output_prop;
+
+
+drop table system_prop;
+drop table system_mst;
+
+drop table cust_prop;
+drop table cust_mst;
+
+drop table uc_det;
+drop table output_mst;
+drop table seq_mst;
+drop table uc_mst;
+--drop Table seq_mst;
+
+
+
+drop table uc_seq_mst;
+drop table uc_seq_diagram;
+drop table uc_if;
+

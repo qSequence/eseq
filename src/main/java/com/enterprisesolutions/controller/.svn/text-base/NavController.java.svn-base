@@ -1,0 +1,251 @@
+package com.enterprisesolutions.controller;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+import com.enterprisesolutions.hibernate.model.UcMst;
+import com.enterprisesolutions.hibernate.model.UcParent;
+import com.enterprisesolutions.hibernate.model.UcParentPK;
+import com.enterprisesolutions.navigation.NavItem;
+import com.enterprisesolutions.navigation.NavObject;
+import com.enterprisesolutions.utils.AppConstants;
+import com.enterprisesolutions.utils.AppUtil;
+import com.enterprisesolutions.utils.ConverterUtil;
+import com.enterprisesolutions.utils.DbUtil;
+
+
+
+public class NavController implements Controller{
+	private static String ADD_AND_DIAPLAY_ACTION = "add_and_display_action";
+	private static String DISPLAY_UC_TREE_FOR_PARENT_ACTION="display_uc_tree_for_parent_action";
+	private static String PROPERTIES_UPDATE_ACTION = "properties_update_action";
+
+	private static String DEFAULT_ACTION = "default_action";
+	private static String CUSTOMER = "CUSTOMER";
+	private static String DEFAULT_UC_NAME = "Update use case name..";
+	private static String DEFAULT_OBJ_NAME = "Update object name..";
+	private static String[] OBJ_TYPE_LIST = { "CUSTOMER", "CONNECTOR",
+			"REPORT", "PROCESS" };
+
+	private static String USE_CASE_SELECT_ERROR = "Please select a use case to display...";
+	private static String INVALID_OBJECT_TYPE_ERROR = "Please select a valide object to create for the use case...";
+
+
+
+	@Autowired
+	ConverterUtil converterUtil;
+	
+	@Autowired
+	DbUtil dbUtil;
+	
+	@Autowired
+	AppUtil appUtil;
+	
+	@Autowired
+	NavObject navObject;
+	
+	
+	@SuppressWarnings("rawtypes")
+	public ModelAndView handleRequest(HttpServletRequest httpServletRequest,
+			HttpServletResponse httpServletResponse) throws Exception {
+		
+		//get session and session parameters
+		
+		HttpSession userSession = httpServletRequest.getSession();
+		
+		List<NavItem> navList=null;
+		if(httpServletRequest.isRequestedSessionIdValid()){
+			navList=(List<NavItem>)userSession.getAttribute("nav");
+		}else{
+			throw new Exception("Session is invalid... Refresh page");
+		}
+		//get HTTP request parameters
+		
+		String userRequestActionParam = httpServletRequest.getParameter(AppConstants.USER_REQUEST_ACTION_PARAM);
+		BigInteger treeUcIdParam = converterUtil.convertStringToBigInteger(httpServletRequest.getParameter("tree_uc_id_param"));
+		BigInteger ucParentIdParam = converterUtil.convertStringToBigInteger(httpServletRequest.getParameter("uc_parent_id_param"));		
+		String ucNameParam = httpServletRequest.getParameter("uc_name_param");
+		BigInteger custIdParam = converterUtil.convertStringToBigInteger(httpServletRequest.getParameter("cust_id_param"));
+		BigInteger systemIdParam = converterUtil.convertStringToBigInteger(httpServletRequest.getParameter("system_id_param"));		
+		
+		// Level, parentList(this is the list of parents expanded for that level)
+
+		NavItem selectedAddUcParentNode=null;
+		if(userRequestActionParam!=null && userRequestActionParam.equals(AppConstants.ADD_AND_DIAPLAY_ACTION)){
+			
+			if (ucNameParam!=null && !ucNameParam.trim().isEmpty()) {
+				UcMst ucMst = new UcMst();
+				
+				ucMst.setUcName(ucNameParam);
+				UcParent ucParent = new UcParent();
+				UcParentPK ucParentPK = new UcParentPK();
+				ucParentPK.setUcParentId(ucParentIdParam);
+				ucParentPK.setCustId(custIdParam);
+				ucParentPK.setSystemId(systemIdParam);
+				ucParent.setUcParentPK(ucParentPK );
+				ucParent.setIsRoot("N");
+				
+				BigDecimal ucId = (BigDecimal) dbUtil.createNewUcMstAnParent(ucMst, ucParent);
+				
+
+				navObject.newUcAdded(ucId, ucParentIdParam);
+
+				if(!ucParentIdParam.equals(new BigInteger("0"))){
+					navList=appUtil.closeTreeNode(navList, ucParentIdParam, navObject.getNavItemMap(),systemIdParam, custIdParam);
+					navList=appUtil.expandTreeNode(navList, ucParentIdParam, navObject.getNavItemMap(),systemIdParam, custIdParam);
+				}else{
+					List<NavItem> ucMstList = dbUtil.queryUcMstParentById(converterUtil.convertBigDecimalToBigInteger(ucId), ucParentIdParam);
+					navList.add(ucMstList.get(0));
+				}
+				//REMEMBER to set navList
+			}
+			int ucIndex = appUtil.getIndexOfUc(navList, ucParentIdParam,systemIdParam, custIdParam);
+			if(ucIndex>-1 && ucIndex <navList.size()){
+				selectedAddUcParentNode= navList.get(ucIndex);
+			}
+		}else if(userRequestActionParam!= null 
+				&& (userRequestActionParam.equals(AppConstants.EXPAND_TREE_NODE_ACTION)
+						||userRequestActionParam.equals(AppConstants.CLOSE_TREE_NODE_ACTION))
+				&& treeUcIdParam!=null){
+
+			int ucIndex = appUtil.getIndexOfUc(navList, treeUcIdParam,systemIdParam, custIdParam);
+			if(ucIndex>-1 && ucIndex <navList.size()){
+				selectedAddUcParentNode= navList.get(ucIndex);
+				if(userRequestActionParam.equals(AppConstants.EXPAND_TREE_NODE_ACTION))
+					selectedAddUcParentNode.setExpandedUc(true);
+				else if(userRequestActionParam.equals(AppConstants.CLOSE_TREE_NODE_ACTION))
+					selectedAddUcParentNode.setExpandedUc(false);
+			}
+		}
+
+		if(navList==null){
+			System.out.println("-------Cached 0000 ======= nav is NULL...");
+			navList=getDefaultNavList();
+			//userSession.setAttribute("nav", getDefaultNavList());
+			System.out.println("-------Cached 0000 ======= nav is LIST.length..."+navList.size());
+		}else if(treeUcIdParam.compareTo(new BigInteger("0"))!=0){
+			System.out.println("-------Cached 0000 ======= nav is ****NOT**** NULL...");
+			
+			navList=getNavListWithUc( navList, treeUcIdParam, userRequestActionParam, systemIdParam, custIdParam);
+			
+//			userSession.setAttribute("nav",getNavListWithUc( (List<UcMst>)userSession.getAttribute("nav"), new BigInteger(httpServletRequest.getParameter("tree_uc_id_param")), httpServletRequest.getParameter("user_request_action_param")));
+			System.out.println("-------Cached 0000 ======= nav is LIST.length..."+navList.size());
+		}else{
+			System.out.println("-------Cached 1111 ======= nav is ****NOT**** NULL...");
+			System.out.println("-------Cached 1111 ======= nav is ****NOT**** NULL...SIZE="+navList.size());
+			
+		}
+		
+		//Setting Nav in the SESSION
+		
+		userSession.setAttribute("nav", navList);
+		
+		
+		System.out.println("-------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxCONTEXT_PATH="+httpServletRequest.getContextPath());
+		
+		//setting context path
+		
+		
+		String contextPath = "";
+		java.net.InetAddress inetAddress = java.net.InetAddress.getLocalHost();
+		String hostFullName = inetAddress.getHostName();
+		String[] hostArray = hostFullName.split("\\.");
+		String host = hostFullName;
+		if ((hostArray != null) && (hostArray.length > 0)) {
+			host = hostArray[0];
+			contextPath = httpServletRequest.getScheme()
+				+ "://" + host + ":"
+				+ httpServletRequest.getServerPort()
+				+ httpServletRequest.getContextPath();
+		}
+		
+		
+		//End setting context path
+		
+		
+		Map<String, Object> modelUc = new HashMap<String, Object>();
+		modelUc.put("selectedAddUcParentNode", selectedAddUcParentNode);
+		modelUc.put("CONTEXT_PATH", httpServletRequest.getContextPath());
+
+		return new ModelAndView("/jsp/Nav.jsp", "modelUc", modelUc);
+
+	}
+
+	private List getNavListWithUc( List<NavItem> navList, BigInteger ucId, String user_request_action_param, BigInteger systemId, BigInteger custId) {
+		
+		Map<BigInteger, List<NavItem>> navItemMap = navObject.getNavItemMapWithUc(ucId);
+		System.out.println("**========================================================================**");
+		System.out.println("");
+		System.out.println("Index   --   UcName   --   UcDepth   --   UcId   --   ParentId");
+		for(int i=0; i<navList.size();i++){
+
+		System.out.println(i+"   --   "+navList.get(i).getUcMst().getUcName()+"   --   depth="+navList.get(i).getUcDepth()+"   --   ucid="+navList.get(i).getUcMst().getUcId()+"   --   parentid="+navList.get(i).getUcParent().getUcParentPK().getUcParentId());
+		}
+		System.out.println("");
+		System.out.println("**========================================================================**");
+		
+		
+		if(user_request_action_param.equals(AppConstants.CLOSE_TREE_NODE_ACTION)){
+			 
+			
+			navList=appUtil.closeTreeNode(navList, ucId, navItemMap, systemId, custId);
+
+		}else if(user_request_action_param.equals(AppConstants.EXPAND_TREE_NODE_ACTION)){
+			
+			navList=appUtil.expandTreeNode(navList, ucId, navItemMap, systemId, custId);
+			
+
+			
+		}
+		
+		System.out.println("**========================================================================**");
+		System.out.println("");
+		System.out.println("Index   --   UcName   --   UcDepth   --   UcId   --   ParentId");
+		for(int i=0; i<navList.size();i++){
+
+			System.out.println(i+"   --   "+navList.get(i).getUcMst().getUcName()+"   --   depth="+navList.get(i).getUcDepth()+"   --   ucid="+navList.get(i).getUcMst().getUcId()+"   --   parentid="+navList.get(i).getUcParent().getUcParentPK().getUcParentId());
+		}
+		System.out.println("");
+		System.out.println("**========================================================================**");
+		
+		return navList;
+		
+	}
+	
+	
+
+	private List<NavItem> getDefaultNavList() {
+		Map<BigInteger, List<NavItem>> navItemMap = navObject.getNavItemMap();
+		
+//		System.out.println("-------******************nav=-------------------4="+navItemMap);
+//		System.out.println("-------******************nav=-------------------5="+navItemMap.size());
+		
+		
+		List<NavItem> navList = new ArrayList<NavItem>();
+
+		// get the root tree elements first
+		List<NavItem> rootNavItems = navItemMap.get(AppConstants.rootUcId);
+		
+		for (NavItem navItem:rootNavItems){
+			navItem.setUcDepth(new BigInteger("1"));
+			navItem.setExpandedParentUc(false);
+			navItem.setExpandedUc(false);
+		navList.add(navItem);
+		}
+		return navList;
+		
+	}
+
+}

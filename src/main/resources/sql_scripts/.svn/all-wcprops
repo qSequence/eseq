@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/web_applications/!svn/ver/5/trunk/src/main/resources/sql_scripts
+END
+myapp.sql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/web_applications/!svn/ver/15/trunk/src/main/resources/sql_scripts/myapp.sql
+END
+testData.sql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/web_applications/!svn/ver/15/trunk/src/main/resources/sql_scripts/testData.sql
+END
+drop_myapp_tables.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/web_applications/!svn/ver/15/trunk/src/main/resources/sql_scripts/drop_myapp_tables.sql
+END

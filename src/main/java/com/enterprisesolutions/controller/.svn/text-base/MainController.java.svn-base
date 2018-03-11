@@ -1,0 +1,28 @@
+package com.enterprisesolutions.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+
+
+
+	public class MainController implements Controller{
+		
+		@SuppressWarnings("rawtypes")
+		public ModelAndView handleRequest(HttpServletRequest httpServletRequest,
+				HttpServletResponse httpServletResponse) throws Exception {
+			
+
+			Map<String, Object> modelUc = new HashMap<String, Object>();
+			modelUc.put("CONTEXT_PATH", httpServletRequest.getContextPath());
+
+			return new ModelAndView("/jsp/Main.jsp", "modelUc", modelUc);
+
+		}
+}

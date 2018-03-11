@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>trunk</display-name>
+  <servlet>
+    <servlet-name>enterprise-solution</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+<session-config>
+  <session-timeout>300</session-timeout>
+ </session-config>
+ 	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/enterprise-solution-servlet.xml
+		</param-value>
+	</context-param>
+	<!-- PayPal Stuff -->
+     <servlet>
+        <servlet-name>Checkout</servlet-name>
+        <servlet-class>com.paypal.dg.Checkout</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Checkout</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+
+ <servlet>
+        <servlet-name>OrderConfirm</servlet-name>
+        <servlet-class>com.paypal.dg.OrderConfirm</servlet-class>
+    </servlet>
+<!-- Security constraint -->
+<!-- 
+<security-constraint>
+         <web-resource-collection>
+             <web-resource-name>HTTPSOnly</web-resource-name>
+             <url-pattern>/*</url-pattern>
+         </web-resource-collection>
+         <user-data-constraint>
+             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+         </user-data-constraint>
+     </security-constraint>
+ -->     
+ <!-- 
+     <security-constraint>
+         <web-resource-collection>
+             <web-resource-name>HTTPSOrHTTP</web-resource-name>
+             <url-pattern>*.ico</url-pattern>
+             <url-pattern>/images/*</url-pattern>
+             <url-pattern>/css/*</url-pattern>
+         </web-resource-collection>
+         <user-data-constraint>
+             <transport-guarantee>NONE</transport-guarantee>
+         </user-data-constraint>
+     </security-constraint>
+      -->
+<!-- END : Security Constraint -->
+
+
+    <servlet-mapping>
+        <servlet-name>OrderConfirm</servlet-name>
+        <url-pattern>/orderconfirm</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>Cancel</servlet-name>
+        <servlet-class>com.paypal.dg.Cancel</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Cancel</servlet-name>
+        <url-pattern>/cancel</url-pattern>
+    </servlet-mapping>
+	<!-- End PayPal Stuff -->    
+  <servlet-mapping>
+    <servlet-name>enterprise-solution</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>enterprise-solution</servlet-name>
+    <url-pattern>*.htm</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>/jsp/index.jsp</welcome-file>
+  </welcome-file-list>
+  <listener>
+    <description>sessionListener</description>
+    <listener-class>
+        com.enterprisesequence.utils.SessionListener
+    </listener-class>
+    
+  </listener>
+  <!-- This listener is required for WebApplicationContext used in SessionListener -->
+  <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+  </listener>
+</web-app>

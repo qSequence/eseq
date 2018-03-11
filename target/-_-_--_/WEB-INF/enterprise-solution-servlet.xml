@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+	<context:component-scan base-package="com.enterprisesolutions" />
+	<context:component-scan base-package="com.enterprisesequence" />
+	<context:annotation-config />
+
+	<bean id="myDataSource"
+      class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName"
+                  value="java:comp/env/jdbc/qTomcatPool"/>   
+      <property name="resourceRef"
+                  value="true" />
+    </bean>
+	
+<!-- 	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" -->
+<!-- 		destroy-method="close"> -->
+<!-- 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" /> -->
+<!-- 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" /> -->
+<!-- 		<property name="username" value="myapp" /> -->
+<!-- 		<property name="password" value="myapp" /> -->
+<!-- 	</bean> -->
+
+
+<context:property-placeholder location="classpath:db.properties"/>
+<context:property-placeholder location="classpath:qsequence.properties"/>
+	<bean id="eSeqmySessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.enterprisesequence.hibernate.model.SeqMst
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMst
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstDraft
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstDevVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstProd
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstProdVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagram
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramDraft
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramDraftAudit
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcCapabilityUpdateAudit
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramDevVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramProd
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramProdVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseDraft
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqRelease
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseDevVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseProd
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseProdVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.Credential
+				</value>
+				<value>com.enterprisesequence.hibernate.model.SessionRecords
+				</value>
+				<value>com.enterprisesequence.hibernate.model.ProductMst
+				</value>
+				<value>com.enterprisesequence.hibernate.model.ProductFeature
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CustomerSubscription
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CustomerTransactions
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramProperty
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcTip
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcSystemMst
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcRequestMst
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcResponseMst
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcSeqMenuImages
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcDefaultMenuImages
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcDefaultMenuUserMst
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UserDirectoryCreateLog
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMst
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstDevVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstDraft
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstProd
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstProdVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagram
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramDraft
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramDevVersion
+				</value>					
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramProd
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramProdVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseDraft
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqRelease
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseDevVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseProd
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseProdVersion
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcHostClusterMst
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcHostProperties
+				</value>
+				<value>com.enterprisesequence.hibernate.model.Team
+				</value>
+				<value>com.enterprisesequence.hibernate.model.Category
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CredentialAccessChangeLog
+				</value>
+				<value>com.enterprisesequence.hibernate.model.SeqMstNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstDraftNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstDevVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstProdNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqMstProdVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramDraftNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramDraftAuditNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcCapabilityUpdateAuditNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramDevVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramProdNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramProdVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseDraftNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseDevVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseProdNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqReleaseProdVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CredentialNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.SessionRecordsNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.ProductMstNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.ProductFeatureNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CustomerSubscriptionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CustomerTransactionsNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSeqDiagramPropertyNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcTipNoGen
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcSystemMstNoGen
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcRequestMstNoGen
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcResponseMstNoGen
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UcSeqMenuImagesNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcDefaultMenuImagesNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcDefaultMenuUserMstNoGen
+				</value>				
+				<value>com.enterprisesequence.hibernate.model.UserDirectoryCreateLogNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstDevVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstDraftNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstProdNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqMstProdVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramDraftNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramDevVersionNoGen
+				</value>					
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramProdNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqDiagramProdVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseDraftNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseDevVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseProdNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcSysSeqReleaseProdVersionNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcHostClusterMstNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.UcHostPropertiesNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.ConfigParameters
+				</value>
+				<value>com.enterprisesequence.hibernate.model.TeamNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CategoryNoGen
+				</value>
+				<value>com.enterprisesequence.hibernate.model.CredentialAccessChangeLogNoGen
+				</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- <prop key="hibernate.dialect"> org.hibernate.dialect.HSQLDialect</prop> -->
+				<prop key="hibernate.dialect">${hibernateDialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernateHbm2ddlAuto}</prop>
+				<prop key="hibernate.show_sql">${hibernateShowSql}</prop>
+			</props>
+		</property>
+	</bean>
+	<bean name="/Admin.htm" class="com.enterprisesolutions.controller.AdminController">
+	</bean>
+ 	<bean name="/InstallCompleted.htm" class="com.enterprisesolutions.controller.InstallController">
+	</bean>
+    <bean name="/Install.htm" class="com.enterprisesolutions.controller.InstallController">
+	</bean>	
+	
+	<bean name="/SeqDetA.htm" class="com.enterprisesolutions.controller.SequenceDiagramControllerA">
+	</bean>	
+	<bean name="/AuditViewSequence.htm" class="com.enterprisesolutions.controller.AuditViewSequenceController">
+	</bean>
+	<bean name="/GetSeqUpdate.htm" class="com.enterprisesolutions.controller.GetSeqUpdateController">
+	</bean>	
+		
+
+	<bean name="/ViewSequenceList.htm" class="com.enterprisesolutions.controller.ViewSequenceController">
+	</bean>
+	<bean name="/License.htm" class="com.enterprisesolutions.controller.LicenseController">
+	</bean>
+	<bean name="/Login.htm" class="com.enterprisesolutions.controller.LoginController">
+	</bean>
+	<bean name="/Logout.htm" class="com.enterprisesolutions.controller.LogoutController">
+	</bean>
+	<bean name="/ResetPassword.htm" class="com.enterprisesolutions.controller.ResetPasswordController">
+	</bean>
+	<bean name="/SetPassword.htm" class="com.enterprisesolutions.controller.SetPasswordController">
+	</bean>
+		
+	<bean name="/index.htm" class="com.enterprisesolutions.controller.IndexController">
+	</bean>
+	<bean name="/Properties.htm" class="com.enterprisesolutions.controller.PropertiesController">
+	</bean>
+	<bean name="/ViewProperties.htm" class="com.enterprisesolutions.controller.PropertiesController">
+	</bean>
+	<bean name="/Search.htm" class="com.enterprisesolutions.controller.SearchController">
+	</bean>
+	
+	<bean name="/SeqMst.htm" class="com.enterprisesolutions.controller.SequenceMstController">
+	</bean>	
+			
+		<bean name="/Confirm.htm" class="com.enterprisesolutions.controller.ConfirmController">
+	</bean>	
+		<bean name="/ViewSeqSecDesc.htm" class="com.enterprisesolutions.controller.ViewSeqSecDescController">
+	</bean>	
+		<bean name="/EditSeqSecDesc.htm" class="com.enterprisesolutions.controller.ViewSeqSecDescController">
+	</bean>
+		<bean name="/MyMenu.htm" class="com.enterprisesolutions.controller.MyMenuController">
+	</bean>
+		<bean name="/FileUpload.htm" class="com.enterprisesolutions.controller.FileUploadController">
+	</bean>		
+		<bean name="/Profile.htm" class="com.enterprisesolutions.controller.ProfileController">
+	</bean>	
+	<bean name="/SeqPrint.htm" class="com.enterprisesolutions.controller.DownloadSequenceController">
+	</bean>
+	<bean name="/LdapConfig.htm" class="com.enterprisesolutions.controller.LdapController">
+	</bean>
+		<bean name="/SearchRequests.htm" class="com.enterprisesolutions.controller.SearchRequestsController">
+	</bean>	
+		<bean name="/SearchResponses.htm" class="com.enterprisesolutions.controller.SearchResponsesController">
+	</bean>		
+		<bean name="/SearchSystems.htm" class="com.enterprisesolutions.controller.SearchSystemsController">
+	</bean>		
+							
+	<bean name="/CopyProperties.htm" class="com.enterprisesolutions.controller.PropertiesController">
+	</bean>
+	<bean name="/ModifiedSequenceList.htm" class="com.enterprisesolutions.controller.ReleaseSequenceController">
+	</bean>
+	<bean name="/ReleaseChangedSequenceList.htm" class="com.enterprisesolutions.controller.ReleaseSequenceController">
+	</bean>
+	<bean name="/ChangeReleaseList.htm" class="com.enterprisesolutions.controller.ReleaseSequenceController">
+	</bean>
+	<bean name="/ViewChangeRelease.htm" class="com.enterprisesolutions.controller.ReleaseSequenceController">
+	</bean>
+	<bean name="/HostClusterList.htm" class="com.enterprisesolutions.controller.HostClusterController">
+	</bean>
+	<bean name="/EditHostCluster.htm" class="com.enterprisesolutions.controller.HostClusterController">
+	</bean>
+	<bean name="/SearchHostCluster.htm" class="com.enterprisesolutions.controller.SearchHostClusterController">
+	</bean>
+	<bean name="/ViewInterface.htm" class="com.enterprisesolutions.controller.InterfaceController">
+	</bean>
+	<!-- Controllers for enterprise -->
+	<bean name="/Category.htm" class="com.enterprisesolutions.controller.CategoryController">
+	</bean>
+	<bean name="/Team.htm" class="com.enterprisesolutions.controller.TeamController">
+	</bean>
+	<bean name="/SearchTeams.htm" class="com.enterprisesolutions.controller.SearchTeamsController">
+	</bean>
+	<bean name="/User.htm" class="com.enterprisesolutions.controller.UserController">
+	</bean>
+	<bean name="/SearchUsers.htm" class="com.enterprisesolutions.controller.SearchUsersController">
+	</bean>
+	<bean name="/SearchCategories.htm" class="com.enterprisesolutions.controller.SearchCategoryController">
+	</bean>
+	<bean name="/Dashboard.htm" class="com.enterprisesolutions.controller.DashboardController">
+	</bean>
+	<bean name="/LearnedCapabilities.htm" class="com.enterprisesolutions.controller.DashboardController">
+	</bean>
+	<bean name="/SystemTypeCapabilities.htm" class="com.enterprisesolutions.controller.DashboardController">
+	</bean>
+	<bean name="/UpdateCapability.htm" class="com.enterprisesolutions.controller.UpdateCapabilityController">
+	</bean>
+	
+	<bean id="multipartResolver"
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+</beans>

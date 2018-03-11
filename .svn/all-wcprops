@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/web_applications/!svn/ver/5/trunk
+END
+TODOIssues
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/web_applications/!svn/ver/22/trunk/TODOIssues
+END
+use-case-app.war
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/web_applications/!svn/ver/5/trunk/use-case-app.war
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/web_applications/!svn/ver/5/trunk/pom.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/web_applications/!svn/ver/5/trunk/build.xml
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/web_applications/!svn/ver/5/trunk/.project
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/web_applications/!svn/ver/21/trunk/.classpath
+END

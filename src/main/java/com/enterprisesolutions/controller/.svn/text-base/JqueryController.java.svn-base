@@ -1,0 +1,5 @@
+package com.enterprisesolutions.controller;
+
+public class JqueryController extends UcController {
+
+}

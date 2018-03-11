@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+    <context:component-scan base-package="com.enterprisesolutions" />
+    
+    <context:annotation-config />
+
+<!--     <bean id="myDataSource" -->
+<!--       class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+<!--       <property name="jndiName" -->
+<!--                   value="java:comp/env/jdbc/myTomcatPool"/>    -->
+<!--       <property name="resourceRef" -->
+<!--                   value="true" /> -->
+<!--     </bean> -->
+    
+    <bean id="myDataSource1" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
+        <property name="url" value="jdbc:derby://localhost/myapp" />
+        <property name="username" value="myapp" />
+        <property name="password" value="myapp" />
+    </bean>
+
+    <bean id="myDataSource2" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
+        <property name="url" value="jdbc:derby://211.29.157.174:1368/myapp" />
+        <property name="username" value="myapp" />
+        <property name="password" value="myapp" />
+    </bean>
+
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource1" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.enterprisesolutions.hibernate.model.UcSysSeqDiagramDevVersion
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSysSeqDiagramProdVersion
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSysSeqReleaseDevVersion
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSysSeqReleaseProdVersion
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSeqMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSeqDiagram
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.Credential
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.SessionRecords
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.ProductMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.FeatureMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.ProductFeature
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.CustomerSubscription
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.CustomerTransactions
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.PayPalDetails
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.Test
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.BuyDetails
+				</value>	
+				<value>com.enterprisesolutions.hibernate.model.UcSeqDiagramProperty
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcTip
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcSystemMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcRequestMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcResponseMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.PublicSeqAccessLog
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSeqMenuImages
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcDefaultMenuImages
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcDefaultMenuUserMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UserDirectoryCreateLog
+				</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- <prop key="hibernate.dialect"> org.hibernate.dialect.HSQLDialect</prop> -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+
+				<prop key="hibernate.show_sql">true</prop>
+
+			</props>
+		</property>
+	</bean>
+    <bean id="mySessionFactory1"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource1" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.enterprisesolutions.hibernate.model.UcSeqMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSeqDiagram
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.Credential
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.SessionRecords
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.ProductMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.FeatureMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.ProductFeature
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.CustomerSubscription
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.CustomerTransactions
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.PayPalDetails
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.Test
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.BuyDetails
+				</value>	
+				<value>com.enterprisesolutions.hibernate.model.UcSeqDiagramProperty
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcTip
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcSystemMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcRequestMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcResponseMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.PublicSeqAccessLog
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSeqMenuImages
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcDefaultMenuImages
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcDefaultMenuUserMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UserDirectoryCreateLog
+				</value>       
+
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!-- <prop key="hibernate.dialect"> org.hibernate.dialect.HSQLDialect</prop> -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+
+                <prop key="hibernate.show_sql">true</prop>
+
+            </props>
+        </property>
+    </bean>
+
+    <bean id="prodSessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource2" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.enterprisesolutions.hibernate.model.UcSeqMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSeqDiagram
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.Credential
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.SessionRecords
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.ProductMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.FeatureMst
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.ProductFeature
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.CustomerSubscription
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.CustomerTransactions
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.PayPalDetails
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.Test
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.BuyDetails
+				</value>	
+				<value>com.enterprisesolutions.hibernate.model.UcSeqDiagramProperty
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcTip
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcSystemMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcRequestMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UcResponseMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.PublicSeqAccessLog
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcSeqMenuImages
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcDefaultMenuImages
+				</value>
+				<value>com.enterprisesolutions.hibernate.model.UcDefaultMenuUserMst
+				</value>				
+				<value>com.enterprisesolutions.hibernate.model.UserDirectoryCreateLog
+				</value>              
+
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!-- <prop key="hibernate.dialect"> org.hibernate.dialect.HSQLDialect</prop> -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+
+                <prop key="hibernate.show_sql">true</prop>
+
+            </props>
+        </property>
+    </bean>
+
+    <bean name="/MoreSeq.htm" class="com.enterprisesolutions.controller.MoreSeqController">
+	</bean>
+	<bean name="/SeqDetA.htm" class="com.enterprisesolutions.controller.SequenceDiagramControllerA">
+	</bean>	
+	<bean name="/GetSeqUpdate.htm" class="com.enterprisesolutions.controller.GetSeqUpdateController">
+	</bean>	
+	<bean name="/GlobalGetSeqUpdate.htm" class="com.enterprisesolutions.controller.GlobalGetSeqUpdateController">
+	</bean>		
+	<bean name="/Register.htm" class="com.enterprisesolutions.controller.RegisterController">
+	</bean>
+	<bean name="/ViewSequenceList.htm" class="com.enterprisesolutions.controller.ViewSequenceController">
+	</bean>
+	<bean name="/GlobalViewSequenceList.htm" class="com.enterprisesolutions.controller.GlobalViewSequenceController">
+	</bean>
+	<bean name="/Login.htm" class="com.enterprisesolutions.controller.LoginController">
+	</bean>
+	<bean name="/Logout.htm" class="com.enterprisesolutions.controller.LogoutController">
+	</bean>
+	<bean name="/ResetPassword.htm" class="com.enterprisesolutions.controller.ResetPasswordController">
+	</bean>
+	<bean name="/SetPassword.htm" class="com.enterprisesolutions.controller.SetPasswordController">
+	</bean>
+	<bean name="/Sample.htm" class="com.enterprisesolutions.controller.SampleController">
+	</bean>
+	<bean name="/SampleSequences.htm" class="com.enterprisesolutions.controller.SampleSequenceController">
+	</bean>	
+	<bean name="/index.htm" class="com.enterprisesolutions.controller.IndexController">
+	</bean>
+	<bean name="/buy.htm" class="com.enterprisesolutions.controller.BuyController">
+	</bean>
+	<bean name="/TrySeqDet.htm" class="com.enterprisesolutions.controller.TrySequenceDiagramController">
+	</bean>
+	<bean name="/GlobalSeqDet.htm" class="com.enterprisesolutions.controller.GlobalViewSequenceDiagramController">
+	</bean>
+	<bean name="/LegalStatement.htm" class="com.enterprisesolutions.controller.LegalController">
+	</bean>
+	<bean name="/TermsAndConditions.htm" class="com.enterprisesolutions.controller.TermsController">
+	</bean>
+	<bean name="/PrivacyPolicy.htm" class="com.enterprisesolutions.controller.PrivacyController">
+	</bean>
+	<bean name="/Properties.htm" class="com.enterprisesolutions.controller.PropertiesController">
+	</bean>
+	<bean name="/ViewProperties.htm" class="com.enterprisesolutions.controller.PropertiesController">
+	</bean>
+	<bean name="/Search.htm" class="com.enterprisesolutions.controller.SearchController">
+	</bean>
+	<bean name="/SeqPrint.htm" class="com.enterprisesolutions.controller.PrintSequenceController">
+	</bean>
+	<bean name="/SeqDownload.htm" class="com.enterprisesolutions.controller.DownloadSequenceController">
+	</bean>		
+	<bean name="/GlobalViewProperties.htm" class="com.enterprisesolutions.controller.GlobalPropertiesController">
+	</bean>		
+	<bean name="/GlobalProperties.htm" class="com.enterprisesolutions.controller.GlobalPropertiesController">
+	</bean>
+	<bean name="/SeqMst.htm" class="com.enterprisesolutions.controller.SequenceMstController">
+	</bean>	
+		<bean name="/faq.htm" class="com.enterprisesolutions.controller.FaqController">
+	</bean>	
+		<bean name="/Confirm.htm" class="com.enterprisesolutions.controller.ConfirmController">
+	</bean>	
+		<bean name="/ViewSeqSecDesc.htm" class="com.enterprisesolutions.controller.ViewSeqSecDescController">
+	</bean>	
+		<bean name="/EditSeqSecDesc.htm" class="com.enterprisesolutions.controller.ViewSeqSecDescController">
+	</bean>
+		<bean name="/MyMenu.htm" class="com.enterprisesolutions.controller.MyMenuController">
+	</bean>
+		<bean name="/FileUpload.htm" class="com.enterprisesolutions.controller.FileUploadController">
+	</bean>		
+		<bean name="/Profile.htm" class="com.enterprisesolutions.controller.ProfileController">
+	</bean>	
+		<bean name="/SearchRequests.htm" class="com.enterprisesolutions.controller.SearchRequestsController">
+	</bean>	
+		<bean name="/SearchResponses.htm" class="com.enterprisesolutions.controller.SearchResponsesController">
+	</bean>		
+		<bean name="/SearchSystems.htm" class="com.enterprisesolutions.controller.SearchSystemsController">
+	</bean>		
+		<bean name="/Test.htm" class="com.enterprisesolutions.controller.TestController">
+	</bean>						
+	<bean id="multipartResolver"
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>      
+</beans>

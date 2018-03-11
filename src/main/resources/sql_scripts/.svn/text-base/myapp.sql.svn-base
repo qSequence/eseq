@@ -1,0 +1,169 @@
+create user myapp identified by myapp;
+
+grant connect, resource to myapp;
+
+
+conn myapp/myapp@xe
+
+CREATE Table seq_mst (seq_id varchar2(30),SEQUENCE_NEXT_HI_VALUE  number);
+
+
+create table cust_mst(
+cust_id number,
+cust_type varchar2(50),
+CONSTRAINT custMst_custId_pk PRIMARY KEY (cust_id)
+);
+
+--
+-- the objId property in the below table will define the customerType 
+-- and its properties will be listed in this table
+--
+create table cust_prop(
+cust_id number,
+prop_name varchar2(50),
+prop_val varchar2(50),
+CONSTRAINT custProp_custIdpropName_pk PRIMARY KEY (cust_id, prop_name)
+);
+
+
+--ALTER TABLE cust_prop ADD 
+--      CONSTRAINT FK_CUST_PROP_CUST_ID
+--      FOREIGN    KEY (CUST_ID)
+--      REFERENCES CUST_MST(CUST_ID);
+
+
+create table system_mst(
+system_id number,
+system_name varchar2(100),
+has_user_interface varchar2(1), --valid values 'Y' and 'N'
+has_web_service_interface  varchar2(1), --valid values 'Y' and 'N'
+description varchar2(200),
+CONSTRAINT systemMst_systemId_pk PRIMARY KEY (system_id)
+);
+
+create table system_prop(
+system_id number,
+prop_name varchar2(50),
+prop_val varchar2(50),
+CONSTRAINT systemProp_systemIdpropName_pk PRIMARY KEY (system_id, prop_name)
+);
+
+
+--ALTER TABLE system_prop ADD 
+--      CONSTRAINT FK_UC_SYSTEM_PROP_SYSTEM_ID
+--      FOREIGN    KEY (SYSTEM_ID)
+--      REFERENCES UC_SYSTEMS(SYSTEM_ID);
+
+
+create table uc_mst(
+uc_id number,
+uc_name varchar2(100), 
+CONSTRAINT ucMst_ucId_pk PRIMARY KEY (uc_id)
+);
+
+create table uc_parent(
+cust_id number,
+system_id number,
+uc_id number,
+uc_parent_id number,
+is_root  varchar2(1),
+referencedUc varchar2(1),
+CONSTRAINT ucParent_allId_pk PRIMARY KEY (cust_id, system_id, uc_id, uc_parent_id)
+);
+
+--ALTER TABLE uc_parent ADD 
+--      CONSTRAINT FK_UC_PARENT_UC_MST_UC_ID
+--      FOREIGN    KEY (UC_ID)
+--      REFERENCES UC_MST(UC_ID);
+
+--ALTER TABLE uc_parent ADD 
+--      CONSTRAINT FK_UC_PARENT_MST_UC_PARENT_ID
+--      FOREIGN    KEY (UC_PARENT_ID)
+--      REFERENCES UC_MST(UC_ID);
+
+--ALTER TABLE uc_parent ADD 
+--      CONSTRAINT FK_UC_PARENT_CUST_CUST_ID
+--      FOREIGN    KEY (CUST_ID)
+--      REFERENCES CUST_MST(CUST_ID);
+
+--ALTER TABLE uc_parent ADD 
+--      CONSTRAINT FK_UC_PARENT_SYSTEM_ID
+--      FOREIGN    KEY (SYSTEM_ID)
+--      REFERENCES UC_SYSTEMS(SYSTEM_ID);
+
+--
+--This table will indicate if use case generates
+-- data for CustomerService/ DatawarehouseMarketing Reports
+-- 
+--
+
+create table output_mst(
+output_id number,
+uc_id number,
+output_type varchar2(50),
+output_name varchar2(50),
+CONSTRAINT outputMstOutputId_pk PRIMARY KEY (output_id)
+);
+
+create table output_prop(
+output_id number,
+prop_id number,
+prop_name varchar2(100),
+prop_value varchar2(100),
+CONSTRAINT outputPropMst_objPropId_pk PRIMARY KEY (prop_id)
+);
+
+--ALTER TABLE output_prop ADD 
+--      CONSTRAINT FK_OUTPUT_PROP_OUTPUT_ID
+--      FOREIGN    KEY (OUTPUT_ID)
+--      REFERENCES OUTPUT_MST(OUTPUT_ID);
+
+      
+create table uc_det(
+uc_id number,
+output_id number,
+input_to_sys_id number,
+output_from_sys_id number,
+CONSTRAINT ucDet_ucIdObjId_pk PRIMARY KEY (uc_id , output_id)
+);
+
+--ALTER TABLE uc_det ADD 
+--      CONSTRAINT FK_UC_DET_OUTPUT_ID
+--      FOREIGN    KEY (OUTPUT_ID)
+--      REFERENCES OUTPUT_MST(OUTPUT_ID);
+
+--ALTER TABLE uc_det ADD 
+--      CONSTRAINT FK_UC_DET_UC_MST_UC_ID
+--      FOREIGN    KEY (UC_ID)
+--      REFERENCES UC_MST(UC_ID);
+
+
+create table uc_seq_mst(
+seq_mst_id number,
+uc_id number,
+is_edited varchar2(1),
+edited_by varchar2(100),
+version  varchar2(100),
+edited_date varchar2(100),
+CONSTRAINT uc_seqMstId_pk PRIMARY KEY (seq_mst_id)
+);
+
+create table uc_seq_diagram(
+seq_item_id number,
+seq_mst_id number,
+system_id number,
+row_no number,
+col_no number,
+if_condition_id number,
+section_name varchar2(100),
+CONSTRAINT uc_seqItemId_pk PRIMARY KEY (seq_item_id)
+);
+
+create table uc_if(
+if_condition_id number,
+uc_id number,
+seq_mst_id number,
+seq_dia_id number,
+if_condition varchar2(1000),
+CONSTRAINT ucif_ifCondId_pk PRIMARY KEY (if_condition_id)
+);

@@ -1,0 +1,43 @@
+package com.enterprisesolutions.dao;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.text.rtf.RTFEditorKit;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.enterprisesolutions.dao.hibernate.AbstractAppDaoImpl;
+import com.enterprisesolutions.hibernate.model.UcMst;
+import com.enterprisesolutions.hibernate.model.UcParent;
+import com.enterprisesolutions.navigation.NavItem;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:enterprise-solution-servlet.xml")
+public class HqlNavItemDaoTest {
+	@Autowired
+	HqlNavItemDao hqlNavItemDao;
+
+	@Test
+	public void queryHQL() {
+		String hqlQuery="SELECT u, uP FROM UcParent uP,UcMst u WHERE uP.ucParentPK.ucId = u.ucId AND uP.ucParentPK.custId= :custId AND uP.ucParentPK.systemId = :systemId";
+		
+		Object[] values = new BigInteger[] {new BigInteger("100"), new BigInteger("111")};
+		String[] paramNames = new String[]{"custId", "systemId"};
+		List<NavItem> a = (List<NavItem>) hqlNavItemDao.findByCreateQuery(hqlQuery, paramNames, values);
+		for(@SuppressWarnings("unused") final Object nt: a){
+			UcMst x = (UcMst)((Object[])nt)[0];
+		//	UcParent p = (UcParent)((Object[])nt)[1];
+			System.out.println("ll"+x.getUcName());
+//			System.out.println("ll"+((UcParent)w.get(1)).getUcParentPK().getUcParentId());
+		}
+		
+		
+	}
+
+}

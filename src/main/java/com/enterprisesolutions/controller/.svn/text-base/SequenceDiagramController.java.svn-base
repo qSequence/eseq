@@ -1,0 +1,379 @@
+package com.enterprisesolutions.controller;
+
+	import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Property;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+import com.enterprisesolutions.dao.UcLinkedObjDetDao;
+import com.enterprisesolutions.dao.UcMstDao;
+import com.enterprisesolutions.display.UcDisplayObject;
+import com.enterprisesolutions.hibernate.model.CustMst;
+import com.enterprisesolutions.hibernate.model.UcDet;
+import com.enterprisesolutions.hibernate.model.UcMst;
+import com.enterprisesolutions.hibernate.model.UcSeqDiagram;
+import com.enterprisesolutions.hibernate.model.UcSeqMst;
+import com.enterprisesolutions.navigation.NavObject;
+import com.enterprisesolutions.sequence.SequenceObject;
+import com.enterprisesolutions.sequence.SequenceObject.AddPositionEnum;
+import com.enterprisesolutions.utils.AppConstants;
+import com.enterprisesolutions.utils.AppUtil;
+import com.enterprisesolutions.utils.ConverterUtil;
+import com.enterprisesolutions.utils.DbUtil;
+import com.enterprisesolutions.utils.SeqDiagramOperationEnum;
+
+	@Service("sequenceDiagramController")
+	public class SequenceDiagramController implements Controller {
+
+		@Autowired
+		NavObject navObject;
+		
+		@Autowired
+		DbUtil dbUtil;
+
+		@Autowired
+		ConverterUtil converterUtil;
+
+		@Autowired
+		UcLinkedObjDetDao myUcLinkedObjDetDao;
+		
+		@Autowired
+		AppUtil appUtil;
+		
+		@Autowired
+		SequenceObject sequenceObject;
+		@SuppressWarnings("rawtypes")
+		public ModelAndView handleRequest(HttpServletRequest httpServletRequest,
+				HttpServletResponse httpServletResponse) throws Exception {
+			//setting context path
+			
+			String contextPath = "";
+			java.net.InetAddress inetAddress = java.net.InetAddress.getLocalHost();
+			String hostFullName = inetAddress.getHostName();
+			String[] hostArray = hostFullName.split("\\.");
+			String host = hostFullName;
+			if ((hostArray != null) && (hostArray.length > 0)) {
+				host = hostArray[0];
+				contextPath = httpServletRequest.getScheme()
+					+ "://" + host + ":"
+					+ httpServletRequest.getServerPort()
+					+ httpServletRequest.getContextPath();
+			}
+			
+			
+			//End setting context path
+			Enumeration<String> attr = httpServletRequest.getAttributeNames();
+			while (attr.hasMoreElements()) {
+				String x = attr.nextElement();
+				System.out.println("-------attr-------x=" + x);
+				System.out.println("-----attr----value-----x="
+						+ httpServletRequest.getAttribute(x));
+
+			}
+
+			Enumeration<String> para = httpServletRequest.getParameterNames();
+			while (para.hasMoreElements()) {
+				String x = para.nextElement();
+				System.out.println("-------para-------x=" + x);
+				System.out.println("-----para----value-----x="
+						+ httpServletRequest.getParameter(x));
+
+			}
+			// declare input param variables
+
+			String user_request_action_param = null;
+			// uc_mst
+			String uc_id_param = null;
+			String uc_name_param = null;
+			String uc_parent_id_param = null;
+			String cust_id_param = null;
+			String system_id_param = null;
+			String seq_mst_id_param = null;
+			String row_no_param = null;
+			String col_no_param = null;
+			String seq_item_id_param=null;
+			String add_position_enum_param=null;
+			// BigDecimal ucIdParamBigDecVal;
+
+			// declare all other variables
+
+			Map<String, Object> ucMstAndLinkedObjMap = null;
+
+
+
+			
+			if (httpServletRequest != null) {
+				user_request_action_param = httpServletRequest
+						.getParameter(AppConstants.USER_REQUEST_ACTION_PARAM);
+
+				// init uc_mst
+				uc_id_param = httpServletRequest.getParameter(AppConstants.UC_ID_PARAM);
+				uc_name_param = httpServletRequest.getParameter(AppConstants.UC_NAME_PARAM);
+				uc_parent_id_param = httpServletRequest.getParameter(AppConstants.UC_PARENT_ID_PARAM);
+				cust_id_param = httpServletRequest.getParameter(AppConstants.CUST_ID_PARAM);
+				system_id_param = httpServletRequest.getParameter(AppConstants.SYSTEM_ID_PARAM);
+				seq_mst_id_param = httpServletRequest.getParameter(AppConstants.SEQ_MST_ID_PARAM);
+				row_no_param = httpServletRequest.getParameter(AppConstants.ROW_NO_PARAM);
+				col_no_param = httpServletRequest.getParameter(AppConstants.COL_NO_PARAM);
+				seq_item_id_param=httpServletRequest.getParameter(AppConstants.SEQ_ITEM_ID_PARAM);
+				add_position_enum_param = httpServletRequest.getParameter(AppConstants.ADD_POSITION_ENUM_PARAM);
+			}
+
+			// validate input params
+			ucMstAndLinkedObjMap = validateParams( user_request_action_param, cust_id_param,
+					uc_id_param, uc_name_param, uc_parent_id_param, system_id_param, seq_mst_id_param, 
+					seq_item_id_param, row_no_param, col_no_param, add_position_enum_param);
+
+			UcSeqMst ucSeqMst = null;
+			List<UcSeqDiagram> rowMap = null;
+			
+			// DEFAULT_ACTION, - no Sequence existing , got UcId
+			if (ucMstAndLinkedObjMap.get("userRequestAction")
+					.equals(AppConstants.DEFAULT_ACTION)) {
+				
+				
+				ucSeqMst = (UcSeqMst)ucMstAndLinkedObjMap.get("ucSeqMst");
+
+				//TODO: Query records from DB
+				
+				UcSeqMst ucSeqMstInProcess = dbUtil.queryUcSeqMstByUcId(ucSeqMst);
+				BigDecimal seqMstId=null;
+				/*if ucSeqMst is null, that means sequence does not exist for this UC
+				 * 
+				 *  create automatically
+				 */
+				if(ucSeqMstInProcess==null){
+					seqMstId = (BigDecimal) dbUtil.createNewUcSeqMst(ucSeqMst);
+					ucSeqMstInProcess = dbUtil.queryUcSeqMstByUcId(ucSeqMst);
+
+				}
+				ucSeqMst = ucSeqMstInProcess;
+				
+				rowMap = dbUtil.queryUcSeqDiagramById(converterUtil.convertBigDecimalToBigInteger(ucSeqMst.getSeqMstId()));
+				
+				
+				
+			} else if (ucMstAndLinkedObjMap.get("userRequestAction").equals(AppConstants.EDIT_SEQUENCE_ACTION)) {
+				ucSeqMst = (UcSeqMst)ucMstAndLinkedObjMap.get("ucSeqMst");
+
+				Map<String, Object> seqMstAndRowMap=loadSequenceIfDoesNotExist(ucSeqMst);
+				ucSeqMst = (UcSeqMst)seqMstAndRowMap.get("ucSeqMst");
+				ucSeqMst.setIsEdited("yes");
+				rowMap=(List<UcSeqDiagram>)seqMstAndRowMap.get("rowMap");
+				
+				
+			} else if (ucMstAndLinkedObjMap.get("userRequestAction").equals(AppConstants.ADD_AND_DIAPLAY_ACTION)) {
+				ucSeqMst = (UcSeqMst)ucMstAndLinkedObjMap.get("ucSeqMst");
+				
+				ucSeqMst= sequenceObject.getSeqMstByUcId(ucSeqMst.getUcId());
+				//Step 2 processing UcSeqDiagram
+				
+				UcSeqDiagram ucSeqDiagram = (UcSeqDiagram)ucMstAndLinkedObjMap.get("ucSeqDiagram");
+				
+				AddPositionEnum addPositionEnum = (AddPositionEnum)ucMstAndLinkedObjMap.get("addPositionEnum");
+				ucSeqDiagram.setSeqMstId(converterUtil.convertBigDecimalToBigInteger(ucSeqMst.getSeqMstId()));
+				if(ucSeqDiagram.getSeqItemId().intValue()==0 && ucSeqDiagram.getSystemId().intValue()!=0 
+						&&ucSeqDiagram.getRowNo().intValue()!=0 && ucSeqDiagram.getColNo().intValue()!=0){
+					
+					rowMap= sequenceObject.updateSeqDiagramMap(ucSeqDiagram, SeqDiagramOperationEnum.ADD, addPositionEnum);
+				}else{
+					ucSeqMst = (UcSeqMst)ucMstAndLinkedObjMap.get("ucSeqMst");
+
+					Map<String, Object> seqMstAndRowMap=loadSequenceIfDoesNotExist(ucSeqMst);
+					ucSeqMst = (UcSeqMst)seqMstAndRowMap.get("ucSeqMst");
+					rowMap=(List<UcSeqDiagram>) seqMstAndRowMap.get("rowMap");
+	
+				}
+			}else if (ucMstAndLinkedObjMap.get("userRequestAction").equals(AppConstants.DELETE_AND_DIAPLAY_ACTION)){
+				ucSeqMst = (UcSeqMst)ucMstAndLinkedObjMap.get("ucSeqMst");
+				
+				ucSeqMst= sequenceObject.getSeqMstByUcId(ucSeqMst.getUcId());
+				//Step 2 processing UcSeqDiagram
+				
+				UcSeqDiagram ucSeqDiagram = (UcSeqDiagram)ucMstAndLinkedObjMap.get("ucSeqDiagram");
+				AddPositionEnum addPositionEnum = (AddPositionEnum)ucMstAndLinkedObjMap.get("addPositionEnum");
+				if(ucSeqDiagram.getSeqItemId().intValue()==0 && ucSeqDiagram.getSystemId().intValue()!=0 
+						&&ucSeqDiagram.getRowNo().intValue()!=0 && ucSeqDiagram.getColNo().intValue()!=0){
+					
+					rowMap=sequenceObject.updateSeqDiagramMap(ucSeqDiagram, SeqDiagramOperationEnum.DELETE,addPositionEnum);
+				}else{
+					ucSeqMst = (UcSeqMst)ucMstAndLinkedObjMap.get("ucSeqMst");
+
+					Map<String, Object> seqMstAndRowMap=loadSequenceIfDoesNotExist(ucSeqMst);
+					ucSeqMst = (UcSeqMst)seqMstAndRowMap.get("ucSeqMst");
+					rowMap=(List<UcSeqDiagram>) seqMstAndRowMap.get("rowMap");
+					
+					
+					//seqItemId = (BigDecimal) dbUtil.createNewUcSeqDiagram(ucSeqDiagram);
+				}
+			}// end ACTION check
+
+			CustMst custMst= (CustMst)ucMstAndLinkedObjMap.get("custMst");
+			custMst= navObject.getCustMap().get(custMst.getCustId());
+			
+			List<List<UcDisplayObject>> ucDisplayDataRowList = appUtil.generateSequenceDisplayData(custMst, ucSeqMst, rowMap);
+			// TODO Auto-generated method stub
+			Map<String, Object> modelUc = new HashMap<String, Object>();
+
+			modelUc.put("userRequestAction",
+					(String) ucMstAndLinkedObjMap.get("userRequestAction"));
+			modelUc.put("menuList", (List<UcDisplayObject>)appUtil.getMenuAllListForSequence());
+			modelUc.put("systemMap", navObject.getSystemMap());
+			modelUc.put("custMst", custMst);
+			modelUc.put("ucSeqMst", ucSeqMst);
+			modelUc.put("ucDisplayDataRowList", ucDisplayDataRowList);
+			
+			modelUc.put("CONTEXT_PATH", contextPath);
+			return new ModelAndView("/jsp/SeqDet.jsp", "modelUc", modelUc);
+
+		}
+
+		private synchronized Map<String, Object>  loadSequenceIfDoesNotExist(UcSeqMst ucSeqMst) {
+
+			Map<String, Object> seqMstAndRowMap = new HashMap<String, Object>();
+			
+			UcSeqMst ucSeqMstInProcess =sequenceObject.getSeqMstByUcId(ucSeqMst.getUcId());
+
+			BigDecimal seqMstId = null;
+
+			if(ucSeqMstInProcess==null){
+				ucSeqMstInProcess = dbUtil.queryUcSeqMstByUcId(ucSeqMst);	
+			
+			
+				/*if ucSeqMst is null, that means sequence does not exist for this UC
+				 * 
+				 *  create automatically
+				 */
+				if(ucSeqMstInProcess==null){
+					seqMstId = (BigDecimal) dbUtil.createNewUcSeqMst(ucSeqMst);
+					ucSeqMstInProcess = dbUtil.queryUcSeqMstByUcId(ucSeqMst);
+
+				}else{
+					seqMstId = ucSeqMstInProcess.getSeqMstId();
+				}
+				
+				sequenceObject.loadSeqMstMap(ucSeqMstInProcess);				
+				
+			}else{
+				seqMstId = ucSeqMstInProcess.getSeqMstId();
+			}
+			
+			seqMstAndRowMap.put("ucSeqMst", ucSeqMstInProcess);
+			
+			
+			List<UcSeqDiagram> rowMap = sequenceObject.getSeqDiagramMapBySeqMstId(seqMstId);
+			if(rowMap==null||rowMap.isEmpty()){
+				List<UcSeqDiagram> ucSeqDiagramList = dbUtil.queryUcSeqDiagramById(converterUtil.convertBigDecimalToBigInteger(seqMstId));
+				sequenceObject.loadSequenceObject(ucSeqDiagramList, converterUtil.convertBigDecimalToBigInteger(seqMstId));
+			}
+			seqMstAndRowMap.put("rowMap", sequenceObject.getSeqDiagramMapBySeqMstId(seqMstId));
+			
+			return seqMstAndRowMap;
+		}
+
+		private Map<String, Object> validateParams(
+				String user_request_action_param, String cust_id_param, String uc_id_param,
+				String uc_name_param, String uc_parent_id_param,String  system_id_param,String seq_mst_id_param,
+				String seq_item_id_param,String row_no_param,String  col_no_param,String add_position_enum_param)
+				throws Exception {
+
+			Map<String, Object> ucMstAndLinkedObjMap = new HashMap<String, Object>();
+			CustMst custMst = new CustMst();
+			UcMst ucMst = new UcMst();
+			UcSeqMst ucSeqMst = new UcSeqMst();
+			UcSeqDiagram ucSeqDiagram = new UcSeqDiagram();
+			AddPositionEnum addPositionEnum=AddPositionEnum.NEXT_LEVEL;
+			
+			String userRequestAction = user_request_action_param;
+
+			// assiging DEFAULT_ACTION, which will be to display all root use cases
+			if (user_request_action_param == null) {
+				userRequestAction = AppConstants.DEFAULT_ACTION;
+				if (uc_id_param == null
+						|| (converterUtil.convertStringToBigDecimal(uc_id_param)
+								.intValue() == 0)) {
+					throw new Exception(AppConstants.USE_CASE_SELECT_ERROR);
+				}
+				
+				custMst.setCustId(converterUtil.convertStringToBigDecimal(cust_id_param));
+				ucMst.setUcId(converterUtil.convertStringToBigDecimal(uc_id_param));
+				
+				ucSeqMst.setUcId(converterUtil.convertStringToBigInteger(uc_id_param));
+			} else if (user_request_action_param.equals(AppConstants.DEFAULT_ACTION)
+					||user_request_action_param.equals(AppConstants.EDIT_SEQUENCE_ACTION)) {
+				if (uc_id_param == null
+						|| (converterUtil.convertStringToBigDecimal(uc_id_param)
+								.intValue() == 0)) {
+					throw new Exception(AppConstants.USE_CASE_SELECT_ERROR);
+				}
+				ucMst.setUcId(converterUtil.convertStringToBigDecimal(uc_id_param));
+				custMst.setCustId(converterUtil.convertStringToBigDecimal(cust_id_param));
+				ucSeqMst.setUcId(converterUtil.convertStringToBigInteger(uc_id_param));
+			} else if (user_request_action_param.equals(AppConstants.ADD_AND_DIAPLAY_ACTION)
+					|| user_request_action_param.equals(AppConstants.DELETE_AND_DIAPLAY_ACTION)) {
+				if (uc_id_param == null
+						|| (converterUtil.convertStringToBigDecimal(uc_id_param)
+								.intValue() == 0)) {
+					throw new Exception(AppConstants.USE_CASE_SELECT_ERROR);
+				} else {
+					
+					//Set UcMst
+					ucMst.setUcId(converterUtil
+							.convertStringToBigDecimal(uc_id_param));
+					custMst.setCustId(converterUtil.convertStringToBigDecimal(cust_id_param));
+					//Set UcSeqMst
+					
+					ucSeqMst.setUcId(converterUtil
+							.convertStringToBigInteger(uc_id_param));
+					ucSeqMst.setSeqMstId(converterUtil
+							.convertStringToBigDecimal(seq_mst_id_param));
+					
+					//Set UcSeqDiagram
+
+					ucSeqDiagram.setSeqItemId(converterUtil
+							.convertStringToBigDecimal(seq_item_id_param));
+
+					ucSeqDiagram.setSeqMstId(converterUtil
+							.convertStringToBigInteger(seq_mst_id_param));
+					ucSeqDiagram.setSystemId(converterUtil
+							.convertStringToBigInteger(system_id_param));
+					ucSeqDiagram.setColNo(converterUtil
+							.convertStringToBigInteger(col_no_param));
+					ucSeqDiagram.setRowNo(converterUtil
+							.convertStringToBigInteger(row_no_param));
+					if(add_position_enum_param.equalsIgnoreCase(AddPositionEnum.SAME_LEVEL.toString()))
+					addPositionEnum=AddPositionEnum.SAME_LEVEL;
+					if(add_position_enum_param.equalsIgnoreCase(AddPositionEnum.NEXT_LEVEL.toString()))
+						addPositionEnum=AddPositionEnum.NEXT_LEVEL;
+				}
+
+
+			}// end ACTION check
+
+			// populate map
+			ucMstAndLinkedObjMap.put("userRequestAction", userRequestAction);
+			ucMstAndLinkedObjMap.put("custMst", custMst);
+			ucMstAndLinkedObjMap.put("ucMst", ucMst);
+			ucMstAndLinkedObjMap.put("ucSeqMst", ucSeqMst);
+			ucMstAndLinkedObjMap.put("ucSeqDiagram", ucSeqDiagram);
+			ucMstAndLinkedObjMap.put("addPositionEnum", addPositionEnum);
+			return ucMstAndLinkedObjMap;
+
+		}// end validateParams
+
+	}

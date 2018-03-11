@@ -1,0 +1,26 @@
+<project name="my.enterprise.project" default="build.my.war" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+<path id="maven-ant-tasks.classpath" path="lib/maven-ant-tasks-2.1.3.jar" />   
+	<typedef resource="org/apache/maven/artifact/ant/antlib.xml"        
+		uri="antlib:org.apache.maven.artifact.ant"        
+		classpathref="maven-ant-tasks.classpath" />  
+		
+ <property name="deploy.dir" value="C:\Software\apache-tomcat-6.0.32-windows-x64\apache-tomcat-6.0.32\webapps\" />  
+ <property name="file.name" value="use-case-app.war" />  
+ <artifact:dependencies pathId="dependency.classpath">
+  <dependency groupId="junit" artifactId="junit" version="3.8.2" scope="test"/>
+  <dependency groupId="org.codehaus.modello" artifactId="modello-core" version="1.0-alpha-2-SNAPSHOT"/>
+  <dependency groupId="javax.servlet" artifactId="servlet-api" version="2.4" scope="provided"/>
+</artifact:dependencies>
+   <target name="build.my.war">  
+     <fileset dir="WebContent">  
+       <include name="**/*"/>  
+     </fileset>  
+     <javac srcdir="src" destdir="build" classpathref="dependency.classpath"/>
+     <war destfile="${file.name}" webxml="WebContent/WEB-INF/web.xml">  
+       <classes dir="build" />  
+     </war>  
+     <echo>Copying ${file.name}...</echo>  
+<!--      <copy file="${file.name}" todir="${deploy.dir}" />   -->
+<!--      <delete file="${file.name}" />   -->
+   </target>  
+</project> 

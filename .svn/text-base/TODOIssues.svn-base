@@ -1,0 +1,14 @@
+Creats a new seesion when calling the below javascript function
+
+		function proceed (context, ucId,custId) {
+		    var form = document.createElement('form');
+		    form.setAttribute('method', 'post');
+		    form.setAttribute('action', context+'SeqDet.htm'+'?uc_id_param='+ucId+'&cust_id_param='+custId);
+		    form.style.display = 'hidden';
+		    document.body.appendChild(form)
+		    form.submit();
+		}
+		
+2> After the session expires, and click on any link on page it throws null pointer
+	EXCEPTION
+	 
