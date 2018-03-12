@@ -19,8 +19,5 @@
      <war destfile="${file.name}" webxml="WebContent/WEB-INF/web.xml">  
        <classes dir="build" />  
      </war>  
-     <echo>Copying ${file.name}...</echo>  
-<!--      <copy file="${file.name}" todir="${deploy.dir}" /> TEST  -->
-<!--      <delete file="${file.name}" />   -->
    </target>  
 </project> 
