@@ -42,7 +42,7 @@
 		    box-shadow: 10px 10px 5px #888888;
 		    float: right;
 		}
-		.main { 
+		.main {
     			width: 900px;
     			margin: 0 auto;
 			margin-top: 100px;
@@ -97,7 +97,7 @@
 <!-- /.navbar-collapse -->
 </nav>
 <div class="container">
-<h1 align="center">Dashboard</h1>
+<h1 style="font-size:43px;" align="center">Dashboard</h1>
 <c:if test="${modelUc.demoDB=='derby'}">
 <div id="tool_tip" class="bubble" style="width:500px;height:60px;">Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value="Install.htm"/>">database</a></div>
 </c:if>
@@ -121,7 +121,7 @@
 <p>	<a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId1}&sequenceVersion=${modelUc.sysSeqVer1}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc1}"> ${modelUc.sysSeqName1}</a> ${modelUc.sysSeqElapsedTime1}
 </p><p>
 	<a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId2}&sequenceVersion=${modelUc.sysSeqVer2}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc2}">${modelUc.sysSeqName2}</a> ${modelUc.sysSeqElapsedTime2}
-</p>	
+</p>
 </div>
 </a>
 </div>
