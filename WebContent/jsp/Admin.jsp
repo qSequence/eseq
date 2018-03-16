@@ -32,7 +32,7 @@ queries -->
 .button {
     background-color: gray;
     border: none;
-    color: white;
+    color: black;
     padding: 3px 32px;
     text-align: center;
     text-decoration: none;
