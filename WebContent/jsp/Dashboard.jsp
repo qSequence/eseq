@@ -97,7 +97,7 @@
 <!-- /.navbar-collapse -->
 </nav>
 <div class="container">
-<h1 align="center">Dashboard</h1>
+<h1 style="font-size:43px;color: purple;" align="center">Dashboard</h1>
 <c:if test="${modelUc.demoDB=='derby'}">
 <div id="tool_tip" class="bubble" style="width:500px;height:60px;">Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value="Install.htm"/>">database</a></div>
 </c:if>
