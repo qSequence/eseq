@@ -77,8 +77,12 @@ queries -->
 </div>
 <!-- /.navbar-collapse -->
 </nav>
+<div class="wrap-content">
+<div class="home-cont">
 <div class="container" id="md-frame1" style="padding-bottom:190px;">
-<h1 align="center">Welcome to qSequence</h1>
+	<h1 align="center">Welcome to qSequence</h1>
+</div>
+</div>
 </div>
 <!-- jQuery -->
 <script src="jquery/jquery-otherPages.js"></script>
