@@ -7,6 +7,8 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/anirban.css" rel="stylesheet">
+
 <!-- Custom CSS -->
 <link href="css/qSequence-Login.css" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
