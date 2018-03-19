@@ -1,1 +1,68 @@
-/*New design sheet*/
+body.homeBG{
+  background: url("../images/body-image.png");
+  width: 100%;
+  background-size: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.topHeader{
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.topHeader .navbar-default{
+  background: none !important;
+  border: none !important;
+}
+.topHeader .navbar-brand{
+  height: 100px;
+}
+.topHeader .navbar-default .navbar-nav > li > a{
+  color: #FFFFFF;
+  font-size: 20px;
+}
+.home-cont h1{
+  color: #FFFFFF;
+  font-size: 60px;
+  font-weight: bold;
+}
+.home-cont p{
+  color: #FFFFFF;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 300;
+}
+.home-cont{
+  max-width: 1200px;
+  margin: 0px auto;
+  margin-top: 100px;
+}
+.home-cont .wrap-item{
+  max-width: 565px;
+  margin: 0px auto;
+}
+.topHeader .navbar-nav{
+  padding: 25px 0px;
+}
+.topHeader .navbar-brand img{
+  width: auto;
+  height: 100%;
+}
+
+
+@media (max-width: 768px) {
+  body.homeBG{
+    background: url("../images/body-imageMB.png");
+    width: 100%;
+    background-size: 100%;
+  }
+  .topHeader .navbar-brand{
+    height: 75px;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: #FFFFFF;
+    margin-top: 20px;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+  	background-color: #FFFFFF;
+  }
+}
