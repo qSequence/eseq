@@ -62,8 +62,12 @@ body.homeBG{
   .navbar-default .navbar-toggle {
     border-color: #FFFFFF;
     margin-top: 20px;
+    border-radius: 4px;
   }
   .navbar-default .navbar-toggle .icon-bar {
   	background-color: #FFFFFF;
+  }
+  .topHeader .navbar-nav {
+    padding: 0px 0px;
   }
 }
