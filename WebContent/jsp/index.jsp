@@ -70,7 +70,7 @@
     </div>
     <div class="wrap-content">
       <div class="home-cont">
-        <div class="wrap-item" id="md-frame1" style="padding-bottom:190px;">
+        <div class="wrap-item">
           <h1 align="center">Welcome to qSequence</h1>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis </p>
         </div>

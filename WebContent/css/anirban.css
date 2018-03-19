@@ -3,6 +3,7 @@ body.homeBG{
   width: 100%;
   background-size: 100%;
   font-family: 'Roboto Condensed', sans-serif;
+  padding: 0px;
 }
 .topHeader{
   max-width: 1200px;
