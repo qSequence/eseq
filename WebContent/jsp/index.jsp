@@ -1,6 +1,7 @@
 <%@ include file="include.jsp"%>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="content-type" content="text/html;charset=UTF-8">
   <title>qSequence</title>
   <meta name="description" content="Index page">
@@ -80,20 +81,7 @@
     <script src="jquery/jquery-otherPages.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="jquery/bootstrap.min-otherPages.js"></script>
-    <%-- <footer id="footerWrapper" class="md-footer">
-    <section id="mainFooter">
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6">
-    <div class="footerWidget">
-    <img src="images/logo.png" width="240px" alt="qSequence logo" id="footerLogo">
-    <p>Enterprise Efficiency Software.&nbsp;
-    <br>© qSequence&nbsp;2016, All rights reserved</p>
-  </div>
-</div>
-</div>
-</div>
-</section>
-</footer> --%>
+    <script src="javascript/anirbanJS.js"></script>
+
 </body>
 </html>
