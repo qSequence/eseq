@@ -71,3 +71,15 @@ body.homeBG{
     padding: 0px 0px;
   }
 }
+
+@media (max-width: 600px) {
+  .home-cont h1 {
+  	font-size: 35px;
+  }
+  .home-cont p {
+  	font-size: 18px;
+  }
+  .home-cont {
+  	padding: 0px 15px;
+  }
+}
