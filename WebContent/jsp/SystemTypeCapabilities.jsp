@@ -470,9 +470,9 @@
 									<tr>
 										<td>Otto</td>
 										<td>Otto</td>
-										<td><a class="btn btn-default" href="#" role="button">Update capability</a></td>
-										<td><a class="btn btn-success" href="#" role="button">Interface</a></td>
-										<td><a class="btn btn-info" href="#" role="button">Information</a></td>
+										<td><a class="btn btn-default" href="https://www.qsequence.com/eseq-100/UpdateCapability.htm?property_for_param=system&system_id_param=61" role="button">Update capability</a></td>
+										<td><a class="btn btn-success" href="https://www.qsequence.com/eseq-100/ViewInterface.htm?systemId=61&propertyFor=system" role="button">Interface</a></td>
+										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/images/information_injection.png" role="button">Information</a></td>
 									</tr>
 								</tbody>
 							</table>
@@ -487,21 +487,25 @@
               <div id="nested-collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
 									<div class="table-responsive">
-										<table class="table">
+										<table class="table pull-left">
 											<tbody>
 												<tr>
 													<td>Otto</td>
 													<td>Otto</td>
-													<td><a class="btn btn-default" href="#" role="button">Update capability</a></td>
-													<td><a class="btn btn-success" href="#" role="button">Interface</a></td>
-													<td><a class="btn btn-info" href="#" role="button">Information</a></td>
+													<td><a class="btn btn-default" href="https://www.qsequence.com/eseq-100/UpdateCapability.htm?property_for_param=request&system_id_param=61&system_type_param=phone_app&request_id_param=54&response_id_param=53" role="button">Update capability</a></td>
 												</tr>
 												<tr>
 													<td>Otto</td>
 													<td>Otto</td>
-													<td><a class="btn btn-default" href="#" role="button">Update capability</a></td>
-													<td><a class="btn btn-default" href="#" role="button">Interface</a></td>
-													<td><a class="btn btn-default" href="#" role="button">Information</a></td>
+													<td><a class="btn btn-default" href="https://www.qsequence.com/eseq-100/UpdateCapability.htm?property_for_param=response&system_id_param=61&system_type_param=phone_app&request_id_param=54&response_id_param=53" role="button">Update capability</a></td>
+												</tr>
+											</tbody>
+										</table>
+                    <table class="table pull-right">
+											<tbody>
+												<tr>
+                          <td><a class="btn btn-success" href="https://www.qsequence.com/eseq-100/ViewInterface.htm?systemId=61&propertyFor=system" role="button">Interface</a></td>
+      										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/images/information_injection.png" role="button">Information</a></td>
 												</tr>
 											</tbody>
 										</table>
