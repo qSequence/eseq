@@ -51,7 +51,9 @@ body.homeBG{
 .btn:hover,a:hover{
   font-weight:normal;
 }
-
+.btn,a{
+  border-radius: 4px;
+}
 @media (max-width: 768px) {
   body.homeBG{
     background: url("../images/body-imageMB.png");
