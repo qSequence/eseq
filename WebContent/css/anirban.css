@@ -51,7 +51,7 @@ body.homeBG{
 .btn:hover,a:hover{
   font-weight:normal;
 }
-.btn,a{
+.btn{
   border-radius: 4px;
 }
 @media (max-width: 768px) {
