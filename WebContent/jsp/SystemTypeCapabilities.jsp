@@ -465,7 +465,7 @@
 				<table class="table">
 					<tbody>
 						<div class="table-responsive">
-							<table class="table">
+							<table class="table  table-borderless">
 								<tbody>
 									<tr>
 										<td>Otto</td>
@@ -486,8 +486,8 @@
               </div>
               <div id="nested-collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
-									<div class="table-responsive">
-										<table class="table pull-left">
+                  <div class="table-responsive">
+										<table class="table pull-left table-borderless" style="width:80%;">
 											<tbody>
 												<tr>
 													<td>Otto</td>
@@ -501,7 +501,7 @@
 												</tr>
 											</tbody>
 										</table>
-                    <table class="table pull-right">
+                    <table class="table pull-right table-borderless" style="margin-top:25px;width:20%;">
 											<tbody>
 												<tr>
                           <td><a class="btn btn-success" href="https://www.qsequence.com/eseq-100/ViewInterface.htm?systemId=61&propertyFor=system" role="button">Interface</a></td>
