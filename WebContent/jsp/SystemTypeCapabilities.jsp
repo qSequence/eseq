@@ -513,16 +513,6 @@
                 </div>
               </div>
             </div>
-            <div class="panel panel-success">
-              <div class="panel-heading" data-toggle="collapse" data-parent="#nested" href="#nested-collapseTwo">
-                <h4 class="panel-title">Contact Us <i class="fa fa-chevron-down pull-right"></i></h4>
-              </div>
-              <div id="nested-collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <p>Nec tristique! Odio sit turpis ac sit magna, non. Elementum ultrices tristique, rhoncus lectus, turpis ac, purus magna! Et massa pulvinar ridiculus dignissim. Egestas</p>
-                </div>
-              </div>
-            </div>
           </div>
       </div>
     </div>
