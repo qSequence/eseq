@@ -109,7 +109,9 @@
         text-decoration:none;
 
       }
-
+      .table.table-borderless tr td, .table.table-borderless tr th {
+        border-width: 0;
+      } 
       .tooltip {
         text-decoration:none;
         position:relative;
