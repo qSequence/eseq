@@ -111,7 +111,7 @@
       }
       .table.table-borderless tr td, .table.table-borderless tr th {
         border-width: 0;
-      } 
+      }
       .tooltip {
         text-decoration:none;
         position:relative;
@@ -549,108 +549,107 @@ $('.accordion-2a, .accordion-2b, .accordion-3').on('hide.bs.collapse', function(
 </script>
 
 
+<input type="hidden" id="user_request_action_param" name="user_request_action_param" value="XXX" />
+<table align="center" width="900 px">
+  <tr><td>&nbsp;</td></tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr><td>
+    <table align="center" border="0"  width="900 px" >
 
-        <input type="hidden" id="user_request_action_param" name="user_request_action_param" value="XXX" />
-        <table align="center" width="900 px">
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>
-            <table align="center" border="0"  width="900 px" >
+      <tr><td colspan="2">&nbsp;</td></tr>
+      <tr><td style="text-align:center;"><h1>System capabilities: ${modelUc.systemType.systemTypeDisplayName}</h1></td><td style="text-align:right;">&nbsp;</td></tr>
+    </table>
+  </td></tr>
 
-              <tr><td colspan="2">&nbsp;</td></tr>
-              <tr><td style="text-align:center;"><h1>System capabilities: ${modelUc.systemType.systemTypeDisplayName}</h1></td><td style="text-align:right;">&nbsp;</td></tr>
-            </table>
-          </td></tr>
+  <tr><td>
 
-          <tr><td>
-
-            <c:set var="x" value="0" />
-            <table align="center"  width="900 px">
-              <c:if test="${modelUc.systemType.systemDisplayObjectList[0]==null}">
-                <tr height="50px"><td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">System capabilities: ${modelUc.systemType.systemTypeDisplayName}</label></td></tr>
+    <c:set var="x" value="0" />
+    <table align="center"  width="900 px">
+      <c:if test="${modelUc.systemType.systemDisplayObjectList[0]==null}">
+      <tr height="50px"><td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">System capabilities: ${modelUc.systemType.systemTypeDisplayName}</label></td></tr>
 
 
-                <c:if test="${modelUc.systemType.systemDisplayObjectList[0]==null}">
-                  <tr style="background-color: #F0F0F0; color: black;">
-                    <td colspan="5"><font color="red"><strong>No capabilities found.</strong></font>
-                  </td>
-                </tr>
-              </c:if>
-            </c:if>
-            <c:if test="${modelUc.systemType.systemDisplayObjectList[0]!=null}">
+      <c:if test="${modelUc.systemType.systemDisplayObjectList[0]==null}">
+      <tr style="background-color: #F0F0F0; color: black;">
+        <td colspan="5"><font color="red"><strong>No capabilities found.</strong></font>
+        </td>
+      </tr>
+    </c:if>
+  </c:if>
+  <c:if test="${modelUc.systemType.systemDisplayObjectList[0]!=null}">
 
-              <c:forEach items='${modelUc.systemType.systemDisplayObjectList}' var="systemObj">
+  <c:forEach items='${modelUc.systemType.systemDisplayObjectList}' var="systemObj">
 
-                <%--          		<c:set var="changed" value="false" /> --%>
-                <%--          		<c:if test="${x=='0' && changed=='false'}"> --%>
-                <tr style="background-color: #F0F0F0; color: black;">
-                  <td>
-                    <div class="container_expand">
-                      <div id="${systemObj.systemName}" class="header"><span>- ${systemObj.systemName}</span>
+  <%--          		<c:set var="changed" value="false" /> --%>
+  <%--          		<c:if test="${x=='0' && changed=='false'}"> --%>
+  <tr style="background-color: #F0F0F0; color: black;">
+    <td>
+      <div class="container_expand">
+        <div id="${systemObj.systemName}" class="header"><span>- ${systemObj.systemName}</span>
 
-                    </div>
-                    <div class="content">
-                      <label>System</label> : <label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label>
-                      <c:if test="${systemObj.ownerAccess==true}">
-                        <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=system&system_id_param=${systemObj.systemId}"/>">Update capability</a>
-                      </c:if>
-                      <a target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>"><img  id="img_interface" class="mousetoHand" title="Interface" alt="Interface" height="20" width="20" src="<c:url value="/images/interface.png" />"></a>
-                      <a  target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=${systemObj.systemId}&property_for_param=system&system_type_param=${modelUc.systemType.systemType}"/>" data-placement="bottom" >
-                      <img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/information_injection.png" />">
-                    </a>
-                    <!--
-                    <label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
-                  -->
-                  <c:if test="${systemObj.systemDisplaySubObjectList==null and systemObj.systemDisplaySubObjectList[0]==null}">
-                    <div class="sub_container_expand">
-                      <br><font color="red"><b>No capabilities found</b></font>
-                      <div class="content">
-                      </div>
-                    </div>
-                  </c:if>
-                  <c:if test="${systemObj.systemDisplaySubObjectList!=null and systemObj.systemDisplaySubObjectList[0]!=null}">
-                    <c:forEach items='${systemObj.systemDisplaySubObjectList}' var="systemDisplaySubObject">
-                      <div class="sub_container_expand">
-                        <div id="${systemDisplaySubObject.requestResponseSystemSearch.requestName} - ${systemDisplaySubObject.requestResponseSystemSearch.systemName}" class="sub_header"><span>- ${systemDisplaySubObject.requestResponseSystemSearch.requestName} - ${systemDisplaySubObject.requestResponseSystemSearch.systemName}</span>
-
-                      </div>
-                      <div class="content">
-                        <table width="825px"><tr><td>
-                          <table width="775px">
-                            <tr style=" color: black;font-weight:bold;"><td width="50%">
-                              <label>Request</label>  <label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.requestDescription}">${systemDisplaySubObject.requestResponseSystemSearch.requestName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label>
-                            </td>
-                            <td width="50%">
-                              <c:if test="${systemDisplaySubObject.ownerAccess==true}">
-                                <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=request&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>">Update capability</a>
-                              </c:if>
-                            </td>
-                          </tr>
-                          <tr style=" color: black;font-weight:bold;"><td width="50%">
-                            <label>Response</label>  <label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.responseDescription}">${systemDisplaySubObject.requestResponseSystemSearch.responseName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label>
-                          </td>
-                          <td width="50%">
-                            <c:if test="${systemDisplaySubObject.ownerAccess==true}">
-                              <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=response&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>">Update capability</a>
-                            </c:if>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                    <td>
-                      <a target="_blank" href="<c:url value="ViewInterface.htm?requestId=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&propertyFor=request"/>"><img  id="img_interface" class="mousetoHand" title="Interface" alt="Interface" height="20" width="20" src="<c:url value="/images/interface.png" />"></a>
-                      <a  target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&property_for_param=request&system_type_param=${modelUc.systemType.systemType}"/>" data-placement="bottom" >
-                      <img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/information_injection.png" />">
-                    </a>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </c:forEach>
-      </c:if>
+        </div>
+        <div class="content">
+          <label>System</label> : <label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label>
+          <c:if test="${systemObj.ownerAccess==true}">
+          <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=system&system_id_param=${systemObj.systemId}"/>">Update capability</a>
+        </c:if>
+        <a target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>"><img  id="img_interface" class="mousetoHand" title="Interface" alt="Interface" height="20" width="20" src="<c:url value="/images/interface.png" />"></a>
+        <a  target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=${systemObj.systemId}&property_for_param=system&system_type_param=${modelUc.systemType.systemType}"/>" data-placement="bottom" >
+        <img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/information_injection.png" />">
+      </a>
+      <!--
+      <label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
+    -->
+    <c:if test="${systemObj.systemDisplaySubObjectList==null and systemObj.systemDisplaySubObjectList[0]==null}">
+    <div class="sub_container_expand">
+      <br><font color="red"><b>No capabilities found</b></font>
+      <div class="content">
+      </div>
     </div>
-  </div>
+  </c:if>
+  <c:if test="${systemObj.systemDisplaySubObjectList!=null and systemObj.systemDisplaySubObjectList[0]!=null}">
+  <c:forEach items='${systemObj.systemDisplaySubObjectList}' var="systemDisplaySubObject">
+  <div class="sub_container_expand">
+    <div id="${systemDisplaySubObject.requestResponseSystemSearch.requestName} - ${systemDisplaySubObject.requestResponseSystemSearch.systemName}" class="sub_header"><span>- ${systemDisplaySubObject.requestResponseSystemSearch.requestName} - ${systemDisplaySubObject.requestResponseSystemSearch.systemName}</span>
+
+    </div>
+    <div class="content">
+      <table width="825px"><tr><td>
+        <table width="775px">
+          <tr style=" color: black;font-weight:bold;"><td width="50%">
+            <label>Request</label>  <label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.requestDescription}">${systemDisplaySubObject.requestResponseSystemSearch.requestName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label>
+          </td>
+          <td width="50%">
+            <c:if test="${systemDisplaySubObject.ownerAccess==true}">
+            <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=request&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>">Update capability</a>
+          </c:if>
+        </td>
+      </tr>
+      <tr style=" color: black;font-weight:bold;"><td width="50%">
+        <label>Response</label>  <label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.responseDescription}">${systemDisplaySubObject.requestResponseSystemSearch.responseName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label>
+      </td>
+      <td width="50%">
+        <c:if test="${systemDisplaySubObject.ownerAccess==true}">
+        <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=response&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>">Update capability</a>
+      </c:if>
+    </td>
+  </tr>
+</table>
+</td>
+<td>
+<a target="_blank" href="<c:url value="ViewInterface.htm?requestId=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&propertyFor=request"/>"><img  id="img_interface" class="mousetoHand" title="Interface" alt="Interface" height="20" width="20" src="<c:url value="/images/interface.png" />"></a>
+<a  target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&property_for_param=request&system_type_param=${modelUc.systemType.systemType}"/>" data-placement="bottom" >
+<img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/information_injection.png" />">
+</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</c:forEach>
+</c:if>
+</div>
+</div>
 </td>
 </tr>
 </c:forEach>
