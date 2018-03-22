@@ -48,7 +48,9 @@ body.homeBG{
   width: auto;
   height: 100%;
 }
-
+.btn:hover,a:hover{
+  font-weight:normal;
+}
 
 @media (max-width: 768px) {
   body.homeBG{
