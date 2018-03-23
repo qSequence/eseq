@@ -9,6 +9,11 @@ body.homeBG{
   max-width: 1200px;
   margin: 0px auto;
 }
+.center-content{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0px auto;
+}
 .topHeader .navbar-default{
   background: none !important;
   border: none !important;

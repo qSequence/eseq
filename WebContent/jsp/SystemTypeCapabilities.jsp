@@ -455,8 +455,8 @@
         </div>
         <!-- /.navbar-collapse -->
       </nav>
-      <div id="container">
 
+<div class="center-content">
 <div class="panel-group i-accordion" style="margin-top: 50px;">
   <div class="panel panel-success">
     <div class="panel-heading" data-toggle="collapse" data-parent=".i-accordion" href="#aboutus2">
@@ -474,7 +474,7 @@
 										<td>Otto</td>
 										<td><a class="btn btn-default" href="https://www.qsequence.com/eseq-100/UpdateCapability.htm?property_for_param=system&system_id_param=61" role="button">Update capability</a></td>
 										<td><a class="btn btn-success" href="https://www.qsequence.com/eseq-100/ViewInterface.htm?systemId=61&propertyFor=system" role="button">Interface</a></td>
-										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/images/information_injection.png" role="button">Information</a></td>
+										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=61&property_for_param=system&system_type_param=phone_app" role="button">Information</a></td>
 									</tr>
 								</tbody>
 							</table>
@@ -507,7 +507,7 @@
 											<tbody>
 												<tr>
                           <td><a class="btn btn-success" href="https://www.qsequence.com/eseq-100/ViewInterface.htm?systemId=61&propertyFor=system" role="button">Interface</a></td>
-      										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/images/information_injection.png" role="button">Information</a></td>
+      										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/Properties.htm?user_request_action_param=view_properties_action_param&request_id_param=54&property_for_param=request&system_type_param=phone_app" role="button">Information</a></td>
 												</tr>
 											</tbody>
 										</table>
