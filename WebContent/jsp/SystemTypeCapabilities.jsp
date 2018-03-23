@@ -457,10 +457,11 @@
       </nav>
 
 <div class="center-content">
+<div class="text-center"><h1>System capabilities: ${modelUc.systemType.systemTypeDisplayName}</h1></div>
 <div class="panel-group i-accordion" style="margin-top: 50px;">
   <div class="panel panel-success">
-    <div class="panel-heading" data-toggle="collapse" data-parent=".i-accordion" href="#aboutus2">
-      <h4 class="panel-title">About Us <i class="fa fa-chevron-up pull-right"></i></h4>
+    <div id="${systemObj.systemName}" class="panel-heading" data-toggle="collapse" data-parent=".i-accordion" href="#aboutus2">
+      <h4 class="panel-title">${systemObj.systemName} <i class="fa fa-chevron-up pull-right"></i></h4>
     </div>
     <div id="aboutus2" class="panel-collapse collapse in">
       <div class="panel-body">
@@ -469,12 +470,15 @@
 						<div class="table-responsive">
 							<table class="table  table-borderless">
 								<tbody>
+                  <c:if test="${systemObj.ownerAccess==true}">
+                  <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=system&system_id_param=${systemObj.systemId}"/>">Update capability</a>
+                </c:if>
 									<tr>
-										<td>Otto</td>
-										<td>Otto</td>
-										<td><a class="btn btn-default" href="https://www.qsequence.com/eseq-100/UpdateCapability.htm?property_for_param=system&system_id_param=61" role="button">Update capability</a></td>
-										<td><a class="btn btn-success" href="https://www.qsequence.com/eseq-100/ViewInterface.htm?systemId=61&propertyFor=system" role="button">Interface</a></td>
-										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=61&property_for_param=system&system_type_param=phone_app" role="button">Information</a></td>
+										<td><label>System</label></td>
+										<td><label data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label></td>
+										<td><a class="btn btn-default" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Update capability</a></td>
+										<td><a class="btn btn-success" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Interface</a></td>
+										<td><a class="btn btn-info" target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=${systemObj.systemId}&property_for_param=system&system_type_param=${modelUc.systemType.systemType}"/>" role="button">Information</a></td>
 									</tr>
 								</tbody>
 							</table>
@@ -489,7 +493,7 @@
               <div id="nested-collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
                   <div class="table-responsive">
-										<table class="table pull-left table-borderless" style="width:80%;">
+										<table class="table pull-left table-borderless" style="width:75%;">
 											<tbody>
 												<tr>
 													<td>Otto</td>
@@ -551,17 +555,6 @@ $('.accordion-2a, .accordion-2b, .accordion-3').on('hide.bs.collapse', function(
 
 <input type="hidden" id="user_request_action_param" name="user_request_action_param" value="XXX" />
 <table align="center" width="900 px">
-  <tr><td>&nbsp;</td></tr>
-  <tr><td>&nbsp;</td></tr>
-  <tr><td>
-    <table align="center" border="0"  width="900 px" >
-
-      <tr><td colspan="2">&nbsp;</td></tr>
-      <tr><td style="text-align:center;"><h1>System capabilities: ${modelUc.systemType.systemTypeDisplayName}</h1></td><td style="text-align:right;">&nbsp;</td></tr>
-    </table>
-  </td></tr>
-
-  <tr><td>
 
     <c:set var="x" value="0" />
     <table align="center"  width="900 px">
@@ -585,18 +578,10 @@ $('.accordion-2a, .accordion-2b, .accordion-3').on('hide.bs.collapse', function(
   <tr style="background-color: #F0F0F0; color: black;">
     <td>
       <div class="container_expand">
-        <div id="${systemObj.systemName}" class="header"><span>- ${systemObj.systemName}</span>
 
-        </div>
         <div class="content">
-          <label>System</label> : <label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label>
-          <c:if test="${systemObj.ownerAccess==true}">
-          <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=system&system_id_param=${systemObj.systemId}"/>">Update capability</a>
-        </c:if>
-        <a target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>"><img  id="img_interface" class="mousetoHand" title="Interface" alt="Interface" height="20" width="20" src="<c:url value="/images/interface.png" />"></a>
-        <a  target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=${systemObj.systemId}&property_for_param=system&system_type_param=${modelUc.systemType.systemType}"/>" data-placement="bottom" >
-        <img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/information_injection.png" />">
-      </a>
+
+
       <!--
       <label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
     -->
