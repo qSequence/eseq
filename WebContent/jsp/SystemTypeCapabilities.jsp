@@ -457,7 +457,17 @@
       </nav>
 
 <div class="center-content">
-<div class="text-center"><h1>System capabilities: ${modelUc.systemType.systemTypeDisplayName}</h1></div>
+<c:set var="x" value="0" />
+<div class="text-center">
+  <c:if test="${modelUc.systemType.systemDisplayObjectList[0]==null}">
+      <h1>System capabilities: ${modelUc.systemType.systemTypeDisplayName}</h1>
+      <c:if test="${modelUc.systemType.systemDisplayObjectList[0]==null}">
+        <label>No capabilities found.</label>
+      </c:if>
+  </c:if>
+</div>
+<c:if test="${modelUc.systemType.systemDisplayObjectList[0]!=null}">
+<c:forEach items='${modelUc.systemType.systemDisplayObjectList}' var="systemObj">
 <div class="panel-group i-accordion" style="margin-top: 50px;">
   <div class="panel panel-success">
     <div id="${systemObj.systemName}" class="header"><span>- ${systemObj.systemName}</span></div>
@@ -471,16 +481,24 @@
 						<div class="table-responsive">
 							<table class="table  table-borderless">
 								<tbody>
-                  <c:if test="${systemObj.ownerAccess==true}">
-                  <a align="right" class="button" href="<c:url value="UpdateCapability.htm?property_for_param=system&system_id_param=${systemObj.systemId}"/>">Update capability</a>
-                </c:if>
 									<tr>
 										<td><label>System</label></td>
 										<td><label data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label></td>
-										<td><a class="btn btn-default" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Update capability</a></td>
+										<td>
+                      <c:if test="${systemObj.ownerAccess==true}">
+                          <a class="btn btn-default" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Update capability</a>
+                      </c:if>
+                    </td>
 										<td><a class="btn btn-success" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Interface</a></td>
 										<td><a class="btn btn-info" target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=${systemObj.systemId}&property_for_param=system&system_type_param=${modelUc.systemType.systemType}"/>" role="button">Information</a></td>
-									</tr>
+                    <td>
+                      <c:if test="${systemObj.systemDisplaySubObjectList==null and systemObj.systemDisplaySubObjectList[0]==null}">
+                        <div class="sub_container_expand">
+                          <font color="red"><b>No capabilities found</b></font>
+                        </div>
+                      </c:if>
+                    </td>
+                  </tr>
 								</tbody>
 							</table>
 						</div>
@@ -493,30 +511,43 @@
               </div>
               <div id="nested-collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
+                  <c:if test="${systemObj.systemDisplaySubObjectList!=null and systemObj.systemDisplaySubObjectList[0]!=null}">
+                  <c:forEach items='${systemObj.systemDisplaySubObjectList}' var="systemDisplaySubObject">
                   <div class="table-responsive">
 										<table class="table pull-left table-borderless" style="width:75%;">
 											<tbody>
+
 												<tr>
-													<td>Otto</td>
-													<td>Otto</td>
-													<td><a class="btn btn-default" href="https://www.qsequence.com/eseq-100/UpdateCapability.htm?property_for_param=request&system_id_param=61&system_type_param=phone_app&request_id_param=54&response_id_param=53" role="button">Update capability</a></td>
+													<td><label>Request</label></td>
+													<td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.requestDescription}">${systemDisplaySubObject.requestResponseSystemSearch.requestName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
+													<td>
+                            <c:if test="${systemDisplaySubObject.ownerAccess==true}">
+                            <a class="btn btn-default" href="<c:url value="UpdateCapability.htm?property_for_param=request&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>" role="button">Update capability</a>
+                            </c:if>
+                          </td>
 												</tr>
 												<tr>
-													<td>Otto</td>
-													<td>Otto</td>
-													<td><a class="btn btn-default" href="https://www.qsequence.com/eseq-100/UpdateCapability.htm?property_for_param=response&system_id_param=61&system_type_param=phone_app&request_id_param=54&response_id_param=53" role="button">Update capability</a></td>
-												</tr>
+													<td><label>Response</label></td>
+													<td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.responseDescription}">${systemDisplaySubObject.requestResponseSystemSearch.responseName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
+													<td>
+                            <c:if test="${systemDisplaySubObject.ownerAccess==true}">
+                              <a class="btn btn-default" href="<c:url value="UpdateCapability.htm?property_for_param=response&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>" role="button">Update capability</a>
+                            </c:if>
+                          </td>
+                        </tr>
 											</tbody>
 										</table>
                     <table class="table pull-right table-borderless" style="margin-top:25px;width:20%;">
 											<tbody>
 												<tr>
-                          <td><a class="btn btn-success" href="https://www.qsequence.com/eseq-100/ViewInterface.htm?systemId=61&propertyFor=system" role="button">Interface</a></td>
-      										<td><a class="btn btn-info" href="https://www.qsequence.com/eseq-100/Properties.htm?user_request_action_param=view_properties_action_param&request_id_param=54&property_for_param=request&system_type_param=phone_app" role="button">Information</a></td>
+                          <td><a class="btn btn-success" target="_blank" href="<c:url value="ViewInterface.htm?requestId=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&propertyFor=request"/>" role="button">Interface</a></td>
+      										<td><a class="btn btn-info" target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&property_for_param=request&system_type_param=${modelUc.systemType.systemType}"/>" role="button">Information</a></td>
 												</tr>
 											</tbody>
 										</table>
 									</div>
+                </c:forEach>
+                </c:if>
                 </div>
               </div>
             </div>
@@ -525,6 +556,8 @@
     </div>
   </div>
 </div>
+</c:forEach>
+</c:if>
 <script type="text/javascript">
 $(function () {
   // Smooth Scroll
