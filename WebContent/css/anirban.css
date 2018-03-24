@@ -62,6 +62,10 @@ body.homeBG{
 .btn{
   border-radius: 4px;
 }
+.panel-group {
+	margin-bottom: 20px;
+	padding: 10px;
+}
 @media (max-width: 768px) {
   body.homeBG{
     background: url("../images/body-imageMB.png");
