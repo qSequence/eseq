@@ -471,8 +471,7 @@
 <c:forEach items='${modelUc.systemType.systemDisplayObjectList}' var="systemObj">
 <div class="panel-group i-accordion" style="margin-top: 50px;">
   <div class="panel panel-success">
-    <div id="${systemObj.systemName}" class="header"><span>- ${systemObj.systemName}</span></div>
-    <div id="${systemObj.systemName}" class="panel-heading" data-toggle="collapse" data-parent=".i-accordion" href="#aboutus2">
+    <div class="panel-heading" data-toggle="collapse" data-parent=".i-accordion" href="#aboutus2">
       <h4 class="panel-title">${systemObj.systemName} <i class="fa fa-chevron-up pull-right"></i></h4>
     </div>
     <div id="aboutus2" class="panel-collapse collapse in">
