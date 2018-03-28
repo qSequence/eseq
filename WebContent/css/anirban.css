@@ -86,6 +86,9 @@ body.homeBG{
 .wrap-navbar .navbar {
 	min-height: 66px;
 }
+.topHeader .navbar-default .navbar-nav > li > a:hover{
+  color: #3c763d;
+}
 @media (min-width: 768px) {
   .navbar-default .navbar-collapse {
   	width: 510px;
