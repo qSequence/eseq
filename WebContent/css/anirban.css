@@ -69,10 +69,6 @@ body.homeBG{
 .NoPadding{
   padding: 0px !important;
 }
-.navbar-default .navbar-collapse{
-  width: 600px;
-  float: right;
-}
 .wrap-navbar{
   background: #3E3E3E;
 }
@@ -89,6 +85,12 @@ body.homeBG{
 }
 .wrap-navbar .navbar {
 	min-height: 66px;
+}
+@media (min-width: 768px) {
+  .navbar-default .navbar-collapse {
+  	width: 510px;
+  	float: right;
+  }
 }
 @media (max-width: 768px) {
   body.homeBG{
