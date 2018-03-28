@@ -66,6 +66,16 @@ body.homeBG{
 	margin-bottom: 20px;
 	padding: 10px;
 }
+.NoPadding{
+  padding: 0px !important;
+}
+.navbar-default .navbar-collapse{
+  width: 600px;
+  float: right;
+}
+.wrap-navbar{
+  background: #000000;
+}
 @media (max-width: 768px) {
   body.homeBG{
     background: url("../images/body-imageMB.png");
