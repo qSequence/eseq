@@ -74,7 +74,21 @@ body.homeBG{
   float: right;
 }
 .wrap-navbar{
-  background: #000000;
+  background: #3E3E3E;
+}
+.wrap-navbar .topHeader .navbar-brand img{
+  width: 200px;
+  height: auto;
+}
+.wrap-navbar .topHeader .navbar-brand {
+	height: 64px;
+  padding: 10px 15px;
+}
+.wrap-navbar .topHeader .navbar-nav {
+	padding: 8px 0px;
+}
+.wrap-navbar .navbar {
+	min-height: 66px;
 }
 @media (max-width: 768px) {
   body.homeBG{
