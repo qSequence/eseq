@@ -411,50 +411,39 @@
 
     </script>
     <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#md-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">
-          <img src="images/logo.png" alt="qSequence logo" class="img-responsive">
-          </a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="md-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
-              <li>
-                <a href="<c:url value="/Dashboard.htm" />">Home</a>
-              </li>
-              <li>
-                <a href="<c:url value="/Login.htm" />">Login</a>
-              </li>
-            </c:if>
-            <c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
-              <li>
-                <a href="<c:url value="/Dashboard.htm" />">Home</a>
-              </li>
-              <li>
-                <a href="<c:url value="/Profile.htm" />">Profile</a>
-              </li>
-              <c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
-                <li>
-                  <a href="<c:url value="/Admin.htm" />">Admin</a>
-                </li>
+    <div class="topHeader">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header navbar-left">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="images/logo2.png" alt="" /></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
+                <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+                <li><a href="<c:url value="/Login.htm" />">Login</a></li>
               </c:if>
-              <li>
-                <a href="<c:url value="/Logout.htm" />">Logout</a>
-              </li>
-            </c:if>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+              <c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
+                <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+                <li><a href="<c:url value="/Profile.htm" />">Profile</a></li>
+                <c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
+                  <li><a href="<c:url value="/Admin.htm" />">Admin</a></li>
+                </c:if>
+                <li><a href="<c:url value="/Logout.htm" />">Logout</a></li>
+              </c:if>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
       </nav>
+    </div>
 
 <div class="center-content">
 <input type="hidden" id="user_request_action_param" name="user_request_action_param" value="XXX" />
