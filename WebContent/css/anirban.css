@@ -145,8 +145,8 @@ body{
 	opacity: 1;
 }
 .form-control-wrapper .form-control:focus ~ .floating-label, .form-control-wrapper .form-control:not(.empty) ~ .floating-label {
-	top: -16px;
-	font-size: 16px;
+  top: -18px;
+	font-size: 15px;
 	opacity: 1;
 }
 .loginCenter{
