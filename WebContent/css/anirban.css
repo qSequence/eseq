@@ -34,6 +34,7 @@ body{
   color: #FFFFFF;
   font-size: 20px;
   padding: 23px 15px;
+  font-weight: 300;
 }
 .topHeader .navbar-default .navbar-nav > li > a:hover{
   background: #FFFFFF;
