@@ -8,6 +8,6 @@ $(document).ready(function(){
 $(document).ready(function(){
 
 	var winBHeight = $(window).height();
-  var winBPaddTop= winBHeight/10;
+  var winBPaddTop= winBHeight/7;
 	$(".loginCenter").css("margin-top",winBPaddTop);
 });
