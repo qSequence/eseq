@@ -124,8 +124,7 @@ float: left;
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
                 <a href="<c:url value="/ResetPassword.htm" />">Forgot your password ?</a>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <input type="submit" value="Login">
+                <button type="submit" class="btn btn-primary" value="Login">Submit</button>
               </div>
             </div>
         </div>
