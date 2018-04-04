@@ -155,5 +155,5 @@ float: left;
 </div>
 </section>
 </footer>
-<script src="jquery/anirbanJS.js"></script>
+<script src="javascript/anirbanJS.js"></script>
 </body></html>
