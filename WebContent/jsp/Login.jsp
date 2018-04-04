@@ -2,12 +2,13 @@
 <%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
 <%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
 <title>Login</title>
-<meta name="description" content="Login page"> 
+<meta name="description" content="Login page">
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
+<link href="css/anirban.css" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
 queries -->
 
@@ -40,50 +41,41 @@ float: left;
 </head>
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-<!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#md-navbar-collapse-1">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="navbar-brand" href="/">
-<img src="images/logo.png" alt="qSequence logo" class="img-responsive">
-</a>
+<div class="wrap-navbar">
+  <div class="topHeader">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header navbar-left">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/logo2.png" alt="" /></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
+              <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+              <li><a href="<c:url value="/Login.htm" />">Login</a></li>
+            </c:if>
+            <c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
+              <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+              <li><a href="<c:url value="/Profile.htm" />">Profile</a></li>
+              <c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
+                <li><a href="<c:url value="/Admin.htm" />">Admin</a></li>
+              </c:if>
+              <li><a href="<c:url value="/Logout.htm" />">Logout</a></li>
+            </c:if>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
 </div>
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse" id="md-navbar-collapse-1">
-<ul class="nav navbar-nav navbar-right">
-<c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
-<li>
-<a href="<c:url value="/Dashboard.htm" />">Home</a>
-</li>
-<li>
-<a href="<c:url value="/Login.htm" />">Login</a>
-</li>
-</c:if>
-<c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
-<li>
-<a href="<c:url value="/Dashboard.htm" />">Home</a>
-</li>
-<li>
-<a href="<c:url value="/Profile.htm" />">Profile</a>
-</li>
-<c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
-	<li>
-	<a href="<c:url value="/Admin.htm" />">Admin</a>
-	</li>
-</c:if>
-<li>
-<a href="<c:url value="/Logout.htm" />">Logout</a>
-</li>
-</c:if>
-</ul>
-</div>
-<!-- /.navbar-collapse -->
-</nav>
 <div class="container" style="padding-bottom:190px;">
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/Dashboard.htm?user_request_action_param=default_action_param"/>
@@ -102,7 +94,7 @@ float: left;
         			</tr>
          		<tr><td>&nbsp;</td><td>
             		<input id="userNameEmail" name="userNameEmail" type="text" maxlength="100" value="${modelUc.credential.userNameEmail}" />
-            		
+
                 </td><td>&nbsp;</td></tr>
         		<tr><td>&nbsp;</td><td><label for="password">Password</label></td>
         		<td>&nbsp;</font></td></tr>
@@ -122,13 +114,13 @@ float: left;
 			          out.print(c.createRecaptchaHtml(null, null));
 			        %>
                 </td><td><font color="red">${modelUc.reCaptchaError}</font></td></tr>
-                </c:if>                
-				<tr><td colspan="2"><font color="red">${modelUc.otherLoginError}</font></td></tr>        	
+                </c:if>
+				<tr><td colspan="2"><font color="red">${modelUc.otherLoginError}</font></td></tr>
 				<tr><td>&nbsp;</td><td>
         		<input id="user_request_action_param" name="user_request_action_param" type="hidden" value="login_user_action" />
 				<input type="submit" value="Login">
-				
-				</td></tr>                
+
+				</td></tr>
        <tr><td>&nbsp;</td><td><a href="<c:url value="/ResetPassword.htm" />">Forgot your password ?</a></td></tr>
         	</table>
 		<!--	</div>-->
