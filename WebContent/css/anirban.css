@@ -5,6 +5,10 @@ body.homeBG{
   font-family: 'Roboto Condensed', sans-serif;
   padding: 0px;
 }
+body{
+  padding: 0px;
+  margin: 0px;
+}
 .topHeader{
   max-width: 1200px;
   margin: 0px auto;
