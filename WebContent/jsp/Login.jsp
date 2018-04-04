@@ -89,6 +89,7 @@ float: left;
 <!--<div style="width: 300px; left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6; ">-->
 
     <div class="loginCenter">
+      <h2>Login</h2>
       <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
