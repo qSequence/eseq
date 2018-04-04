@@ -139,9 +139,14 @@ body{
 }
 
 
-.form-control-wrapper .form-control:focus ~ .floating-label, .form-control-wrapper .form-control:not(.empty) ~ .floating-label, .form-control-wrapper .form-control:valid ~ .floating-label {
-	top: -10px;
-	font-size: 10px;
+.form-control-wrapper .floating-label{
+	top: -16px;
+	font-size: 16px;
+	opacity: 1;
+}
+.form-control-wrapper .form-control:focus ~ .floating-label, .form-control-wrapper .form-control:not(.empty) ~ .floating-label {
+	top: -16px;
+	font-size: 16px;
 	opacity: 1;
 }
 .loginCenter{
