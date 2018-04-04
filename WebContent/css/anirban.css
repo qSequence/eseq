@@ -137,3 +137,10 @@ body{
   	padding: 0px 15px;
   }
 }
+
+
+.form-control-wrapper .form-control:focus ~ .floating-label, .form-control-wrapper .form-control:not(.empty) ~ .floating-label, .form-control-wrapper .form-control:valid ~ .floating-label {
+	top: -10px;
+	font-size: 10px;
+	opacity: 1;
+}
