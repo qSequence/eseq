@@ -166,6 +166,7 @@ body{
   display: block;
   width: 100%;
   text-align: right;
+  font-weight: 400;
 }
 .loginCenter .form-group .form-control-wrapper button.btn{
   float: right;

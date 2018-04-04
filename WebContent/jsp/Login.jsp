@@ -6,42 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
-  <%-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> --%>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
+<link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
 <!-- Custom CSS -->
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <link href="css/anirban.css" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
-queries -->
 
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<style>
-.navbar-inverse .navbar-nav>li>a {
-            color: #767676;
-            font-size:14px;
-            border:2px solid #e7f4c1;
-            padding:10px 5px;
-        }
-        .navbar-inverse .navbar-nav>li>a:hover{
-            color: #6b8f00;
-            border:1px solid #98bf21;
-            background-color:#f1f1f1;
-            transition: all 0.3s ease 0s;
-        }
-label {
-color: gray;
-font-weight: bold;
-display: block;
-width: 150px;
-float: left;
-}
-
-</style>
 </head>
 <body>
 <!-- Navigation -->
@@ -86,8 +56,6 @@ float: left;
 </c:if>
 
 <form action="Login.htm" method="post" onsubmit="return checkCheckBox(this)">
-<!--<div style="width: 300px; left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6; ">-->
-
     <div class="loginCenter">
       <h2>Login</h2>
       <div class="row">
@@ -137,23 +105,21 @@ float: left;
 <script src="jquery/jquery-otherPages.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="jquery/bootstrap.min-otherPages.js"></script>
-<%-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.js"></script>
 <footer id="footerWrapper" class="md-footer">
-<section id="mainFooter">
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6">
-<div class="footerWidget">
-<img src="images/logo.png" width="240px" alt="qSequence logo" id="footerLogo">
-<p>Enterprise Efficiency Software.&nbsp;
-<br>© qSequence&nbsp;2016, All rights reserved</p>
-</div>
-</div>
-</div>
-</div>
-</section>
+  <section id="mainFooter">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="footerWidget">
+                <img src="images/logo.png" width="240px" alt="qSequence logo" id="footerLogo">
+                <p>Enterprise Efficiency Software.&nbsp;
+                <br>© qSequence&nbsp;2016, All rights reserved</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </footer>
 <script src="javascript/anirbanJS.js"></script>
 </body></html>
