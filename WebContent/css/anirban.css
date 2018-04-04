@@ -154,14 +154,16 @@ body{
   margin: 0px auto;
 }
 .loginCenter h2{
-
+  margin-bottom: 50px;
 }
 .loginCenter .form-group{
 
 }
 .loginCenter .form-group .form-control-wrapper a.passforgot{
-
+  display: block;
+  width: 100%;
+  text-align: right;
 }
 .loginCenter .form-group .form-control-wrapper button.btn{
-
+  float: right;
 }
