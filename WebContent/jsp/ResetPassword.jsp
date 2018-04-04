@@ -124,13 +124,12 @@
         <div class="form-group">
           <div class="form-control-wrapper">
             <input class="form-control empty" id="user_request_action_param" name="user_request_action_param" type="hidden" value="reset_password_action" />
-            <div class="floating-label">User Name</div>
+            <div class="floating-label"></div>
             <span class="material-input"></span>
           </div>
         </div>
         <div class="form-group">
           <div class="form-control-wrapper">
-            <a class="passforgot" href="<c:url value="/ResetPassword.htm" />">Forgot your password ?</a>
             <button type="submit" value="Submit form" class="btn btn-primary">Submit</button>
           </div>
         </div>
