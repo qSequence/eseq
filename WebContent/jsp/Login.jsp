@@ -6,7 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
+  <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
+  <%-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> --%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
 <!-- Custom CSS -->
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <link href="css/anirban.css" rel="stylesheet">
@@ -85,52 +88,58 @@ float: left;
 <form action="Login.htm" method="post" onsubmit="return checkCheckBox(this)">
 <!--<div style="width: 300px; left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6; ">-->
 
-        	<table align="center">
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-						<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-									<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			    <tr><td>&nbsp;</td><td><h1>Login</h1></td>
-        			</tr>
-        		<tr><td>&nbsp;</td><td><label for="userNameEmail">UserName</label></td>
-        			</tr>
-         		<tr><td>&nbsp;</td><td>
-            		<input id="userNameEmail" name="userNameEmail" type="text" maxlength="100" value="${modelUc.credential.userNameEmail}" />
-
-                </td><td>&nbsp;</td></tr>
-        		<tr><td>&nbsp;</td><td><label for="password">Password</label></td>
-        		<td>&nbsp;</font></td></tr>
-        		<tr><td>&nbsp;</td><td>
-            		<input id="password" name="password" type="password" maxlength="100" value="${modelUc.credential.password}"/>
-                </td></tr>
-         		<tr><td>&nbsp;</td><td colspan="2">
-            		<font color="red">${modelUc.loginError}</font>
-                </td></tr>
-                <c:if test="${modelUc.captcha_enabled_param=='true'}">
-                <input id="captcha_enabled_param" name="captcha_enabled_param" type="hidden" value="true" />
-        		<tr><td>&nbsp;</td><td><label for="reCaptcha">Help us protect from a robot, please enter the characters you see</label></td>
-        			</tr>
-         		<tr><td>&nbsp;</td><td>
-			        <%
-			          ReCaptcha c = ReCaptchaFactory.newSecureReCaptcha("6LevxfMSAAAAADJEweea6gIaRXC3xVoJbOUq54Tq", "6LevxfMSAAAAADM7wLOctC9UhPz9oOk5qsa7FMzz", false);
-			          out.print(c.createRecaptchaHtml(null, null));
-			        %>
-                </td><td><font color="red">${modelUc.reCaptchaError}</font></td></tr>
-                </c:if>
-				<tr><td colspan="2"><font color="red">${modelUc.otherLoginError}</font></td></tr>
-				<tr><td>&nbsp;</td><td>
-        		<input id="user_request_action_param" name="user_request_action_param" type="hidden" value="login_user_action" />
-				<input type="submit" value="Login">
-
-				</td></tr>
-       <tr><td>&nbsp;</td><td><a href="<c:url value="/ResetPassword.htm" />">Forgot your password ?</a></td></tr>
-        	</table>
-		<!--	</div>-->
-        </form>
-		</div>
+    <div class="loginCenter">
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+              <div class="form-control-wrapper">
+                <input class="form-control empty" id="userNameEmail" name="userNameEmail" type="text" maxlength="100" value="${modelUc.credential.userNameEmail}">
+                <div class="floating-label">User Name</div>
+                <span class="material-input"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-control-wrapper">
+                <input class="form-control empty" id="password" name="password" type="password" maxlength="100" value="${modelUc.credential.password}">
+                <div class="floating-label">Password</div>
+                <span class="material-input"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-control-wrapper">
+                    <c:if test="${modelUc.captcha_enabled_param=='true'}">
+                      <input id="captcha_enabled_param" name="captcha_enabled_param" type="hidden" value="true" />
+                      <label for="reCaptcha">Help us protect from a robot, please enter the characters you see</label>
+                        <%
+                        ReCaptcha c = ReCaptchaFactory.newSecureReCaptcha("6LevxfMSAAAAADJEweea6gIaRXC3xVoJbOUq54Tq", "6LevxfMSAAAAADM7wLOctC9UhPz9oOk5qsa7FMzz", false);
+                        out.print(c.createRecaptchaHtml(null, null));
+                        %>
+                      <font color="red">${modelUc.reCaptchaError}</font>
+                    </c:if>
+                    <font color="red">${modelUc.otherLoginError}</font>
+                    <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="login_user_action" />
+              </div>
+            </div>
+            <font color="red">${modelUc.loginError}</font>
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <a href="<c:url value="/ResetPassword.htm" />">Forgot your password ?</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="submit" value="Login">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</form>
+</div>
 <!-- jQuery -->
 <script src="jquery/jquery-otherPages.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="jquery/bootstrap.min-otherPages.js"></script>
+<%-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.js"></script>
 <footer id="footerWrapper" class="md-footer">
 <section id="mainFooter">
 <div class="container">
