@@ -8,6 +8,7 @@ body.homeBG{
 body{
   padding: 0px;
   margin: 0px;
+  position: relative;
 }
 .topHeader{
   max-width: 1200px;
@@ -170,4 +171,9 @@ body{
 }
 .loginCenter .form-group .form-control{
   font-size: 18px;
+}
+footer{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
