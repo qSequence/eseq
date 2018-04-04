@@ -3,7 +3,8 @@
 <%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
 <title>Login</title>
 <meta name="description" content="Login page">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <!-- Custom CSS -->

@@ -8,6 +8,7 @@
 
   <!-- Bootstrap Core CSS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/anirban.css" rel="stylesheet">
 
