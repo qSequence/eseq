@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
-	var winHeight = $("body").height();
-  var winPaddTop= winHeight/10;
-	$(".loginCenter").css("margin-top",winPaddTop);
+	var winBHeight = $(window).height();
+  var winBPaddTop= winBHeight/10;
+	$(".loginCenter").css("margin-top",winBPaddTop);
 });
