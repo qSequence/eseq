@@ -80,7 +80,7 @@ float: left;
     </nav>
   </div>
 </div>
-<div class="container" style="padding-bottom:190px;">
+<div class="container" >
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/Dashboard.htm?user_request_action_param=default_action_param"/>
 </c:if>
