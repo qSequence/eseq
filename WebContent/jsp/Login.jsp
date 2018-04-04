@@ -123,8 +123,8 @@ float: left;
             </div>
             <font color="red">${modelUc.loginError}</font>
             <div class="form-group">
-              <div class="col-lg-10 col-lg-offset-2">
-                <a href="<c:url value="/ResetPassword.htm" />">Forgot your password ?</a>
+              <div class="form-control-wrapper">
+                <a class="passforgot" href="<c:url value="/ResetPassword.htm" />">Forgot your password ?</a>
                 <button type="submit" class="btn btn-primary" value="Login">Submit</button>
               </div>
             </div>
