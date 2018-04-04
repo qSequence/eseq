@@ -1,8 +1,9 @@
 <%@ include file="header_for_seqdet.jsp"%>
-    <script type="text/javascript" src="jquery/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="jquery/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css">
-    <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
+<script type="text/javascript" src="jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css">
+<link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
+  
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <link rel="stylesheet" href="<c:url value="/a.css" />"  type="text/css">
 <%--  12 Oct added combogrid jquery libraries--%>
@@ -14,42 +15,6 @@
 <link href="css/anirban.css" rel="stylesheet">
 <%-- END 12 Oct added combogrid jquery libraries--%>
 <title>Dashboard</title>
-<style type="text/css">
-.navbar-inverse .navbar-nav>li>a {
-        color: #767676;
-        font-size:14px;
-        border:2px solid #e7f4c1;
-        padding:10px 5px;
-    }
-    .navbar-inverse .navbar-nav>li>a:hover{
-        color: #6b8f00;
-        border:1px solid #98bf21;
-        background-color:#f1f1f1;
-        transition: all 0.3s ease 0s;
-    }
-.capabilities_div {
-  width: 400px;
-  height: 200px;
-  text-align:center;
-    background-color: silver;
-    box-shadow: 10px 10px 5px #888888;
-    float: left;
-}
-.sequences_div {
-  width: 400px;
-  text-align:center;
-  height: 200px;
-    background-color: #6aa058;
-    box-shadow: 10px 10px 5px #888888;
-    float: right;
-}
-.main {
-      width: 900px;
-      margin: 0 auto;
-  margin-top: 100px;
-}
-.bubble { background-color: green; border-radius: 5px; box-shadow: 0px 0px 6px #B2B2B2; height: 20px; margin: 30px 0 0 750px; font: 16px/25px sans-serif; color: yellow; text-align: center; }
-</style>
 </head>
 <body>
 <!-- Navigation -->
