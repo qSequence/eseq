@@ -204,6 +204,7 @@ footer{
 }
 .card .card-block > a{
   text-decoration: none;
+  font-weight: 300;
 }
 .card-block h4.card-title{
   font-size: 55px;
