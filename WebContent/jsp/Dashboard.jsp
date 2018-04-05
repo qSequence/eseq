@@ -69,7 +69,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card" style="background-color:${modelUc.divcolor1}">
                   <i class="mdi-action-settings"></i>
                   <div class="card-block">
                     <a href="<c:url value="ViewSequenceList.htm"">
@@ -88,10 +88,10 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card">
+                <div class="card" style="background-color:${modelUc.divcolor2}">
                   <i class="mdi-action-settings"></i>
                   <div class="card-block">
-                    <a href="#">
+                    <a href="<c:url value=" LearnedCapabilities.htm?user_request_action_param=LearnedCapabilities "">
                       <h4 class="card-title">${modelUc.capabilitiesLearnt}</h4>
                       <p class="card-text">Learned Capabilities</p>
                     </a>
