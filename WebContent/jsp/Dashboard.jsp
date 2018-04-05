@@ -59,11 +59,9 @@
         <div class="col-lg-12">
             <h1>Dashboard</h1>
             <c:if test="${modelUc.demoDB=='derby'}">
-            <div class="col-lg-12">
-              <div class="bs-component">
-                <div class="well text-success">
-                  Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value=" Install.htm "/>">database</a>
-                </div>
+            <div class="bs-component">
+              <div class="well text-success">
+                Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value=" Install.htm "/>">database</a>
               </div>
             </div>
             </c:if>
