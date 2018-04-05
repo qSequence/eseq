@@ -202,17 +202,27 @@ footer{
 .card i{
   font-size: 60px;
 }
+.card .card-block > a{
+  text-decoration: none;
+}
 .card-block h4.card-title{
-
+  font-size: 55px;
 }
 .card-block p.card-text{
-
+  font-size: 30px;
 }
 .card-footer p{
-
+  font-size: 16px;
 }
 .card-footer p a{
-
+  display: block;
+  color: #03a9f4;
+  font-weight: 300;
+  text-decoration: none;
+}
+.card .card-footer {
+    height: 10%;
+    padding: 10px 15px;
 }
 .card:focus, .card:hover {
  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
