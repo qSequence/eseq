@@ -3,7 +3,7 @@
 <script type="text/javascript" src="jquery/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css">
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
-  
+
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <link rel="stylesheet" href="<c:url value="/a.css" />"  type="text/css">
 <%--  12 Oct added combogrid jquery libraries--%>
@@ -54,35 +54,60 @@
   </div>
 </div>
 <div class="container">
-<h1 style="font-size:43px;color: green;" align="center">Dashboard</h1>
-<c:if test="${modelUc.demoDB=='derby'}">
-<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value="Install.htm"/>">database</a></div>
-</c:if>
-<div class="main">
-<a style="display:block" href="<c:url value="ViewSequenceList.htm"/>">
-<div class="sequences_div" style="background-color:${modelUc.divcolor1}">
-	<h1>${modelUc.sequencesCreated}</h1>
-	<h4>Sequences created</h4>
-<p>
-	<a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId1}&sequenceVersion=${modelUc.seqVer1}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc1}"> ${modelUc.seqName1}</a> ${modelUc.seqElapsedTime1}
-</p>
-<p>
-	<a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId2}&sequenceVersion=${modelUc.seqVer2}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc2}">${modelUc.seqName2}</a> ${modelUc.seqElapsedTime2}
-</div>
-</p>
-</a>
-<a style="display:block" href="<c:url value="LearnedCapabilities.htm?user_request_action_param=LearnedCapabilities"/>">
-<div class="capabilities_div" style="background-color:${modelUc.divcolor2}">
-	<h1>${modelUc.capabilitiesLearnt}</h1>
-	<h4>Learned Capabilities</h4>
-<p>	<a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId1}&sequenceVersion=${modelUc.sysSeqVer1}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc1}"> ${modelUc.sysSeqName1}</a> ${modelUc.sysSeqElapsedTime1}
-</p><p>
-	<a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId2}&sequenceVersion=${modelUc.sysSeqVer2}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc2}">${modelUc.sysSeqName2}</a> ${modelUc.sysSeqElapsedTime2}
-</p>
-</div>
-</a>
-</div>
-
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Dashboard</h1>
+            <c:if test="${modelUc.demoDB=='derby'}">
+            <div class="col-lg-12">
+              <div class="bs-component">
+                <div class="well">
+                  Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value=" Install.htm "/>">database</a>
+                </div>
+              </div>
+            </div>
+            </c:if>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                  <i class="mdi-action-settings"></i>
+                  <div class="card-block">
+                    <a href="<c:url value="ViewSequenceList.htm"">
+                      <h4 class="card-title">${modelUc.sequencesCreated}</h4>
+                      <p class="card-text">Sequences created</p>
+                    </a>
+                  </div>
+                  <div class="card-footer">
+                    <p>
+                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId1}&sequenceVersion=${modelUc.seqVer1} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc1}"> ${modelUc.seqName1}</a> ${modelUc.seqElapsedTime1}
+                    </p>
+                    <p>
+                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId2}&sequenceVersion=${modelUc.seqVer2} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc2}">${modelUc.seqName2}</a> ${modelUc.seqElapsedTime2}
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                  <i class="mdi-action-settings"></i>
+                  <div class="card-block">
+                    <a href="#">
+                      <h4 class="card-title">${modelUc.capabilitiesLearnt}</h4>
+                      <p class="card-text">Learned Capabilities</p>
+                    </a>
+                  </div>
+                  <div class="card-footer">
+                    <p>
+                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId1}&sequenceVersion=${modelUc.sysSeqVer1} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc1}"> ${modelUc.sysSeqName1}</a> ${modelUc.sysSeqElapsedTime1}
+                    </p>
+                    <p>
+                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId2}&sequenceVersion=${modelUc.sysSeqVer2} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc2}">${modelUc.sysSeqName2}</a> ${modelUc.sysSeqElapsedTime2}
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

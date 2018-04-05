@@ -187,3 +187,25 @@ footer{
 .reset-pass h2{
   margin-bottom: 50px;
 }
+.card {
+	min-height: 330px;
+	margin-top: 15px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	-webkit-transition: .25s box-shadow;
+	transition: .25s box-shadow;
+	max-width: 400px;
+	margin: 0px auto;
+	display: block;
+	padding: 15px;
+  text-align: center;
+}
+.card i{
+  font-size: 60px;
+}
+.card:focus, .card:hover {
+ box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.card-inverse .card-img-overlay {
+ background-color: rgba(51, 51, 51, 0.85);
+ border-color: rgba(51, 51, 51, 0.85);
+}
