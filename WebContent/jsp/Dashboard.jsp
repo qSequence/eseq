@@ -12,6 +12,7 @@
 <script type="text/javascript" src="jquery/jquery-ui-1.10.1.custom.min.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery.ui.combogrid.css" />">
 <script type="text/javascript" src="jquery/jquery.ui.combogrid-1.6.3.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
 <link href="css/anirban.css" rel="stylesheet">
 <%-- END 12 Oct added combogrid jquery libraries--%>
 <title>Dashboard</title>
@@ -60,7 +61,7 @@
             <c:if test="${modelUc.demoDB=='derby'}">
             <div class="col-lg-12">
               <div class="bs-component">
-                <div class="well">
+                <div class="well text-success">
                   Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value=" Install.htm "/>">database</a>
                 </div>
               </div>
