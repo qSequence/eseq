@@ -72,17 +72,17 @@
                 <div class="card" style="background-color:${modelUc.divcolor1}">
                   <i class="mdi-action-settings"></i>
                   <div class="card-block">
-                    <a href="<c:url value="ViewSequenceList.htm"">
+                    <a href="<c:url value=" ViewSequenceList.htm "/>">
                       <h4 class="card-title">${modelUc.sequencesCreated}</h4>
                       <p class="card-text">Sequences created</p>
                     </a>
                   </div>
                   <div class="card-footer">
                     <p>
-                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId1}&sequenceVersion=${modelUc.seqVer1} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc1}"> ${modelUc.seqName1}</a> ${modelUc.seqElapsedTime1}
+                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId1}&sequenceVersion=${modelUc.seqVer1} "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc1}"> ${modelUc.seqName1}</a>          ${modelUc.seqElapsedTime1}
                     </p>
                     <p>
-                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId2}&sequenceVersion=${modelUc.seqVer2} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc2}">${modelUc.seqName2}</a> ${modelUc.seqElapsedTime2}
+                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.seqId2}&sequenceVersion=${modelUc.seqVer2} "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.seqDesc2}">${modelUc.seqName2}</a>          ${modelUc.seqElapsedTime2}
                     </p>
                   </div>
                 </div>
@@ -91,17 +91,17 @@
                 <div class="card" style="background-color:${modelUc.divcolor2}">
                   <i class="mdi-action-settings"></i>
                   <div class="card-block">
-                    <a href="<c:url value=" LearnedCapabilities.htm?user_request_action_param=LearnedCapabilities "">
+                    <a href="<c:url value=" LearnedCapabilities.htm?user_request_action_param=LearnedCapabilities "/>">
                       <h4 class="card-title">${modelUc.capabilitiesLearnt}</h4>
                       <p class="card-text">Learned Capabilities</p>
                     </a>
                   </div>
                   <div class="card-footer">
-                    <p>
-                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId1}&sequenceVersion=${modelUc.sysSeqVer1} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc1}"> ${modelUc.sysSeqName1}</a> ${modelUc.sysSeqElapsedTime1}
+                    <p> <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId1}&sequenceVersion=${modelUc.sysSeqVer1} "/>" data-placement="bottom" data-toggle="tooltip" href="#"
+                        data-original-title="${modelUc.sysSeqDesc1}"> ${modelUc.sysSeqName1}</a> ${modelUc.sysSeqElapsedTime1}
                     </p>
                     <p>
-                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId2}&sequenceVersion=${modelUc.sysSeqVer2} "" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc2}">${modelUc.sysSeqName2}</a> ${modelUc.sysSeqElapsedTime2}
+                      <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${modelUc.sysSeqId2}&sequenceVersion=${modelUc.sysSeqVer2} "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${modelUc.sysSeqDesc2}">${modelUc.sysSeqName2}</a>          ${modelUc.sysSeqElapsedTime2}
                     </p>
                   </div>
                 </div>
