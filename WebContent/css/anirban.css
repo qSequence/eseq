@@ -199,9 +199,20 @@ footer{
 	display: block;
 	padding: 15px;
   text-align: center;
+  -webkit-transition: 0.6s ease-out;
+  -moz-transition: 0.6s ease-out;
+  transition: 0.6s ease-out;
 }
 .card i{
-  font-size: 60px;
+  font-size: 100px;
+  -webkit-transition: 0.6s ease-out;
+  -moz-transition: 0.6s ease-out;
+  transition: 0.6s ease-out;
+}
+.card:hover > i{
+  -webkit-transform: rotateZ(720deg);
+  -moz-transform: rotateZ(720deg);
+  transform: rotateZ(720deg);
 }
 .card .card-block > a{
   text-decoration: none;
