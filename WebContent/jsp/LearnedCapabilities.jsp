@@ -175,7 +175,7 @@
               <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                 <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
 
-                  <tr height="50px">
+                  <tr>
                     <td>
                       <div class="table-header"><label for="sequenceName">Development system sequences</label></div>
                       <c:if test="${modelUc.showCreateSequence=='true'}">
@@ -251,24 +251,23 @@
             <!--END Development system sequences -->
             <!--START Production system sequences -->
 
-            <table class="table-striped table-hover" width="1000">
+            <table class="table-striped table-hover">
               <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                 <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
-
                   <tr>
                     <td>
-                      <div style="float:center;width:80%;"><label for="sequenceName">Production system sequences</label></div>
+                      <div class="table-header"><label for="sequenceName">Production system sequences</label></div>
                     </td>
                   </tr>
-                  <tr height="50px">
-                    <th width="50%"><label for="sequenceName">Sequence Name</label></th>
+                  <tr>
+                    <th><label for="sequenceName">Sequence Name</label></th>
                     <th><label for="createdDate">Created Date</label></th>
                     <th><label for="createdBy">Created By</label></th>
                     <th><label for="createdBy">Category</label></th>
                   </tr>
                   <c:if test="${modelUc.ucSysSeqMstProdList[0]==null}">
                     <tr>
-                      <td colspan="5">
+                      <td>
                         <font color="red">No production system sequences found.</font>
                       </td>
                     </tr>
@@ -283,8 +282,10 @@
                   <c:if test="${x=='0' && changed=='false'}">
                     <tr>
                       <td>
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><i class="mdi-image-edit"></i></a>
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                      </td>
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><i class="mdi-image-edit"></i></a>
                       </td>
                       <td>
                         <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}" />
@@ -300,8 +301,10 @@
                   <c:if test="${x=='1' && changed=='false'}">
                     <tr>
                       <td>
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><i class="mdi-image-edit"></i></a>
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                      </td>
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><i class="mdi-image-edit"></i></a>
                       </td>
                       <td>
                         <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}" />
