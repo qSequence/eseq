@@ -81,6 +81,7 @@
 </div>
 <div class="container">
     <div class="row">
+        <h1 align="center">Capabilities</h1>
         <div class="col-lg-12">
           <c:forEach items="${modelUc.systemTypeList}" var="systemType" >
             <a class="btn btn-primary" style="background-color:${systemType.color}" href="<c:url value="SystemTypeCapabilities.htm?user_request_action_param=SystemTypeCapabilities&systemType_param=${systemType.systemType}"/>">
@@ -89,16 +90,9 @@
           </c:forEach>
         </div>
     </div>
-<h1 align="center">Capabilities</h1>
-<div class="main">
-
-</div>
 
 <div>
 	<table>
-		<tr><td>&nbsp;</td></tr>
-		<tr><td>&nbsp;</td></tr>
-		<tr><td>&nbsp;</td></tr>
 		<tr><td>		<c:set var="x" value="0" />
 			<!-- DRAFT system sequences -->
         		<table align="center" width="1000">
@@ -138,30 +132,6 @@
 					<td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" /></td>
 					<td align="center">${seqMst.usernameAndTeamCreated}</td>
 					<td align="center">${seqMst.catName}</td>
-					<!--
-					<td align="center">&nbsp; -->
-					<!-- Facebook
-					<a onclick="updateSeqMst( 'make_link_public_action', 'facebook', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&p[images][0]=&p[title]=${seqMst.seqName}&p[summary]=${seqMst.seqDescription}"><img id='${seqMst.seqMstId}'  src="images/facebook_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'twitter', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://twitter.com/home?status=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/twitter_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'gplus', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="https://plus.google.com/share?url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/googleplus_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'linkin', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&title=${seqMst.seqName}&summary=${seqMst.seqDescription}&source=www.qsequence.com"><img id='${seqMst.seqMstId}'  src="images/linkedin_share_button.png"/></a>
-
-					</td>
-					<td>&nbsp;-->
-					<!--
-					<c:if test="${seqMst.isPublic=='Y'}">
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=secure_link_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Note, if you secure the link, the link shared on your social network site will not work.')"><img id='img_${seqMst.seqMstId}' title="Secure your shared link" alt="Secure your shared link" src="images/secure-link-image.png"/></a>
-					</c:if>
-					<c:if test="${seqMst.isPublic!='Y'}">
-						<img id='img_${seqMst.seqMstId}'  src="images/secure-link-image_gray.png" title="This is a secure link, if you want to make it public share it on one of the social networking sites"  alt="This is a secure link, if you want to make it public share it on one of the social networking sites"/>
-					</c:if>
-
-					</td>
-					<td align="center">-->
-					<!--
-					<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
-
-					</td>-->
 					<c:set var="changed" value="true" />
 					<c:set var="x" value="1" />
         		</tr>
@@ -176,33 +146,7 @@
 					<td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" /> </td>
 					<td align="center">${seqMst.usernameAndTeamCreated}</td>
 					<td align="center">${seqMst.catName}</td>
-					<!--
-					<td align="center">&nbsp;
-					 Facebook -->
-					<!--
-					<a onclick="updateSeqMst( 'make_link_public_action', 'facebook', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&p[images][0]=&p[title]=${seqMst.seqName}&p[summary]=${seqMst.seqDescription}"><img id='${seqMst.seqMstId}'  src="images/facebook_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'twitter', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://twitter.com/home?status=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/twitter_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'gplus', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="https://plus.google.com/share?url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/googleplus_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'linkin', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&title=${seqMst.seqName}&summary=${seqMst.seqDescription}&source=www.qsequence.com"><img id='${seqMst.seqMstId}'  src="images/linkedin_share_button.png"/></a>
-
-					</td>
-					<td>-->
-					<!--
-					<c:if test="${seqMst.isPublic=='Y'}">
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=secure_link_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Note, if you secure the link, the link shared on your social network site will not work.')"><img id='img_${seqMst.seqMstId}' title="Secure your shared link" alt="Secure your shared link" src="images/secure-link-image.png"/></a>
-					</c:if>
-					<c:if test="${seqMst.isPublic!='Y'}">
-						<img id='img_${seqMst.seqMstId}'  src="images/secure-link-image_gray.png" title="This is a secure link, if you want to make it public share it on one of the social networking sites"  alt="This is a secure link, if you want to make it public share it on one of the social networking sites"/>
-					</c:if>
-
-					</td>
-					<td align="center">-->
-					<!--
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
-
-					</td>-->
 					<c:set var="x" value="0" />
-
         		</tr>
         		</c:if>
         		</c:forEach>
@@ -251,30 +195,7 @@
 					<td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" /></td>
 					<td align="center">${seqMst.usernameAndTeamCreated}</td>
 					<td align="center">${seqMst.catName}</td>
-					<!--
-					<td align="center">&nbsp; -->
-					<!-- Facebook
-					<a onclick="updateSeqMst( 'make_link_public_action', 'facebook', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&p[images][0]=&p[title]=${seqMst.seqName}&p[summary]=${seqMst.seqDescription}"><img id='${seqMst.seqMstId}'  src="images/facebook_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'twitter', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://twitter.com/home?status=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/twitter_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'gplus', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="https://plus.google.com/share?url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/googleplus_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'linkin', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&title=${seqMst.seqName}&summary=${seqMst.seqDescription}&source=www.qsequence.com"><img id='${seqMst.seqMstId}'  src="images/linkedin_share_button.png"/></a>
 
-					</td>
-					<td>&nbsp;-->
-					<!--
-					<c:if test="${seqMst.isPublic=='Y'}">
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=secure_link_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Note, if you secure the link, the link shared on your social network site will not work.')"><img id='img_${seqMst.seqMstId}' title="Secure your shared link" alt="Secure your shared link" src="images/secure-link-image.png"/></a>
-					</c:if>
-					<c:if test="${seqMst.isPublic!='Y'}">
-						<img id='img_${seqMst.seqMstId}'  src="images/secure-link-image_gray.png" title="This is a secure link, if you want to make it public share it on one of the social networking sites"  alt="This is a secure link, if you want to make it public share it on one of the social networking sites"/>
-					</c:if>
-
-					</td>
-					<td align="center">-->
-					<!--
-					<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
-
-					</td>-->
 					<c:set var="changed" value="true" />
 					<c:set var="x" value="1" />
         		</tr>
@@ -289,31 +210,7 @@
 					<td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" /></td>
 					<td align="center">${seqMst.usernameAndTeamCreated}</td>
 					<td align="center">${seqMst.catName}</td>
-					<!--
-					<td align="center">&nbsp;
-					 Facebook -->
-					<!--
-					<a onclick="updateSeqMst( 'make_link_public_action', 'facebook', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&p[images][0]=&p[title]=${seqMst.seqName}&p[summary]=${seqMst.seqDescription}"><img id='${seqMst.seqMstId}'  src="images/facebook_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'twitter', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://twitter.com/home?status=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/twitter_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'gplus', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="https://plus.google.com/share?url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/googleplus_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'linkin', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&title=${seqMst.seqName}&summary=${seqMst.seqDescription}&source=www.qsequence.com"><img id='${seqMst.seqMstId}'  src="images/linkedin_share_button.png"/></a>
 
-					</td>
-					<td>-->
-					<!--
-					<c:if test="${seqMst.isPublic=='Y'}">
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=secure_link_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Note, if you secure the link, the link shared on your social network site will not work.')"><img id='img_${seqMst.seqMstId}' title="Secure your shared link" alt="Secure your shared link" src="images/secure-link-image.png"/></a>
-					</c:if>
-					<c:if test="${seqMst.isPublic!='Y'}">
-						<img id='img_${seqMst.seqMstId}'  src="images/secure-link-image_gray.png" title="This is a secure link, if you want to make it public share it on one of the social networking sites"  alt="This is a secure link, if you want to make it public share it on one of the social networking sites"/>
-					</c:if>
-
-					</td>
-					<td align="center">-->
-					<!--
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
-
-					</td>-->
 					<c:set var="x" value="0" />
 
         		</tr>
@@ -356,30 +253,7 @@
 					<td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" /></td>
 					<td align="center">${seqMst.usernameAndTeamCreated}</td>
 					<td align="center">${seqMst.catName}</td>
-					<!--
-					<td align="center">&nbsp; -->
-					<!-- Facebook
-					<a onclick="updateSeqMst( 'make_link_public_action', 'facebook', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&p[images][0]=&p[title]=${seqMst.seqName}&p[summary]=${seqMst.seqDescription}"><img id='${seqMst.seqMstId}'  src="images/facebook_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'twitter', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://twitter.com/home?status=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/twitter_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'gplus', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="https://plus.google.com/share?url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/googleplus_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'linkin', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&title=${seqMst.seqName}&summary=${seqMst.seqDescription}&source=www.qsequence.com"><img id='${seqMst.seqMstId}'  src="images/linkedin_share_button.png"/></a>
 
-					</td>
-					<td>&nbsp;-->
-					<!--
-					<c:if test="${seqMst.isPublic=='Y'}">
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=secure_link_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Note, if you secure the link, the link shared on your social network site will not work.')"><img id='img_${seqMst.seqMstId}' title="Secure your shared link" alt="Secure your shared link" src="images/secure-link-image.png"/></a>
-					</c:if>
-					<c:if test="${seqMst.isPublic!='Y'}">
-						<img id='img_${seqMst.seqMstId}'  src="images/secure-link-image_gray.png" title="This is a secure link, if you want to make it public share it on one of the social networking sites"  alt="This is a secure link, if you want to make it public share it on one of the social networking sites"/>
-					</c:if>
-
-					</td>
-					<td align="center">-->
-					<!--
-					<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
-
-					</td>-->
 					<c:set var="changed" value="true" />
 					<c:set var="x" value="1" />
         		</tr>
@@ -394,31 +268,7 @@
 					<td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" /></td>
 					<td align="center">${seqMst.usernameAndTeamCreated}</td>
 					<td align="center">${seqMst.catName}</td>
-					<!--
-					<td align="center">&nbsp;
-					 Facebook -->
-					<!--
-					<a onclick="updateSeqMst( 'make_link_public_action', 'facebook', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&p[images][0]=&p[title]=${seqMst.seqName}&p[summary]=${seqMst.seqDescription}"><img id='${seqMst.seqMstId}'  src="images/facebook_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'twitter', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://twitter.com/home?status=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/twitter_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'gplus', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="https://plus.google.com/share?url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"><img id='${seqMst.seqMstId}'  src="images/googleplus_share_button.png"/></a>
-					<a onclick="updateSeqMst( 'make_link_public_action', 'linkin', '${seqMst.seqMstId}', '<c:url value="/ViewSequenceList.htm" />');" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.qsequence.com${modelUc.CONTEXT_PATH}/GlobalSeqDet.htm?seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT&title=${seqMst.seqName}&summary=${seqMst.seqDescription}&source=www.qsequence.com"><img id='${seqMst.seqMstId}'  src="images/linkedin_share_button.png"/></a>
 
-					</td>
-					<td>-->
-					<!--
-					<c:if test="${seqMst.isPublic=='Y'}">
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=secure_link_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Note, if you secure the link, the link shared on your social network site will not work.')"><img id='img_${seqMst.seqMstId}' title="Secure your shared link" alt="Secure your shared link" src="images/secure-link-image.png"/></a>
-					</c:if>
-					<c:if test="${seqMst.isPublic!='Y'}">
-						<img id='img_${seqMst.seqMstId}'  src="images/secure-link-image_gray.png" title="This is a secure link, if you want to make it public share it on one of the social networking sites"  alt="This is a secure link, if you want to make it public share it on one of the social networking sites"/>
-					</c:if>
-
-					</td>
-					<td align="center">-->
-					<!--
-						<a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
-
-					</td>-->
 					<c:set var="x" value="0" />
 
         		</tr>
