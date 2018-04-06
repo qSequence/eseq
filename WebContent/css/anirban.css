@@ -251,6 +251,12 @@ footer{
 }
 table.table-striped.table-hover{
   width: 100%;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+table.table-striped.table-hover table.table-striped.table-hover{
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 table.table-striped.table-hover tr{
 

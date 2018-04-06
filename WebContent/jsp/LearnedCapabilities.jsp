@@ -94,7 +94,7 @@
 
     <div class="container">
       <table class="table-striped table-hover">
-        <tr>
+        <tr style="background:#FFFFFF;">
           <td>
             <c:set var="x" value="0" />
             <!-- DRAFT system sequences -->
