@@ -249,6 +249,9 @@ footer{
 .btn.btn-primary{
   color: #FFFFFF;
 }
+.container.table-section{
+  background: #FFFFFF;
+}
 table.table-striped.table-hover{
   width: 100%;
   margin-bottom: 50px;
