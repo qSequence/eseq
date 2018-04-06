@@ -29,12 +29,6 @@
             background-color:#f1f1f1;
             transition: all 0.3s ease 0s;
         }
-       .main {
-    			width: 1000px;
-    			margin: 0 auto;
-			margin-top: 50px;
-			align:center;
-		}
 		.capabilities_div {
 		 	width: 150px;
 		 	height: 30px;
@@ -86,15 +80,18 @@
   </div>
 </div>
 <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+          <c:forEach items="${modelUc.systemTypeList}" var="systemType" >
+            <a class="btn btn-primary" style="background-color:${systemType.color}" href="<c:url value="SystemTypeCapabilities.htm?user_request_action_param=SystemTypeCapabilities&systemType_param=${systemType.systemType}"/>">
+              <b>${systemType.count}</b> ${systemType.systemTypeDisplayName}
+            </a>
+          </c:forEach>
+        </div>
+    </div>
 <h1 align="center">Capabilities</h1>
 <div class="main">
-	<c:forEach items="${modelUc.systemTypeList}" var="systemType" >
-		<a style="display:block" href="<c:url value="SystemTypeCapabilities.htm?user_request_action_param=SystemTypeCapabilities&systemType_param=${systemType.systemType}"/>">
-			<div class="capabilities_div" style="background-color:${systemType.color}">
-				<b>${systemType.count}</b> ${systemType.systemTypeDisplayName}
-			</div>
-		</a>
-	</c:forEach>
+
 </div>
 
 <div>
