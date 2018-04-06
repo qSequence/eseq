@@ -247,5 +247,14 @@ footer{
   margin-top: 20px;
 }
 .btn.btn-primary{
-  color: #FFFFFF; 
+  color: #FFFFFF;
+}
+table .table-header{
+
+}
+table .table-header label{
+
+}
+table .table-header a.btn{
+
 }

@@ -112,7 +112,7 @@
                   </tr>
                   <tr>
                     <th><label for="sequenceName">Sequence Name</label></th>
-                    <th><label for="sequenceName">Go</label></th>
+                    <th><label for="sequenceLink">Go</label></th>
                     <th><label for="createdDate">Created Date</label></th>
                     <th><label for="createdBy">Created By</label></th>
                     <th><label for="createdBy">Category</label></th>
@@ -153,8 +153,10 @@
                   <c:if test="${x=='1' && changed=='false'}">
                     <tr>
                       <td>
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                      </td>
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                       </td>
                       <td>
                         <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}" /> </td>
@@ -175,14 +177,15 @@
 
                   <tr height="50px">
                     <td>
-                      <div style="float:center;width:80%;"><label for="sequenceName">Development system sequences</label></div>
+                      <div class="table-header"><label for="sequenceName">Development system sequences</label></div>
                       <c:if test="${modelUc.showCreateSequence=='true'}">
-                        <div style="float:right;width:20%;"><a align="right" class="button" href="<c:url value=" ModifiedSequenceList.htm?user_request_action_param=dev_release "/>">Release</a></div>
+                        <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value=" ModifiedSequenceList.htm?user_request_action_param=dev_release "/>">Release</a></div>
                       </c:if>
                     </td>
                   </tr>
-                  <tr height="50px">
-                    <th width="50%"><label for="sequenceName">Sequence Name</label></th>
+                  <tr>
+                    <th><label for="sequenceName">Sequence Name</label></th>
+                    <th><label for="sequenceLink">Go</label></th>
                     <c:if test="${modelUc.showCreateSequence=='true'}">
                       <th><label for="createdDate">Created Date</label></th>
                     </c:if>
@@ -206,9 +209,11 @@
                   <c:set var="changed" value="false" />
                   <c:if test="${x=='0' && changed=='false'}">
                     <tr>
-                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <td>
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                      </td>
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                       </td>
                       <td>
                         <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}" />
@@ -223,9 +228,11 @@
 
                   <c:if test="${x=='1' && changed=='false'}">
                     <tr>
-                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <td>
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                      </td>
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                       </td>
                       <td>
                         <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}" />
@@ -248,7 +255,7 @@
               <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                 <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
 
-                  <tr height="50px">
+                  <tr>
                     <td>
                       <div style="float:center;width:80%;"><label for="sequenceName">Production system sequences</label></div>
                     </td>
@@ -275,8 +282,8 @@
                   <c:set var="changed" value="false" />
                   <c:if test="${x=='0' && changed=='false'}">
                     <tr>
-                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                       </td>
                       <td>
@@ -292,8 +299,8 @@
 
                   <c:if test="${x=='1' && changed=='false'}">
                     <tr>
-                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                       </td>
                       <td>
