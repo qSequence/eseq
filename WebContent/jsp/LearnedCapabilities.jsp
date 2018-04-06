@@ -92,7 +92,7 @@
     </div>
 
 <div>
-	<table>
+	<table class="table-striped table-hover">
 		<tr><td>		<c:set var="x" value="0" />
 			<!-- DRAFT system sequences -->
         		<table align="center" width="1000">
