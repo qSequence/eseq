@@ -112,6 +112,7 @@
                   </tr>
                   <tr>
                     <th><label for="sequenceName">Sequence Name</label></th>
+                    <th><label for="sequenceName">Go</label></th>
                     <th><label for="createdDate">Created Date</label></th>
                     <th><label for="createdBy">Created By</label></th>
                     <th><label for="createdBy">Category</label></th>
@@ -134,8 +135,10 @@
                   <c:if test="${x=='0' && changed=='false'}">
                     <tr>
                       <td>
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                      </td>
+                      <td>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                       </td>
                       <td>
                         <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}" />
