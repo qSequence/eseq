@@ -112,7 +112,7 @@
                   </tr>
                   <tr>
                     <th><label for="sequenceName">Sequence Name</label></th>
-                    <th><label for="sequenceLink">Go</label></th>
+                    <th><label for="Edit">Edit</label></th>
                     <th><label for="createdDate">Created Date</label></th>
                     <th><label for="createdBy">Created By</label></th>
                     <th><label for="createdBy">Category</label></th>
@@ -185,7 +185,7 @@
                   </tr>
                   <tr>
                     <th><label for="sequenceName">Sequence Name</label></th>
-                    <th><label for="sequenceLink">Go</label></th>
+                    <th><label for="Edit">Edit</label></th>
                     <c:if test="${modelUc.showCreateSequence=='true'}">
                       <th><label for="createdDate">Created Date</label></th>
                     </c:if>
@@ -261,6 +261,7 @@
                   </tr>
                   <tr>
                     <th><label for="sequenceName">Sequence Name</label></th>
+                    <th><label for="Edit">Edit</label></th>
                     <th><label for="createdDate">Created Date</label></th>
                     <th><label for="createdBy">Created By</label></th>
                     <th><label for="createdBy">Category</label></th>

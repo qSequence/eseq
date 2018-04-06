@@ -252,6 +252,12 @@ footer{
 table.table-striped.table-hover{
   width: 100%;
 }
+table.table-striped.table-hover tr{
+  
+}
+table.table-striped.table-hover tr td{
+
+}
 table .table-header{
   width: 100%;
 }
