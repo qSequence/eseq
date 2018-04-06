@@ -264,11 +264,17 @@ table.table-striped.table-hover tr{
 table.table-striped.table-hover tr th{
 
 }
+table.table-striped.table-hover tr th label{
+
+}
 table.table-striped.table-hover tr td{
 
 }
 table.table-striped.table-hover tr td a.yellow-tooltip{
   color: #595959;
+}
+table.table-striped.table-hover tr td a:hover{
+  color: #009688;
 }
 table .table-header{
   width: 100%;
