@@ -253,7 +253,10 @@ table.table-striped.table-hover{
   width: 100%;
 }
 table.table-striped.table-hover tr{
-  
+
+}
+table.table-striped.table-hover tr th{
+
 }
 table.table-striped.table-hover tr td{
 
