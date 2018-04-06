@@ -249,12 +249,17 @@ footer{
 .btn.btn-primary{
   color: #FFFFFF;
 }
+table.table-striped.table-hover{
+  width: 100%;
+}
 table .table-header{
-
+  width: 100%;
 }
 table .table-header label{
-
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
 }
 table .table-header a.btn{
-
+  width: 300px;
 }
