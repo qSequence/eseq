@@ -102,7 +102,7 @@
               <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                 <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
 
-                  <tr>
+                  <tr style="background:#FFFFFF;">
                     <td>
                       <div class="table-header"><label for="sequenceName">Draft system sequences</label></div>
                       <c:if test="${modelUc.showCreateSequence=='true'}">
@@ -175,7 +175,7 @@
               <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                 <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
 
-                  <tr>
+                  <tr style="background:#FFFFFF;">
                     <td>
                       <div class="table-header"><label for="sequenceName">Development system sequences</label></div>
                       <c:if test="${modelUc.showCreateSequence=='true'}">
@@ -254,7 +254,7 @@
             <table class="table-striped table-hover">
               <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                 <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
-                  <tr>
+                  <tr style="background:#FFFFFF;">
                     <td>
                       <div class="table-header"><label for="sequenceName">Production system sequences</label></div>
                     </td>
