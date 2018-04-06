@@ -138,7 +138,7 @@
                         <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                       </td>
                       <td>
-                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
+                        <a class="bottom seq-margin yellow-tooltip" href="<c:url value=" SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft "/>"><i class="mdi-image-edit"></i></a>
                       </td>
                       <td>
                         <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}" />
