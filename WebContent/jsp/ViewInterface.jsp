@@ -448,13 +448,9 @@ function showProperties( id, action_param, event) {
         <input type="hidden" name="seqMstIds" value="${modelUc.seqMstIds}" />
         <input type="hidden" name="consolidatedSysSeqIds" value="${modelUc.consolidatedSysSeqIds}" />
 		<table align="center" width="900 px">
-			<tr><td>&nbsp;</td></tr>
-			<tr><td>&nbsp;</td></tr>
 			<tr><td>
 				<table align="center" border="0"  width="900 px" >
-
-					<tr><td colspan="2">&nbsp;</td></tr>
-					<tr><td style="text-align:center;"><h1>>>> Interface <<< : ${modelUc.name}</h1></td><td style="text-align:right;">&nbsp;</td></tr>
+					<tr><td style="text-align:center;"><h1>Interface : ${modelUc.name}</h1></td></tr>
 
 
 					<tr><td colspan="2">
