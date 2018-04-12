@@ -79,7 +79,7 @@
     </nav>
   </div>
 </div>
-<div class="container">
+<div class="container Capabilities">
     <div class="row">
         <h1 align="center">Capabilities</h1>
         <div class="col-lg-12">
