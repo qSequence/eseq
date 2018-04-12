@@ -12,36 +12,11 @@
 <script type="text/javascript" src="jquery/jquery-ui-1.10.1.custom.min.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery.ui.combogrid.css" />">
 <script type="text/javascript" src="jquery/jquery.ui.combogrid-1.6.3.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
+<link href="css/anirban.css" rel="stylesheet">
 <%-- END 12 Oct added combogrid jquery libraries--%>
 <style>
-.navbar-inverse .navbar-nav>li>a {
-            color: #767676;
-            font-size:14px;
-            border:2px solid #e7f4c1;
-            padding:10px 5px;
-        }
-        .navbar-inverse .navbar-nav>li>a:hover{
-            color: #6b8f00;
-            border:1px solid #98bf21;
-            background-color:#f1f1f1;
-            transition: all 0.3s ease 0s;
-        }
-/* div#sometext{ */
-/* height: 4em; */
-/* width: 30em; */
-/* -moz-border-radius: 1em 4em 1em 4em; */
-/* border-radius: 1em 4em 1em 4em; */
-/* background:#E2E5E5; */
-/* line-height: 2em; */
-/* } */
 
-/* div#add_property_div{ */
-/* height: 2em; */
-/* width: 50em; */
-/* -moz-border-radius: 1em 4em 1em 4em; */
-/* border-radius: 1em 4em 1em 4em; */
-/* background:#E2E5E5; */
-/* line-height: 2em; */
 label {
 color: gray;
 font-weight: bold;
@@ -149,7 +124,7 @@ div.terms strong {color:#000;}
 	<script type="text/javascript"
 		src="<c:url value="/javascript/utils.js"/>">
 
-		
+
 	</script>
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/Properties.htm?user_request_action_param=edit_properties_action_param&seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&seq_item_id_param=${modelUc.seqItemId}&system_type_param=${modelUc.systemType}&system_type_param=${modelUc.systemType}&request_id_param=${modelUc.requestId}&response_id_param=${modelUc.responseId}&property_for_param=${modelUc.propertyFor}&row_no_param=${modelUc.rowNo}&col_no_param=${modelUc.columnNo}&error_message_param=${modelUc.error}&sequenceVersion=${modelUc.sequenceVersion}"/>
@@ -162,7 +137,7 @@ $(document).ready(function() {
 
 	$("#tool_tip")
 	.fadeIn(9000);
-	
+
 	var tooltips = document.querySelectorAll('.tooltip span');
 
 	window.onmousemove = function (e) {
@@ -173,7 +148,7 @@ $(document).ready(function() {
 	        tooltips[i].style.left = x;
 	    }
 	};
-	
+
  $("#copy_submit_button").click(function(){
 	 $.post("CopyProperties.htm",
 				{
@@ -185,10 +160,10 @@ $(document).ready(function() {
 					property_for_param:document.getElementById('property_for_param').value
 				},
 				function(data,status){
-					
+
 					//var content=$("#prop_menu_place_holder").html();
 					var $response=$(data);
-					
+
 					$("#descriptionTA").val($response.filter("#descriptionTA").val());
 					$("#sampleTA").val($response.filter("#sampleTA").val());
 					$("#sampleFailureTA").val($response.filter("#sampleFailureTA").val());
@@ -204,7 +179,7 @@ $(document).ready(function() {
 								$("#propertyIdValue"+i).val($response.filter("#propertyIdValue"+i).val());
 							}
 						}//end for
-					
+
 				});
 });
 
@@ -218,10 +193,10 @@ $(document).ready(function() {
 		$("input#sample_param").val(sampleVal);
 		$("input#sample_failure_param").val(sampleFailureVal);
 			//alert("Changed"+$("input#description_param").val());
-			
+
 			document.getElementById("subscription_order_form").submit();
 	});
- 
+
 $(".header").click(function () {
 
     $header = $(this);
@@ -237,7 +212,7 @@ $(".header").click(function () {
         });
     });
 
-});  
+});
 
 $(".sub_header").click(function () {
 
@@ -254,7 +229,7 @@ $(".sub_header").click(function () {
         });
     });
 
-}); 
+});
 
 $( "#comboGrid_system").combogrid({
 // 	url: '/eseq-100/SearchSystems.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',
@@ -291,7 +266,7 @@ $( "#comboGrid_response").combogrid({
 	           {'columnName':'systemId','width':'0','label':''},
 	           {'columnName':'systemName','width':'50','label':'System'},
 	           {'columnName':'systemDescription','width':'0','label':''}
-	           
+
 	           ],
 	select: function( event, ui ) {
 
@@ -306,16 +281,16 @@ $( "#comboGrid_response").combogrid({
 		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");
 	}else{
 // 		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"','prop_copy_view', event);\">  ");
-		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");	
+		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");
 	}
-	
+
 	return false;
 	}
 	});
 
  $( "#comboGrid_request").combogrid({
 // 		url: '/eseq-100/SearchRequests.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',
-		url: 'SearchRequests.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',				
+		url: 'SearchRequests.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',
 		colModel: [
 				   {'columnName':'requestId','width':'0','label':''},
 		           {'columnName':'requestName','width':'50','label':'Request'},
@@ -341,13 +316,13 @@ $( "#comboGrid_response").combogrid({
 // 			$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_request_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"','prop_copy_view', event);\">  ");
 			$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_request_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");
 		}
-		
-         
+
+
 		return false;
 		}
 		});
-	
-		
+
+
 });
 
 
@@ -376,18 +351,18 @@ function showProperties( id, action_param, event) {
 					copy_properties_param:'true'
 				},
 				function(data,status){
-					
+
 					//var content=$("#prop_menu_place_holder").html();
 					var $response=$(data);
-					
+
 					var propertyMenu = $response.filter("#response_prop_menu").html();
-						
-					
+
+
 					$("#prop_menu_place_holder").empty().append( propertyMenu );
 					//alert("ID_HTML after: " + $( "#prop_menu_place_holder" ).html());
-					
+
 					showMenu1('prop_menu_place_holder', event)
-					
+
 				});
 	}else{
 		$.post("ViewProperties.htm",
@@ -396,69 +371,60 @@ function showProperties( id, action_param, event) {
 			copy_properties_param:'true'
 		},
 		function(data,status){
-			
+
 			//var content=$("#prop_menu_place_holder").html();
 			var $response=$(data);
-			
+
 			var propertyMenu = $response.filter("#response_prop_menu").html();
-				
-			
+
+
 			$("#prop_menu_place_holder").empty().append( propertyMenu );
 			//alert("ID_HTML after: " + $( "#prop_menu_place_holder" ).html());
-			
+
 			showMenu1('prop_menu_place_holder', event)
-			
+
 		});
 	}
 }
 
-	
+
 </script>
 <!-- Navigation -->
-<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-<!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#md-navbar-collapse-1">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="navbar-brand" href="/">
-<img src="images/logo.png" alt="qSequence logo" class="img-responsive">
-</a>
+<div class="wrap-navbar">
+  <div class="topHeader">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header navbar-left">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/logo2.png" alt="" /></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
+              <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+              <li><a href="<c:url value="/Login.htm" />">Login</a></li>
+            </c:if>
+            <c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
+              <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+              <li><a href="<c:url value="/Profile.htm" />">Profile</a></li>
+              <c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
+                <li><a href="<c:url value="/Admin.htm" />">Admin</a></li>
+              </c:if>
+              <li><a href="<c:url value="/Logout.htm" />">Logout</a></li>
+            </c:if>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
 </div>
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse" id="md-navbar-collapse-1">
-<ul class="nav navbar-nav navbar-right">
-<c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
-<li>
-<a href="<c:url value="/Dashboard.htm" />">Home</a>
-</li>
-<li>
-<a href="<c:url value="/Login.htm" />">Login</a>
-</li>
-</c:if>
-<c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
-<li>
-<a href="<c:url value="/Dashboard.htm" />">Home</a>
-</li>
-<li>
-<a href="<c:url value="/Profile.htm" />">Profile</a>
-</li>
-<c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
-	<li>
-	<a href="<c:url value="/Admin.htm" />">Admin</a>
-	</li>
-</c:if>
-<li>
-<a href="<c:url value="/Logout.htm" />">Logout</a>
-</li>
-</c:if>
-</ul>
-</div>
-<!-- /.navbar-collapse -->
-</nav>
 <div id="container">
 
 
@@ -486,15 +452,15 @@ function showProperties( id, action_param, event) {
 			<tr><td>&nbsp;</td></tr>
 			<tr><td>
 				<table align="center" border="0"  width="900 px" >
-					
+
 					<tr><td colspan="2">&nbsp;</td></tr>
 					<tr><td style="text-align:center;"><h1>>>> Interface <<< : ${modelUc.name}</h1></td><td style="text-align:right;">&nbsp;</td></tr>
-		
-        			
+
+
 					<tr><td colspan="2">
 						<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
 						<div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
-					</td></tr>	
+					</td></tr>
 				</table>
 			</td></tr>
 
@@ -502,25 +468,25 @@ function showProperties( id, action_param, event) {
 
 		<c:set var="x" value="0" />
         	<table align="center"  width="1200 px">
-        		
+
 	        	<tr height="10px"><td  align="center"  bgcolor="gray" width="100%" ></td></tr>
-	         		
+
         		<tr style="background-color: #F0F0F0; color: black;">
         			<td>
         			   <div class="container_expand">
 						    <div id="Description and properties" class="header"><span>- Description and properties</span>
-								
+
 						    </div>
 						    <div class="content">
 						    	<!-- Description -->
-						    	
+
 						    	<div class="sub_container_expand">
 								    		<div id="Description" class="sub_header"><span>- Description</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table border=1 width="1115px">
 								        				<c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
 									        				<tr style=" color: black;font-weight:bold;"><td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">Sytem : ${modelUc.systemName}</td></tr>
@@ -529,19 +495,19 @@ function showProperties( id, action_param, event) {
 								        				<c:if test="${modelUc.propertyFor!=null and modelUc.propertyFor=='system'}">
 									        				<tr><td width="99%" colspan="3"><div class="terms">${modelUc.systemDescription}</div></td></tr>
 									        			</c:if>
-									        			
+
 								        			</table>
-								        		 
-								        		 
+
+
 											</div>
 										</div>
 
-						    	
+
 						    	<!-- Description end -->
-							    	
+
 									<div class="sub_container_expand">
 							    		<div id="Properties" class="sub_header"><span>- Properties</span>
-							    		
+
 										</div>
 							    		<div class="content">
 							        			<table border=1 width="1115px" >
@@ -557,12 +523,12 @@ function showProperties( id, action_param, event) {
 							        				<c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
 							        					<td width="33%"  style="vertical-align:top">
 							        					<table>
-							    						<c:forEach items='${modelUc.ucSeqDiagramPropertyRequestList}' var="prop">    				
-								        				
+							    						<c:forEach items='${modelUc.ucSeqDiagramPropertyRequestList}' var="prop">
+
 								        				<c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
 												  			<c:set var="changed" value="false" />
 												         	<c:if test="${x=='0' && changed=='false'}">
-																<tr  onMouseOver="this.bgColor='#99CCFF';" 
+																<tr  onMouseOver="this.bgColor='#99CCFF';"
 																	onMouseOut="this.bgColor='#85E0E0';">
 																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
 																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
@@ -577,7 +543,7 @@ function showProperties( id, action_param, event) {
 															</c:if>
 															<c:if test="${x=='1' && changed=='false'}">
 																<c:set var="x" value="0" />
-																<tr  onMouseOver="this.bgColor='#99CCFF';" 
+																<tr  onMouseOver="this.bgColor='#99CCFF';"
 																	onMouseOut="this.bgColor='#F6F6F6';">
 																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
 																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
@@ -585,23 +551,23 @@ function showProperties( id, action_param, event) {
 																	</c:if>
 																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
 																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>							
-																								
+																	</c:if>
+
 												        		</tr>
 												        	</c:if>
 												  		</c:if>
 							        				</c:forEach>
-							        				
+
 							        				</table>
 							        				</td>
 							        				<td width="33%"  style="vertical-align:top">
 							        					<table>
-							    						<c:forEach items='${modelUc.ucSeqDiagramPropertyResponseList}' var="prop">    				
-								        				
+							    						<c:forEach items='${modelUc.ucSeqDiagramPropertyResponseList}' var="prop">
+
 								        				<c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
 												  			<c:set var="changed" value="false" />
 												         	<c:if test="${x=='0' && changed=='false'}">
-																<tr  onMouseOver="this.bgColor='#99CCFF';" 
+																<tr  onMouseOver="this.bgColor='#99CCFF';"
 																	onMouseOut="this.bgColor='#85E0E0';">
 																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
 																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
@@ -616,7 +582,7 @@ function showProperties( id, action_param, event) {
 															</c:if>
 															<c:if test="${x=='1' && changed=='false'}">
 																<c:set var="x" value="0" />
-																<tr  onMouseOver="this.bgColor='#99CCFF';" 
+																<tr  onMouseOver="this.bgColor='#99CCFF';"
 																	onMouseOut="this.bgColor='#F6F6F6';">
 																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
 																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
@@ -624,24 +590,24 @@ function showProperties( id, action_param, event) {
 																	</c:if>
 																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
 																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>							
-																								
+																	</c:if>
+
 												        		</tr>
 												        	</c:if>
 												  		</c:if>
 							        				</c:forEach>
-							        				
+
 							        				</table>
 							        				</td>
 							        				</c:if>
 							        				<td width="33%"  style="vertical-align:top">
 							        					<table>
-							    						<c:forEach items='${modelUc.ucSeqDiagramPropertySystemList}' var="prop">    				
-								        				
+							    						<c:forEach items='${modelUc.ucSeqDiagramPropertySystemList}' var="prop">
+
 								        				<c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
 												  			<c:set var="changed" value="false" />
 												         	<c:if test="${x=='0' && changed=='false'}">
-																<tr  onMouseOver="this.bgColor='#99CCFF';" 
+																<tr  onMouseOver="this.bgColor='#99CCFF';"
 																	onMouseOut="this.bgColor='#85E0E0';">
 																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
 																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
@@ -656,7 +622,7 @@ function showProperties( id, action_param, event) {
 															</c:if>
 															<c:if test="${x=='1' && changed=='false'}">
 																<c:set var="x" value="0" />
-																<tr  onMouseOver="this.bgColor='#99CCFF';" 
+																<tr  onMouseOver="this.bgColor='#99CCFF';"
 																	onMouseOut="this.bgColor='#F6F6F6';">
 																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
 																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
@@ -664,13 +630,13 @@ function showProperties( id, action_param, event) {
 																	</c:if>
 																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
 																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>							
-																								
+																	</c:if>
+
 												        		</tr>
 												        	</c:if>
 												  		</c:if>
 							        				</c:forEach>
-							        				
+
 							        				</table>
 							        				</td>
 							        			</tr>
@@ -679,69 +645,69 @@ function showProperties( id, action_param, event) {
 									</div>
 						    </div>
 						</div>
-        			
-        			
-        			
-        			
+
+
+
+
 	        			<div class="container_expand">
 						    <div id="Draft" class="header"><span>- Draft</span>
-								
+
 						    </div>
 						    <div class="content">
 						    	<!-- UI Display -->
 						    	<c:if test="${modelUc.requestImageDraft!=null and modelUc.responseImageDraft!=null and modelUc.responseFailureImageDraft!=null}">
 						    	<div class="sub_container_expand">
 								    		<div id="UserInterface" class="sub_header"><span>- UserInterface</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table width="100%">
-								        				
+
 									        			<tr style=" color: black;font-weight:bold;"><td width="33%"><img src="${modelUc.requestImageDraft}" alt="Image not available" height="200" width="270"></td><td  width="33%"><img src="${modelUc.responseImageDraft}" alt="Image not available" height="200" width="270"></td><td width="33%"><img src="${modelUc.responseFailureImageDraft}" alt="Image not available" height="200" width="270"></td></tr>
-									        			
+
 								        			</table>
-								        		 
-								    			
+
+
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
 								        			<table width="100%">
-							        					
+
 								        				<tr><td width="99%" colspan="3"><div class="terms">${modelUc.seqUrlString} <br><br>${modelUc.sysSeqUrlString}</div></td></tr>
-								        				
+
 								        			</table>
-								        		 
+
 											</div>
 										</div>
-						    	
+
 						    	</c:if>
-						    	
+
 						    	<!-- UI Display end -->
 								<c:if test="${modelUc.interfaceObjectDisplayDraftList[0]!=null}">
 							    	<c:forEach items='${modelUc.interfaceObjectDisplayDraftList}' var="interfaceObjectDisplayDraft">
 										<div class="sub_container_expand">
 								    		<div id="SET_${interfaceObjectDisplayDraft.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDraft.lineNo}</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table width="100%">
-								        				
+
 									        			<tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
 									        			<tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.failureResponse}</textarea></td></tr>
-								        				
-								        				
+
+
 								        			</table>
-								        		 
-								    			
+
+
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
 								        			<table width="100%">
 							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
 								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
-								        				
+
 								        			</table>
-								        		 
+
 											</div>
 										</div>
 									</c:forEach>
@@ -750,63 +716,63 @@ function showProperties( id, action_param, event) {
 							    	<c:forEach items='${modelUc.interfaceObjectDisplaySystemDraftList}' var="interfaceObjectDisplayDraft">
 										<div class="sub_container_expand">
 								    		<div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table width="100%">
-								        				
+
 									        			<tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
-									        			
+
 								        			</table>
-								        		 
-								    			
+
+
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
 								        			<table width="100%">
 							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
 								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
-								        				
+
 								        			</table>
-								        		 
+
 											</div>
 										</div>
 									</c:forEach>
 							    </c:if>
 						    </div>
 						</div>
-						
+
 						<div class="container_expand">
 						    <div id="Development" class="header"><span>- Development</span>
-								
+
 						    </div>
 						    <div class="content">
-						    	
+
 								<c:if test="${modelUc.interfaceObjectDisplayDevList[0]!=null}">
 							    	<c:forEach items='${modelUc.interfaceObjectDisplayDevList}' var="interfaceObjectDisplayDev">
 										<div class="sub_container_expand">
 								    		<div id="SET_${interfaceObjectDisplayDev.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDev.lineNo}</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table width="100%">
-								        				
+
 									        			<tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
 									        			<tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.failureResponse}</textarea></td></tr>
-								        				
-								        				
+
+
 								        			</table>
-								        		 
-								    			
+
+
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
 								        			<table width="100%">
 							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
 								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDev.seqUrlString} <br><br>${interfaceObjectDisplayDev.sysSeqUrlString}</div></td></tr>
-								        				
+
 								        			</table>
-								        		 
+
 											</div>
 										</div>
 									</c:forEach>
@@ -815,63 +781,63 @@ function showProperties( id, action_param, event) {
 							    	<c:forEach items='${modelUc.interfaceObjectDisplaySystemDevList}' var="interfaceObjectDisplayDraft">
 										<div class="sub_container_expand">
 								    		<div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table width="100%">
-								        				
+
 									        			<tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
-									        			
+
 								        			</table>
-								        		 
-								    			
+
+
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
 								        			<table width="100%">
 							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
 								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
-								        				
+
 								        			</table>
-								        		 
+
 											</div>
 										</div>
 									</c:forEach>
 							    </c:if>
 						    </div>
 						</div>
-						
+
 						<div class="container_expand">
 						    <div id="Production" class="header"><span>- Production</span>
-								
+
 						    </div>
 						    <div class="content">
-						    	
+
 								<c:if test="${modelUc.interfaceObjectDisplayProdList[0]!=null}">
 							    	<c:forEach items='${modelUc.interfaceObjectDisplayProdList}' var="interfaceObjectDisplayProd">
 										<div class="sub_container_expand">
 								    		<div id="SET_${interfaceObjectDisplayProd.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayProd.lineNo}</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table width="100%">
-								        				
+
 									        			<tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
 									        			<tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.failureResponse}</textarea></td></tr>
-								        				
-								        				
+
+
 								        			</table>
-								        		 
-								    			
+
+
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
 								        			<table width="100%">
 							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
 								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayProd.seqUrlString} <br><br>${interfaceObjectDisplayProd.sysSeqUrlString}</div></td></tr>
-								        				
+
 								        			</table>
-								        		 
+
 											</div>
 										</div>
 									</c:forEach>
@@ -880,25 +846,25 @@ function showProperties( id, action_param, event) {
 							    	<c:forEach items='${modelUc.interfaceObjectDisplaySystemProdList}' var="interfaceObjectDisplayDraft">
 										<div class="sub_container_expand">
 								    		<div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
-								    		
+
 											</div>
 								    		<div class="content">
-								    			
-								        			
+
+
 								        			<table width="100%">
-								        				
+
 									        			<tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
-									        			
+
 								        			</table>
-								        		 
-								    			
+
+
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
 								        			<table width="100%">
 							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
 								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
-								        				
+
 								        			</table>
-								        		 
+
 											</div>
 										</div>
 									</c:forEach>
@@ -907,7 +873,7 @@ function showProperties( id, action_param, event) {
 						</div>
 					</td>
 				</tr>
-				<!-- 
+				<!--
 				<c:if test="${modelUc.interfaceObjectDisplayDraftList[0]==null and modelUc.interfaceObjectDisplayDevList[0]==null and modelUc.interfaceObjectDisplayProdList[0]==null and modelUc.requestImageDraft==null and modelUc.responseImageDraft==null and modelUc.responseFailureImageDraft==null}">
 	         			<tr style="background-color: #F0F0F0; color: black;">
 	         			<td colspan="5"><font color="red"><strong>No interface defined.</strong></font>
@@ -917,7 +883,7 @@ function showProperties( id, action_param, event) {
 				 -->
         	</table>
        </td>
-       </tr> 
+       </tr>
 	</table>
 	</form>
 	<br/><br/><br/><br/><br/>
