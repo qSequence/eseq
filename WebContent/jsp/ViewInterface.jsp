@@ -447,440 +447,430 @@ function showProperties( id, action_param, event) {
         <input type="hidden" name="sysSeqIds" value="${modelUc.sysSeqIds}" />
         <input type="hidden" name="seqMstIds" value="${modelUc.seqMstIds}" />
         <input type="hidden" name="consolidatedSysSeqIds" value="${modelUc.consolidatedSysSeqIds}" />
-		<table align="center" width="900 px">
-			<tr><td>
-				<table align="center" border="0"  width="900 px" >
-					<tr><td style="text-align:center;"><h1>Interface : ${modelUc.name}</h1></td></tr>
-
-
-					<tr><td colspan="2">
-						<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
-						<div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
-					</td></tr>
-				</table>
-			</td></tr>
-
-        <tr><td>
-
-		<c:set var="x" value="0" />
-        	<table align="center"  width="1200 px">
-
-	        	<tr height="10px"><td  align="center"  bgcolor="gray" width="100%" ></td></tr>
-
-        		<tr style="background-color: #F0F0F0; color: black;">
-        			<td>
-        			   <div class="container_expand">
-						    <div id="Description and properties" class="header"><span>- Description and properties</span>
-
-						    </div>
-						    <div class="content">
-						    	<!-- Description -->
-
-						    	<div class="sub_container_expand">
-								    		<div id="Description" class="sub_header"><span>- Description</span>
-
-											</div>
-								    		<div class="content">
-
-
-								        			<table border=1 width="1115px">
-								        				<c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
-									        				<tr style=" color: black;font-weight:bold;"><td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">Sytem : ${modelUc.systemName}</td></tr>
-									        				<tr><td width="33%"><div class="termsDesc">${modelUc.requestDescription}</div></td><td width="33%"><div class="termsDesc">${modelUc.responseDescription}</div></td><td width="33%"><div class="termsDesc">${modelUc.systemDescription}</div></td></tr>
-								        				</c:if>
-								        				<c:if test="${modelUc.propertyFor!=null and modelUc.propertyFor=='system'}">
-									        				<tr><td width="99%" colspan="3"><div class="terms">${modelUc.systemDescription}</div></td></tr>
-									        			</c:if>
-
-								        			</table>
-
-
-											</div>
-										</div>
-
-
-						    	<!-- Description end -->
-
-									<div class="sub_container_expand">
-							    		<div id="Properties" class="sub_header"><span>- Properties</span>
-
-										</div>
-							    		<div class="content">
-							        			<table border=1 width="1115px" >
-							        				<tr style=" color: black;font-weight:bold;">
-							        				<c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
-							        					<td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">System : ${modelUc.systemName}</td>
-							        				</c:if>
-							        				<c:if test="${modelUc.propertyFor=='system'}">
-							        					<td colspan="3" width="99%">System : ${modelUc.systemName}</td>
-							        				</c:if>
-							        				</tr>
-							        				<tr style=" color: black;font-weight:bold;">
-							        				<c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
-							        					<td width="33%"  style="vertical-align:top">
-							        					<table>
-							    						<c:forEach items='${modelUc.ucSeqDiagramPropertyRequestList}' var="prop">
-
-								        				<c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
-												  			<c:set var="changed" value="false" />
-												         	<c:if test="${x=='0' && changed=='false'}">
-																<tr  onMouseOver="this.bgColor='#99CCFF';"
-																	onMouseOut="this.bgColor='#85E0E0';">
-																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
-																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
-																	</c:if>
-																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>
-																</tr>
-																<c:set var="changed" value="true" />
-																<c:set var="x" value="1" />
-															</c:if>
-															<c:if test="${x=='1' && changed=='false'}">
-																<c:set var="x" value="0" />
-																<tr  onMouseOver="this.bgColor='#99CCFF';"
-																	onMouseOut="this.bgColor='#F6F6F6';">
-																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
-																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
-																	</c:if>
-																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>
-
-												        		</tr>
-												        	</c:if>
-												  		</c:if>
-							        				</c:forEach>
-
-							        				</table>
-							        				</td>
-							        				<td width="33%"  style="vertical-align:top">
-							        					<table>
-							    						<c:forEach items='${modelUc.ucSeqDiagramPropertyResponseList}' var="prop">
-
-								        				<c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
-												  			<c:set var="changed" value="false" />
-												         	<c:if test="${x=='0' && changed=='false'}">
-																<tr  onMouseOver="this.bgColor='#99CCFF';"
-																	onMouseOut="this.bgColor='#85E0E0';">
-																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
-																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
-																	</c:if>
-																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>
-																</tr>
-																<c:set var="changed" value="true" />
-																<c:set var="x" value="1" />
-															</c:if>
-															<c:if test="${x=='1' && changed=='false'}">
-																<c:set var="x" value="0" />
-																<tr  onMouseOver="this.bgColor='#99CCFF';"
-																	onMouseOut="this.bgColor='#F6F6F6';">
-																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
-																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
-																	</c:if>
-																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>
-
-												        		</tr>
-												        	</c:if>
-												  		</c:if>
-							        				</c:forEach>
-
-							        				</table>
-							        				</td>
-							        				</c:if>
-							        				<td width="33%"  style="vertical-align:top">
-							        					<table>
-							    						<c:forEach items='${modelUc.ucSeqDiagramPropertySystemList}' var="prop">
-
-								        				<c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
-												  			<c:set var="changed" value="false" />
-												         	<c:if test="${x=='0' && changed=='false'}">
-																<tr  onMouseOver="this.bgColor='#99CCFF';"
-																	onMouseOut="this.bgColor='#85E0E0';">
-																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
-																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
-																	</c:if>
-																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>
-																</tr>
-																<c:set var="changed" value="true" />
-																<c:set var="x" value="1" />
-															</c:if>
-															<c:if test="${x=='1' && changed=='false'}">
-																<c:set var="x" value="0" />
-																<tr  onMouseOver="this.bgColor='#99CCFF';"
-																	onMouseOut="this.bgColor='#F6F6F6';">
-																	<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
-																	<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
-																	</c:if>
-																	<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
-																		<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
-																	</c:if>
-
-												        		</tr>
-												        	</c:if>
-												  		</c:if>
-							        				</c:forEach>
-
-							        				</table>
-							        				</td>
-							        			</tr>
-							        			</table>
-										</div>
-									</div>
-						    </div>
-						</div>
-
-
-
-
-	        			<div class="container_expand">
-						    <div id="Draft" class="header"><span>- Draft</span>
-
-						    </div>
-						    <div class="content">
-						    	<!-- UI Display -->
-						    	<c:if test="${modelUc.requestImageDraft!=null and modelUc.responseImageDraft!=null and modelUc.responseFailureImageDraft!=null}">
-						    	<div class="sub_container_expand">
-								    		<div id="UserInterface" class="sub_header"><span>- UserInterface</span>
-
-											</div>
-								    		<div class="content">
-
-
-								        			<table width="100%">
-
-									        			<tr style=" color: black;font-weight:bold;"><td width="33%"><img src="${modelUc.requestImageDraft}" alt="Image not available" height="200" width="270"></td><td  width="33%"><img src="${modelUc.responseImageDraft}" alt="Image not available" height="200" width="270"></td><td width="33%"><img src="${modelUc.responseFailureImageDraft}" alt="Image not available" height="200" width="270"></td></tr>
+        <div class="wrap-table-del">
+          <h1>Interface : ${modelUc.name}</h1>
+          <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
+          <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
+        </div>
+
+        <div class="wrap-table-del">
+          <c:set var="x" value="0" />
+                <table align="center"  width="1200 px">
+
+                  <tr height="10px"><td  align="center"  bgcolor="gray" width="100%" ></td></tr>
+
+                  <tr style="background-color: #F0F0F0; color: black;">
+                    <td>
+                       <div class="container_expand">
+                      <div id="Description and properties" class="header"><span>- Description and properties</span>
+
+                      </div>
+                      <div class="content">
+                        <!-- Description -->
+
+                        <div class="sub_container_expand">
+                              <div id="Description" class="sub_header"><span>- Description</span>
+
+                            </div>
+                              <div class="content">
+
+
+                                    <table border=1 width="1115px">
+                                      <c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
+                                        <tr style=" color: black;font-weight:bold;"><td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">Sytem : ${modelUc.systemName}</td></tr>
+                                        <tr><td width="33%"><div class="termsDesc">${modelUc.requestDescription}</div></td><td width="33%"><div class="termsDesc">${modelUc.responseDescription}</div></td><td width="33%"><div class="termsDesc">${modelUc.systemDescription}</div></td></tr>
+                                      </c:if>
+                                      <c:if test="${modelUc.propertyFor!=null and modelUc.propertyFor=='system'}">
+                                        <tr><td width="99%" colspan="3"><div class="terms">${modelUc.systemDescription}</div></td></tr>
+                                      </c:if>
+
+                                    </table>
+
+
+                            </div>
+                          </div>
+
+
+                        <!-- Description end -->
+
+                        <div class="sub_container_expand">
+                            <div id="Properties" class="sub_header"><span>- Properties</span>
+
+                          </div>
+                            <div class="content">
+                                  <table border=1 width="1115px" >
+                                    <tr style=" color: black;font-weight:bold;">
+                                    <c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
+                                      <td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">System : ${modelUc.systemName}</td>
+                                    </c:if>
+                                    <c:if test="${modelUc.propertyFor=='system'}">
+                                      <td colspan="3" width="99%">System : ${modelUc.systemName}</td>
+                                    </c:if>
+                                    </tr>
+                                    <tr style=" color: black;font-weight:bold;">
+                                    <c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
+                                      <td width="33%"  style="vertical-align:top">
+                                      <table>
+                                    <c:forEach items='${modelUc.ucSeqDiagramPropertyRequestList}' var="prop">
+
+                                      <c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
+                                      <c:set var="changed" value="false" />
+                                        <c:if test="${x=='0' && changed=='false'}">
+                                      <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#85E0E0';">
+                                        <td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+                                        <c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+                                        </c:if>
+                                        <c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
+                                        </c:if>
+                                      </tr>
+                                      <c:set var="changed" value="true" />
+                                      <c:set var="x" value="1" />
+                                    </c:if>
+                                    <c:if test="${x=='1' && changed=='false'}">
+                                      <c:set var="x" value="0" />
+                                      <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#F6F6F6';">
+                                        <td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+                                        <c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+                                        </c:if>
+                                        <c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
+                                        </c:if>
+
+                                          </tr>
+                                        </c:if>
+                                    </c:if>
+                                    </c:forEach>
+
+                                    </table>
+                                    </td>
+                                    <td width="33%"  style="vertical-align:top">
+                                      <table>
+                                    <c:forEach items='${modelUc.ucSeqDiagramPropertyResponseList}' var="prop">
+
+                                      <c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
+                                      <c:set var="changed" value="false" />
+                                        <c:if test="${x=='0' && changed=='false'}">
+                                      <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#85E0E0';">
+                                        <td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+                                        <c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+                                        </c:if>
+                                        <c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
+                                        </c:if>
+                                      </tr>
+                                      <c:set var="changed" value="true" />
+                                      <c:set var="x" value="1" />
+                                    </c:if>
+                                    <c:if test="${x=='1' && changed=='false'}">
+                                      <c:set var="x" value="0" />
+                                      <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#F6F6F6';">
+                                        <td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+                                        <c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+                                        </c:if>
+                                        <c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
+                                        </c:if>
+
+                                          </tr>
+                                        </c:if>
+                                    </c:if>
+                                    </c:forEach>
+
+                                    </table>
+                                    </td>
+                                    </c:if>
+                                    <td width="33%"  style="vertical-align:top">
+                                      <table>
+                                    <c:forEach items='${modelUc.ucSeqDiagramPropertySystemList}' var="prop">
+
+                                      <c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
+                                      <c:set var="changed" value="false" />
+                                        <c:if test="${x=='0' && changed=='false'}">
+                                      <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#85E0E0';">
+                                        <td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+                                        <c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+                                        </c:if>
+                                        <c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
+                                        </c:if>
+                                      </tr>
+                                      <c:set var="changed" value="true" />
+                                      <c:set var="x" value="1" />
+                                    </c:if>
+                                    <c:if test="${x=='1' && changed=='false'}">
+                                      <c:set var="x" value="0" />
+                                      <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#F6F6F6';">
+                                        <td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="300" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+                                        <c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+                                        </c:if>
+                                        <c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
+                                          <td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="525" style="width:150px;word-wrap:break-word;"><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
+                                        </c:if>
+
+                                          </tr>
+                                        </c:if>
+                                    </c:if>
+                                    </c:forEach>
+
+                                    </table>
+                                    </td>
+                                  </tr>
+                                  </table>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+
+
+
+                      <div class="container_expand">
+                      <div id="Draft" class="header"><span>- Draft</span>
+
+                      </div>
+                      <div class="content">
+                        <!-- UI Display -->
+                        <c:if test="${modelUc.requestImageDraft!=null and modelUc.responseImageDraft!=null and modelUc.responseFailureImageDraft!=null}">
+                        <div class="sub_container_expand">
+                              <div id="UserInterface" class="sub_header"><span>- UserInterface</span>
+
+                            </div>
+                              <div class="content">
+
+
+                                    <table width="100%">
+
+                                      <tr style=" color: black;font-weight:bold;"><td width="33%"><img src="${modelUc.requestImageDraft}" alt="Image not available" height="200" width="270"></td><td  width="33%"><img src="${modelUc.responseImageDraft}" alt="Image not available" height="200" width="270"></td><td width="33%"><img src="${modelUc.responseFailureImageDraft}" alt="Image not available" height="200" width="270"></td></tr>
 
-								        			</table>
+                                    </table>
 
 
-								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
-								        			<table width="100%">
+                                    <div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
+                                    <table width="100%">
 
-								        				<tr><td width="99%" colspan="3"><div class="terms">${modelUc.seqUrlString} <br><br>${modelUc.sysSeqUrlString}</div></td></tr>
+                                      <tr><td width="99%" colspan="3"><div class="terms">${modelUc.seqUrlString} <br><br>${modelUc.sysSeqUrlString}</div></td></tr>
 
-								        			</table>
+                                    </table>
 
-											</div>
-										</div>
+                            </div>
+                          </div>
 
-						    	</c:if>
-
-						    	<!-- UI Display end -->
-								<c:if test="${modelUc.interfaceObjectDisplayDraftList[0]!=null}">
-							    	<c:forEach items='${modelUc.interfaceObjectDisplayDraftList}' var="interfaceObjectDisplayDraft">
-										<div class="sub_container_expand">
-								    		<div id="SET_${interfaceObjectDisplayDraft.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDraft.lineNo}</span>
+                        </c:if>
+
+                        <!-- UI Display end -->
+                      <c:if test="${modelUc.interfaceObjectDisplayDraftList[0]!=null}">
+                          <c:forEach items='${modelUc.interfaceObjectDisplayDraftList}' var="interfaceObjectDisplayDraft">
+                          <div class="sub_container_expand">
+                              <div id="SET_${interfaceObjectDisplayDraft.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDraft.lineNo}</span>
 
-											</div>
-								    		<div class="content">
+                            </div>
+                              <div class="content">
 
 
-								        			<table width="100%">
+                                    <table width="100%">
 
-									        			<tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
-									        			<tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.failureResponse}</textarea></td></tr>
+                                      <tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
+                                      <tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.failureResponse}</textarea></td></tr>
 
 
-								        			</table>
+                                    </table>
 
 
-								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
-								        			<table width="100%">
-							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
-								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
+                                    <div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
+                                    <table width="100%">
+                                      <tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
+                                      <tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
 
-								        			</table>
+                                    </table>
 
-											</div>
-										</div>
-									</c:forEach>
-							    </c:if>
-							    <c:if test="${modelUc.interfaceObjectDisplaySystemDraftList[0]!=null}">
-							    	<c:forEach items='${modelUc.interfaceObjectDisplaySystemDraftList}' var="interfaceObjectDisplayDraft">
-										<div class="sub_container_expand">
-								    		<div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
+                            </div>
+                          </div>
+                        </c:forEach>
+                        </c:if>
+                        <c:if test="${modelUc.interfaceObjectDisplaySystemDraftList[0]!=null}">
+                          <c:forEach items='${modelUc.interfaceObjectDisplaySystemDraftList}' var="interfaceObjectDisplayDraft">
+                          <div class="sub_container_expand">
+                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
 
-											</div>
-								    		<div class="content">
+                            </div>
+                              <div class="content">
 
 
-								        			<table width="100%">
+                                    <table width="100%">
 
-									        			<tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
+                                      <tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
 
-								        			</table>
+                                    </table>
 
 
-								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
-								        			<table width="100%">
-							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
-								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
+                                    <div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
+                                    <table width="100%">
+                                      <tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
+                                      <tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
 
-								        			</table>
+                                    </table>
 
-											</div>
-										</div>
-									</c:forEach>
-							    </c:if>
-						    </div>
-						</div>
+                            </div>
+                          </div>
+                        </c:forEach>
+                        </c:if>
+                      </div>
+                  </div>
 
-						<div class="container_expand">
-						    <div id="Development" class="header"><span>- Development</span>
+                  <div class="container_expand">
+                      <div id="Development" class="header"><span>- Development</span>
 
-						    </div>
-						    <div class="content">
+                      </div>
+                      <div class="content">
 
-								<c:if test="${modelUc.interfaceObjectDisplayDevList[0]!=null}">
-							    	<c:forEach items='${modelUc.interfaceObjectDisplayDevList}' var="interfaceObjectDisplayDev">
-										<div class="sub_container_expand">
-								    		<div id="SET_${interfaceObjectDisplayDev.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDev.lineNo}</span>
+                      <c:if test="${modelUc.interfaceObjectDisplayDevList[0]!=null}">
+                          <c:forEach items='${modelUc.interfaceObjectDisplayDevList}' var="interfaceObjectDisplayDev">
+                          <div class="sub_container_expand">
+                              <div id="SET_${interfaceObjectDisplayDev.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDev.lineNo}</span>
 
-											</div>
-								    		<div class="content">
+                            </div>
+                              <div class="content">
 
 
-								        			<table width="100%">
+                                    <table width="100%">
 
-									        			<tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
-									        			<tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.failureResponse}</textarea></td></tr>
+                                      <tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
+                                      <tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.failureResponse}</textarea></td></tr>
 
 
-								        			</table>
+                                    </table>
 
 
-								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
-								        			<table width="100%">
-							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
-								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDev.seqUrlString} <br><br>${interfaceObjectDisplayDev.sysSeqUrlString}</div></td></tr>
+                                    <div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
+                                    <table width="100%">
+                                      <tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
+                                      <tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDev.seqUrlString} <br><br>${interfaceObjectDisplayDev.sysSeqUrlString}</div></td></tr>
 
-								        			</table>
+                                    </table>
 
-											</div>
-										</div>
-									</c:forEach>
-							    </c:if>
-							    <c:if test="${modelUc.interfaceObjectDisplaySystemDevList[0]!=null}">
-							    	<c:forEach items='${modelUc.interfaceObjectDisplaySystemDevList}' var="interfaceObjectDisplayDraft">
-										<div class="sub_container_expand">
-								    		<div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
+                            </div>
+                          </div>
+                        </c:forEach>
+                        </c:if>
+                        <c:if test="${modelUc.interfaceObjectDisplaySystemDevList[0]!=null}">
+                          <c:forEach items='${modelUc.interfaceObjectDisplaySystemDevList}' var="interfaceObjectDisplayDraft">
+                          <div class="sub_container_expand">
+                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
 
-											</div>
-								    		<div class="content">
+                            </div>
+                              <div class="content">
 
 
-								        			<table width="100%">
+                                    <table width="100%">
 
-									        			<tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
+                                      <tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
 
-								        			</table>
+                                    </table>
 
 
-								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
-								        			<table width="100%">
-							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
-								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
+                                    <div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
+                                    <table width="100%">
+                                      <tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
+                                      <tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
 
-								        			</table>
+                                    </table>
 
-											</div>
-										</div>
-									</c:forEach>
-							    </c:if>
-						    </div>
-						</div>
+                            </div>
+                          </div>
+                        </c:forEach>
+                        </c:if>
+                      </div>
+                  </div>
 
-						<div class="container_expand">
-						    <div id="Production" class="header"><span>- Production</span>
+                  <div class="container_expand">
+                      <div id="Production" class="header"><span>- Production</span>
 
-						    </div>
-						    <div class="content">
+                      </div>
+                      <div class="content">
 
-								<c:if test="${modelUc.interfaceObjectDisplayProdList[0]!=null}">
-							    	<c:forEach items='${modelUc.interfaceObjectDisplayProdList}' var="interfaceObjectDisplayProd">
-										<div class="sub_container_expand">
-								    		<div id="SET_${interfaceObjectDisplayProd.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayProd.lineNo}</span>
+                      <c:if test="${modelUc.interfaceObjectDisplayProdList[0]!=null}">
+                          <c:forEach items='${modelUc.interfaceObjectDisplayProdList}' var="interfaceObjectDisplayProd">
+                          <div class="sub_container_expand">
+                              <div id="SET_${interfaceObjectDisplayProd.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayProd.lineNo}</span>
 
-											</div>
-								    		<div class="content">
+                            </div>
+                              <div class="content">
 
 
-								        			<table width="100%">
+                                    <table width="100%">
 
-									        			<tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
-									        			<tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.failureResponse}</textarea></td></tr>
+                                      <tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
+                                      <tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.failureResponse}</textarea></td></tr>
 
 
-								        			</table>
+                                    </table>
 
 
-								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
-								        			<table width="100%">
-							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
-								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayProd.seqUrlString} <br><br>${interfaceObjectDisplayProd.sysSeqUrlString}</div></td></tr>
+                                    <div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
+                                    <table width="100%">
+                                      <tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
+                                      <tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayProd.seqUrlString} <br><br>${interfaceObjectDisplayProd.sysSeqUrlString}</div></td></tr>
 
-								        			</table>
+                                    </table>
 
-											</div>
-										</div>
-									</c:forEach>
-							    </c:if>
-							    <c:if test="${modelUc.interfaceObjectDisplaySystemProdList[0]!=null}">
-							    	<c:forEach items='${modelUc.interfaceObjectDisplaySystemProdList}' var="interfaceObjectDisplayDraft">
-										<div class="sub_container_expand">
-								    		<div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
+                            </div>
+                          </div>
+                        </c:forEach>
+                        </c:if>
+                        <c:if test="${modelUc.interfaceObjectDisplaySystemProdList[0]!=null}">
+                          <c:forEach items='${modelUc.interfaceObjectDisplaySystemProdList}' var="interfaceObjectDisplayDraft">
+                          <div class="sub_container_expand">
+                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
 
-											</div>
-								    		<div class="content">
+                            </div>
+                              <div class="content">
 
 
-								        			<table width="100%">
+                                    <table width="100%">
 
-									        			<tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
+                                      <tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
 
-								        			</table>
+                                    </table>
 
 
-								        			<div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
-								        			<table width="100%">
-							        					<tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
-								        				<tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
+                                    <div style="background-color:yellow;width:99%;text-align: center;">Sequences</div>
+                                    <table width="100%">
+                                      <tr style=" color: black;"><td width="99%" colspan="3">Description</td></tr>
+                                      <tr><td width="99%" colspan="3"><div class="terms">${interfaceObjectDisplayDraft.seqUrlString} <br><br>${interfaceObjectDisplayDraft.sysSeqUrlString}</div></td></tr>
 
-								        			</table>
+                                    </table>
 
-											</div>
-										</div>
-									</c:forEach>
-							    </c:if>
-						    </div>
-						</div>
-					</td>
-				</tr>
-				<!--
-				<c:if test="${modelUc.interfaceObjectDisplayDraftList[0]==null and modelUc.interfaceObjectDisplayDevList[0]==null and modelUc.interfaceObjectDisplayProdList[0]==null and modelUc.requestImageDraft==null and modelUc.responseImageDraft==null and modelUc.responseFailureImageDraft==null}">
-	         			<tr style="background-color: #F0F0F0; color: black;">
-	         			<td colspan="5"><font color="red"><strong>No interface defined.</strong></font>
-						</td>
-						</tr>
-         		</c:if>
-				 -->
-        	</table>
-       </td>
-       </tr>
-	</table>
+                            </div>
+                          </div>
+                        </c:forEach>
+                        </c:if>
+                      </div>
+                  </div>
+                </td>
+              </tr>
+              <!--
+              <c:if test="${modelUc.interfaceObjectDisplayDraftList[0]==null and modelUc.interfaceObjectDisplayDevList[0]==null and modelUc.interfaceObjectDisplayProdList[0]==null and modelUc.requestImageDraft==null and modelUc.responseImageDraft==null and modelUc.responseFailureImageDraft==null}">
+                      <tr style="background-color: #F0F0F0; color: black;">
+                      <td colspan="5"><font color="red"><strong>No interface defined.</strong></font>
+                  </td>
+                  </tr>
+                  </c:if>
+               -->
+                </table>
+              </div>
 	</form>
 	<br/><br/><br/><br/><br/>
 ${modelUc.footerLineBreaks}
