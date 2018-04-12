@@ -425,7 +425,7 @@ function showProperties( id, action_param, event) {
     </nav>
   </div>
 </div>
-<div class="container" id="container">
+<div class="container">
 
 
 <!--<div style="left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;height:100px ">-->
