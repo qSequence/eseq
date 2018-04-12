@@ -2,7 +2,6 @@
 <%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
 <%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
 <title>View >>> Interface <<<</title>
-<link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/jquery-ui.css" />">
 <link rel="stylesheet" href="<c:url value="/a.css" />"  type="text/css">
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
@@ -426,7 +425,7 @@ function showProperties( id, action_param, event) {
     </nav>
   </div>
 </div>
-<div id="container">
+<div class="container" id="container">
 
 
 <!--<div style="left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;height:100px ">-->
