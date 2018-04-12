@@ -2,6 +2,7 @@
 <%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
 <%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
 <title>View >>> Interface <<<</title>
+<link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/jquery-ui.css" />">
 <link rel="stylesheet" href="<c:url value="/a.css" />"  type="text/css">
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
