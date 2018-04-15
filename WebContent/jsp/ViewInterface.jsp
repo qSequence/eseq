@@ -435,9 +435,9 @@ function showProperties( id, action_param, event) {
                               <div class="content">
 
 
-                                    <table border=1 width="1115px">
+                                    <table>
                                       <c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
-                                        <tr style=" color: black;font-weight:bold;"><td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">Sytem : ${modelUc.systemName}</td></tr>
+                                        <tr><td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">Sytem : ${modelUc.systemName}</td></tr>
                                         <tr><td width="33%"><div class="termsDesc">${modelUc.requestDescription}</div></td><td width="33%"><div class="termsDesc">${modelUc.responseDescription}</div></td><td width="33%"><div class="termsDesc">${modelUc.systemDescription}</div></td></tr>
                                       </c:if>
                                       <c:if test="${modelUc.propertyFor!=null and modelUc.propertyFor=='system'}">
@@ -458,8 +458,8 @@ function showProperties( id, action_param, event) {
 
                           </div>
                             <div class="content">
-                                  <table border=1 width="1115px" >
-                                    <tr style=" color: black;font-weight:bold;">
+                                  <table>
+                                    <tr>
                                     <c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
                                       <td width="33%">Request : ${modelUc.requestName}</td><td  width="33%">Response : ${modelUc.responseName}</td><td width="33%">System : ${modelUc.systemName}</td>
                                     </c:if>
@@ -467,7 +467,7 @@ function showProperties( id, action_param, event) {
                                       <td colspan="3" width="99%">System : ${modelUc.systemName}</td>
                                     </c:if>
                                     </tr>
-                                    <tr style=" color: black;font-weight:bold;">
+                                    <tr>
                                     <c:if test="${modelUc.propertyFor=='request' or modelUc.propertyFor=='response'}">
                                       <td width="33%"  style="vertical-align:top">
                                       <table>
