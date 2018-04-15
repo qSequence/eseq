@@ -430,15 +430,16 @@ function showProperties( id, action_param, event) {
                     <td>
                        <div class="container_expand">
                       <div id="Description and properties" class="header">
-                        <span>- Description and properties</span>
+                        <span>Description and properties</span>
                         <i class="fa fa-chevron-up pull-right"></i>
                       </div>
                       <div class="content">
                         <!-- Description -->
 
                         <div class="sub_container_expand">
-                              <div id="Description" class="sub_header"><span>- Description</span>
-
+                              <div id="Description" class="sub_header">
+                                <span>Description</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
@@ -462,8 +463,9 @@ function showProperties( id, action_param, event) {
                         <!-- Description end -->
 
                         <div class="sub_container_expand">
-                            <div id="Properties" class="sub_header"><span>- Properties</span>
-
+                            <div id="Properties" class="sub_header">
+                              <span>Properties</span>
+                              <i class="fa fa-chevron-up pull-right"></i>
                           </div>
                             <div class="content">
                                   <table>
@@ -606,15 +608,17 @@ function showProperties( id, action_param, event) {
 
 
                       <div class="container_expand">
-                      <div id="Draft" class="header"><span>- Draft</span>
-
+                      <div id="Draft" class="header">
+                        <span>Draft</span>
+                        <i class="fa fa-chevron-up pull-right"></i>
                       </div>
                       <div class="content">
                         <!-- UI Display -->
                         <c:if test="${modelUc.requestImageDraft!=null and modelUc.responseImageDraft!=null and modelUc.responseFailureImageDraft!=null}">
                         <div class="sub_container_expand">
-                              <div id="UserInterface" class="sub_header"><span>- UserInterface</span>
-
+                              <div id="UserInterface" class="sub_header">
+                                <span>UserInterface</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
@@ -642,8 +646,9 @@ function showProperties( id, action_param, event) {
                       <c:if test="${modelUc.interfaceObjectDisplayDraftList[0]!=null}">
                           <c:forEach items='${modelUc.interfaceObjectDisplayDraftList}' var="interfaceObjectDisplayDraft">
                           <div class="sub_container_expand">
-                              <div id="SET_${interfaceObjectDisplayDraft.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDraft.lineNo}</span>
-
+                              <div id="SET_${interfaceObjectDisplayDraft.lineNo}" class="sub_header">
+                                <span>SET_${interfaceObjectDisplayDraft.lineNo}</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
@@ -671,8 +676,9 @@ function showProperties( id, action_param, event) {
                         <c:if test="${modelUc.interfaceObjectDisplaySystemDraftList[0]!=null}">
                           <c:forEach items='${modelUc.interfaceObjectDisplaySystemDraftList}' var="interfaceObjectDisplayDraft">
                           <div class="sub_container_expand">
-                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
-
+                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header">
+                                <span>${interfaceObjectDisplayDraft.requestName}</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
@@ -699,16 +705,18 @@ function showProperties( id, action_param, event) {
                   </div>
 
                   <div class="container_expand">
-                      <div id="Development" class="header"><span>- Development</span>
-
+                      <div id="Development" class="header">
+                        <span>Development</span>
+                        <i class="fa fa-chevron-up pull-right"></i>
                       </div>
                       <div class="content">
 
                       <c:if test="${modelUc.interfaceObjectDisplayDevList[0]!=null}">
                           <c:forEach items='${modelUc.interfaceObjectDisplayDevList}' var="interfaceObjectDisplayDev">
                           <div class="sub_container_expand">
-                              <div id="SET_${interfaceObjectDisplayDev.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayDev.lineNo}</span>
-
+                              <div id="SET_${interfaceObjectDisplayDev.lineNo}" class="sub_header">
+                                <span>SET_${interfaceObjectDisplayDev.lineNo}</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
@@ -736,8 +744,9 @@ function showProperties( id, action_param, event) {
                         <c:if test="${modelUc.interfaceObjectDisplaySystemDevList[0]!=null}">
                           <c:forEach items='${modelUc.interfaceObjectDisplaySystemDevList}' var="interfaceObjectDisplayDraft">
                           <div class="sub_container_expand">
-                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
-
+                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header">
+                                <span>${interfaceObjectDisplayDraft.requestName}</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
@@ -764,16 +773,18 @@ function showProperties( id, action_param, event) {
                   </div>
 
                   <div class="container_expand">
-                      <div id="Production" class="header"><span>- Production</span>
-
+                      <div id="Production" class="header">
+                        <span>Production</span>
+                        <i class="fa fa-chevron-up pull-right"></i>
                       </div>
                       <div class="content">
 
                       <c:if test="${modelUc.interfaceObjectDisplayProdList[0]!=null}">
                           <c:forEach items='${modelUc.interfaceObjectDisplayProdList}' var="interfaceObjectDisplayProd">
                           <div class="sub_container_expand">
-                              <div id="SET_${interfaceObjectDisplayProd.lineNo}" class="sub_header"><span>- SET_${interfaceObjectDisplayProd.lineNo}</span>
-
+                              <div id="SET_${interfaceObjectDisplayProd.lineNo}" class="sub_header">
+                                <span>SET_${interfaceObjectDisplayProd.lineNo}</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
@@ -801,8 +812,9 @@ function showProperties( id, action_param, event) {
                         <c:if test="${modelUc.interfaceObjectDisplaySystemProdList[0]!=null}">
                           <c:forEach items='${modelUc.interfaceObjectDisplaySystemProdList}' var="interfaceObjectDisplayDraft">
                           <div class="sub_container_expand">
-                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header"><span>- ${interfaceObjectDisplayDraft.requestName}</span>
-
+                              <div id="${interfaceObjectDisplayDraft.requestName}" class="sub_header">
+                                <span>${interfaceObjectDisplayDraft.requestName}</span>
+                                <i class="fa fa-chevron-up pull-right"></i>
                             </div>
                               <div class="content">
 
