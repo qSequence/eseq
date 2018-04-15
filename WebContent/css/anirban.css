@@ -303,12 +303,16 @@ table .table-header a.btn{
 .wrap-table-del{
 
 }
+.wrap-table-del h1{
+  text-align: center;
+}
 
-.wrap-table-del .container_expand,.wrap-table-del .sub_container_expand {
-  width: 95%;
-  margin: 0 auto;
-  left: 150px;
-  border: 1px solid #d3d3d3;
+.wrap-table-del .container_expand, .wrap-table-del .sub_container_expand {
+	width: 95%;
+	margin: 0 auto;
+	border: 1px solid #d3d3d3;
+	border-radius: 10px;
+	margin-bottom: 15px;
 }
 .wrap-table-del .container_expand div,.wrap-table-del .sub_container_expand div{
     width:100%;

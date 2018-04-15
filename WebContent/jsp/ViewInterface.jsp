@@ -169,7 +169,7 @@ $(".header").click(function () {
         //change text of header based on visibility of content div
         $header.text(function () {
             //change text based on condition
-            return $content.is(":visible") ? " - "+this.id : " + "+this.id;
+            return $content.is(":visible");
         });
     });
 
