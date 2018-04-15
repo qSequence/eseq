@@ -613,7 +613,7 @@ function showProperties( id, action_param, event) {
 
                                     <table width="100%">
 
-                                      <tr style=" color: black;font-weight:bold;"><td width="33%"><img src="${modelUc.requestImageDraft}" alt="Image not available" height="200" width="270"></td><td  width="33%"><img src="${modelUc.responseImageDraft}" alt="Image not available" height="200" width="270"></td><td width="33%"><img src="${modelUc.responseFailureImageDraft}" alt="Image not available" height="200" width="270"></td></tr>
+                                      <tr ><td width="33%"><img src="${modelUc.requestImageDraft}" alt="Image not available" height="200" width="270"></td><td  width="33%"><img src="${modelUc.responseImageDraft}" alt="Image not available" height="200" width="270"></td><td width="33%"><img src="${modelUc.responseFailureImageDraft}" alt="Image not available" height="200" width="270"></td></tr>
 
                                     </table>
 
@@ -642,7 +642,7 @@ function showProperties( id, action_param, event) {
 
                                     <table width="100%">
 
-                                      <tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
+                                      <tr ><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
                                       <tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDraft.failureResponse}</textarea></td></tr>
 
 
@@ -671,7 +671,7 @@ function showProperties( id, action_param, event) {
 
                                     <table width="100%">
 
-                                      <tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
+                                      <tr ><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
 
                                     </table>
 
@@ -707,7 +707,7 @@ function showProperties( id, action_param, event) {
 
                                     <table width="100%">
 
-                                      <tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
+                                      <tr ><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
                                       <tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayDev.failureResponse}</textarea></td></tr>
 
 
@@ -736,7 +736,7 @@ function showProperties( id, action_param, event) {
 
                                     <table width="100%">
 
-                                      <tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
+                                      <tr ><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
 
                                     </table>
 
@@ -772,7 +772,7 @@ function showProperties( id, action_param, event) {
 
                                     <table width="100%">
 
-                                      <tr style=" color: black;font-weight:bold;"><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
+                                      <tr ><td width="33%">Request</td><td  width="33%">Response</td><td width="33%">Failure Response</td></tr>
                                       <tr><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.request}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.response}</textarea></td><td width="33%"><textarea rows="11" cols="45" name="xmlDocument" disabled WRAP="off">${interfaceObjectDisplayProd.failureResponse}</textarea></td></tr>
 
 
@@ -801,7 +801,7 @@ function showProperties( id, action_param, event) {
 
                                     <table width="100%">
 
-                                      <tr style=" color: black;font-weight:bold;"><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
+                                      <tr ><td colspan="3" width="99%">${interfaceObjectDisplayDraft.requestInterfaceUrl}</td></tr>
 
                                     </table>
 
