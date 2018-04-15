@@ -317,6 +317,9 @@ table .table-header a.btn{
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue";
+  font-size: 16px;
+  font-weight: bold;
 }
 .wrap-table-del .container_expand .content,.wrap-table-del .sub_container_expand .content {
   padding: 15px;
