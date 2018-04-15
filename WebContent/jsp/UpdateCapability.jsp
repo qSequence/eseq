@@ -155,13 +155,9 @@
                           <c:redirect
                             url="/UpdateCapability.htm?property_for_param=${modelUc.property_for_param}&system_id_param=${modelUc.system_id_param}&request_id_param=${modelUc.request_id_param}&response_id_param=${modelUc.response_id_param}&message=${modelUc.message}"/>
                         </c:if>
-                        <div class="row">
+                        <h1 style="text-align:center;">Update Capability</h1>
+                        <div class="row table-section">
                           <table>
-                            <tr>
-                              <td>
-                                <h1>Update Capability</h1>
-                              </td>
-                            </tr>
                             <tr>
                               <td>
                                 <form action="UpdateCapability.htm" method="post">
@@ -522,15 +518,10 @@
                                               </c:forEach>
                                             </table>
                                             <!--END Production system sequences -->
+                                            <div class="table-header">
+                                              <label for="sequenceName">Capability sequences</label>
+                                            </div>
                                             <table class="table-striped table-hover">
-                                              <tr>
-                                                <td>
-                                                  <div>
-                                                    <label for="sequenceName">Capability sequences</label>
-                                                  </div>
-
-                                                </td>
-                                              </tr>
                                               <tr>
                                                 <th>
                                                   <label for="sequenceName">Sequence Name</label>
