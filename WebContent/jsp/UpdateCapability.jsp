@@ -148,7 +148,7 @@
                         </div>
                       </div>
 
-                      <div class="container">
+                      <div class="container captability">
 
                         <!--<div style="left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;height:100px ">-->
                         <c:if test="${modelUc.status=='SAVED'}">
@@ -273,18 +273,11 @@
                                         <tr>
                                           <td>
                                             <c:set var="x" value="0"/>
-
+                                            <div class="table-header">
+                                              <label for="sequenceName">Used in sequences</label>
+                                            </div>
                                             <table  class="table-striped table-hover">
                                               <!-- DRAFT sequences -->
-
-                                              <tr>
-                                                <td>
-                                                  <div>
-                                                    <label for="sequenceName">Used in sequences</label>
-                                                  </div>
-
-                                                </td>
-                                              </tr>
                                               <tr>
                                                 <th>
                                                   <label for="sequenceName">Sequence Name</label>

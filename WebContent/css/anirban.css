@@ -338,3 +338,12 @@ table .table-header a.btn{
 .table-borderless tr td{
   border: 0px !important;
 }
+.captability table.table-striped.table-hover tr th {
+	width: 234px;
+}
+.captability table.table-striped.table-hover tr td {
+	
+}
+.captability table.table-striped.table-hover tr{
+
+}
