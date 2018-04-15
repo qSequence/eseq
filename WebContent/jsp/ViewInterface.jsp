@@ -161,6 +161,8 @@ $(document).ready(function() {
 $(".header").click(function () {
 
     $header = $(this);
+    var openH="<i class="fa pull-right fa-chevron-down"></i>";
+    var CloseH="<i class="fa pull-right fa-chevron-up"></i>";
     //getting the next element
     $content = $header.next();
     //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
@@ -169,7 +171,7 @@ $(".header").click(function () {
         //change text of header based on visibility of content div
         $header.text(function () {
             //change text based on condition
-            return $content.is(":visible");
+            return $content.is(":visible") ? appendHtml(document.body, CloseH)+this.id : appendHtml(document.body, openH);+this.id;
         });
     });
 
