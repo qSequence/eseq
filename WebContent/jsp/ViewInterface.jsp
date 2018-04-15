@@ -160,20 +160,19 @@ $(document).ready(function() {
 
 $(".header").click(function () {
 
-    $header = $(this);
-    var openH="<i class="fa pull-right fa-chevron-down"></i>";
-    var CloseH="<i class="fa pull-right fa-chevron-up"></i>";
-    //getting the next element
-    $content = $header.next();
-    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-    $content.slideToggle(500, function () {
-        //execute this after slideToggle is done
-        //change text of header based on visibility of content div
-        $header.text(function () {
-            //change text based on condition
-            return $content.is(":visible") ? appendHtml(document.body, CloseH)+this.id : appendHtml(document.body, openH);+this.id;
-        });
-    });
+  $header = $(this);
+  //getting the next element
+  $content = $header.next();
+  //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+  $content.slideToggle(500, function () {
+      //execute this after slideToggle is done
+      //change text of header based on visibility of content div
+    if($content.is(":hidden")){
+      $header.addClass('active');
+    } else {
+      $header.removeClass('active');
+    }
+  });
 
 });
 
@@ -424,8 +423,9 @@ function showProperties( id, action_param, event) {
                   <tr>
                     <td>
                        <div class="container_expand">
-                      <div id="Description and properties" class="header"><span>- Description and properties</span>
-
+                      <div id="Description and properties" class="header">
+                        <span>- Description and properties</span>
+                        <i class="fa pull-right fa-chevron-up"></i>
                       </div>
                       <div class="content">
                         <!-- Description -->
