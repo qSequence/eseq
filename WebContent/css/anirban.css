@@ -303,3 +303,45 @@ table .table-header a.btn{
 .wrap-table-del{
 
 }
+
+.wrap-table-del .sub_container_expand {
+    width:95%;
+    margin:0 auto;
+    left: 150px;
+    border:0px solid #d3d3d3;
+}
+
+.wrap-table-del .sub_container_expand div {
+    width:80%;
+}
+.wrap-table-del .sub_container_expand .sub_header {
+    background-color:#d3d3d3;
+    width:99%;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.wrap-table-del .sub_container_expand .content {
+    padding : 5px;
+}
+
+
+.wrap-table-del .container_expand {
+    width:95%;
+    margin:0 auto;
+    left: 150px;
+    border:1px solid #d3d3d3;
+}
+
+.wrap-table-del .container_expand div {
+    width:100%;
+}
+.wrap-table-del .container_expand .header {
+    background-color:gray;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.wrap-table-del .container_expand .content {
+    padding : 5px;
+}

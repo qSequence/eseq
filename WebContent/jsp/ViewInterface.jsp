@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
 <link href="css/anirban.css" rel="stylesheet">
 <%-- END 12 Oct added combogrid jquery libraries--%>
-<style>
+<%-- <style>
 
 label {
 color: gray;
@@ -24,46 +24,7 @@ display: block;
 width: 150px;
 float: left;
 }
-.sub_container_expand {
-    width:95%;
-    margin:0 auto;
-    left: 150px;
-    border:0px solid #d3d3d3;
-}
 
-.sub_container_expand div {
-    width:80%;
-}
-.sub_container_expand .sub_header {
-    background-color:#d3d3d3;
-    width:99%;
-    padding: 2px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.sub_container_expand .content {
-    padding : 5px;
-}
-
-
-.container_expand {
-    width:95%;
-    margin:0 auto;
-    left: 150px;
-    border:1px solid #d3d3d3;
-}
-.container_expand div {
-    width:100%;
-}
-.container_expand .header {
-    background-color:gray;
-    padding: 2px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.container_expand .content {
-    padding : 5px;
-}
 #form_submit_button {
     width: 15em;  height: 2em;
 }
@@ -120,7 +81,7 @@ div.terms li {font:normal 11px/15px arial;color:#333;}
 div.terms h3 {font:bold 14px/19px arial;color:#000;}
 div.terms h4 {font:bold 12px/17px arial;color:#000;}
 div.terms strong {color:#000;}
-</style>
+</style> --%>
 	<script type="text/javascript"
 		src="<c:url value="/javascript/utils.js"/>">
 
