@@ -17,134 +17,6 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/anirban.css" rel="stylesheet">
     <link href="css/qSequence-otherPages.css" rel="stylesheet">
-      <style>
-      .navbar-inverse .navbar-nav>li>a {
-        color: #767676;
-        font-size:14px;
-        border:2px solid #e7f4c1;
-        padding:10px 5px;
-      }
-      .navbar-inverse .navbar-nav>li>a:hover{
-        color: #6b8f00;
-        border:1px solid #98bf21;
-        background-color:#f1f1f1;
-        transition: all 0.3s ease 0s;
-      }
-      /* div#sometext{ */
-      /* height: 4em; */
-      /* width: 30em; */
-      /* -moz-border-radius: 1em 4em 1em 4em; */
-      /* border-radius: 1em 4em 1em 4em; */
-      /* background:#E2E5E5; */
-      /* line-height: 2em; */
-      /* } */
-
-      /* div#add_property_div{ */
-      /* height: 2em; */
-      /* width: 50em; */
-      /* -moz-border-radius: 1em 4em 1em 4em; */
-      /* border-radius: 1em 4em 1em 4em; */
-      /* background:#E2E5E5; */
-      /* line-height: 2em; */
-      .button { font: bold 11px Arial; text-decoration: none; background-color: #EEEEEE; color: #333333; padding: 2px 6px 2px 6px; border-top: 1px solid #CCCCCC; border-right: 1px solid #333333; border-bottom: 1px solid #333333; border-left: 1px solid #CCCCCC; }
-
-      .buttonSystem { font: bold 11px Arial; text-decoration: none; background-color: #EEEEEE; color: #333333; padding: 10px 60px 10px 60px; border-top: 1px solid #CCCCCC; border-right: 1px solid #333333; border-bottom: 1px solid #333333; border-left: 1px solid #CCCCCC; }
-
-      label {
-        color: gray;
-        font-weight: bold;
-        display: block;
-        width: 150px;
-        float: left;
-      }
-      .sub_container_expand {
-        width:95%;
-        margin:0 auto;
-        left: 150px;
-        border:0px solid #d3d3d3;
-      }
-
-      .sub_container_expand div {
-        width:80%;
-      }
-      .sub_container_expand .sub_header {
-        background-color:#d3d3d3;
-        width:99%;
-        padding: 2px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-      .sub_container_expand .content {
-        padding : 5px;
-      }
-
-
-      .container_expand {
-        width:95%;
-        margin:0 auto;
-        left: 150px;
-        border:1px solid #d3d3d3;
-      }
-      .container_expand div {
-        width:100%;
-      }
-      .container_expand .header {
-        background-color:gray;
-        padding: 2px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-      .container_expand .content {
-        padding : 5px;
-      }
-      #form_submit_button {
-        width: 15em;  height: 2em;
-      }
-      .mousetoHand
-      {
-        color:#5B3C1D;
-        font-family:Arial;
-        font-size:12pt;
-        cursor:pointer;
-        text-decoration:none;
-
-      }
-      .table.table-borderless tr td, .table.table-borderless tr th {
-        border-width: 0;
-      }
-      .tooltip {
-        text-decoration:none;
-        position:relative;
-      }
-      .tooltip span {
-        display:none;
-      }
-      .tooltip:hover span {
-        display:block;
-        position:fixed;
-        overflow:hidden;
-        background-color:yellow;
-        font-family:Arial;
-        font-size:8pt;
-      }
-
-      div.terms {
-        width:540px;
-        height:150px;
-        border:1px solid #ccc;
-        background:#f2f2f2;
-        padding-top: 15px;
-        padding: 0px 0px;
-        overflow:auto;
-        top: 5px;
-        left: 10px;
-      }
-      div.terms p,
-      div.terms li {font:normal 11px/15px arial;color:#333;}
-      div.terms h3 {font:bold 14px/19px arial;color:#000;}
-      div.terms h4 {font:bold 12px/17px arial;color:#000;}
-      div.terms strong {color:#000;}
-    </style>
     <script type="text/javascript"
       src="<c:url value="/javascript/utils.js"/>">
 
@@ -220,37 +92,43 @@
 
         $(".header").click(function () {
 
+            $header = $(this);
+            //getting the next element
+            $content = $header.next();
+            //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+            $content.slideToggle(500, function () {
+                //execute this after slideToggle is done
+                //change text of header based on visibility of content div
+                if($content.is(":hidden")){
+                  $header.find(".fa").removeClass('fa-chevron-up');
+                  $header.find(".fa").addClass('fa-chevron-down');
+                } else {
+                  $header.find(".fa").removeClass('fa-chevron-down');
+                  $header.find(".fa").addClass('fa-chevron-up');
+                }
+            });
+
+        });
+
+      $(".sub_header").click(function () {
+
           $header = $(this);
           //getting the next element
           $content = $header.next();
           //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
           $content.slideToggle(500, function () {
-            //execute this after slideToggle is done
-            //change text of header based on visibility of content div
-            $header.text(function () {
-              //change text based on condition
-              return $content.is(":visible") ? " - "+this.id : " + "+this.id;
-            });
+              //execute this after slideToggle is done
+              //change text of header based on visibility of content div
+              if($content.is(":hidden")){
+                $header.find(".fa").removeClass('fa-chevron-up');
+                $header.find(".fa").addClass('fa-chevron-down');
+              } else {
+                $header.find(".fa").removeClass('fa-chevron-down');
+                $header.find(".fa").addClass('fa-chevron-up');
+              }
           });
 
-        });
-
-        $(".sub_header").click(function () {
-
-          $header = $(this);
-          //getting the next element
-          $content = $header.next();
-          //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-          $content.slideToggle(500, function () {
-            //execute this after slideToggle is done
-            //change text of header based on visibility of content div
-            $header.text(function () {
-              //change text based on condition
-              return $content.is(":visible") ? " - "+this.id : " + "+this.id;
-            });
-          });
-
-        });
+      });
 
         $( "#comboGrid_system").combogrid({
           // 	url: '/eseq-100/SearchSystems.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',
@@ -460,93 +338,92 @@
 </div>
 <c:if test="${modelUc.systemType.systemDisplayObjectList[0]!=null}">
 <c:forEach items='${modelUc.systemType.systemDisplayObjectList}' var="systemObj">
-<div class="panel-group i-accordion" style="margin-top: 50px;">
-  <div class="panel panel-success">
-    <div class="panel-heading" data-toggle="collapse" data-parent=".i-accordion" href="#aboutus2">
-      <h4 class="panel-title">${systemObj.systemName} <i class="fa fa-chevron-up pull-right"></i></h4>
-    </div>
-    <div id="aboutus2" class="panel-collapse collapse in">
-      <div class="panel-body">
-				<table class="table">
-					<tbody>
-						<div class="table-responsive">
-							<table class="table  table-borderless">
-								<tbody>
-									<tr>
-										<td><label>System</label></td>
-										<td><label data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label></td>
-										<td>
-                      <c:if test="${systemObj.ownerAccess==true}">
-                          <a class="btn btn-default" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Update capability</a>
-                      </c:if>
-                    </td>
-										<td><a class="btn btn-success" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Interface</a></td>
-										<td><a class="btn btn-info" target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=${systemObj.systemId}&property_for_param=system&system_type_param=${modelUc.systemType.systemType}"/>" role="button">Information</a></td>
-                    <td>
-                      <c:if test="${systemObj.systemDisplaySubObjectList==null and systemObj.systemDisplaySubObjectList[0]==null}">
-                        <div class="sub_container_expand">
-                          <font color="red"><b>No capabilities found</b></font>
-                        </div>
-                      </c:if>
-                    </td>
-                  </tr>
-								</tbody>
-							</table>
-						</div>
-					</tbody>
-				</table>
-        <div class="panel-group i-accordion" id="nested">
-            <div class="panel panel-success">
-              <div class="panel-heading" data-toggle="collapse" data-parent="#nested" href="#nested-collapseOne">
-                <h4 class="panel-title">${systemObj.systemName} <i class="fa fa-chevron-down pull-right"></i></h4>
-              </div>
-              <div id="nested-collapseOne" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <c:if test="${systemObj.systemDisplaySubObjectList!=null and systemObj.systemDisplaySubObjectList[0]!=null}">
-                  <c:forEach items='${systemObj.systemDisplaySubObjectList}' var="systemDisplaySubObject">
-                  <div class="table-responsive">
-										<table class="table pull-left table-borderless" style="width:75%;">
-											<tbody>
+  <div class="wrap-table-del">
 
-												<tr>
-													<td><label>Request</label></td>
-													<td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.requestDescription}">${systemDisplaySubObject.requestResponseSystemSearch.requestName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
-													<td>
-                            <c:if test="${systemDisplaySubObject.ownerAccess==true}">
-                            <a class="btn btn-default" href="<c:url value="UpdateCapability.htm?property_for_param=request&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>" role="button">Update capability</a>
-                            </c:if>
-                          </td>
-												</tr>
-												<tr>
-													<td><label>Response</label></td>
-													<td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.responseDescription}">${systemDisplaySubObject.requestResponseSystemSearch.responseName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
-													<td>
-                            <c:if test="${systemDisplaySubObject.ownerAccess==true}">
-                              <a class="btn btn-default" href="<c:url value="UpdateCapability.htm?property_for_param=response&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>" role="button">Update capability</a>
-                            </c:if>
-                          </td>
-                        </tr>
-											</tbody>
-										</table>
-                    <table class="table pull-right table-borderless" style="margin-top:25px;width:20%;">
-											<tbody>
-												<tr>
-                          <td><a class="btn btn-success" target="_blank" href="<c:url value="ViewInterface.htm?requestId=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&propertyFor=request"/>" role="button">Interface</a></td>
-      										<td><a class="btn btn-info" target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&property_for_param=request&system_type_param=${modelUc.systemType.systemType}"/>" role="button">Information</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-                </c:forEach>
-                </c:if>
+  <div class="container_expand">
+      <div class="header">
+        <span>${systemObj.systemName}</span>
+        <i class="fa fa-chevron-up pull-right"></i>
+
+        <div class="content">
+    				<table class="table">
+    					<tbody>
+    						<div class="table-responsive">
+    							<table class="table  table-borderless">
+    								<tbody>
+    									<tr>
+    										<td><label>System</label></td>
+    										<td><label data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label></td>
+    										<td>
+                          <c:if test="${systemObj.ownerAccess==true}">
+                              <a class="btn btn-default" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Update capability</a>
+                          </c:if>
+                        </td>
+    										<td><a class="btn btn-success" target="_blank" href="<c:url value="ViewInterface.htm?systemId=${systemObj.systemId}&propertyFor=system"/>" role="button">Interface</a></td>
+    										<td><a class="btn btn-info" target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&system_id_param=${systemObj.systemId}&property_for_param=system&system_type_param=${modelUc.systemType.systemType}"/>" role="button">Information</a></td>
+                        <td>
+                          <c:if test="${systemObj.systemDisplaySubObjectList==null and systemObj.systemDisplaySubObjectList[0]==null}">
+                            <div class="sub_container_expand">
+                              <font color="red"><b>No capabilities found</b></font>
+                            </div>
+                          </c:if>
+                        </td>
+                      </tr>
+    								</tbody>
+    							</table>
+    						</div>
+    					</tbody>
+    				</table>
+            <div class="sub_container_expand">
+                <div class="sub_header">
+                  <span>${systemObj.systemName}</span>
+                  <i class="fa fa-chevron-up pull-right"></i>
+                  <div class="content">
+                      <c:if test="${systemObj.systemDisplaySubObjectList!=null and systemObj.systemDisplaySubObjectList[0]!=null}">
+                      <c:forEach items='${systemObj.systemDisplaySubObjectList}' var="systemDisplaySubObject">
+                      <div class="table-responsive">
+    										<table class="table pull-left table-borderless" style="width:75%;">
+    											<tbody>
+
+    												<tr>
+    													<td><label>Request</label></td>
+    													<td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.requestDescription}">${systemDisplaySubObject.requestResponseSystemSearch.requestName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
+    													<td>
+                                <c:if test="${systemDisplaySubObject.ownerAccess==true}">
+                                <a class="btn btn-default" href="<c:url value="UpdateCapability.htm?property_for_param=request&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>" role="button">Update capability</a>
+                                </c:if>
+                              </td>
+    												</tr>
+    												<tr>
+    													<td><label>Response</label></td>
+    													<td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.responseDescription}">${systemDisplaySubObject.requestResponseSystemSearch.responseName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
+    													<td>
+                                <c:if test="${systemDisplaySubObject.ownerAccess==true}">
+                                  <a class="btn btn-default" href="<c:url value="UpdateCapability.htm?property_for_param=response&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}"/>" role="button">Update capability</a>
+                                </c:if>
+                              </td>
+                            </tr>
+    											</tbody>
+    										</table>
+                        <table class="table pull-right table-borderless" style="margin-top:25px;width:20%;">
+    											<tbody>
+    												<tr>
+                              <td><a class="btn btn-success" target="_blank" href="<c:url value="ViewInterface.htm?requestId=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&propertyFor=request"/>" role="button">Interface</a></td>
+          										<td><a class="btn btn-info" target="_blank" href="<c:url value="Properties.htm?user_request_action_param=view_properties_action_param&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&property_for_param=request&system_type_param=${modelUc.systemType.systemType}"/>" role="button">Information</a></td>
+    												</tr>
+    											</tbody>
+    										</table>
+    									</div>
+                    </c:forEach>
+                    </c:if>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+        </div>
       </div>
     </div>
+
   </div>
-</div>
 </c:forEach>
 </c:if>
 <script type="text/javascript">
