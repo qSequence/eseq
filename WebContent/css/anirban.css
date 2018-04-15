@@ -311,12 +311,13 @@ table .table-header a.btn{
 	width: 95%;
 	margin: 0 auto;
 	border: 1px solid #d3d3d3;
-	border-radius: 10px;
 	margin-bottom: 15px;
 	border-top: 0px;
+	border-radius: 10px 10px 3px 3px;
+	margin-top: 10px;
 }
 .wrap-table-del .container_expand div,.wrap-table-del .sub_container_expand div{
-    width:100%;
+    /*! width:100%; */
 }
 .wrap-table-del .container_expand .header,.wrap-table-del .sub_container_expand .sub_header {
   color: #3c763d;
@@ -327,7 +328,7 @@ table .table-header a.btn{
   font-weight: bold;
   padding: 10px 15px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
 }
 .wrap-table-del .container_expand .content,.wrap-table-del .sub_container_expand .content {
   padding: 15px;
