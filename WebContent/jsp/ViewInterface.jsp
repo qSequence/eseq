@@ -158,23 +158,25 @@ $(document).ready(function() {
 			document.getElementById("subscription_order_form").submit();
 	});
 
-$(".header").click(function () {
+  (".header").click(function () {
 
-  $header = $(this);
-  //getting the next element
-  $content = $header.next();
-  //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-  $content.slideToggle(500, function () {
-      //execute this after slideToggle is done
-      //change text of header based on visibility of content div
-    if($content.is(":hidden")){
-      $header.addClass('active');
-    } else {
-      $header.removeClass('active');
-    }
+      $header = $(this);
+      //getting the next element
+      $content = $header.next();
+      //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+      $content.slideToggle(500, function () {
+          //execute this after slideToggle is done
+          //change text of header based on visibility of content div
+          if($content.is(":hidden")){
+            $header.find(".fa").removeClass('fa-chevron-up');
+      			$header.find(".fa").addClass('fa-chevron-down');
+      		} else {
+      			$header.find(".fa").removeClass('fa-chevron-down');
+            $header.find(".fa").addClass('fa-chevron-up');
+      		}
+      });
+
   });
-
-});
 
 $(".sub_header").click(function () {
 

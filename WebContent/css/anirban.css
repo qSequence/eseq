@@ -313,6 +313,7 @@ table .table-header a.btn{
 	border: 1px solid #d3d3d3;
 	border-radius: 10px;
 	margin-bottom: 15px;
+	border-top: 0px;
 }
 .wrap-table-del .container_expand div,.wrap-table-del .sub_container_expand div{
     width:100%;
@@ -322,8 +323,11 @@ table .table-header a.btn{
   background-color: #dff0d8;
   border-color: #d6e9c6;
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 .wrap-table-del .container_expand .content,.wrap-table-del .sub_container_expand .content {
   padding: 15px;
