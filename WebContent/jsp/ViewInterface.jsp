@@ -4,7 +4,6 @@
 <title>View >>> Interface <<<</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/jquery-ui.css" />">
 <link rel="stylesheet" href="<c:url value="/a.css" />"  type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <%--  12 Oct added combogrid jquery libraries--%>
@@ -159,7 +158,7 @@ $(document).ready(function() {
 			document.getElementById("subscription_order_form").submit();
 	});
 
-  (".header").click(function () {
+  $(".header").click(function () {
 
       $header = $(this);
       //getting the next element
@@ -169,12 +168,12 @@ $(document).ready(function() {
           //execute this after slideToggle is done
           //change text of header based on visibility of content div
           if($content.is(":hidden")){
-            $header.find("i").removeClass('fa-chevron-up');
-      			$header.find("i").addClass('fa-chevron-down');
-      		} else {
-      			$header.find("i").removeClass('fa-chevron-down');
-            $header.find("i").addClass('fa-chevron-up');
-      		}
+            $header.find(".fa").removeClass('fa-chevron-up');
+            $header.find(".fa").addClass('fa-chevron-down');
+          } else {
+            $header.find(".fa").removeClass('fa-chevron-down');
+            $header.find(".fa").addClass('fa-chevron-up');
+          }
       });
 
   });
@@ -188,13 +187,10 @@ $(".sub_header").click(function () {
     $content.slideToggle(500, function () {
         //execute this after slideToggle is done
         //change text of header based on visibility of content div
-        if($content.is(":hidden")){
-          $header.find("i").removeClass('fa-chevron-up');
-          $header.find("i").addClass('fa-chevron-down');
-        } else {
-          $header.find("i").removeClass('fa-chevron-down');
-          $header.find("i").addClass('fa-chevron-up');
-        }
+        $header.text(function () {
+            //change text based on condition
+            return $content.is(":visible") ? " - "+this.id : " + "+this.id;
+        });
     });
 
 });
@@ -429,15 +425,14 @@ function showProperties( id, action_param, event) {
                   <tr>
                     <td>
                        <div class="container_expand">
-                      <div id="Description and properties" class="header">
-                        <span>Description and properties</span>
-                        <i class="fa pull-right fa-chevron-up"></i>
+                      <div id="Description and properties" class="header"><span>- Description and properties</span>
+
                       </div>
                       <div class="content">
                         <!-- Description -->
 
                         <div class="sub_container_expand">
-                              <div id="Description" class="sub_header"><span>Description</span>
+                              <div id="Description" class="sub_header"><span>- Description</span>
 
                             </div>
                               <div class="content">
@@ -462,7 +457,7 @@ function showProperties( id, action_param, event) {
                         <!-- Description end -->
 
                         <div class="sub_container_expand">
-                            <div id="Properties" class="sub_header"><span>Properties</span>
+                            <div id="Properties" class="sub_header"><span>- Properties</span>
 
                           </div>
                             <div class="content">
@@ -606,9 +601,8 @@ function showProperties( id, action_param, event) {
 
 
                       <div class="container_expand">
-                      <div id="Draft" class="header">
-                        <span>- Draft</span>
-                        <i class="fa pull-right fa-chevron-up"></i>
+                      <div id="Draft" class="header"><span>- Draft</span>
+
                       </div>
                       <div class="content">
                         <!-- UI Display -->
@@ -700,9 +694,8 @@ function showProperties( id, action_param, event) {
                   </div>
 
                   <div class="container_expand">
-                      <div id="Development" class="header">
-                        <span>Development</span>
-                        <i class="fa pull-right fa-chevron-up"></i>
+                      <div id="Development" class="header"><span>- Development</span>
+
                       </div>
                       <div class="content">
 
@@ -766,9 +759,8 @@ function showProperties( id, action_param, event) {
                   </div>
 
                   <div class="container_expand">
-                      <div id="Production" class="header">
-                        <span>Production</span>
-                        <i class="fa pull-right fa-chevron-up"></i>
+                      <div id="Production" class="header"><span>- Production</span>
+
                       </div>
                       <div class="content">
 
