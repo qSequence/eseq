@@ -169,11 +169,11 @@ $(document).ready(function() {
           //execute this after slideToggle is done
           //change text of header based on visibility of content div
           if($content.is(":hidden")){
-            $header.find(".fa").removeClass('fa-chevron-up');
-      			$header.find(".fa").addClass('fa-chevron-down');
+            $header.find("i").removeClass('fa-chevron-up');
+      			$header.find("i").addClass('fa-chevron-down');
       		} else {
-      			$header.find(".fa").removeClass('fa-chevron-down');
-            $header.find(".fa").addClass('fa-chevron-up');
+      			$header.find("i").removeClass('fa-chevron-down');
+            $header.find("i").addClass('fa-chevron-up');
       		}
       });
 
@@ -188,10 +188,13 @@ $(".sub_header").click(function () {
     $content.slideToggle(500, function () {
         //execute this after slideToggle is done
         //change text of header based on visibility of content div
-        $header.text(function () {
-            //change text based on condition
-            return $content.is(":visible") ? " - "+this.id : " + "+this.id;
-        });
+        if($content.is(":hidden")){
+          $header.find("i").removeClass('fa-chevron-up');
+          $header.find("i").addClass('fa-chevron-down');
+        } else {
+          $header.find("i").removeClass('fa-chevron-down');
+          $header.find("i").addClass('fa-chevron-up');
+        }
     });
 
 });
