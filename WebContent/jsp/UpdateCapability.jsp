@@ -161,7 +161,7 @@
                             <tr>
                               <td>
                                 <form action="UpdateCapability.htm" method="post">
-                                  <table class="table-striped table-hover">
+                                  <table>
                                     <c:if test="${modelUc.property_for_param=='request'}">
                                       <tr>
                                         <td>

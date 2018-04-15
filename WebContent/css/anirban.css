@@ -342,8 +342,16 @@ table .table-header a.btn{
 	width: 234px;
 }
 .captability table.table-striped.table-hover tr td {
-	
+
 }
 .captability table.table-striped.table-hover tr{
 
+}
+.captability table.table-striped.table-hover {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.captability .table-section{
+  padding: 15px;
+  background: #FFFFFF;
 }
