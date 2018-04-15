@@ -156,8 +156,8 @@
                             url="/UpdateCapability.htm?property_for_param=${modelUc.property_for_param}&system_id_param=${modelUc.system_id_param}&request_id_param=${modelUc.request_id_param}&response_id_param=${modelUc.response_id_param}&message=${modelUc.message}"/>
                         </c:if>
                         <div class="row">
-                          <table align="center">
-                            <tr align="center">
+                          <table>
+                            <tr>
                               <td>
                                 <h1>Update Capability</h1>
                               </td>
@@ -165,7 +165,7 @@
                             <tr>
                               <td>
                                 <form action="UpdateCapability.htm" method="post">
-                                  <table align="center">
+                                  <table class="table-striped table-hover">
                                     <c:if test="${modelUc.property_for_param=='request'}">
                                       <tr>
                                         <td>
@@ -234,17 +234,17 @@
                                                 <td>
                                                   <label for="capabilityName">System</label>
                                                 </td>
-                                                <td><input id="system" name="system" type="text" maxlength="50" value="${modelUc.system}"/></td>
+                                                <td><input  id="system" name="system" type="text" maxlength="50" value="${modelUc.system}"/></td>
                                                 <td>
                                                   <label for="sequenceName">
-                                                    <input type="submit" src="/images/login.png" name="system_update" value="Update System"></label>
+                                                    <input class="btn btn-info btn-lg" type="submit" src="/images/login.png" name="system_update" value="Update System"></label>
                                                   </td>
                                                 </tr>
                                               </c:if>
-                                              <tr align="center">
-                                                <td align="center" colspan="3">
+                                              <tr>
+                                                <td colspan="3">
                                                   <input class="btn btn-info btn-lg" type="submit" src="/images/login.png" name="delete" value="Delete Capability">
-                                                    
+
                                                     <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action"/>
 
                                                     <input id="property_for_param" name="property_for_param" type="hidden" value="${modelUc.property_for_param}"/>
@@ -274,38 +274,38 @@
                                           <td>
                                             <c:set var="x" value="0"/>
 
-                                            <table align="center" width="1000" class="table-bordered">
+                                            <table  class="table-striped table-hover">
                                               <!-- DRAFT sequences -->
 
-                                              <tr height="50px">
-                                                <td align="center" colspan="6" bgcolor="#f7f8f9" width="100%">
-                                                  <div style="float:center;width:80%;">
+                                              <tr>
+                                                <td>
+                                                  <div>
                                                     <label for="sequenceName">Used in sequences</label>
                                                   </div>
 
                                                 </td>
                                               </tr>
-                                              <tr height="50px">
-                                                <th bgcolor="#d4fc5a" width="50%">
+                                              <tr>
+                                                <th>
                                                   <label for="sequenceName">Sequence Name</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdDate">Release Status</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdDate">Created Date</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdBy">Created By</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdBy">Category</label>
                                                 </th>
 
                                               </tr>
                                               <c:if test="${modelUc.ucSeqMstDraftList[0]==null and modelUc.ucSeqMstList[0]==null and modelUc.ucSeqMstProdList[0]==null and modelUc.ucSysSeqMstDraftList[0]==null and modelUc.ucSysSeqMstList[0]==null and modelUc.ucSysSeqMstProdList[0]==null}">
-                                                <tr style="background-color: #F0F0F0; color: black;">
-                                                  <td colspan="6">
+                                                <tr>
+                                                  <td>
                                                     <font color="red">No usage found.</font>
                                                   </td>
                                                 </tr>
@@ -314,16 +314,16 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Draft</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/>
+                                                    <td>Draft</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/>
                                                     </td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -331,15 +331,15 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Draft</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Draft</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -351,15 +351,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Draft</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Draft</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -367,16 +367,16 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Draft</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/>
+                                                    <td>Draft</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/>
                                                     </td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -388,15 +388,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Development</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Development</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -404,15 +404,15 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Development</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Development</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -424,15 +424,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Development</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Development</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -440,15 +440,15 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Development</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Development</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -460,15 +460,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Production</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Production</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -476,15 +476,15 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Production</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Production</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -496,15 +496,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Production</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Production</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -512,15 +512,15 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Production</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Production</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -529,35 +529,35 @@
                                               </c:forEach>
                                             </table>
                                             <!--END Production system sequences -->
-                                            <table align="center" width="1000" class="table-bordered">
-                                              <tr height="50px">
-                                                <td align="center" colspan="5" bgcolor="#f7f8f9" width="100%">
-                                                  <div style="float:center;width:80%;">
+                                            <table class="table-striped table-hover">
+                                              <tr>
+                                                <td>
+                                                  <div>
                                                     <label for="sequenceName">Capability sequences</label>
                                                   </div>
 
                                                 </td>
                                               </tr>
-                                              <tr height="50px">
-                                                <th bgcolor="#d4fc5a" width="50%">
+                                              <tr>
+                                                <th>
                                                   <label for="sequenceName">Sequence Name</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdDate">Release Status</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdDate">Created Date</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdBy">Created By</label>
                                                 </th>
-                                                <th bgcolor="#d4fc5a">
+                                                <th>
                                                   <label for="createdBy">Category</label>
                                                 </th>
 
                                               </tr>
                                               <c:if test="${modelUc.ucCapSysSeqMstDraftList[0]==null and modelUc.ucCapSysSeqMstList[0]==null and modelUc.ucCapSysSeqMstProdList[0]==null}">
-                                                <tr style="background-color: #F0F0F0; color: black;">
+                                                <tr>
                                                   <td colspan="5">
                                                     <font color="red">No capability sequence found.</font>
                                                   </td>
@@ -567,15 +567,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Draft</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Draft</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -583,16 +583,16 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Draft</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/>
+                                                    <td>Draft</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/>
                                                     </td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -603,15 +603,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Development</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Development</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -619,15 +619,15 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Development</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Development</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
@@ -638,15 +638,15 @@
 
                                                 <c:set var="changed" value="false"/>
                                                 <c:if test="${x=='0' && changed=='false'}">
-                                                  <tr style="background-color: #F0F0F0; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Production</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Production</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="changed" value="true"/>
                                                     <c:set var="x" value="1"/>
@@ -654,15 +654,15 @@
                                                 </c:if>
 
                                                 <c:if test="${x=='1' && changed=='false'}">
-                                                  <tr style="background-color:#E8E8E8; color: black;">
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                  <tr>
+                                                    <td>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><img id='${seqMst.sysSeqId}' src="images/yellow_+_button.png"/></a>
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
+                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
-                                                    <td align="center">Production</td>
-                                                    <td align="center"><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
-                                                    <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                                                    <td align="center">${seqMst.catName}</td>
+                                                    <td>Production</td>
+                                                    <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
+                                                    <td>${seqMst.usernameAndTeamCreated}</td>
+                                                    <td>${seqMst.catName}</td>
 
                                                     <c:set var="x" value="0"/>
 
