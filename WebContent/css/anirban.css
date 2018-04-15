@@ -335,3 +335,6 @@ table .table-header a.btn{
   border-top-color: #d6e9c6;
   border-top: 1px solid #ddd;
 }
+.table-borderless tr td{
+  border: 0px;
+}
