@@ -4,6 +4,7 @@
 <title>View >>> Interface <<<</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/jquery-ui.css" />">
 <link rel="stylesheet" href="<c:url value="/a.css" />"  type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <%--  12 Oct added combogrid jquery libraries--%>
@@ -426,14 +427,14 @@ function showProperties( id, action_param, event) {
                     <td>
                        <div class="container_expand">
                       <div id="Description and properties" class="header">
-                        <span>- Description and properties</span>
+                        <span>Description and properties</span>
                         <i class="fa pull-right fa-chevron-up"></i>
                       </div>
                       <div class="content">
                         <!-- Description -->
 
                         <div class="sub_container_expand">
-                              <div id="Description" class="sub_header"><span>- Description</span>
+                              <div id="Description" class="sub_header"><span>Description</span>
 
                             </div>
                               <div class="content">
@@ -458,7 +459,7 @@ function showProperties( id, action_param, event) {
                         <!-- Description end -->
 
                         <div class="sub_container_expand">
-                            <div id="Properties" class="sub_header"><span>- Properties</span>
+                            <div id="Properties" class="sub_header"><span>Properties</span>
 
                           </div>
                             <div class="content">
@@ -602,8 +603,9 @@ function showProperties( id, action_param, event) {
 
 
                       <div class="container_expand">
-                      <div id="Draft" class="header"><span>- Draft</span>
-
+                      <div id="Draft" class="header">
+                        <span>- Draft</span>
+                        <i class="fa pull-right fa-chevron-up"></i>
                       </div>
                       <div class="content">
                         <!-- UI Display -->
@@ -695,8 +697,9 @@ function showProperties( id, action_param, event) {
                   </div>
 
                   <div class="container_expand">
-                      <div id="Development" class="header"><span>- Development</span>
-
+                      <div id="Development" class="header">
+                        <span>Development</span>
+                        <i class="fa pull-right fa-chevron-up"></i>
                       </div>
                       <div class="content">
 
@@ -760,8 +763,9 @@ function showProperties( id, action_param, event) {
                   </div>
 
                   <div class="container_expand">
-                      <div id="Production" class="header"><span>- Production</span>
-
+                      <div id="Production" class="header">
+                        <span>Production</span>
+                        <i class="fa pull-right fa-chevron-up"></i>
                       </div>
                       <div class="content">
 
