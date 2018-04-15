@@ -418,9 +418,8 @@ function showProperties( id, action_param, event) {
           <c:set var="x" value="0" />
                 <table align="center"  width="1200 px">
 
-                  <tr height="10px"><td  align="center"  bgcolor="gray" width="100%" ></td></tr>
 
-                  <tr style="background-color: #F0F0F0; color: black;">
+                  <tr>
                     <td>
                        <div class="container_expand">
                       <div id="Description and properties" class="header"><span>- Description and properties</span>
