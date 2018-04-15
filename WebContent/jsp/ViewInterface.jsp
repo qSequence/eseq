@@ -4,6 +4,7 @@
 <title>View >>> Interface <<<</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/jquery-ui.css" />">
 <link rel="stylesheet" href="<c:url value="/a.css" />"  type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <%--  12 Oct added combogrid jquery libraries--%>
@@ -187,10 +188,13 @@ $(".sub_header").click(function () {
     $content.slideToggle(500, function () {
         //execute this after slideToggle is done
         //change text of header based on visibility of content div
-        $header.text(function () {
-            //change text based on condition
-            return $content.is(":visible") ? " - "+this.id : " + "+this.id;
-        });
+        if($content.is(":hidden")){
+          $header.find(".fa").removeClass('fa-chevron-up');
+          $header.find(".fa").addClass('fa-chevron-down');
+        } else {
+          $header.find(".fa").removeClass('fa-chevron-down');
+          $header.find(".fa").addClass('fa-chevron-up');
+        }
     });
 
 });
@@ -425,8 +429,9 @@ function showProperties( id, action_param, event) {
                   <tr>
                     <td>
                        <div class="container_expand">
-                      <div id="Description and properties" class="header"><span>- Description and properties</span>
-
+                      <div id="Description and properties" class="header">
+                        <span>- Description and properties</span>
+                        <i class="fa fa-chevron-up pull-right"></i>
                       </div>
                       <div class="content">
                         <!-- Description -->
