@@ -346,9 +346,11 @@ function showProperties( id, action_param, event) {
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="hostCluster" class="col-lg-2 control-label">Host Cluster</label>
-                    <font color="red" size="1px">${modelUc.descMessage}</font>
-                    <div class="col-lg-12">
+                    <div class="col-lg-3">
+                      <label for="hostCluster" class="col-lg-2 control-label">Host Cluster</label>
+                      <font color="red" size="1px">${modelUc.descMessage}</font>
+                    </div>
+                    <div class="col-lg-9">
                       <a class="btn btn-info btn-raised" target="_blank" href="<c:url value=" HostClusterList.htm?user_request_action_param=default_action "/>">>>Host Cluster List<<</a>
                     </div>
                   </div>
@@ -363,6 +365,56 @@ function showProperties( id, action_param, event) {
                     </div>
                   </div>
 
+                </c:if>
+
+                <c:if test="${modelUc.propertyFor!='system'}">
+                   <div class="form-group">
+                     <div class="col-lg-12">
+                       <label for="sample">Sample ${modelUc.propertyFor}</label>
+                       <font color="red" size="1px">${modelUc.sampleMessage}</font>
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <div class="col-lg-12">
+                       <textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="100" rows="4">${modelUc.sample}</textarea>
+                     </div>
+                   </div>
+                   <c:if test="${modelUc.propertyFor=='response'}">
+                     <div class="form-group">
+                       <label for="sample">Sample failure ${modelUc.propertyFor}</label>
+                       <font color="red" size="1px">${modelUc.sampleFailureMessage}</font>
+                       <div class="col-lg-12">
+                         <textarea maxlength="3900" name="sampleFailureTA" id="sampleFailureTA" cols="100" rows="4">${modelUc.sampleFailure}</textarea>
+                       </div>
+                     </div>
+                   </c:if>
+                   <c:if test="${ fn:containsIgnoreCase(modelUc.systemType, 'portal')  or fn:containsIgnoreCase(modelUc.systemType, 'application_server') or fn:containsIgnoreCase(modelUc.systemType, 'phone_app')}">
+                      <c:if test="${modelUc.propertyFor=='request'}">
+                        <div class="form-group">
+                          <label for="imageUrl">Image Url</label>
+                          <font color="red" size="1px">${modelUc.urlMessage}</font>
+                          <div class="col-lg-12">
+                            <input id="imageUrl" name="imageUrl" type="text" size="100" maxlength="1900" value="${modelUc.imageUrl}" />
+                          </div>
+                        </div>
+                      </c:if>
+                      <c:if test="${modelUc.propertyFor=='response'}">
+                        <div class="form-group">
+                          <label for="imageUrl">Image Url Success Response</label>
+                          <font color="red" size="1px">${modelUc.urlMessage}</font>
+                          <div class="col-lg-12">
+                            <input id="imageUrl" name="imageUrl" type="text" size="100" maxlength="1900" value="${modelUc.imageUrl}" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="failureImageUrl">Image Url Failure Response</label>
+                          <font color="red" size="1px">${modelUc.urlMessage}</font>
+                          <div class="col-lg-12">
+                            <input id="failureImageUrl" name="failureImageUrl" type="text" size="100" maxlength="1900" value="${modelUc.failureImageUrl}" />
+                          </div>
+                        </div>
+                      </c:if>
+                   </c:if>
                 </c:if>
               </div>
             </div>
@@ -386,56 +438,7 @@ function showProperties( id, action_param, event) {
    <table align="center" border="0" width=80%>
 
 
-      <c:if test="${modelUc.propertyFor!='system'}">
-         <tr>
-            <td colspan="3"><label for="sample">Sample ${modelUc.propertyFor}</label>&nbsp;&nbsp;&nbsp;
-               <font color="red" size="1px">${modelUc.sampleMessage}</font>
-            </td>
-         </tr>
-         <tr>
-            <td colspan="3"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="100" rows="4">${modelUc.sample}</textarea></td>
-         </tr>
-         <c:if test="${modelUc.propertyFor=='response'}">
-            <tr>
-               <td colspan="3"><label for="sample">Sample failure ${modelUc.propertyFor}</label>&nbsp;&nbsp;&nbsp;
-                  <font color="red" size="1px">${modelUc.sampleFailureMessage}</font>
-               </td>
-            </tr>
-            <tr>
-               <td colspan="3"><textarea maxlength="3900" name="sampleFailureTA" id="sampleFailureTA" cols="100" rows="4">${modelUc.sampleFailure}</textarea></td>
-            </tr>
-         </c:if>
-         <c:if test="${ fn:containsIgnoreCase(modelUc.systemType, 'portal')  or fn:containsIgnoreCase(modelUc.systemType, 'application_server') or fn:containsIgnoreCase(modelUc.systemType, 'phone_app')}">
-            <c:if test="${modelUc.propertyFor=='request'}">
-               <tr>
-                  <td colspan="3"><label for="imageUrl">Image Url</label>&nbsp;&nbsp;&nbsp;
-                     <font color="red" size="1px">${modelUc.urlMessage}</font>
-                  </td>
-               </tr>
-               <tr>
-                  <td colspan="3"><input id="imageUrl" name="imageUrl" type="text" size="100" maxlength="1900" value="${modelUc.imageUrl}" /></td>
-               </tr>
-            </c:if>
-            <c:if test="${modelUc.propertyFor=='response'}">
-               <tr>
-                  <td colspan="3"><label for="imageUrl">Image Url Success Response</label>&nbsp;&nbsp;&nbsp;
-                     <font color="red" size="1px">${modelUc.urlMessage}</font>
-                  </td>
-               </tr>
-               <tr>
-                  <td colspan="3"><input id="imageUrl" name="imageUrl" type="text" size="100" maxlength="1900" value="${modelUc.imageUrl}" /></td>
-               </tr>
-               <tr>
-                  <td colspan="3"><label for="failureImageUrl">Image Url Failure Response</label>&nbsp;&nbsp;&nbsp;
-                     <font color="red" size="1px">${modelUc.urlMessage}</font>
-                  </td>
-               </tr>
-               <tr>
-                  <td colspan="3"><input id="failureImageUrl" name="failureImageUrl" type="text" size="100" maxlength="1900" value="${modelUc.failureImageUrl}" /></td>
-               </tr>
-            </c:if>
-         </c:if>
-      </c:if>
+
       <tr>
          <td><label for="propertyName">Property Name</label></td>
          <td><label for="propertyValue">Property Value</label>&nbsp;&nbsp;&nbsp;
