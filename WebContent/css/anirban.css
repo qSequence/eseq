@@ -370,10 +370,12 @@ table .table-header a.btn{
 }
 .properties .form-group input{
   width: 100%;
+  height: 40px;
 }
 .properties .form-group textarea{
   width: 100%;
 }
 .properties .form-group {
 	overflow: auto;
+  margin-bottom: 5px;
 }

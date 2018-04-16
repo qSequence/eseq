@@ -450,14 +450,16 @@ function showProperties( id, action_param, event) {
 
         </div>
         <div class="col-lg-12 pull-right">
-            <input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}" />
-            <c:if test="${modelUc.user_request_action_param!='view_properties_action_param'}">
-              <c:if test="${modelUc.userReadWriteAccess=='true'}">
-                <input id="form_submit_button" class="btn btn-primary btn-raised" type="button" style="width:105px" value="Save">
-                <a align="right" class="button btn btn-info btn-raised" href="<c:url value=" UpdateCapability.htm?property_for_param=${modelUc.propertyFor}&system_id_param=${modelUc.systemId}&system_type_param=${modelUc.systemType}&request_id_param=${modelUc.requestId}&response_id_param=${modelUc.responseId} "/>">Update capability</a>
+            <div class="col-lg-12">
+              <input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}" />
+              <c:if test="${modelUc.user_request_action_param!='view_properties_action_param'}">
+                <c:if test="${modelUc.userReadWriteAccess=='true'}">
+                  <input id="form_submit_button" class="btn btn-primary btn-raised" type="button" style="width:105px" value="Save">
+                  <a align="right" class="button btn btn-info btn-raised" href="<c:url value=" UpdateCapability.htm?property_for_param=${modelUc.propertyFor}&system_id_param=${modelUc.systemId}&system_type_param=${modelUc.systemType}&request_id_param=${modelUc.requestId}&response_id_param=${modelUc.responseId} "/>">Update capability</a>
+                </c:if>
+                <font color="red">${modelUc.error}</font>
               </c:if>
-              <font color="red">${modelUc.error}</font>
-            </c:if>
+            </div>
         </div>
     </div>
 
