@@ -308,9 +308,9 @@
                                                 <c:if test="${x=='0' && changed=='false'}">
                                                   <tr>
                                                     <td>
-                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
+                                                    <td><a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><i class="mdi-image-edit"></i></a></td>
                                                     <td>Draft</td>
                                                     <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/>
                                                     </td>
@@ -325,9 +325,9 @@
                                                 <c:if test="${x=='1' && changed=='false'}">
                                                   <tr>
                                                     <td>
-                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
+                                                    <td><a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><i class="mdi-image-edit"></i></a></td>
                                                     <td>Draft</td>
                                                     <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
                                                     <td>${seqMst.usernameAndTeamCreated}</td>
@@ -386,9 +386,9 @@
                                                 <c:if test="${x=='0' && changed=='false'}">
                                                   <tr>
                                                     <td>
-                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
+                                                    <td><a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a></td>
                                                     <td>Development</td>
                                                     <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
                                                     <td>${seqMst.usernameAndTeamCreated}</td>
@@ -402,9 +402,9 @@
                                                 <c:if test="${x=='1' && changed=='false'}">
                                                   <tr>
                                                     <td>
-                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
+                                                    <td><a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a></td>
                                                     <td>Development</td>
                                                     <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
                                                     <td>${seqMst.usernameAndTeamCreated}</td>
@@ -460,9 +460,9 @@
                                                 <c:if test="${x=='0' && changed=='false'}">
                                                   <tr>
                                                     <td>
-                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
+                                                    <td><a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a></td>
                                                     <td>Production</td>
                                                     <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
                                                     <td>${seqMst.usernameAndTeamCreated}</td>
@@ -476,9 +476,9 @@
                                                 <c:if test="${x=='1' && changed=='false'}">
                                                   <tr>
                                                     <td>
-                                                      <a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><img id='${seqMst.seqMstId}' src="images/yellow_+_button.png"/></a>
                                                       <a target="_blank" class="bottom seq-margin yellow-tooltip" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                                                     </td>
+                                                    <td><a target="_blank" class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a></td>
                                                     <td>Production</td>
                                                     <td><fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a" value="${seqMst.createdDate}"/></td>
                                                     <td>${seqMst.usernameAndTeamCreated}</td>
