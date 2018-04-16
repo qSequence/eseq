@@ -346,7 +346,7 @@ function showProperties( id, action_param, event) {
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="col-lg-9 pull-right">
+                    <div class="col-lg-12">
                       <a class="btn btn-info btn-raised" target="_blank" href="<c:url value=" HostClusterList.htm?user_request_action_param=default_action "/>">>>Host Cluster List<<</a>
                     </div>
                   </div>
