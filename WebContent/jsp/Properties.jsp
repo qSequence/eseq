@@ -325,28 +325,40 @@ function showProperties( id, action_param, event) {
 
 
 <form id="subscription_order_form" action="Properties.htm" method="post">
-   <input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}" />
+
+  <div class="properties">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-12">
+                <label for="description">Description</label>
+                <font color="red" size="1px">${modelUc.descMessage}</font>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <textarea maxlength="3900" name="descriptionTA" id="descriptionTA" cols="100" rows="4">${modelUc.description}</textarea>
+              </div>
+            </div>
+
+        </div>
+        <div class="col-lg-12 pull-right">
+            <input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}" />
+            <c:if test="${modelUc.user_request_action_param!='view_properties_action_param'}">
+              <c:if test="${modelUc.userReadWriteAccess=='true'}">
+                <input id="form_submit_button" class="btn btn-primary btn-raised" type="button" style="width:105px" value="Save">
+                <a align="right" class="button btn btn-info btn-raised" href="<c:url value=" UpdateCapability.htm?property_for_param=${modelUc.propertyFor}&system_id_param=${modelUc.systemId}&system_type_param=${modelUc.systemType}&request_id_param=${modelUc.requestId}&response_id_param=${modelUc.responseId} "/>">Update capability</a>
+              </c:if>
+              <font color="red">${modelUc.error}</font>
+            </c:if>
+        </div>
+    </div>
+
+
+  </div>
+
    <table align="center" border="0" width=80%>
-      <tr>
-         <td colspan="2"><label for="description">Description</label>&nbsp;&nbsp;&nbsp;
-            <font color="red" size="1px">${modelUc.descMessage}</font>
-         </td>
-         <c:if test="${modelUc.user_request_action_param!='view_properties_action_param'}">
-            <td>
-               <c:if test="${modelUc.userReadWriteAccess=='true'}">
-                  <div style="float:right;"><input id="form_submit_button" class="button" type="button" style="width:105px" value="Save"><br /><br />
-                     <a align="right" class="button" href="<c:url value=" UpdateCapability.htm?property_for_param=${modelUc.propertyFor}&system_id_param=${modelUc.systemId}&system_type_param=${modelUc.systemType}&request_id_param=${modelUc.requestId}&response_id_param=${modelUc.responseId}
-                        "/>">Update capability</a>
-                  </div>
-               </c:if>
-               &nbsp;&nbsp;&nbsp;
-               <font color="red">${modelUc.error}</font>
-            </td>
-         </c:if>
-      </tr>
-      <tr>
-         <td colspan="3"><textarea maxlength="3900" name="descriptionTA" id="descriptionTA" cols="100" rows="4">${modelUc.description}</textarea></td>
-      </tr>
+
       <c:if test="${modelUc.propertyFor=='system'}">
          <tr>
             <td colspan="3"><label for="hostCluster">Host Cluster</label>&nbsp;&nbsp;&nbsp;
