@@ -427,9 +427,9 @@
           </div>
         </div>
       </div>
-    </div>
 </c:forEach>
 </c:if>
+</div>
 <script type="text/javascript">
 $(function () {
   // Smooth Scroll
@@ -461,7 +461,7 @@ $('.accordion-2a, .accordion-2b, .accordion-3').on('hide.bs.collapse', function(
 
 
 
-</div>
+
 <br/><br/><br/><br/><br/>
 ${modelUc.footerLineBreaks}
 <%@ include file="footer.jsp"%>
