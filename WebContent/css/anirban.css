@@ -317,7 +317,7 @@ table .table-header a.btn{
 	margin-top: 10px;
 }
 .wrap-table-del .container_expand div,.wrap-table-del .sub_container_expand div{
-    /*! width:100%; */
+  width:100%;
 }
 .wrap-table-del .container_expand .header,.wrap-table-del .sub_container_expand .sub_header {
   color: #3c763d;
