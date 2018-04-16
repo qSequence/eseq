@@ -425,15 +425,6 @@ function showProperties( id, action_param, event) {
                     <font color="red" size="1px">${modelUc.propMessage}</font>
                   </div>
                 </div>
-                <div class="form-group">
-                  <div class="col-lg-6">
-                    <label for="propertyName">Property Name</label>
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="propertyValue">Property Value</label>
-                    <font color="red" size="1px">${modelUc.propMessage}</font>
-                  </div>
-                </div>
                 <c:forEach items="${modelUc.ucSeqDiagramPropertyList}" var="ucSeqDiagramProperty" varStatus="status" begin="0" end="${modelUc.numberOfPropertiesAllowed}">
                    <c:if test="${ucSeqDiagramProperty.propertyId==null}">
                      <div class="form-group">
