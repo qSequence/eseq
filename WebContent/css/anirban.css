@@ -362,3 +362,6 @@ table .table-header a.btn{
 .captability label{
   margin-bottom: 0px;
 }
+.captability .table-section label{
+  margin-right: 15px;
+}
