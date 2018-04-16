@@ -292,20 +292,16 @@ function showProperties( id, action_param, event) {
 
 <div class="container">
 
+<div class="text-center">
+  <h1>Edit Information</h1>
+  <h3>${modelUc.ucSeqDiagramName}</h3>
+  <div class="LL">
+    <c:if test="${(modelUc.ucSeqMst.seqMstId!=null and modelUc.ucSeqMst.seqMstId!='' and modelUc.ucSeqMst.seqMstId!='0') or (modelUc.sysSeqId !=null and modelUc.sysSeqId !='' and modelUc.sysSeqId !='0')}">
+       <a href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&sequenceVersion=${modelUc.sequenceVersion}&sys_seq_id=${modelUc.sysSeqId}"/>">&lt;&lt;&nbsp;Back to ${modelUc.ucSeqMst.seqName}</a>
+    </c:if>
+  </div>
+</div>
 
-  <table align="center" border="0" width=80%>
-     <tr>
-        <td colspan="2">
-           <h1>Edit Information</h1>
-           <h2> ${modelUc.ucSeqDiagramName}</h2>
-        </td>
-        <td style="text-align:right;">
-           <c:if test="${(modelUc.ucSeqMst.seqMstId!=null and modelUc.ucSeqMst.seqMstId!='' and modelUc.ucSeqMst.seqMstId!='0') or (modelUc.sysSeqId !=null and modelUc.sysSeqId !='' and modelUc.sysSeqId !='0')}">
-              <a href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&sequenceVersion=${modelUc.sequenceVersion}&sys_seq_id=${modelUc.sysSeqId}"/>">&lt;&lt;&nbsp;Back to ${modelUc.ucSeqMst.seqName}</a>
-           </c:if>
-        </td>
-     </tr>
-  </table>
   <div class="container_expand">
      <div class="header"><span>Expand copy information</span>
      </div>
