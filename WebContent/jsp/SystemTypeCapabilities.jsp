@@ -355,7 +355,7 @@
                     <tr>
                       <td><label>System</label></td>
                       <td><label data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemObj.systemDescription}">${systemObj.systemName} (${systemObj.usedCount})</label></td>
-                      <td>
+                      <td style="width: 200px;">
                         <c:if test="${systemObj.ownerAccess==true}">
                           <a class="btn btn-default" target="_blank" href="<c:url value="UpdateCapability.htm?property_for_param=system&system_id_param=${systemObj.systemId}"/>" role="button">Update capability</a>
                         </c:if>
@@ -391,7 +391,7 @@
                           <tr>
                             <td><label>Request</label></td>
                             <td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.requestDescription}">${systemDisplaySubObject.requestResponseSystemSearch.requestName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
-                            <td>
+                            <td style="width: 200px;">
                               <c:if test="${systemDisplaySubObject.ownerAccess==true}">
                                 <a class="btn btn-default" href="<c:url value=" UpdateCapability.htm?property_for_param=request&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}
                                   "/>" role="button">Update capability</a>
@@ -401,7 +401,7 @@
                           <tr>
                             <td><label>Response</label></td>
                             <td><label class="bottom seq-margin yellow-tooltip" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${systemDisplaySubObject.requestResponseSystemSearch.responseDescription}">${systemDisplaySubObject.requestResponseSystemSearch.responseName}(${systemDisplaySubObject.requestResponseSystemSearch.requestUsedInSequence})</label></td>
-                            <td>
+                            <td style="width: 200px;">
                               <c:if test="${systemDisplaySubObject.ownerAccess==true}">
                                 <a class="btn btn-default" href="<c:url value=" UpdateCapability.htm?property_for_param=response&system_id_param=${systemDisplaySubObject.requestResponseSystemSearch.systemId}&system_type_param=${systemDisplaySubObject.requestResponseSystemSearch.systemType}&request_id_param=${systemDisplaySubObject.requestResponseSystemSearch.requestId}&response_id_param=${systemDisplaySubObject.requestResponseSystemSearch.responseId}
                                   "/>" role="button">Update capability</a>
