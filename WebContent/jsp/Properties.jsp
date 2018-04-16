@@ -331,13 +331,39 @@ function showProperties( id, action_param, event) {
         <div class="col-lg-12">
             <div class="row">
               <div class="col-lg-12">
-                <label for="description">Description</label>
-                <font color="red" size="1px">${modelUc.descMessage}</font>
+
               </div>
             </div>
             <div class="row">
               <div class="col-lg-12">
-                <textarea maxlength="3900" name="descriptionTA" id="descriptionTA" cols="100" rows="4">${modelUc.description}</textarea>
+                <c:if test="${modelUc.propertyFor=='system'}">
+
+                  <div class="form-group">
+                    <label for="description" class="col-lg-2 control-label">Description</label>
+                    <font color="red" size="1px">${modelUc.descMessage}</font>
+                    <div class="col-lg-12">
+                      <textarea maxlength="3900" name="descriptionTA" id="descriptionTA" cols="100" rows="4">${modelUc.description}</textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="hostCluster" class="col-lg-2 control-label">Host Cluster</label>
+                    <font color="red" size="1px">${modelUc.descMessage}</font>
+                    <div class="col-lg-12">
+                      <a class="btn btn-info btn-raised" target="_blank" href="<c:url value=" HostClusterList.htm?user_request_action_param=default_action "/>">>>Host Cluster List<<</a>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-12">
+                      <input id="hostClusterName" name="hostClusterName" type="text" size="115" maxlength="100" value="${modelUc.hostClusterName}" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-12">
+                      <input id="hostId" name="hostId" type="hidden" size="100" maxlength="100" value="${modelUc.hostId}" />
+                    </div>
+                  </div>
+
+                </c:if>
               </div>
             </div>
 
@@ -359,20 +385,7 @@ function showProperties( id, action_param, event) {
 
    <table align="center" border="0" width=80%>
 
-      <c:if test="${modelUc.propertyFor=='system'}">
-         <tr>
-            <td colspan="3"><label for="hostCluster">Host Cluster</label>&nbsp;&nbsp;&nbsp;
-               <font color="red" size="1px">${modelUc.hostClusterMessage}</font>
-               <a target="_blank" href="<c:url value=" HostClusterList.htm?user_request_action_param=default_action "/>">>>Host Cluster List<<</a>
-            </td>
-         </tr>
-         <tr>
-            <td colspan="3"><input id="hostClusterName" name="hostClusterName" type="text" size="115" maxlength="100" value="${modelUc.hostClusterName}" /></td>
-         </tr>
-         <tr>
-            <td colspan="3"><input id="hostId" name="hostId" type="hidden" size="100" maxlength="100" value="${modelUc.hostId}" /></td>
-         </tr>
-      </c:if>
+
       <c:if test="${modelUc.propertyFor!='system'}">
          <tr>
             <td colspan="3"><label for="sample">Sample ${modelUc.propertyFor}</label>&nbsp;&nbsp;&nbsp;
