@@ -365,3 +365,6 @@ table .table-header a.btn{
 .captability .table-section label{
   margin-right: 15px;
 }
+.captability table.table-striped.table-hover tr th:first-child,.captability table.table-striped.table-hover tr td:first-child {
+	width: 400px;
+}
