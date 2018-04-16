@@ -178,7 +178,7 @@
                                         <td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}"/></td>
                                         <td>
                                           <label for="sequenceName">
-                                            <input type="submit" src="/images/login.png" name="request_update" value="Update Request"></label>
+                                            <input type="submit" src="/images/login.png" name="request_update" class="btn btn-primary btn-sm" value="Update Request"></label>
                                           </td>
                                         </tr>
                                         <tr>
@@ -189,7 +189,7 @@
                                           <td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}"/></td>
                                           <td>
                                             <label for="sequenceName">
-                                              <input type="submit" src="/images/login.png" name="response_update" value="Update Response"></label>
+                                              <input type="submit" src="/images/login.png" name="response_update" class="btn btn-primary btn-sm" value="Update Response"></label>
                                             </td>
                                           </tr>
                                         </c:if>
@@ -209,7 +209,7 @@
                                             <td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}"/></td>
                                             <td>
                                               <label for="sequenceName">
-                                                <input type="submit" src="/images/login.png" name="request_update" value="Update Request"></label>
+                                                <input type="submit" src="/images/login.png" name="request_update" class="btn btn-primary btn-sm" value="Update Request"></label>
                                               </td>
                                             </tr>
                                             <tr>
@@ -220,7 +220,7 @@
                                               <td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}"/></td>
                                               <td>
                                                 <label for="sequenceName">
-                                                  <input type="submit" src="/images/login.png" name="response_update" value="Update Response"></label>
+                                                  <input type="submit" src="/images/login.png" name="response_update" class="btn btn-primary btn-sm" value="Update Response"></label>
                                                 </td>
                                               </tr>
                                             </c:if>
