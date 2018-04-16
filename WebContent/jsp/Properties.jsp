@@ -14,8 +14,8 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
 <link href="css/anirban.css" rel="stylesheet">
 <script type="text/javascript" src="<c:url value="/javascript/utils.js"/>"></script>
 
@@ -302,22 +302,24 @@ function showProperties( id, action_param, event) {
   </div>
 </div>
 
-  <div class="container_expand">
-     <div class="header"><span>Expand copy information</span>
-     </div>
-     <div class="content">
-        <p>Copy Information from</p>
-        <input id="comboGrid_${modelUc.propertyFor}" name="informationCopy" type="text" size="50" maxlength="1900"  />
-        <img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="
-        <c:url value="/images/information_injection_gray.png" />
-        "
-        onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucSeqMst.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}','prop_copy_view', event);">
-        <button id="copy_submit_button"  type="button">Copy</button>
-        <input id="copy_system_id_param" name="copy_system_id_param" type="hidden" value="" />
-        <input id="copy_request_id_param" name="copy_request_id_param" type="hidden" value="" />
-        <input id="copy_response_id_param" name="copy_response_id_param" type="hidden" value="" />
-     </div>
+<div class="container_expand">
+  <div class="header">
+    <span>Expand copy information</span>
+    <i class="fa fa-chevron-up pull-right"></i>
   </div>
+  <div class="content">
+    <p>Copy Information from</p>
+    <input id="comboGrid_${modelUc.propertyFor}" name="informationCopy" type="text" size="50" maxlength="1900"  />
+    <img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="
+    <c:url value="/images/information_injection_gray.png" />
+    "
+    onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucSeqMst.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}','prop_copy_view', event);">
+    <button id="copy_submit_button"  type="button">Copy</button>
+    <input id="copy_system_id_param" name="copy_system_id_param" type="hidden" value="" />
+    <input id="copy_request_id_param" name="copy_request_id_param" type="hidden" value="" />
+    <input id="copy_response_id_param" name="copy_response_id_param" type="hidden" value="" />
+  </div>
+</div>
 
 
 <form id="subscription_order_form" action="Properties.htm" method="post">
