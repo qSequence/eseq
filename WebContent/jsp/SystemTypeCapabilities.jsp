@@ -339,7 +339,7 @@
 </div>
 <c:if test="${modelUc.systemType.systemDisplayObjectList[0]!=null}">
 <c:forEach items='${modelUc.systemType.systemDisplayObjectList}' var="systemObj">
-  <div class="wrap-table-del">
+  <div class="wrap-table-del center-content">
 
     <div class="container_expand">
       <div class="header">
