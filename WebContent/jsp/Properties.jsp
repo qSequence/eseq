@@ -346,11 +346,9 @@ function showProperties( id, action_param, event) {
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="col-lg-3">
-                      <label for="hostCluster" class="col-lg-2 control-label">Host Cluster</label>
-                      <font color="red" size="1px">${modelUc.descMessage}</font>
-                    </div>
-                    <div class="col-lg-9">
+                    <label for="hostCluster" class="col-lg-2 control-label">Host Cluster</label>
+                    <font color="red" size="1px">${modelUc.descMessage}</font>
+                    <div class="col-lg-9 pull-right">
                       <a class="btn btn-info btn-raised" target="_blank" href="<c:url value=" HostClusterList.htm?user_request_action_param=default_action "/>">>>Host Cluster List<<</a>
                     </div>
                   </div>
