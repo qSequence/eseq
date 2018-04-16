@@ -374,3 +374,6 @@ table .table-header a.btn{
 .properties .form-group textarea{
   width: 100%;
 }
+.properties .form-group {
+	overflow: auto;
+}
