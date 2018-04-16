@@ -368,3 +368,6 @@ table .table-header a.btn{
 .captability table.table-striped.table-hover tr th:first-child,.captability table.table-striped.table-hover tr td:first-child {
 	width: 400px;
 }
+.properties .form-group input{
+  width: 100%;
+}
