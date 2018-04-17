@@ -178,23 +178,23 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      <div class="form-group">
                        <label for="sequenceName" class="col-lg-12 control-label">Sequence Name*</label>
                        <div class="col-lg-12">
-                         <input id="sequenceName" class="form-control" name="sequenceName" type="text" maxlength="100" />
-                         <input id="number_of_sequences_param" class="form-control" name="number_of_sequences_param" type="hidden" value="${modelUc.numberOfSequences}" />
-                         <input id="user_request_action_param" class="form-control" name="user_request_action_param" type="hidden" value="save_sequence_action" />
+                         <input id="sequenceName" name="sequenceName" type="text" maxlength="100" />
+                         <input id="number_of_sequences_param" name="number_of_sequences_param" type="hidden" value="${modelUc.numberOfSequences}" />
+                         <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action" />
                        </div>
                      </div>
                      <div class="form-group">
                        <label for="category" class="col-lg-12 control-label">Select Category*</label>
                        <div class="col-lg-12">
-                         <input id="catName" class="form-control" name="catName" type="text" maxlength="100" />
-                         <input id="catId" class="form-control" name="catId" type="hidden"  />
+                         <input id="catName" name="catName" type="text" maxlength="100" />
+                         <input id="catId" name="catId" type="hidden"  />
                        </div>
                      </div>
                      <div class="form-group">
                        <label for="sequenceName" class="col-lg-12 control-label">User level access</label>
                        <div class="col-lg-12">
-                         <input id="userName" class="form-control" name="userName" type="text" maxlength="100" />
-                         <input id="userId" class="form-control" name="userId" type="hidden" />
+                         <input id="userName" name="userName" type="text" maxlength="100" />
+                         <input id="userId" name="userId" type="hidden" />
                        </div>
                      </div>
                      <div class="form-group">
@@ -234,7 +234,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                     <form action="ViewSequenceList.htm" method="post">
                       <div class="form-group">
                         <div class="col-lg-12">
-                          <input id="searchString" class="form-control" name="searchString" type="text" size="50" maxlength="1900"/>
+                          <input id="searchString" name="searchString" type="text" size="50" maxlength="1900"/>
                         </div>
                       </div>
                       <div class="form-group">
