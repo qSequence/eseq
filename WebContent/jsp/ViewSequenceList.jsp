@@ -169,73 +169,68 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
      </div>
    </div>
    <div class="row">
+     <div class="col-lg-5">
+       <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
+          <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
+             <c:if test="${modelUc.showCreateSequence=='true'}">
+                <form action="ViewSequenceList.htm" method="post" >
+                   <div class="container_expand">
+                     <div class="form-group">
+                       <label for="sequenceName" class="col-lg-12 control-label">Sequence Name*</label>
+                       <div class="col-lg-12">
+                         <input id="sequenceName" name="sequenceName" type="text" maxlength="100" />
+                         <input id="number_of_sequences_param" name="number_of_sequences_param" type="hidden" value="${modelUc.numberOfSequences}" />
+                         <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action" />
+                       </div>
+                     </div>
+                     <div class="form-group">
+                       <label for="category" class="col-lg-12 control-label">Select Category*</label>
+                       <div class="col-lg-12">
+                         <input id="catName" name="catName" type="text" maxlength="100" />
+                         <input id="catId" name="catId" type="hidden"  />
+                       </div>
+                     </div>
+                     <div class="form-group">
+                       <label for="sequenceName" class="col-lg-12 control-label">User level access</label>
+                       <div class="col-lg-12">
+                         <input id="userName" name="userName" type="text" maxlength="100" />
+                         <input id="userId" name="userId" type="hidden" />
+                       </div>
+                     </div>
+                     <div class="form-group">
+                       <div class="col-lg-12">
+                         <select name="access_param" id="access_param" >
+                            <option value="RO">Read Only</option>
+                            <option value="RW">Read Write</option>
+                         </select>
+                       </div>
+                     </div>
+                     <div class="form-group">
+                       <div class="col-lg-12">
+                         <input type="submit" value="Create Sequence" class="btn btn-success">
+                       </div>
+                     </div>
+                     <div class="form-group">
+                       <div class="col-lg-12">
+                         <font color="red">
+                            ${modelUc.sequenceSaveError}
+                            <c:if test="${modelUc.displayUpgradeProductLink=='true'}">
+                               &nbsp;At the moment we provide the indicated number of sequences online. Contact us if you have any questions.
+                            </c:if>
+                            <c:if test="${modelUc.buyEnterpriseVersionLink=='true'}">
+                               &nbsp;Send email to admin@qsequence.com
+                            </c:if>
+                         </font>
+                       </div>
+                     </div>
+                   </div>
+                </form>
+             </c:if>
+          </c:if>
+       </c:if>
+
+     </div>
       <table align="center">
-         <tr>
-            <td>&nbsp;</td>
-         </tr>
-         <tr>
-            <td>&nbsp;</td>
-         </tr>
-         <tr>
-            <td>&nbsp;</td>
-         </tr>
-         <tr>
-            <td>
-               <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
-                  <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
-                     <c:if test="${modelUc.showCreateSequence=='true'}">
-                        <form action="ViewSequenceList.htm" method="post" >
-                           <div class="container_expand">
-                              <table>
-                                 <tr>
-                                    <td><label for="sequenceName">Sequence Name*</label></td>
-                                    <td><label for="category">Select Category*</label></td>
-                                    <td><label for="sequenceName">User level access</label></td>
-                                 </tr>
-                                 <tr>
-                                    <td>
-                                       <input id="sequenceName" name="sequenceName" type="text" maxlength="100" />
-                                       <input id="number_of_sequences_param" name="number_of_sequences_param" type="hidden" value="${modelUc.numberOfSequences}" />
-                                       <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action" />
-                                    </td>
-                                    <td>
-                                       <input id="catName" name="catName" type="text" maxlength="100" />
-                                       <input id="catId" name="catId" type="hidden"  />
-                                    </td>
-                                    <td>
-                                       <input id="userName" name="userName" type="text" maxlength="100" />
-                                       <input id="userId" name="userId" type="hidden" />
-                                       <select name="access_param" id="access_param" >
-                                          <option value="RO">Read Only</option>
-                                          <option value="RW">Read Write</option>
-                                       </select>
-                                       <input type="submit" src="/images/login.png" value="Create Sequence">
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td colspan="3">
-                                       <font color="red">
-                                          ${modelUc.sequenceSaveError}
-                                          <c:if test="${modelUc.displayUpgradeProductLink=='true'}">
-                                             &nbsp;At the moment we provide the indicated number of sequences online. Contact us if you have any questions.
-                                          </c:if>
-                                          <c:if test="${modelUc.buyEnterpriseVersionLink=='true'}">
-                                             &nbsp;Send email to admin@qsequence.com
-                                          </c:if>
-                                       </font>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td colspan="3">&nbsp;</td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </form>
-                     </c:if>
-                  </c:if>
-               </c:if>
-            </td>
-         </tr>
          <tr>
             <td>
                <div class="container_expand">
