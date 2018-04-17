@@ -141,7 +141,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
 </div>
 
 
-<div class="container">
+<div class="container ViewSequenceList">
    <div class="row">
      <div class="col-lg-12">
          <h1>Dashboard</h1>
@@ -152,16 +152,16 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                 <c:redirect url="/ViewSequenceList.htm?user_request_action_param=default_action_param&sequenceSaveError=${modelUc.sequenceSaveError}&buyEnterpriseVersionLink=${modelUc.buyEnterpriseVersionLink}&displayUpgradeProductLink=${modelUc.displayUpgradeProductLink}"/>
              </c:if>
              <c:if test="${modelUc.toolTip=='CREATE_SEQUENCE_TIP'}">
-                <div id="tool_tip" class="bubble" style="width:500px;height:60px;">Tip : Enter name of the sequence & click the create sequence button, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
+                <div id="tool_tip">Tip : Enter name of the sequence & click the create sequence button, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
              </c:if>
              <c:if test="${modelUc.toolTip=='FIRST_SEQUENCE_SAVE'}">
-                <div id="tool_tip" class="bubble" style="width:500px;height:60px;">Tip : Click on the sequence name to get started, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
+                <div id="tool_tip">Tip : Click on the sequence name to get started, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
              </c:if>
              <c:if test="${modelUc.toolTip=='ADD_SEQUENCE_DESC'}">
-                <div id="tool_tip" class="bubble" style="width:500px;height:60px;">Tip : Click on   <img id="img1"  src="images/yellow_+_button.png"/>   to add description to the sequence</div>
+                <div id="tool_tip">Tip : Click on   <img id="img1"  src="images/yellow_+_button.png"/>   to add description to the sequence</div>
              </c:if>
              <c:if test="${modelUc.demoDB=='derby'}">
-                <div id="tool_tip" class="bubble" style="width:500px;height:60px;">Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value="Install.htm"/>">database</a></div>
+                <div id="tool_tip">Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value="Install.htm"/>">database</a></div>
              </c:if>
            </div>
          </div>
@@ -178,23 +178,23 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      <div class="form-group">
                        <label for="sequenceName" class="col-lg-12 control-label">Sequence Name*</label>
                        <div class="col-lg-12">
-                         <input id="sequenceName" name="sequenceName" type="text" maxlength="100" />
-                         <input id="number_of_sequences_param" name="number_of_sequences_param" type="hidden" value="${modelUc.numberOfSequences}" />
-                         <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action" />
+                         <input id="sequenceName" class="form-control" name="sequenceName" type="text" maxlength="100" />
+                         <input id="number_of_sequences_param" class="form-control" name="number_of_sequences_param" type="hidden" value="${modelUc.numberOfSequences}" />
+                         <input id="user_request_action_param" class="form-control" name="user_request_action_param" type="hidden" value="save_sequence_action" />
                        </div>
                      </div>
                      <div class="form-group">
                        <label for="category" class="col-lg-12 control-label">Select Category*</label>
                        <div class="col-lg-12">
-                         <input id="catName" name="catName" type="text" maxlength="100" />
-                         <input id="catId" name="catId" type="hidden"  />
+                         <input id="catName" class="form-control" name="catName" type="text" maxlength="100" />
+                         <input id="catId" class="form-control" name="catId" type="hidden"  />
                        </div>
                      </div>
                      <div class="form-group">
                        <label for="sequenceName" class="col-lg-12 control-label">User level access</label>
                        <div class="col-lg-12">
-                         <input id="userName" name="userName" type="text" maxlength="100" />
-                         <input id="userId" name="userId" type="hidden" />
+                         <input id="userName" class="form-control" name="userName" type="text" maxlength="100" />
+                         <input id="userId" class="form-control" name="userId" type="hidden" />
                        </div>
                      </div>
                      <div class="form-group">
@@ -225,27 +225,32 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      </div>
                    </div>
                 </form>
+
+                <div class="container_expand">
+                  <div class="header">
+                    <span>Search sequences</span>
+                  </div>
+                  <div class="content">
+                    <form action="ViewSequenceList.htm" method="post">
+                      <div class="form-group">
+                        <div class="col-lg-12">
+                          <input id="searchString" class="form-control" name="searchString" type="text" size="50" maxlength="1900"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-lg-12">
+                          <input type="submit" class="btn btn-success" value="Search Sequences">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
              </c:if>
           </c:if>
        </c:if>
 
      </div>
       <table align="center">
-         <tr>
-            <td>
-               <div class="container_expand">
-                  <div class="header"><span>Search sequences</span>
-                  </div>
-                  <div class="content">
-                     <form action="ViewSequenceList.htm" method="post" >
-                        <input id="searchString" name="searchString" type="text" size="50" maxlength="1900"  />
-                        <input type="submit" src="/images/login.png" value="Search Sequences">
-            </td>
-            </form>
-            </div>
-            </div>
-            </td>
-         </tr>
          <tr>
             <td>
                <c:set var="x" value="0" />

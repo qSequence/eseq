@@ -379,3 +379,12 @@ table .table-header a.btn{
 	overflow: auto;
   margin-bottom: 5px;
 }
+.ViewSequenceList .form-group{
+  overflow: auto;
+}
+.ViewSequenceList .form-group input{
+  width: 100%;
+}
+.ViewSequenceList .form-group select{
+  width: 100%;
+}
