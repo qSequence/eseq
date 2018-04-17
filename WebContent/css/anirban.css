@@ -388,3 +388,6 @@ table .table-header a.btn{
 .ViewSequenceList .form-group select{
   width: 100%;
 }
+.center-all{
+  margin: 0px auto;
+}

@@ -169,7 +169,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
      </div>
    </div>
    <div class="row">
-     <div class="col-lg-5">
+     <div class="col-lg-5 center-all">
        <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
           <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
              <c:if test="${modelUc.showCreateSequence=='true'}">
