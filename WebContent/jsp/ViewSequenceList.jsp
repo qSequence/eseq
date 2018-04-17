@@ -256,7 +256,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
          <tr>
             <td>
                <c:set var="x" value="0" />
-               <table align="center" width="1000" class="table-bordered">
+               <table align="center" width="1000" class="table-striped table-hover">
                   <!-- DRAFT sequences -->
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
@@ -332,7 +332,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </table>
                <!-- END DRAFT sequences -->
                <!-- DRAFT system sequences -->
-               <table align="center" width="1000">
+               <table class="table-striped table-hover" align="center" width="1000">
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
@@ -409,7 +409,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </table>
                <!-- END DRAFT system sequences -->
                <!-- Development sequences -->
-               <table align="center" width="1000">
+               <table class="table-striped table-hover" align="center" width="1000">
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
@@ -484,7 +484,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </table>
                <!--END Development sequences -->
                <!--Development system sequences -->
-               <table align="center" width="1000">
+               <table class="table-striped table-hover" align="center" width="1000">
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
@@ -563,7 +563,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </table>
                <!--END Development system sequences -->
                <!--START Development Version sequences -->
-               <table align="center" width="1000">
+               <table class="table-striped table-hover" align="center" width="1000">
                   <c:if test="${modelUc.sequenceVersion=='DEV_VERSION'}">
                      <tr>
                         <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Development sequence versions</label></td>
@@ -633,7 +633,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </table>
                <!--END Development Version sequences -->
                <!--START Production sequences -->
-               <table align="center" width="1000">
+               <table class="table-striped table-hover" align="center" width="1000">
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
@@ -703,7 +703,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </table>
                <!--END Production sequences -->
                <!--START Production system sequences -->
-               <table align="center" width="1000">
+               <table class="table-striped table-hover" align="center" width="1000">
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
@@ -779,7 +779,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </table>
                <!--END Production system sequences -->
                <!--START Production sequence versions -->
-               <table>
+               <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='PROD_VERSION'}">
                      <tr>
                         <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Production sequence versions</label></td>
@@ -850,7 +850,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </c:if>
                </table>
                <!--START Production system sequence versions -->
-               <table>
+               <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='SYS_SEQ_PROD_VERSION'}">
                      <tr>
                         <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Production system sequence versions</label></td>
@@ -921,7 +921,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </c:if>
                </table>
                <!--START Development system sequence versions -->
-               <table>
+               <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='SYS_SEQ_DEV_VERSION'}">
                      <tr>
                         <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Development system sequence versions</label></td>
