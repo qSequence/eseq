@@ -256,7 +256,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
          <tr>
             <td>
                <c:set var="x" value="0" />
-               <table align="center" width="1000" class="table-bordered">
+               <table align="center" width="1000" class="">
                   <!-- DRAFT sequences -->
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
