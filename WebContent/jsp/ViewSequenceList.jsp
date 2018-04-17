@@ -306,7 +306,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><img id='${seqMst.seqMstId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -383,7 +383,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -459,7 +459,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         </tr>
                      </c:if>
                      <c:if test="${x=='1' && changed=='false'}">
-                        <tr style="background-color:#E8E8E8; color: black;">
+                        <tr">
                            <td
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><img id='${seqMst.seqMstId}'  src="images/yellow_+_button.png"/></a>
                              <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -537,7 +537,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -607,7 +607,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>"><img id='${seqMst.seqMstId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -637,7 +637,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td align="center" bgcolor="gray" width="100%" ><label for="sequenceName">Production sequences</label></td>
+                           <td align="center" bgcolor="gray"  ><label for="sequenceName">Production sequences</label></td>
                         </tr>
                         <tr>
                            <th ><label for="sequenceName">Sequence Name</label></th>
@@ -678,7 +678,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         </tr>
                      </c:if>
                      <c:if test="${x=='1' && changed=='false'}">
-                        <tr style="background-color:#E8E8E8; color: black;">
+                        <tr">
                            <td
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><img id='${seqMst.seqMstId}'  src="images/yellow_+_button.png"/></a>
                              <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -753,7 +753,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -825,7 +825,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>"><img id='${seqMst.seqMstId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -896,7 +896,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -967,7 +967,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr">
                               <td
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>"><img id='${seqMst.sysSeqId}'  src="images/yellow_+_button.png"/></a>
                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
