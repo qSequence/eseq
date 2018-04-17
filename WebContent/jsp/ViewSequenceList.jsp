@@ -225,26 +225,28 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      </div>
                    </div>
                 </form>
-
-                <div class="container_expand">
-                  <div class="header">
-                    <span>Search sequences</span>
-                  </div>
-                  <div class="content">
-                    <form action="ViewSequenceList.htm" method="post">
-                      <div class="form-group">
-                        <div class="col-lg-12">
-                          <input id="searchString" name="searchString" type="text" size="50" maxlength="1900"/>
-                        </div>
+                <div class="wrap-table-del">
+                  <div class="container_expand">
+                      <div class="header">
+                        <span>Search sequences</span>
                       </div>
-                      <div class="form-group">
-                        <div class="col-lg-12">
-                          <input type="submit" class="btn btn-success" value="Search Sequences">
-                        </div>
+                      <div class="content">
+                        <form action="ViewSequenceList.htm" method="post">
+                          <div class="form-group">
+                            <div class="col-lg-12">
+                              <input id="searchString" name="searchString" type="text" size="50" maxlength="1900"/>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-lg-12">
+                              <input type="submit" class="btn btn-success" value="Search Sequences">
+                            </div>
+                          </div>
+                        </form>
                       </div>
-                    </form>
-                  </div>
+                    </div>
                 </div>
+
              </c:if>
           </c:if>
        </c:if>
