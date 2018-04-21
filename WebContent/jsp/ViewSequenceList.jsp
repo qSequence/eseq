@@ -262,7 +262,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="center" colspan = "5" bgcolor="#f7f8f9" width="100%" >
+                           <td  align="center"  bgcolor="#f7f8f9" width="100%" >
                               <div class="table-header"><label for="sequenceName">Draft sequences</label></div>
                               <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
                            </td>
@@ -307,7 +307,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -337,7 +337,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="center" colspan = "5" bgcolor="#f7f8f9" width="100%" >
+                           <td  align="center"  bgcolor="#f7f8f9" width="100%" >
                               <div class="table-header"><label for="sequenceName">Draft system sequences</label></div>
                               <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
                            </td>
@@ -384,7 +384,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -414,7 +414,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="center" colspan = "5" bgcolor="#c0c2c6" width="100%" >
+                           <td  align="center"  bgcolor="#c0c2c6" width="100%" >
                               <div class="table-header"><label for="sequenceName">Development sequences</label></div>
                               <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
                            </td>
@@ -460,7 +460,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         </tr>
                      </c:if>
                      <c:if test="${x=='1' && changed=='false'}">
-                        <tr style="background-color:#E8E8E8; color: black;">
+                        <tr>
                            <td>
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a>
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -489,7 +489,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="center" colspan = "5" bgcolor="#c0c2c6" width="100%" >
+                           <td  align="center"  bgcolor="#c0c2c6" width="100%" >
                               <div class="table-header"><label for="sequenceName">Development system sequences</label></div>
                               <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
                            </td>
@@ -538,7 +538,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -567,7 +567,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover" align="center" width="1000">
                   <c:if test="${modelUc.sequenceVersion=='DEV_VERSION'}">
                      <tr>
-                        <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Development sequence versions</label></td>
+                        <td  align="center"   width="100%" ><label for="sequenceName">Development sequence versions</label></td>
                      </tr>
                      <tr>
                         <th ><label for="sequenceName">Sequence Name</label></th>
@@ -608,7 +608,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -679,7 +679,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         </tr>
                      </c:if>
                      <c:if test="${x=='1' && changed=='false'}">
-                        <tr style="background-color:#E8E8E8; color: black;">
+                        <tr>
                            <td>
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a>
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -708,7 +708,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="center" colspan = "5" bgcolor="gray" width="100%" >
+                           <td  align="center"   width="100%" >
                               <div class="table-header"><label for="sequenceName">Production system sequences</label></div>
                            </td>
                         </tr>
@@ -754,7 +754,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -783,7 +783,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='PROD_VERSION'}">
                      <tr>
-                        <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Production sequence versions</label></td>
+                        <td  align="center"   width="100%" ><label for="sequenceName">Production sequence versions</label></td>
                      </tr>
                      <tr>
                         <th><label for="sequenceName">Sequence Name</label></th>
@@ -826,7 +826,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -854,7 +854,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='SYS_SEQ_PROD_VERSION'}">
                      <tr>
-                        <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Production system sequence versions</label></td>
+                        <td  align="center"   width="100%" ><label for="sequenceName">Production system sequence versions</label></td>
                      </tr>
                      <tr>
                         <th ><label for="sequenceName">Sequence Name</label></th>
@@ -897,7 +897,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
@@ -925,7 +925,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='SYS_SEQ_DEV_VERSION'}">
                      <tr>
-                        <td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Development system sequence versions</label></td>
+                        <td  align="center"   width="100%" ><label for="sequenceName">Development system sequence versions</label></td>
                      </tr>
                      <tr>
                         <th ><label for="sequenceName">Sequence Name</label></th>
@@ -968,7 +968,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </tr>
                         </c:if>
                         <c:if test="${x=='1' && changed=='false'}">
-                           <tr style="background-color:#E8E8E8; color: black;">
+                           <tr>
                               <td>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
