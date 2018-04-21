@@ -394,3 +394,6 @@ table .table-header a.btn{
   margin: 0px auto;
   float: none;
 }
+.ViewSequenceList table a{
+  color: #595959;
+}

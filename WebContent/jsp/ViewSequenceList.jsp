@@ -253,6 +253,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
        </c:if>
 
      </div>
+     <div class="col-lg-12">
       <table align="center">
          <tr>
             <td>
@@ -310,9 +311,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -388,9 +389,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -422,11 +423,12 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                         </tr>
                         <tr>
-                           <th    ><label for="sequenceName">Sequence Name</label></th>
-                           <th  ><label for="createdDate">Created Date</label></th>
-                           <th  ><label for="createdBy">Created By</label></th>
-                           <th  ><label for="createdBy">Category</label></th>
-                           <th  ><label for="delete">Delete</label></th>
+                           <th><label for="sequenceName">Sequence Name</label></th>
+                           <th><label for="Edit">Edit</label></th>
+                           <th><label for="createdDate">Created Date</label></th>
+                           <th><label for="createdBy">Created By</label></th>
+                           <th><label for="createdBy">Category</label></th>
+                           <th><label for="delete">Delete</label></th>
                         </tr>
                         <c:if test="${modelUc.ucSeqMstList[0]==null}">
                            <tr>
@@ -441,9 +443,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      <c:if test="${x=='0' && changed=='false'}">
                         <tr>
                            <td>
-                              <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a>
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
+                           <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a></td>
                            <td align="center">
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
@@ -464,9 +466,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      <c:if test="${x=='1' && changed=='false'}">
                         <tr>
                            <td>
-                              <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a>
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
+                           <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a></td>
                            <td align="center">
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
@@ -497,13 +499,14 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                         </tr>
                         <tr>
-                           <th    ><label for="sequenceName">Sequence Name</label></th>
+                           <th><label for="sequenceName">Sequence Name</label></th>
+                           <th><label for="Edit">Edit</label></th>
                            <c:if test="${modelUc.showCreateSequence=='true'}">
-                              <th  ><label for="createdDate">Created Date</label></th>
+                              <th><label for="createdDate">Created Date</label></th>
                            </c:if>
-                           <th  ><label for="createdBy">Created By</label></th>
-                           <th  ><label for="createdBy">Category</label></th>
-                           <th  ><label for="delete">Delete</label></th>
+                           <th><label for="createdBy">Created By</label></th>
+                           <th><label for="createdBy">Category</label></th>
+                           <th><label for="delete">Delete</label></th>
                         </tr>
                         <c:if test="${modelUc.ucSysSeqMstList[0]==null}">
                            <tr>
@@ -519,9 +522,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='0' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -542,9 +545,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -613,9 +616,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -664,7 +667,6 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      <c:if test="${x=='0' && changed=='false'}">
                         <tr>
                            <td>
-
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
                            <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a></td>
@@ -686,9 +688,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      <c:if test="${x=='1' && changed=='false'}">
                         <tr>
                            <td>
-                              <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a>
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
+                           <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a></td>
                            <td align="center">
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
@@ -762,9 +764,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -835,9 +837,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -907,9 +909,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -979,9 +981,9 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <c:if test="${x=='1' && changed=='false'}">
                            <tr>
                               <td>
-                                 <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>"><i class="mdi-image-edit"></i></a>
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
+                              <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
                               <td align="center">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
@@ -1004,6 +1006,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
             </td>
          </tr>
       </table>
+      </div>
    </div>
 </div>
 
