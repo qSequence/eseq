@@ -638,7 +638,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td align="center" bgcolor="gray" width="100%" ><label for="sequenceName">Production sequences</label></td>
+                           <td><label for="sequenceName">Production sequences</label></td>
                         </tr>
                         <tr>
                            <th ><label for="sequenceName">Sequence Name</label></th>
