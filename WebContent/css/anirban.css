@@ -397,3 +397,12 @@ table .table-header a.btn{
 .ViewSequenceList table tr td a{
   color: #595959;
 }
+.FORMAREA{
+  background: #FFFFFF;
+  padding: 20px 15px;
+  margin-bottom: 15px;
+}
+.ViewSequenceList .container.table-section {
+	background: #FFFFFF;
+	padding: 20px;
+}
