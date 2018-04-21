@@ -254,7 +254,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
 
      </div>
      <div class="container table-section">
-      <table align="center" class="col-lg-12">
+      <table align="center" class="col-lg-12"> 
          <tr>
             <td>
                <c:set var="x" value="0" />
