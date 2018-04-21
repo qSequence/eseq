@@ -263,7 +263,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="left"  bgcolor="#f7f8f9">
+                           <td  align="left"  >
                               <div class="table-header"><label for="sequenceName">Draft sequences</label></div>
                               <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
                            </td>
@@ -339,7 +339,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="left"  bgcolor="#f7f8f9">
+                           <td  align="left"  >
                               <div class="table-header"><label for="sequenceName">Draft system sequences</label></div>
                               <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
                            </td>
@@ -417,7 +417,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="left"  bgcolor="#c0c2c6">
+                           <td  align="left"  >
                               <div class="table-header"><label for="sequenceName">Development sequences</label></div>
                               <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
                            </td>
@@ -493,7 +493,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td  align="left"  bgcolor="#c0c2c6">
+                           <td  align="left"  >
                               <div class="table-header"><label for="sequenceName">Development system sequences</label></div>
                               <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
                            </td>
@@ -572,7 +572,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover" align="center" >
                   <c:if test="${modelUc.sequenceVersion=='DEV_VERSION'}">
                      <tr>
-                        <td  align="center"  ><label for="sequenceName">Development sequence versions</label></td>
+                        <td  align="left">
+                          <div class="table-header">
+                            <label for="sequenceName">Development sequence versions</label>
+                          </div>
+                        </td>
                      </tr>
                      <tr>
                         <th ><label for="sequenceName">Sequence Name</label></th>
@@ -644,7 +648,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   <c:if test="${modelUc.sequenceVersion!='DEV_VERSION'}">
                      <c:if test="${modelUc.sequenceVersion!='PROD_VERSION'}">
                         <tr>
-                           <td><label for="sequenceName">Production sequences</label></td>
+                           <td><div class="table-header"><label for="sequenceName">Production sequences</label></div></td>
                         </tr>
                         <tr>
                            <th ><label for="sequenceName">Sequence Name</label></th>
@@ -791,7 +795,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='PROD_VERSION'}">
                      <tr>
-                        <td  align="center"  ><label for="sequenceName">Production sequence versions</label></td>
+                        <td align="left">
+                            <div class="table-header">
+                              <label for="sequenceName">Production sequence versions</label>
+                            </div>
+                        </td>
                      </tr>
                      <tr>
                         <th><label for="sequenceName">Sequence Name</label></th>
@@ -863,7 +871,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='SYS_SEQ_PROD_VERSION'}">
                      <tr>
-                        <td  align="center"  ><label for="sequenceName">Production system sequence versions</label></td>
+                        <td align="left">
+                            <div class="table-header">
+                              <label for="sequenceName">Production system sequence versions</label>
+                            </div>
+                        </td>
                      </tr>
                      <tr>
                         <th ><label for="sequenceName">Sequence Name</label></th>
@@ -935,7 +947,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <table class="table-striped table-hover">
                   <c:if test="${modelUc.sequenceVersion=='SYS_SEQ_DEV_VERSION'}">
                      <tr>
-                        <td  align="center"  ><label for="sequenceName">Development system sequence versions</label></td>
+                        <td align="left">
+                            <div class="table-header">
+                              <label for="sequenceName">Development system sequence versions</label>
+                            </div>
+                        </td>
                      </tr>
                      <tr>
                         <th ><label for="sequenceName">Sequence Name</label></th
