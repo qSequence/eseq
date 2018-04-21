@@ -297,10 +297,10 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.usernameAndTeamCreated}</td>
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a></td>
+                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -319,11 +319,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -373,11 +373,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_draft"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_draft"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -396,11 +396,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_draft"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_draft"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -420,11 +420,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                         </tr>
                         <tr>
-                           <th  bgcolor="#beea3a"  ><label for="sequenceName">Sequence Name</label></th>
-                           <th  bgcolor="#beea3a"><label for="createdDate">Created Date</label></th>
-                           <th  bgcolor="#beea3a"><label for="createdBy">Created By</label></th>
-                           <th  bgcolor="#beea3a"><label for="createdBy">Category</label></th>
-                           <th  bgcolor="#beea3a"><label for="delete">Delete</label></th>
+                           <th    ><label for="sequenceName">Sequence Name</label></th>
+                           <th  ><label for="createdDate">Created Date</label></th>
+                           <th  ><label for="createdBy">Created By</label></th>
+                           <th  ><label for="createdBy">Category</label></th>
+                           <th  ><label for="delete">Delete</label></th>
                         </tr>
                         <c:if test="${modelUc.ucSeqMstList[0]==null}">
                            <tr>
@@ -449,11 +449,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            <td align="center">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
                               <td align="center">
-                                 <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
+                                 <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                               </td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                              <td align="center"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="changed" value="true" />
                            <c:set var="x" value="1" />
@@ -472,11 +472,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            <td align="center">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
                               <td align="center">
-                                 <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
+                                 <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                               </td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                              <td align="center"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="x" value="0" />
                         </tr>
@@ -495,13 +495,13 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                         </tr>
                         <tr>
-                           <th  bgcolor="#beea3a"  ><label for="sequenceName">Sequence Name</label></th>
+                           <th    ><label for="sequenceName">Sequence Name</label></th>
                            <c:if test="${modelUc.showCreateSequence=='true'}">
-                              <th  bgcolor="#beea3a"><label for="createdDate">Created Date</label></th>
+                              <th  ><label for="createdDate">Created Date</label></th>
                            </c:if>
-                           <th  bgcolor="#beea3a"><label for="createdBy">Created By</label></th>
-                           <th  bgcolor="#beea3a"><label for="createdBy">Category</label></th>
-                           <th  bgcolor="#beea3a"><label for="delete">Delete</label></th>
+                           <th  ><label for="createdBy">Created By</label></th>
+                           <th  ><label for="createdBy">Category</label></th>
+                           <th  ><label for="delete">Delete</label></th>
                         </tr>
                         <c:if test="${modelUc.ucSysSeqMstList[0]==null}">
                            <tr>
@@ -527,11 +527,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -550,11 +550,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -598,10 +598,10 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.usernameAndTeamCreated}</td>
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a></td>
+                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -620,11 +620,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -669,10 +669,10 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            <td align="center">${seqMst.usernameAndTeamCreated}</td>
                            <td align="center">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
-                              <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a></td>
+                              <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                              <td align="center"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="changed" value="true" />
                            <c:set var="x" value="1" />
@@ -691,11 +691,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            <td align="center">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
                               <td align="center">
-                                 <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a>
+                                 <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                               </td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                              <td align="center"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="x" value="0" />
                         </tr>
@@ -743,11 +743,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_prod"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_prod"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -766,11 +766,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_prod"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_prod"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -815,11 +815,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a></td>
+                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -838,11 +838,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></a></td>
+                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.seqMstId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -886,11 +886,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_PROD_VERSION"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_PROD_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -909,11 +909,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_PROD_VERSION"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_PROD_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -957,11 +957,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_DEV_VERSION"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_DEV_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -980,11 +980,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <td align="center">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
                                  <td align="center">
-                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_DEV_VERSION"/>" ><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></a>
+                                    <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_DEV_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><img id='${seqMst.sysSeqId}'  src="images/delete.png"/></td>
+                                 <td align="center"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
