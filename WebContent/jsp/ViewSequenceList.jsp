@@ -264,7 +264,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <tr>
                            <td  align="center"  bgcolor="#f7f8f9" width="100%" >
                               <div class="table-header"><label for="sequenceName">Draft sequences</label></div>
-                              <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
+                              <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
                            </td>
                         </tr>
                         <tr>
@@ -339,7 +339,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <tr>
                            <td  align="center"  bgcolor="#f7f8f9" width="100%" >
                               <div class="table-header"><label for="sequenceName">Draft system sequences</label></div>
-                              <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
+                              <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=draft_release"/>">Release</a></div>
                            </td>
                         </tr>
                         <tr>
@@ -416,7 +416,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <tr>
                            <td  align="center"  bgcolor="#c0c2c6" width="100%" >
                               <div class="table-header"><label for="sequenceName">Development sequences</label></div>
-                              <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
+                              <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
                            </td>
                         </tr>
                         <tr>
@@ -491,7 +491,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                         <tr>
                            <td  align="center"  bgcolor="#c0c2c6" width="100%" >
                               <div class="table-header"><label for="sequenceName">Development system sequences</label></div>
-                              <div class="table-header"><a align="right" class="button" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
+                              <div class="table-header"><a align="right" class="btn btn-info btn-lg" href="<c:url value="ModifiedSequenceList.htm?user_request_action_param=dev_release"/>">Release</a></div>
                            </td>
                         </tr>
                         <tr>
