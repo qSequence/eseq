@@ -257,87 +257,73 @@
 
               </div>
             </div>
+            <div class="form-group">
+              <c:if test="${modelUc.sequenceVersion=='sys_seq' or modelUc.sequenceVersion=='sys_seq_draft' or modelUc.sequenceVersion=='sys_seq_prod' or modelUc.sequenceVersion=='SEQ_PROD' }">
+                 <label class="col-lg-12">Sequence Description</label>
+                 <textarea class="col-lg-12" disabled="disabled" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
+              </c:if>
+            </div>
+            <div class="form-group">
+              <c:if test="${modelUc.sequenceVersion==null or modelUc.sequenceVersion=='' or modelUc.sequenceVersion=='SEQ' or modelUc.sequenceVersion=='DRAFT' or modelUc.sequenceVersion=='PROD'}">
+                <label class="col-lg-12">Sequence Description</label>
+                <textarea class="col-lg-12" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
+              </c:if>
+              <a class="btn btn-info btn-raised" target="_blank" href="<c:url value="ViewChangeRelease.htm?user_request_action_param=retrieve_release_view&seqMstIds=${modelUc.seqMstId}&sysSeqIds=${modelUc.sysSeqId}&sequenceVersion=${modelUc.sequenceVersion}"/>">Change Release List</a>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <label class="control-label">Revision Title</label>
+                <input class="col-lg-12" id="changeShort" name="change_short_param" type="text" size="105" maxlength="100" value="${modelUc.changeShort}"/>
+              </div>
 
+            </div>
 
+            <div class="form-group">
+              <div class="col-lg-12">
+                <label class="control-label">Revision Description</label>
+                <textarea class="col-lg-12" maxlength="4000" name="changeLongTA" id="changeLongTA" cols="108" rows="4">${modelUc.changeLong}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                  <c:if test="${modelUc.oneWay=='Y'}">
+                     <div class="checkbox">
+                       <label>
+                         <input type="checkbox" name="one_way_param" checked="checked" value="Y"><span class="checkbox-material"><span class="check"></span></span> One way interaction
+                       </label>
+                     </div>
+                  </c:if>
+                  <c:if test="${modelUc.oneWay!='Y'}">
+                     <div class="checkbox">
+                       <label>
+                         <input type="checkbox" name="one_way_param" value="Y"><span class="checkbox-material"><span class="check"></span></span> One way interaction
+                       </label>
+                     </div>
+                  </c:if>
+              </div>
+              <div class="form-group">
+                  <div class="col-lg-12">
+                    <input id="description_param" name="description_param" type="hidden" value="${modelUc.description}"/>
+                    <input id="change_long_param" name="change_long_param" type="hidden" value="${modelUc.changeLong}"/>
+                    <input id="seq_mst_id_param" name="seq_mst_id_param" type="hidden" value="${modelUc.seqMstId}"/>
+                    <input id="sys_seq_id" name="sys_seq_id" type="hidden" value="${modelUc.sysSeqId}"/>
+                    <input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}"/>
+                    <input id="request_action_param" name="request_action_param" type="hidden" value="save_sequence_action"/>
+                    <!--<input id="add_property_button" type="button" value="Add Property">-->
+                    <c:if test="${modelUc.hasReadWriteAccessToSeq==true}">
+                       <input id="form_submit_button" class="btn btn-success btn-raised" type="button" value="Save"><font color="red">${modelUc.message}</font>
+                    </c:if>
+                    <div id="sometext">
+                       <strong>
+                       ${modelUc.displayPromoMessage}</strong>
+                    </div>
+                  </div>
+              </div>
+            </div>
           </div>
         </tr>
          <tr>
             <td>
-
-            </td>
-         </tr>
-         <tr>
-            <td>
-
-            </td>
-         </tr>
-         <div class="form-group">
-           <c:if test="${modelUc.sequenceVersion=='sys_seq' or modelUc.sequenceVersion=='sys_seq_draft' or modelUc.sequenceVersion=='sys_seq_prod' or modelUc.sequenceVersion=='SEQ_PROD' }">
-              <label class="col-lg-12">Sequence Description</label>
-              <textarea class="col-lg-12" disabled="disabled" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
-           </c:if>
-         </div>
-         <div class="form-group">
-           <c:if test="${modelUc.sequenceVersion==null or modelUc.sequenceVersion=='' or modelUc.sequenceVersion=='SEQ' or modelUc.sequenceVersion=='DRAFT' or modelUc.sequenceVersion=='PROD'}">
-             <label class="col-lg-12">Sequence Description</label>>
-             <textarea class="col-lg-12" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
-           </c:if>
-           <a class="class="btn btn-info btn-raised"" target="_blank" href="<c:url value="ViewChangeRelease.htm?user_request_action_param=retrieve_release_view&seqMstIds=${modelUc.seqMstId}&sysSeqIds=${modelUc.sysSeqId}&sequenceVersion=${modelUc.sequenceVersion}"/>">Change Release List</a>
-         </div>         
-
-         <tr>
-            <td>Revision Title</td>
-         </tr>
-         <tr>
-            <td><input id="changeShort" name="change_short_param" type="text" size="105" maxlength="100" value="${modelUc.changeShort}"/></td>
-         </tr>
-         <tr>
-            <td>Revision Description</td>
-         </tr>
-         <tr>
-            <td>
-               <textarea maxlength="4000" name="changeLongTA" id="changeLongTA" cols="108" rows="4">${modelUc.changeLong}</textarea>
-            </td>
-         </tr>
-         <tr>
-            <td>
-               <c:if test="${modelUc.oneWay=='Y'}">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="one_way_param" checked="checked" value="Y"><span class="checkbox-material"><span class="check"></span></span> One way interaction
-                    </label>
-                  </div>
-               </c:if>
-               <c:if test="${modelUc.oneWay!='Y'}">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="one_way_param" value="Y"><span class="checkbox-material"><span class="check"></span></span> One way interaction
-                    </label>
-                  </div>
-               </c:if>
-               <br>
-            </td>
-         </tr>
-         <tr>
-            <td>
-               <input id="description_param" name="description_param" type="hidden" value="${modelUc.description}"/>
-               <input id="change_long_param" name="change_long_param" type="hidden" value="${modelUc.changeLong}"/>
-               <input id="seq_mst_id_param" name="seq_mst_id_param" type="hidden" value="${modelUc.seqMstId}"/>
-               <input id="sys_seq_id" name="sys_seq_id" type="hidden" value="${modelUc.sysSeqId}"/>
-               <input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}"/>
-               <input id="request_action_param" name="request_action_param" type="hidden" value="save_sequence_action"/>
-               <!--<input id="add_property_button" type="button" value="Add Property">-->
-               <c:if test="${modelUc.hasReadWriteAccessToSeq==true}">
-                  <input id="form_submit_button" class="btn btn-success btn-raised" type="button" value="Save"><font color="red">${modelUc.message}</font>
-               </c:if>
-            </td>
-         </tr>
-         <tr>
-            <td>
-               <div id="sometext">
-                  <strong>
-                  ${modelUc.displayPromoMessage}</strong>
-               </div>
                <script type="text/javascript">
                   $('#add_property_button').click(function () {
                     // 	$("#add_property_div") 	.fadeIn("slow") 	.animate({ opacity: 0 }, 6000);
