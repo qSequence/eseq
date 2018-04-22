@@ -217,80 +217,74 @@
               </div>
                 </c:if>
             </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <div id="div_id">
+                   <hr>
+                   <ul id="ul_id">
+                      <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
+                         <c:forEach items='${modelUc.accessList}' var="userAccess">
+                            <li id="li_${userAccess.id}">
+                               <a href="#" onclick="parentNode.parentNode.removeChild(parentNode)">
+                               ${userAccess.accessText }<input type="hidden" name="user_${userAccess.id}" value="user_${userAccess.id}_${userAccess.access}"/>
+                               </a>
+                            </li>
+                         </c:forEach>
+                      </c:if>
+                      <c:if test="${modelUc.hasOwnerAccessToSeq==false}">
+                         <c:forEach items='${modelUc.accessList}' var="userAccess">
+                            <li id="li_${userAccess.id}">
+                               ${userAccess.accessText }<input type="hidden" name="user_${userAccess.id}" value="user_${userAccess.id}_${userAccess.access}"/>
+                            </li>
+                         </c:forEach>
+                      </c:if>
+                   </ul>
+                </div>
+                <div id="sometext">
+                   <strong>
+                   <font color="red">${modelUc.error}</font>
+                   </strong>
+                </div>
+                <div id="sometext">
+                   <strong>${modelUc.message}</strong>
+                </div>
+                <c:if test="${modelUc.sequenceVersion=='SEQ' or modelUc.sequenceVersion==null or modelUc.sequenceVersion=='' }">
+                   Dev sequence versions<a style="color:blue" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}&sequenceVersion=DEV_VERSION"/>">Dev sequence versions</</a>
+                </c:if>
+                <c:if test="${modelUc.sequenceVersion=='PROD'}">
+                   Prod sequence versions<a style="color:blue" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}&sequenceVersion=PROD_VERSION"/>">Prod sequence versions</</a>
+                </c:if>
+
+              </div>
+            </div>
+
+
           </div>
         </tr>
          <tr>
             <td>
-               <div id="div_id">
-                  <hr>
-                  <ul id="ul_id">
-                     <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
-                        <c:forEach items='${modelUc.accessList}' var="userAccess">
-                           <li id="li_${userAccess.id}">
-                              <a href="#" onclick="parentNode.parentNode.removeChild(parentNode)">
-                              ${userAccess.accessText }<input type="hidden" name="user_${userAccess.id}" value="user_${userAccess.id}_${userAccess.access}"/>
-                              </a>
-                           </li>
-                        </c:forEach>
-                     </c:if>
-                     <c:if test="${modelUc.hasOwnerAccessToSeq==false}">
-                        <c:forEach items='${modelUc.accessList}' var="userAccess">
-                           <li id="li_${userAccess.id}">
-                              ${userAccess.accessText }<input type="hidden" name="user_${userAccess.id}" value="user_${userAccess.id}_${userAccess.access}"/>
-                           </li>
-                        </c:forEach>
-                     </c:if>
-                  </ul>
-               </div>
+
             </td>
          </tr>
          <tr>
             <td>
-               <div id="sometext">
-                  <strong>
-                  <font color="red">${modelUc.error}</font>
-                  </strong>
-               </div>
-               <div id="sometext">
-                  <strong>${modelUc.message}</strong>
-               </div>
+
             </td>
          </tr>
-         <tr>
-            <td>
-               <c:if test="${modelUc.sequenceVersion=='SEQ' or modelUc.sequenceVersion==null or modelUc.sequenceVersion=='' }">
-                  Dev sequence versions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:blue" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}&sequenceVersion=DEV_VERSION"/>">Dev sequence versions</</a>
-               </c:if>
-               <c:if test="${modelUc.sequenceVersion=='PROD'}">
-                  Prod sequence versions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:blue" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}&sequenceVersion=PROD_VERSION"/>">Prod sequence versions</</a>
-               </c:if>
-            </td>
-         </tr>
-         <c:if test="${modelUc.sequenceVersion=='sys_seq' or modelUc.sequenceVersion=='sys_seq_draft' or modelUc.sequenceVersion=='sys_seq_prod' or modelUc.sequenceVersion=='SEQ_PROD' }">
-            <tr>
-               <td>Sequence Description</td>
-            </tr>
-            <tr>
-               <td>
-                  <textarea disabled="disabled" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
-               </td>
-            </tr>
-         </c:if>
-         <c:if test="${modelUc.sequenceVersion==null or modelUc.sequenceVersion=='' or modelUc.sequenceVersion=='SEQ' or modelUc.sequenceVersion=='DRAFT' or modelUc.sequenceVersion=='PROD'}">
-            <tr>
-               <td>Sequence Description</td>
-            </tr>
-            <tr>
-               <td>
-                  <textarea maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
-               </td>
-            </tr>
-         </c:if>
-         <tr>
-            <td>
-               <a target="_blank" href="<c:url value="ViewChangeRelease.htm?user_request_action_param=retrieve_release_view&seqMstIds=${modelUc.seqMstId}&sysSeqIds=${modelUc.sysSeqId}&sequenceVersion=${modelUc.sequenceVersion}"/>">Change Release List</a>
-            </td>
-         </tr>
+         <div class="form-group">
+           <c:if test="${modelUc.sequenceVersion=='sys_seq' or modelUc.sequenceVersion=='sys_seq_draft' or modelUc.sequenceVersion=='sys_seq_prod' or modelUc.sequenceVersion=='SEQ_PROD' }">
+              <label class="col-lg-12">Sequence Description</label>
+              <textarea class="col-lg-12" disabled="disabled" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
+           </c:if>
+         </div>
+         <div class="form-group">
+           <c:if test="${modelUc.sequenceVersion==null or modelUc.sequenceVersion=='' or modelUc.sequenceVersion=='SEQ' or modelUc.sequenceVersion=='DRAFT' or modelUc.sequenceVersion=='PROD'}">
+             <label class="col-lg-12">Sequence Description</label>>
+             <textarea class="col-lg-12" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
+           </c:if>
+           <a class="class="btn btn-info btn-raised"" target="_blank" href="<c:url value="ViewChangeRelease.htm?user_request_action_param=retrieve_release_view&seqMstIds=${modelUc.seqMstId}&sysSeqIds=${modelUc.sysSeqId}&sequenceVersion=${modelUc.sequenceVersion}"/>">Change Release List</a>
+         </div>         
+
          <tr>
             <td>Revision Title</td>
          </tr>
