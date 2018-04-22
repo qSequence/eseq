@@ -170,54 +170,54 @@
       <table style="margin: 0px auto;width: 1000px;">
         <tr>
           <div class="table-header">
-            <a class="btn btn-info btn-raised" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}"/>">Back</a>
-            <h1>Edit Sequence</h1>
-            <h2><input id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/></h2>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <a class="btn btn-info btn-raised" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}"/>">Back</a>
+                <h1>Edit Sequence</h1>
+                <h2><input id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/></h2>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-12 control-label">Category*</label>
+              <div class="col-lg-12">
+                <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
+                   <input id="cat_name" name="cat_name" type="text" size="97" maxlength="100" value="${modelUc.catName}"/>
+                   <input id="cat_id" name="cat_id" type="hidden" value="${modelUc.catId}"/>
+                </c:if>
+                <c:if test="${modelUc.hasOwnerAccessToSeq==false}">
+                   <input id="cat_name" name="cat_name" type="text" disabled="disabled" size="97" maxlength="100" value="${modelUc.catName}"/>
+                   <input id="cat_id" name="cat_id" type="hidden" value="${modelUc.catId}"/>
+                </c:if>
+                <p>
+                   <strong>Note: if category is changed, teams with access priviledges to previous category will not be able to access this sequence.</strong>
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>
+              <strong>Access</strong>
+              : Note: if access is provided for a specific sequence, this will override all other access priviledges. Whoever is in the list will only be able to access the sequence.
+              </label>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
+                  <label>User</label>
+                  <input type="text" id="user_name_param" maxlength="20"/><input type="hidden" id="user_id_param"/>
+                  <label>Access Level</label>
+                  <select name="access_param" id="access_param">
+                     <option value="RO">Read Only</option>
+                     <option value="RW">Read Write</option>
+                  </select>
+                  <button class="btn btn-success btn-raised" type="button" onclick="addLi(document.getElementById('user_name_param').value, document.getElementById('user_id_param').value, document.getElementById('access_param').value)">Add</button>
+                </c:if>
+              </div>
+            </div>
           </div>
         </tr>
          <tr>
             <td>
-               Category
-               <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
-                  <input id="cat_name" name="cat_name" type="text" size="97" maxlength="100" value="${modelUc.catName}"/>
-                  <input id="cat_id" name="cat_id" type="hidden" value="${modelUc.catId}"/>
-               </c:if>
-               <c:if test="${modelUc.hasOwnerAccessToSeq==false}">
-                  <input id="cat_name" name="cat_name" type="text" disabled="disabled" size="97" maxlength="100" value="${modelUc.catName}"/>
-                  <input id="cat_id" name="cat_id" type="hidden" value="${modelUc.catId}"/>
-               </c:if>
-               <p>
-                  <strong>Note: if category is changed, teams with access priviledges to previous category will not be able to access this sequence.</strong>
-               </p>
-            </td>
-         </tr>
-         <tr>
-            <td>
                <div id="div_id">
-                  <table >
-                     <tr>
-                        <td>
-                           <label>
-                           <strong>Access</strong>
-                           : Note: if access is provided for a specific sequence, this will override all other access priviledges. Whoever is in the list will only be able to access the sequence.
-                           </label>
-                        </td>
-                     </tr>
-                     <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
-                        <tr>
-                           <td>
-                              <label>User</label>
-                              <input type="text" id="user_name_param" maxlength="20"/><input type="hidden" id="user_id_param"/>
-                              <label>Access Level</label>
-                              <select name="access_param" id="access_param">
-                                 <option value="RO">Read Only</option>
-                                 <option value="RW">Read Write</option>
-                              </select>
-                              <button type="button" onclick="addLi(document.getElementById('user_name_param').value, document.getElementById('user_id_param').value, document.getElementById('access_param').value)">Add</button>
-                           </td>
-                        </tr>
-                     </c:if>
-                  </table>
                   <hr>
                   <ul id="ul_id">
                      <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
