@@ -167,18 +167,20 @@
       <c:redirect url="/SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${modelUc.seqMstId}&sys_seq_id=${modelUc.sysSeqId}&message_param=${modelUc.message}&one_way_param=${modelUc.oneWay}&sequenceVersion=${modelUc.sequenceVersion}"/>
    </c:if>
    <form id="subscription_order_form" action="SeqMst.htm" method="post">
-      <table border="0">
-         <tr>
-            <td >
-               <h1>Edit Sequence</h1>
-               <h2>
-                  <input id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/>
-               </h2>
-            </td>
-            <td>
-               <a href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}"/>">&lt;&lt;&nbsp;Back</a>
-            </td>
-         </tr>
+      <table style="margin: 0px auto;width: 1000px;">
+        <tr>
+          <div class="table-header">
+            <a class="btn btn-info btn-raised" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}"/>">Back</a>
+          </div>
+          <div class="table-header">
+            <h1>Edit Sequence</h1>
+            <h2><input id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/></h2>
+          </div>
+          <div class="table-header">
+            <h1>Edit Sequence</h1>
+            <h2><input id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/></h2>
+          </div>
+        </tr>
          <tr>
             <td>
                Category
