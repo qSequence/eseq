@@ -162,7 +162,7 @@
   </div>
 </div>
 
-<div id="cntainer" class="container" style="margin: 0px auto;width: 800px;">
+<div id="cntainer" class="container seqMst" style="margin: 0px auto;width: 800px;">
    <c:if test="${modelUc.status=='SAVED'}">
       <c:redirect url="/SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${modelUc.seqMstId}&sys_seq_id=${modelUc.sysSeqId}&message_param=${modelUc.message}&one_way_param=${modelUc.oneWay}&sequenceVersion=${modelUc.sequenceVersion}"/>
    </c:if>

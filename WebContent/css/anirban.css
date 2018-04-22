@@ -414,3 +414,9 @@ table .table-header a.btn{
 .width100{
   width: 100%;
 }
+.seqMst .form-group select{
+  height: 32px;
+}
+.seqMst .form-group input, .seqMst .form-group select{
+  margin-bottom: 20px;
+}
