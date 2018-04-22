@@ -269,7 +269,7 @@
                   <label class="control-label">Sequence Description</label>
                   <textarea class="col-lg-12" maxlength="4000" name="descriptionTA" id="descriptionTA" cols="108" rows="4">${modelUc.description}</textarea>
                 </c:if>
-                <a class="btn btn-info btn-raised" target="_blank" href="<c:url value="ViewChangeRelease.htm?user_request_action_param=retrieve_release_view&seqMstIds=${modelUc.seqMstId}&sysSeqIds=${modelUc.sysSeqId}&sequenceVersion=${modelUc.sequenceVersion}"/>">Change Release List</a>
+                <a class="btn btn-info btn-raised float-left" target="_blank" href="<c:url value="ViewChangeRelease.htm?user_request_action_param=retrieve_release_view&seqMstIds=${modelUc.seqMstId}&sysSeqIds=${modelUc.sysSeqId}&sequenceVersion=${modelUc.sequenceVersion}"/>">Change Release List</a>
               </div>
             </div>
             <div class="form-group">

@@ -164,13 +164,13 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
             <table align="center" class="table-striped table-hover">
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Draft sequences</label></td>
+                     <td width="100%" ><label for="sequenceName">Draft sequences</label></td>
                   </tr>
                   <tr>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="sequenceName">Sequence Name</label></th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="createdDate">Change Label</label></th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="createdDate">Created Date</label></th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="release">Release</label></th>
+                     <th><label for="sequenceName">Sequence Name</label></th>
+                     <th><label for="createdDate">Change Label</label></th>
+                     <th><label for="createdDate">Created Date</label></th>
+                     <th><label for="release">Release</label></th>
                   </tr>
                   <c:if test="${modelUc.ucSeqMstDraftList[0]==null}">
                      <tr>
@@ -230,15 +230,15 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- =================DRAFT System sequence ========================= -->
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Draft system sequences</label></td>
+                     <td width="100%" ><label for="sequenceName">Draft system sequences</label></td>
                   </tr>
                   <tr>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="sequenceName">Sequence Name</label></th>
-                     <th  bgcolor="${modelUc.greenShade}">
+                     <th><label for="sequenceName">Sequence Name</label></th>
+                     <th>
                         <label for="createdDate">Change Label</label>
                      </th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="createdDate">Created Date</label></th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="release">Release</label></th>
+                     <th><label for="createdDate">Created Date</label></th>
+                     <th><label for="release">Release</label></th>
                   </tr>
                   <c:if test="${modelUc.ucSysSeqMstDraftList[0]==null}">
                      <tr>
@@ -298,15 +298,15 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- ***********************DEV RELEASE *************************************** -->
                <c:if test="${modelUc.userRequestAction=='dev_release'}">
                   <tr>
-                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Development sequences</label></td>
+                     <td width="100%" ><label for="sequenceName">Development sequences</label></td>
                   </tr>
                   <tr>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="sequenceName">Sequence Name</label></th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="createdDate">Change Label</label></th>
-                     <th  bgcolor="${modelUc.greenShade}">
+                     <th><label for="sequenceName">Sequence Name</label></th>
+                     <th><label for="createdDate">Change Label</label></th>
+                     <th>
                         <label for="createdDate">Created Date</label>
                      </th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="release">Release</label></th>
+                     <th><label for="release">Release</label></th>
                   </tr>
                   <c:if test="${modelUc.ucSeqMstList[0]==null}">
                      <tr>
@@ -366,15 +366,15 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- =================DEV System sequence ========================= -->
                <c:if test="${modelUc.userRequestAction=='dev_release'}">
                   <tr>
-                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Development system sequences</label></td>
+                     <td width="100%" ><label for="sequenceName">Development system sequences</label></td>
                   </tr>
                   <tr>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="sequenceName">Sequence Name</label></th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="createdDate">Change Label</label></th>
-                     <th  bgcolor="${modelUc.greenShade}">
+                     <th><label for="sequenceName">Sequence Name</label></th>
+                     <th><label for="createdDate">Change Label</label></th>
+                     <th>
                         <label for="createdDate">Created Date</label>
                      </th>
-                     <th  bgcolor="${modelUc.greenShade}"><label for="release">Release</label></th>
+                     <th><label for="release">Release</label></th>
                   </tr>
                   <c:if test="${modelUc.ucSysSeqMstList[0]==null}">
                      <tr>
