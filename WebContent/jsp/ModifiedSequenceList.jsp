@@ -105,7 +105,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
 
 
 
-<div id="container">
+<div id="container" class="container">
 <c:if test="${modelUc.status=='saved'}">
 <c:redirect url="/ChangeReleaseList.htm?user_request_action_param=retrieve_release&saveError=${modelUc.saveError}&seqMstIds=${modelUc.seqMstIds}&sysSeqIds=${modelUc.sysSeqIds}&consolidatedSysSeqIds=${modelUc.consolidatedSysSeqIds}&sequenceVersion=${modelUc.sequenceVersion}"/>
 </c:if>
@@ -128,36 +128,17 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
 <form id="release_form" action="ModifiedSequenceList.htm" method="post" >
    <input type="hidden" name="user_request_action_param" value="generate_release" />
    <input type="hidden" name="sequenceVersion" value="${modelUc.sequenceVersion}" />
+   <div class="row">
+      <div class="col-lg-12" style="text-align:center;">
+        <h1>Release Sequences</h1>
+        <c:if test="${modelUc.message=='' or modelUc.message==null}">
+           <label>Select from the below list of sequences </label> <button class="btn btn-primary btn-raised" id="release" type="button" onclick="document.getElementById('release_form').submit();">Release</button>
+        </c:if>
+        <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
+        <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
+      </div>
+   </div>
    <table align="center" style="width: 1000px;">
-      <tr>
-         <td>
-            <table align="center" class="table-striped table-hover">
-               <tr>
-                  <td colspan="2">&nbsp;</td>
-               </tr>
-               <tr>
-                  <td style="text-align:center;">
-                     <h1>Release Sequences</h1>
-                  </td>
-                  <td style="text-align:right;">
-                     <!-- <a href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${modelUc.seq_mst_id_param}"/>">&lt;&lt;&nbsp;Back</a> -->&nbsp;
-                  </td>
-               </tr>
-               <c:if test="${modelUc.message=='' or modelUc.message==null}">
-                  <tr style="height:50px;text-align:center;">
-                     <td colspan="2" ><label>Select from the below list of sequences </label> <button class="btn btn-primary btn-raised" id="release" type="button" onclick="document.getElementById('release_form').submit();">Release</button><br>
-                     </td>
-                  </tr>
-               </c:if>
-               <tr>
-                  <td colspan="2">
-                     <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
-                     <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
-                  </td>
-               </tr>
-            </table>
-         </td>
-      </tr>
       <tr>
          <td>
             <c:set var="x" value="0" />
