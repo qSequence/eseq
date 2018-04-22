@@ -296,16 +296,16 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
+                                 <td align="left"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -317,18 +317,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DRAFT"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -372,18 +372,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_draft"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -395,18 +395,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_draft"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_draft"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -449,18 +449,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
                            <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a></td>
-                           <td align="center">
+                           <td align="left">
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
-                           <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                           <td align="center">${seqMst.catName}</td>
+                           <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                           <td align="left">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
-                              <td align="center">
+                              <td align="left">
                                  <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                               </td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><i class="mdi-action-delete"></i></td>
+                              <td align="left"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="changed" value="true" />
                            <c:set var="x" value="1" />
@@ -472,18 +472,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
                            <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>"><i class="mdi-image-edit"></i></a></td>
-                           <td align="center">
+                           <td align="left">
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
-                           <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                           <td align="center">${seqMst.catName}</td>
+                           <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                           <td align="left">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
-                              <td align="center">
+                              <td align="left">
                                  <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                               </td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><i class="mdi-action-delete"></i></td>
+                              <td align="left"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="x" value="0" />
                         </tr>
@@ -528,18 +528,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -551,18 +551,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -605,16 +605,16 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
+                                 <td align="left"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -626,18 +626,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=DEV_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -677,16 +677,16 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
                            <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a></td>
-                           <td align="center">
+                           <td align="left">
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
-                           <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                           <td align="center">${seqMst.catName}</td>
+                           <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                           <td align="left">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
-                              <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
+                              <td align="left"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><i class="mdi-action-delete"></i></td>
+                              <td align="left"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="changed" value="true" />
                            <c:set var="x" value="1" />
@@ -698,18 +698,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                               <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                            </td>
                            <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>"><i class="mdi-image-edit"></i></a></td>
-                           <td align="center">
+                           <td align="left">
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
-                           <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                           <td align="center">${seqMst.catName}</td>
+                           <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                           <td align="left">${seqMst.catName}</td>
                            <c:if test="${seqMst.accessLevel=='OW'}">
-                              <td align="center">
+                              <td align="left">
                                  <a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                               </td>
                            </c:if>
                            <c:if test="${seqMst.accessLevel!='OW'}">
-                              <td align="center"><i class="mdi-action-delete"></i></td>
+                              <td align="left"><i class="mdi-action-delete"></i></td>
                            </c:if>
                            <c:set var="x" value="0" />
                         </tr>
@@ -751,18 +751,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_prod"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -774,18 +774,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=sys_seq_prod"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=sys_seq_prod"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -828,18 +828,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
+                                 <td align="left">
+                                 <td align="left"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -851,18 +851,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
-                                 <td align="center"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
+                                 <td align="left">
+                                 <td align="left"><a href="<c:url value="ViewSequenceList.htm?user_request_action_param=delete_sequence_action&seq_mst_id_param=${seqMst.seqMstId}&sequenceVersion=PROD_VERSION"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -904,18 +904,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_PROD_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -927,18 +927,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_PROD_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_PROD_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
@@ -980,18 +980,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_DEV_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="changed" value="true" />
                               <c:set var="x" value="1" />
@@ -1003,18 +1003,18 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                  <a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.seqDescription}">${seqMst.seqName}</a>
                               </td>
                               <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&sys_seq_id=${seqMst.sysSeqId}&sequenceVersion=SYS_DEV_VERSION"/>"><i class="mdi-image-edit"></i></a></td>
-                              <td align="center">
+                              <td align="left">
                                  <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                               </td>
-                              <td align="center">${seqMst.usernameAndTeamCreated}</td>
-                              <td align="center">${seqMst.catName}</td>
+                              <td align="left">${seqMst.usernameAndTeamCreated}</td>
+                              <td align="left">${seqMst.catName}</td>
                               <c:if test="${seqMst.accessLevel=='OW'}">
-                                 <td align="center">
+                                 <td align="left">
                                     <a href="<c:url value="UpdateCapability.htm?property_for_param=request&sys_seq_id=${seqMst.sysSeqId}&request_id_param=${seqMst.forRequestId}&sequenceVersion=SYS_DEV_VERSION"/>" ><i class="mdi-action-delete"></i></a>
                                  </td>
                               </c:if>
                               <c:if test="${seqMst.accessLevel!='OW'}">
-                                 <td align="center"><i class="mdi-action-delete"></i></td>
+                                 <td align="left"><i class="mdi-action-delete"></i></td>
                               </c:if>
                               <c:set var="x" value="0" />
                            </tr>
