@@ -128,7 +128,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
 <form id="release_form" action="ModifiedSequenceList.htm" method="post" >
    <input type="hidden" name="user_request_action_param" value="generate_release" />
    <input type="hidden" name="sequenceVersion" value="${modelUc.sequenceVersion}" />
-   <table align="center">
+   <table align="center" style="width: 1000px;">
       <tr>
          <td>
             <table align="center" class="table-striped table-hover">
@@ -164,7 +164,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
             <table align="center" class="table-striped table-hover">
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Draft sequences</label></td>
+                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Draft sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -230,7 +230,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- =================DRAFT System sequence ========================= -->
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Draft system sequences</label></td>
+                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Draft system sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -298,7 +298,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- ***********************DEV RELEASE *************************************** -->
                <c:if test="${modelUc.userRequestAction=='dev_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Development sequences</label></td>
+                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Development sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -366,7 +366,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- =================DEV System sequence ========================= -->
                <c:if test="${modelUc.userRequestAction=='dev_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Development system sequences</label></td>
+                     <tdbgcolor="${modelUc.grayShade}" width="100%" ><label for="sequenceName">Development system sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>

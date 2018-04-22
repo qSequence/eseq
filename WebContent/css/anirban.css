@@ -420,3 +420,6 @@ table .table-header a.btn{
 .seqMst .form-group input, .seqMst .form-group select{
   margin-bottom: 20px;
 }
+.float-left{
+  float: left !important;
+}
