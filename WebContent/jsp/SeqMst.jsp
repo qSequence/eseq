@@ -194,24 +194,28 @@
               </div>
             </div>
             <div class="form-group">
-              <label>
-              <strong>Access</strong>
-              : Note: if access is provided for a specific sequence, this will override all other access priviledges. Whoever is in the list will only be able to access the sequence.
-              </label>
-            </div>
-            <div class="form-group">
               <div class="col-lg-12">
-                <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
-                  <label>User</label>
-                  <input type="text" id="user_name_param" maxlength="20"/><input type="hidden" id="user_id_param"/>
-                  <label>Access Level</label>
-                  <select name="access_param" id="access_param">
-                     <option value="RO">Read Only</option>
-                     <option value="RW">Read Write</option>
-                  </select>
-                  <button class="btn btn-success btn-raised" type="button" onclick="addLi(document.getElementById('user_name_param').value, document.getElementById('user_id_param').value, document.getElementById('access_param').value)">Add</button>
-                </c:if>
+                <label>
+                <strong>Access</strong>
+                : Note: if access is provided for a specific sequence, this will override all other access priviledges. Whoever is in the list will only be able to access the sequence.
+                </label>
               </div>
+                <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
+              <div class="col-lg-12">
+                <label>User</label>
+                <input type="text" id="user_name_param" maxlength="20"/><input type="hidden" id="user_id_param"/>
+              </div>
+              <div class="col-lg-12">
+                <label>Access Level</label>
+                <select name="access_param" id="access_param">
+                   <option value="RO">Read Only</option>
+                   <option value="RW">Read Write</option>
+                </select>
+              </div>
+              <div class="col-lg-12">
+                <button class="btn btn-success btn-raised" type="button" onclick="addLi(document.getElementById('user_name_param').value, document.getElementById('user_id_param').value, document.getElementById('access_param').value)">Add</button>
+              </div>
+                </c:if>
             </div>
           </div>
         </tr>
