@@ -1061,578 +1061,512 @@ function linkFields()
     </div>
   </div>
 
-  
+
 <div id="temp_input_container">
 </div>
 <div class="container">
+ <%
+    // HttpSession session = httpServlet.getSession();
 
-	<%
-		// HttpSession session = httpServlet.getSession();
+    // 		NavItem selectedUc = (NavItem) session.getAttribute("selectedUc");
 
-// 		NavItem selectedUc = (NavItem) session.getAttribute("selectedUc");
-
-// 		pageContext.setAttribute("selectedUc", selectedUc);
-	%>
-
-
-	<script type="text/javascript"
-		src="<c:url value="/javascript/utils.js"/>">
-
-
-	</script>
-
-<c:if test="${modelUc.isEdited!='Y'}">
-<!--<div align="center"  style="width: 1360px;left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;float: right;width:100%;">
--->
-<c:if test="${modelUc.status=='EDITED'}">
-<c:redirect url="${modelUc.redirectUri}"/>
-</c:if>
-<table align="center" border="0" width=70%>
-<tr><td>
-<table   border="0" align="left">
-	<tr><td colspan="2" class="${modelUc.editclassSeqName}" id="seqMstName----${modelUc.ucId}----${modelUc.seqMstId}" style="word-wrap:break-word;font-family:times;color:#98bf21;font-size:24px;vertical-align: bottom;font-weight: bold;text-align: center;" >${modelUc.seqName} </td>
-		<td style="word-wrap:break-word;font-family:times;color:black;font-size:20px;vertical-align: bottom;font-weight: bold;text-align: center;"><div >(${modelUc.sequeneVersionTitle}) <span>${modelUc.ucSeqMst.changeTitle}  ${modelUc.ucSeqMst.changeNote}</span></div></td>
-
-	</tr>
-			<c:if test="${modelUc.showSaveSequence=='true'}">
-				<tr><td>
-				<input width="150" type="submit" value="Edit Sequence" onclick="proceed('edit_sequence_action', '${modelUc.sequenceVersion}', '${modelUc.seqMstId}', 'output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm', '${modelUc.sysSeqId}');"/>
-	<!--            <img src="<c:url value="/images/edit.png"/>" onclick="proceed('edit_sequence_action', ${modelUc.seqMstId}, 'output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm');">
-	 			<button type="button" onclick="proceed('edit_sequence_action', ${modelUc.seqMstId}, 'output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm');">Edit</button> --%>
-	<!-- 			<button type="button" disabled="disabled">Save</button>
-				<img src="<c:url value="/images/disabled_save.png"/>">-->
-				</td>
-
-				<td>
-				<!--
-				<input width="150" type="submit" value="Save Sequence" disabled=disabled />
-				-->
-				</td>
-				<td>
-				<!--
-				<input width="150" type="submit" value=" Discard changes " disabled=disabled />
-				-->
-				</td>
-
-			    </tr>
-			</c:if>
-			     <!--
-			 <tr>
-			     <td>&nbsp;</td>
-			<td>
-				<form target="_blank" id="print_form" action="SeqPrint.htm" method="post" >
-					<input id="seq_mst_id_param" name="seq_mst_id_param" type="hidden" value="${modelUc.seqMstId}" />
-					<input id="user_request_sub_action_param" name="user_request_sub_action_param" type="hidden" value="download_word_document" />
-					<input width="150" id="form_print_button" align="left" type="button" value="   Print Version   ">
-				</form>
-			</td>
-			<td>
-				<form id="download_form" action="SeqDownload.htm" method="post" >
-					<input id="seq_mst_id_param" name="seq_mst_id_param" type="hidden" value="${modelUc.seqMstId}" />
-					<input id="user_request_sub_action_param" name="user_request_sub_action_param" type="hidden" value="download_word_document" />
-					<input width="150" id="form_download_button" align="left" type="button" value="Download Version">
-				</form>
-			</td>
-			</tr>
-			 -->
-
-</table>
-</td>
-<c:if test="${modelUc.toolTip!='null' and  modelUc.toolTip!='NO_TIP'}">
-<td>
-
-	<table align="right">
-	<tr><td>
-	<c:if test="${modelUc.toolTip=='MENU_TIP'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />" > below and select interaction action, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
-	</c:if>
-
-	<c:if test="${modelUc.toolTip=='SEQUENCE_NAME_EDIT_TIP'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:30px;">Tip : Click on the sequence name to edit. </div>
-	</c:if>
-
-	<c:if test="${modelUc.toolTip=='PROPERTIES_TIP'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Tip : Click on <img title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/information_injection.png" />" > to edit or view existing properties, check <a href="<c:url value="faq.htm#properties"/>"><strong>FAQ - properties</strong></a> </div>
-	</c:if>
-	<c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />" > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>   </div>
-	</c:if>
-	<c:if test="${modelUc.toolTip=='SYS_SEQ_SAVE_ERROR'}">
-		<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Error : Save error, ${modelUc.error}  </div>
-	</c:if>
-	</td>
-	</tr>
-	</table>
-	</td>
-</c:if>
-</tr>
-</table>
-
-<!--</div>
--->
-</c:if>
-<c:if test="${modelUc.isEdited=='Y'}">
-<!--<div align="center" style="width: 1360px;left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;float: right;width:100%;">
--->
-<table align="center" border="0" width=70%>
-<tr><td>
-<table border="0" align="left">
-		<tr><td colspan="2" class="${modelUc.editclass}" id="seqMstName----${modelUc.ucId}----${modelUc.seqMstId}" style="word-wrap:break-word;font-family:times;color:#98bf21;font-size:24px;vertical-align: bottom;font-weight: bold;text-align: center;">${modelUc.seqName}</td>
-			<td style="word-wrap:break-word;font-family:times;color:black;font-size:20px;vertical-align: bottom;font-weight: bold;text-align: center;"><div >(${modelUc.sequeneVersionTitle}) <span>${modelUc.ucSeqMst.changeTitle}  ${modelUc.ucSeqMst.changeNote}</span></div></td>
-		</tr>
-		<c:if test="${modelUc.showSaveSequence=='true'}">
-			<tr>
-			<td>
-			 <!--
-			<input type="submit" value="Edit Sequence" disabled=disabled />
-		 -->
-			</td>
-			<td>
-			<input type="submit" value="Save Sequence" onclick="proceed('save_sequence_action', '${modelUc.sequenceVersion}', '${modelUc.seqMstId}','output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm', '${modelUc.sysSeqId}');" />
-			</td>
-			<td>
-			<input type="submit" value="Discard changes" onclick="proceed('discard_and_display_action', '${modelUc.sequenceVersion}', '${modelUc.seqMstId}','output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm', '${modelUc.sysSeqId}');"/>
-			</td></tr>
-		</c:if>
-</table>
-</td>
-<c:if test="${modelUc.toolTip!='NO_TIP' and modelUc.toolTip!='null'}">
-	<td>
-	<table border="0" align="right">
-	<tr><td>
-	<c:if test="${modelUc.toolTip=='MENU_TIP'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />" > below and select interaction, for more details on what you can create click <a href="<c:url value="faq.htm#CreatingFirstSequence"/>">FAQ - Creating Your First Sequence</a></div>
-	</c:if>
-
-	<c:if test="${modelUc.toolTip=='SEQUENCE_NAME_EDIT_TIP'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:30px;">Tip : Click on the sequence name to edit. </div>
-	</c:if>
-
-	<c:if test="${modelUc.toolTip=='PROPERTIES_TIP'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Tip : Click on <img title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/information_injection.png" />" > to edit or view existing details, check <a href="<c:url value="faq.htm#properties"/>"><strong>FAQ - properties</strong></a> </div>
-	</c:if>
-	<c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
-	<div id="tool_tip" class="bubble" style="width:500px;height:60px;">Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />" > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>   </div>
-	</c:if>
-	<c:if test="${modelUc.toolTip==null or modelUc.toolTip=='NO_TIP'}">
-	&nbsp;
-	</c:if>
-	</td>
-	</tr>
-	</table>
-	</td>
-</c:if>
-</tr>
-</table>
-
-<!--</div>
--->
-</c:if>
-<div>
-<div id="error" align="center" style="width: 1360px;left: 100px; top: 100px;float: right;width:100%;">
-<font size="5" color="red">
-${modelUc.error}
-</font>
+    // 		pageContext.setAttribute("selectedUc", selectedUc);
+    %>
+ <script type="text/javascript"
+ src="
+ <c:url value="/javascript/utils.js"/>
+ ">
+ </script>
+ <c:if test="${modelUc.isEdited!='Y'}">
+    <!--<div align="center"  style="width: 1360px;left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;float: right;width:100%;">
+       -->
+    <c:if test="${modelUc.status=='EDITED'}">
+       <c:redirect url="${modelUc.redirectUri}"/>
+    </c:if>
+    <table align="center" border="0" width=70%>
+       <tr>
+          <td>
+             <table   border="0" align="left">
+                <tr>
+                   <td colspan="2" class="${modelUc.editclassSeqName}" id="seqMstName----${modelUc.ucId}----${modelUc.seqMstId}" style="word-wrap:break-word;font-family:times;color:#98bf21;font-size:24px;vertical-align: bottom;font-weight: bold;text-align: center;" >${modelUc.seqName} </td>
+                   <td style="word-wrap:break-word;font-family:times;color:black;font-size:20px;vertical-align: bottom;font-weight: bold;text-align: center;">
+                      <div >(${modelUc.sequeneVersionTitle}) <span>${modelUc.ucSeqMst.changeTitle}  ${modelUc.ucSeqMst.changeNote}</span></div>
+                   </td>
+                </tr>
+                <c:if test="${modelUc.showSaveSequence=='true'}">
+                   <tr>
+                      <td>
+                         <input width="150" type="submit" value="Edit Sequence" onclick="proceed('edit_sequence_action', '${modelUc.sequenceVersion}', '${modelUc.seqMstId}', 'output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm', '${modelUc.sysSeqId}');"/>
+                      </td>
+                   </tr>
+                </c:if>
+             </table>
+          </td>
+          <c:if test="${modelUc.toolTip!='null' and  modelUc.toolTip!='NO_TIP'}">
+             <td>
+                <table align="right">
+                   <tr>
+                      <td>
+                         <c:if test="${modelUc.toolTip=='MENU_TIP'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
+                               Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="
+                               <c:url value="/images/menui_selection.png" />
+                               " > below and select interaction action, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a>
+                            </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip=='SEQUENCE_NAME_EDIT_TIP'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:30px;">Tip : Click on the sequence name to edit. </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip=='PROPERTIES_TIP'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
+                               Tip : Click on <img title="Information" alt="Information" height="20" width="20" src="
+                               <c:url value="/images/information_injection.png" />
+                               " > to edit or view existing properties, check <a href="<c:url value="faq.htm#properties"/>"><strong>FAQ - properties</strong></a>
+                            </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
+                               Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="
+                               <c:url value="/images/menui_selection.png" />
+                               " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
+                            </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip=='SYS_SEQ_SAVE_ERROR'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:60px;">Error : Save error, ${modelUc.error}  </div>
+                         </c:if>
+                      </td>
+                   </tr>
+                </table>
+             </td>
+          </c:if>
+       </tr>
+    </table>
+    <!--</div>
+       -->
+ </c:if>
+ <c:if test="${modelUc.isEdited=='Y'}">
+    <table align="center" border="0" width=70%>
+       <tr>
+          <td>
+             <table border="0" align="left">
+                <tr>
+                   <td colspan="2" class="${modelUc.editclass}" id="seqMstName----${modelUc.ucId}----${modelUc.seqMstId}" style="word-wrap:break-word;font-family:times;color:#98bf21;font-size:24px;vertical-align: bottom;font-weight: bold;text-align: center;">${modelUc.seqName}</td>
+                   <td style="word-wrap:break-word;font-family:times;color:black;font-size:20px;vertical-align: bottom;font-weight: bold;text-align: center;">
+                      <div >(${modelUc.sequeneVersionTitle}) <span>${modelUc.ucSeqMst.changeTitle}  ${modelUc.ucSeqMst.changeNote}</span></div>
+                   </td>
+                </tr>
+                <c:if test="${modelUc.showSaveSequence=='true'}">
+                   <tr>
+                      <td>
+                         <input type="submit" value="Save Sequence" onclick="proceed('save_sequence_action', '${modelUc.sequenceVersion}', '${modelUc.seqMstId}','output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm', '${modelUc.sysSeqId}');" />
+                      </td>
+                      <td>
+                         <input type="submit" value="Discard changes" onclick="proceed('discard_and_display_action', '${modelUc.sequenceVersion}', '${modelUc.seqMstId}','output_type_param', '${modelUc.CONTEXT_PATH}/SeqDetA.htm', '${modelUc.sysSeqId}');"/>
+                      </td>
+                   </tr>
+                </c:if>
+             </table>
+          </td>
+          <c:if test="${modelUc.toolTip!='NO_TIP' and modelUc.toolTip!='null'}">
+             <td>
+                <table border="0" align="right">
+                   <tr>
+                      <td>
+                         <c:if test="${modelUc.toolTip=='MENU_TIP'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
+                               Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="
+                               <c:url value="/images/menui_selection.png" />
+                               " > below and select interaction, for more details on what you can create click <a href="<c:url value="faq.htm#CreatingFirstSequence"/>">FAQ - Creating Your First Sequence</a>
+                            </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip=='SEQUENCE_NAME_EDIT_TIP'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:30px;">Tip : Click on the sequence name to edit. </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip=='PROPERTIES_TIP'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
+                               Tip : Click on <img title="Information" alt="Information" height="20" width="20" src="
+                               <c:url value="/images/information_injection.png" />
+                               " > to edit or view existing details, check <a href="<c:url value="faq.htm#properties"/>"><strong>FAQ - properties</strong></a>
+                            </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
+                            <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
+                               Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="
+                               <c:url value="/images/menui_selection.png" />
+                               " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
+                            </div>
+                         </c:if>
+                         <c:if test="${modelUc.toolTip==null or modelUc.toolTip=='NO_TIP'}">
+                            &nbsp;
+                         </c:if>
+                      </td>
+                   </tr>
+                </table>
+             </td>
+          </c:if>
+       </tr>
+    </table>
+    <!--</div>
+       -->
+ </c:if>
+ <div>
+    <div id="error" align="center" style="width: 1360px;left: 100px; top: 100px;float: right;width:100%;">
+       <font size="5" color="red">
+       ${modelUc.error}
+       </font>
+    </div>
+    <input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}" />
+    <input type="hidden" id="selectedComboGrid">
+    <input type="hidden" id="selectedSeqItemId">
+    <input type="hidden" id="selectedRow">
+    <input type="hidden" id="selectedCol">
+    <input type="hidden" id="selectedSourceDestination">
+    <input type="hidden" id="selectedAsynchSourceDestinationName">
+    <input type="hidden" id="selectedSystemType">
+    <input type="hidden" id="selectedUc" value="${modelUc.ucId}">
+    <input type="hidden" id="selectedSystem">
+    <input type="hidden" id="selectedUcEdited" value="${modelUc.isEdited}">
+    <input type="hidden" id="numberOfRows" value="${modelUc.numberOfRows}">
+ </div>
+ <%-- 	<c:if test="${modelUc.userRequestAction!='default_action'}"> --%>
+ <div  id="seq_det_holder">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+       <c:forEach items="${modelUc.ucDisplayDataRowList}" var="row" >
+          <tr>
+             <c:forEach items="${row}" var="col" >
+                <c:if test="${col.ucObjectEnum=='customer'  or col.ucObjectEnum=='system' or col.ucObjectEnum=='system11' or col.ucObjectEnum=='system13' or col.ucObjectEnum=='asynchSource' or col.ucObjectEnum=='asynchDestination' or col.ucObjectEnum=='ifCondition' or col.ucObjectEnum=='sequenceSection'}">
+                   <td id="td_SYSTEM${col.ucSeqDiagram.rowNo}" align=center valign="top"  height="100" width="150" ${col.htmlStr} >
+                   <table id="table_SYSTEM${col.ucSeqDiagram.rowNo}" align="center" height="100%" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                         <c:if test="${col.ucSeqDiagram.expanded!=null}">
+                            <!-- TR 1-->
+                            <!-- TD 1-->
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
+                               <td height="15%" width="15%" style="vertical-align: top;text-align: left;border-top: 4px dashed gray;border-left: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
+                            <td height="15%" width="15%" style="vertical-align: top;text-align: left;border-left: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
+                            <td height="15%" width="15%" style="vertical-align: top;text-align: left;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.expanded=='true'}">
+                            <img  class="mousetoHand" src="images/nav/minus.png" alt="close" onclick="seqUpdateOpenClose( 'close_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"/>
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.expanded!='true'}">
+                            <img   class="mousetoHand" src="images/nav/plus.png" alt="open" onclick="seqUpdateOpenClose( 'expand_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"/>
+                            </c:if>
+                            </td>
+                            <!-- TD 2-->
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
+                               <td style="vertical-align: top;text-align: right;border-right: 4px dashed gray;border-top: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
+                            <td style="vertical-align: top;text-align: right;border-right: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
+                            <td style="vertical-align: top;text-align: right;">
+                            </c:if>
+                            <c:if test="${modelUc.editclass=='editable'}">
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null   and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <img id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null   and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <img id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            </td>
+                         </c:if>
+                         <!-- TD 1-->
+                         <c:if test="${col.ucSeqDiagram.expanded==null and modelUc.editclass=='editable'}">
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
+                               <td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-right: 4px dashed gray;border-left: 4px dashed gray;border-top: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
+                            <td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-right: 4px dashed gray;border-left: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
+                            <td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}');">
+                            </c:if>
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}');">
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}');">
+                            </c:if>
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}');">
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            </td>
+                         </c:if>
+                         <c:if test="${col.ucSeqDiagram.expanded==null and modelUc.editclass!='editable'}">
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
+                               <td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-left: 4px dashed gray;border-right: 4px dashed gray;border-top: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
+                            <td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-left: 4px dashed gray;border-right: 4px dashed gray;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
+                            <td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination !=null}">
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}"  class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            <c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination ==null}">
+                            <img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}"  class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
+                            onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
+                            </c:if>
+                            </td>
+                         </c:if>
+                      </tr>
+                      <!-- TR 2-->
+                      <!-- TD 1-->
+                      <tr>
+                         <c:if test="${ col.ucObjectEnum=='ifCondition' or col.ucObjectEnum=='sequenceSection'}">
+                            <td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-bottom: 1px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ col.ucObjectEnum!='ifCondition' and col.ucObjectEnum!='sequenceSection'}">
+                         <!-- HAVE_A_LOOK -->
+                         <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         </c:if>
+                         <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;border-bottom: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}">
+                         </c:if>
+                         <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         <c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
+                         <td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
+                         </c:if>
+                         </c:if>
+                         </c:if>
+                         ${col.displayName} &nbsp;
+                         <c:if test="${col.ucSeqDiagram.selected=='true'}"><A NAME="selectedSeqItem"></A></c:if>
+                         </td>
+                      </tr>
+                   </table>
+                   </td>
+                </c:if>
+                <c:if test="${col.ucObjectEnum!='customer' and col.ucObjectEnum!='ifCondition' and col.ucObjectEnum!='system11' and col.ucObjectEnum!='system13' and col.ucObjectEnum!='sequenceSection' and col.ucObjectEnum!='system' and col.ucObjectEnum!='asynchSource' and col.ucObjectEnum!='asynchDestination'}">
+                   ${col.htmlStr}
+                </c:if>
+             </c:forEach>
+          </tr>
+       </c:forEach>
+    </table>
+ </div>
+ <!-- end of div seq_det_holder -->
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <!-- 		************* -->
+    <!-- 		TR for Menues -->
+    <!-- 		************* -->
+    <tr>
+       <td>
+          <table>
+             <tr>
+                <c:forEach items="${modelUc.menuList}" var="ucDisplayObject" >
+                   <td>
+                      <!-- CHECK  multiLevelPopupMenus , minfield-->
+                      <div id="${ucDisplayObject.ucObjectEnum}_prop_menu_edit" class="multiLevelPopupMenus"
+                         onclick="event.cancelBubble=true">
+                         <table border="0" cellpadding="0" cellspacing="0">
+                            <tbody id="${ucDisplayObject.ucObjectEnum}_menu_append">
+                               <c:forEach items="${ucDisplayObject.menuItemList}" var="menuItem" >
+                                  <c:if test="${menuItem.menuEnabled=='true'}">
+                                     <c:if test="${menuItem.itemAction=='asynch_paste_action'}">
+                                        <c:if test="${menuItem.itemType=='custom'}">
+                                           <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
+                                              onMouseOut="this.bgColor='#F6F6F6'; "
+                                              onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
+                                        </c:if>
+                                        <c:if test="${menuItem.itemType!='custom'}">
+                                        <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
+                                           onMouseOut="this.bgColor='#F6F6F6'; "
+                                           onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
+                                        </c:if>
+                                     </c:if>
+                                     <c:if test="${menuItem.itemAction!='asynch_paste_action'}">
+                                     <c:if test="${menuItem.itemType=='custom'}">
+                                     <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#F6F6F6'; "
+                                        onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
+                                     </c:if>
+                                     <c:if test="${menuItem.itemType!='custom'}">
+                                     <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#F6F6F6'; "
+                                        onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
+                                     </c:if>
+                                     </c:if>
+                                     <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
+                                     <td align="left" height="20" width="20">&nbsp;<img
+                                     src="<c:url value="${menuItem.itemImage}" />" style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
+                                     </td>
+                                     </c:if>
+                                     <c:if test="${menuItem.itemType=='synch_asynch'}">
+                                     <td align="left" height="20" width="150" nowrap="nowrap"><strong>${menuItem.itemName}</strong></td>
+                                     </c:if>
+                                     <c:if test="${menuItem.itemType!='synch_asynch'}">
+                                     <td align="left" height="20" width="150" nowrap="nowrap">${menuItem.itemName}</td>
+                                     </c:if>
+                                     </tr>
+                                  </c:if>
+                                  <c:if test="${menuItem.menuEnabled=='false'}">
+                                     <tr onMouseOver="this.bgColor='#99CCFF';"
+                                        onMouseOut="this.bgColor='#F6F6F6';">
+                                        <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
+                                           <td align="left" height="20" width="20">
+                                              &nbsp;<img
+                                              src="
+                                              <c:url value="${menuItem.itemImage}" />
+                                              " style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
+                                           </td>
+                                        </c:if>
+                                        <c:if test="${menuItem.itemType=='synch_asynch'}">
+                                           <td align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3"><strong>${menuItem.itemName}</strong></font></td>
+                                        </c:if>
+                                        <c:if test="${menuItem.itemType!='synch_asynch'}">
+                                           <td align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3">${menuItem.itemName}</font></td>
+                                        </c:if>
+                                     </tr>
+                                  </c:if>
+                               </c:forEach>
+                            </tbody>
+                         </table>
+                      </div>
+                   </td>
+                </c:forEach>
+             </tr>
+          </table>
+       </td>
+    </tr>
+    <!-- 		************* -->
+    <!-- 		TR for properties -->
+    <!-- 		************* -->
+    <tr>
+       <td>
+          <table>
+             <tr>
+                <td>
+                   <div  id="prop_menu_place_holder" class="propertiesMenus"
+                      onclick="event.cancelBubble=true">
+                   </div>
+                </td>
+             </tr>
+          </table>
+       </td>
+    </tr>
+    <%-- 			</c:if> --%>
+ </table>
+ <%-- 	</c:if> --%>
 </div>
-<input id="sequenceVersion" name="sequenceVersion" type="hidden" value="${modelUc.sequenceVersion}" />
-<input type="hidden" id="selectedComboGrid">
-<input type="hidden" id="selectedSeqItemId">
-<input type="hidden" id="selectedRow">
-<input type="hidden" id="selectedCol">
-<input type="hidden" id="selectedSourceDestination">
-<input type="hidden" id="selectedAsynchSourceDestinationName">
-<input type="hidden" id="selectedSystemType">
-<input type="hidden" id="selectedUc" value="${modelUc.ucId}">
-<input type="hidden" id="selectedSystem">
-<input type="hidden" id="selectedUcEdited" value="${modelUc.isEdited}">
-<input type="hidden" id="numberOfRows" value="${modelUc.numberOfRows}">
-</div>
-	<%-- 	<c:if test="${modelUc.userRequestAction!='default_action'}"> --%>
-<div  id="seq_det_holder">
-	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 
 
-			<c:forEach items="${modelUc.ucDisplayDataRowList}" var="row" >
-				<tr>
-			<c:forEach items="${row}" var="col" >
-
-
-
-							<c:if test="${col.ucObjectEnum=='customer'  or col.ucObjectEnum=='system' or col.ucObjectEnum=='system11' or col.ucObjectEnum=='system13' or col.ucObjectEnum=='asynchSource' or col.ucObjectEnum=='asynchDestination' or col.ucObjectEnum=='ifCondition' or col.ucObjectEnum=='sequenceSection'}">
-							<td id="td_SYSTEM${col.ucSeqDiagram.rowNo}" align=center valign="top"  height="100" width="150" ${col.htmlStr} >
-								<table id="table_SYSTEM${col.ucSeqDiagram.rowNo}" align="center" height="100%" width="100%" cellpadding="0" cellspacing="0">
-									<tr>
-
-									<c:if test="${col.ucSeqDiagram.expanded!=null}">
-
-<!-- TR 1-->
-	<!-- TD 1-->
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
-									  <td height="15%" width="15%" style="vertical-align: top;text-align: left;border-top: 4px dashed gray;border-left: 4px dashed gray;">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
-									  <td height="15%" width="15%" style="vertical-align: top;text-align: left;border-left: 4px dashed gray;">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
-									  <td height="15%" width="15%" style="vertical-align: top;text-align: left;">
-									  </c:if>
-
-												<c:if test="${col.ucSeqDiagram.expanded=='true'}">
-													<img  class="mousetoHand" src="images/nav/minus.png" alt="close" onclick="seqUpdateOpenClose( 'close_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"/>
-												</c:if>
-												<c:if test="${col.ucSeqDiagram.expanded!='true'}">
-													<img   class="mousetoHand" src="images/nav/plus.png" alt="open" onclick="seqUpdateOpenClose( 'expand_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"/>
-
-												</c:if>
-										</td>
-	<!-- TD 2-->
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
-										<td style="vertical-align: top;text-align: right;border-right: 4px dashed gray;border-top: 4px dashed gray;">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
-									  <td style="vertical-align: top;text-align: right;border-right: 4px dashed gray;">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
-									  <td style="vertical-align: top;text-align: right;">
-									  </c:if>
-												<c:if test="${modelUc.editclass=='editable'}">
-													<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
-														<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-															onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-													</c:if>
-													<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-														<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-															onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-													</c:if>
-													<c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination !=null}">
-													    <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-															<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-																onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-														</c:if>
-													</c:if>
-													<c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination ==null}">
-														<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-															onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-													</c:if>
-
-												</c:if>
-
-												<c:if test="${col.ucSeqDiagram.seqItemId!=null   and col.ucSeqDiagram.asynchSourceDestination !=null}">
-													<img id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-														onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-
-												</c:if>
-												<c:if test="${col.ucSeqDiagram.seqItemId!=null   and col.ucSeqDiagram.asynchSourceDestination ==null}">
-  												       <img id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-														onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-												</c:if>
-
-												<c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination !=null}">
-														<img id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-														onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-												</c:if>
-												<c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-														<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-														onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-												</c:if>
-										</td>
-									</c:if>
-		<!-- TD 1-->
-									<c:if test="${col.ucSeqDiagram.expanded==null and modelUc.editclass=='editable'}">
-									<c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
-										<td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-right: 4px dashed gray;border-left: 4px dashed gray;border-top: 4px dashed gray;">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
-										<td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-right: 4px dashed gray;border-left: 4px dashed gray;">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
-										<td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;">
-									  </c:if>
-
-											<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
-												<c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-													<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-														onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-												</c:if>
-												<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-													onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-											</c:if>
-<!--
-											<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-												<img title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-												onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '');">
-								<img title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/properties.png" />"
-														onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}');">
-
-					</c:if>
--->
-											<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
-												<c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-													<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-														onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}');">
-												</c:if>
-												<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-													onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-
-											</c:if>
-											<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-												<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-													onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}');">
-												<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-													onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-											</c:if>
-											<c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination !=null}">
-												<c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-													<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-														onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}');">
-												</c:if>
-												<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-													onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-											</c:if>
-											<c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-												<img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
-													onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}');">
-												<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-													onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-											</c:if>
-
-										</td>
-
-									</c:if>
-									<c:if test="${col.ucSeqDiagram.expanded==null and modelUc.editclass!='editable'}">
-									<c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
-										<td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-left: 4px dashed gray;border-right: 4px dashed gray;border-top: 4px dashed gray;">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
-										<td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;border-left: 4px dashed gray;border-right: 4px dashed gray;">
-
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
-										<td colspan="2" height="15%" width="15%" align="right" style="vertical-align: top;text-align: right;">
-									  </c:if>
-
-
-										<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
-											<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-												onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-											<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-												onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-
-										<c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination !=null}">
-											<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}"  class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-												onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination ==null}">
-											<img  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}"  class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20" src="<c:url value="/images/${col.ucSeqDiagram.systemPropertiesFound}.png" />"
-												onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										</td>
-
-									</c:if>
-									</tr>
-<!-- TR 2-->
-	<!-- TD 1-->
-									<tr>
-									<c:if test="${ col.ucObjectEnum=='ifCondition' or col.ucObjectEnum=='sequenceSection'}">
-										<td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-bottom: 1px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-
-									</c:if>
-									<c:if test="${ col.ucObjectEnum!='ifCondition' and col.ucObjectEnum!='sequenceSection'}">
-									<!-- HAVE_A_LOOK -->
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
-
-										<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}" oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='DESTINATION'}">
-										<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;border-right: 4px dashed gray;border-left: 4px dashed gray;border-bottom: 4px dashed gray;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}">
-									  </c:if>
-									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination==null}">
-									  	<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo ==1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion=='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')) and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="${modelUc.editclass}" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-										<c:if test="${ fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq') and modelUc.sequenceVersion!='sys_seq_draft' and col.ucSeqDiagram.rowNo !=1}">
-											<td colspan="2" valign="bottom" align="center" class="noteditable" style="${col.bottomBorberHtmlStyle}word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;font-weight: bold;" id="${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}"  oninput="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');" onclick="updateSelectedComboGridForSystem('${col.ucObjectEnum}----${modelUc.ucId}----${col.ucSeqDiagram.seqMstId}----${col.ucSeqDiagram.seqItemId}----${col.ucSeqDiagram.rowNo}----${col.ucSeqDiagram.colNo}----${col.ucSeqDiagram.systemType}----${col.ucSeqDiagram.sysSeqId}', '${col.ucSeqDiagram.systemType}');">
-										</c:if>
-									  </c:if>
-									</c:if>
-											${col.displayName} &nbsp;
-											<c:if test="${col.ucSeqDiagram.selected=='true'}"><A NAME="selectedSeqItem"></A></c:if>
-										</td>
-									</tr>
-
-								</table>
-							</td>
-							</c:if>
-
-							<c:if test="${col.ucObjectEnum!='customer' and col.ucObjectEnum!='ifCondition' and col.ucObjectEnum!='system11' and col.ucObjectEnum!='system13' and col.ucObjectEnum!='sequenceSection' and col.ucObjectEnum!='system' and col.ucObjectEnum!='asynchSource' and col.ucObjectEnum!='asynchDestination'}">
-									${col.htmlStr}
-							</c:if>
-
-
-					</c:forEach>
-				</tr>
-		</c:forEach>
-	</table>
-</div><!-- end of div seq_det_holder -->
-
-	<table border="0" cellpadding="0" cellspacing="0" width="100%">
-<!-- 		************* -->
-<!-- 		TR for Menues -->
-<!-- 		************* -->
-
-		<tr>
-			<td>
-				<table>
-					<tr>
-						<!-- 		************* -->
-						<!-- 		First Menue -->
-						<!-- 		************* -->
-						<c:forEach items="${modelUc.menuList}" var="ucDisplayObject" >
-						<td>
-						<!-- CHECK  multiLevelPopupMenus , minfield-->
-							<div id="${ucDisplayObject.ucObjectEnum}_prop_menu_edit" class="multiLevelPopupMenus"
-								onclick="event.cancelBubble=true">
-								<table border="0" cellpadding="0" cellspacing="0">
-
-										<tbody id="${ucDisplayObject.ucObjectEnum}_menu_append">
-											<c:forEach items="${ucDisplayObject.menuItemList}" var="menuItem" >
-											<c:if test="${menuItem.menuEnabled=='true'}">
-												<c:if test="${menuItem.itemAction=='asynch_paste_action'}">
-												<c:if test="${menuItem.itemType=='custom'}">
-													<tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
-														onMouseOut="this.bgColor='#F6F6F6'; "
-														onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
-												</c:if>
-												<c:if test="${menuItem.itemType!='custom'}">
-													<tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
-														onMouseOut="this.bgColor='#F6F6F6'; "
-														onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
-												</c:if>
-												</c:if>
-												<c:if test="${menuItem.itemAction!='asynch_paste_action'}">
-												<c:if test="${menuItem.itemType=='custom'}">
-													<tr  onMouseOver="this.bgColor='#99CCFF';"
-														onMouseOut="this.bgColor='#F6F6F6'; "
-														onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
-												</c:if>
-												<c:if test="${menuItem.itemType!='custom'}">
-													<tr  onMouseOver="this.bgColor='#99CCFF';"
-														onMouseOut="this.bgColor='#F6F6F6'; "
-														onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
-												</c:if>
-												</c:if>
-													<c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
-													<td align="left" height="20" width="20">&nbsp;<img
-														src="<c:url value="${menuItem.itemImage}" />" style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
-													</td>
-													</c:if>
-													<c:if test="${menuItem.itemType=='synch_asynch'}">
-														<td align="left" height="20" width="150" nowrap="nowrap"><strong>${menuItem.itemName}</strong></td>
-													</c:if>
-													<c:if test="${menuItem.itemType!='synch_asynch'}">
-														<td align="left" height="20" width="150" nowrap="nowrap">${menuItem.itemName}</td>
-													</c:if>
-												</tr>
-											</c:if>
-											<c:if test="${menuItem.menuEnabled=='false'}">
-											<tr onMouseOver="this.bgColor='#99CCFF';"
-												onMouseOut="this.bgColor='#F6F6F6';">
-												<c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
-												<td align="left" height="20" width="20">&nbsp;<img
-													src="<c:url value="${menuItem.itemImage}" />" style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
-												</td>
-												</c:if>
-												<c:if test="${menuItem.itemType=='synch_asynch'}">
-													<td align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3"><strong>${menuItem.itemName}</strong></font></td>
-												</c:if>
-												<c:if test="${menuItem.itemType!='synch_asynch'}">
-													<td align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3">${menuItem.itemName}</font></td>
-												</c:if>
-
-											</tr>
-											</c:if>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
-						</td>
-						</c:forEach>
-					</tr>
-				</table>
-
-			</td>
-		</tr>
-
-<!-- 		************* -->
-<!-- 		TR for properties -->
-<!-- 		************* -->
-		<tr>
-			<td>
-				<table>
-					<tr>
-
-						<td>
-							<div  id="prop_menu_place_holder" class="propertiesMenus"
-								onclick="event.cancelBubble=true">
-
-							</div>
-						</td>
-
-					</tr>
-				</table>
-
-			</td>
-		</tr>
-
-
-			<%-- 			</c:if> --%>
-	</table>
-	<%-- 	</c:if> --%>
-	</div>
 </body>
 </html>
