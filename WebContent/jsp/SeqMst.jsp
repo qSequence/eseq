@@ -171,12 +171,6 @@
         <tr>
           <div class="table-header">
             <a class="btn btn-info btn-raised" href="<c:url value="ViewSequenceList.htm?request_action_param=default_action&seq_mst_id_param=${modelUc.seqMstId}"/>">Back</a>
-          </div>
-          <div class="table-header">
-            <h1>Edit Sequence</h1>
-            <h2><input id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/></h2>
-          </div>
-          <div class="table-header">
             <h1>Edit Sequence</h1>
             <h2><input id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/></h2>
           </div>
