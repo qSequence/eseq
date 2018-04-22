@@ -164,7 +164,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
             <table align="center" class="table-striped table-hover">
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Draft sequences</label></td>
+                     <td  ><label for="sequenceName">Draft sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -174,7 +174,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </tr>
                   <c:if test="${modelUc.ucSeqMstDraftList[0]==null}">
                      <tr>
-                        <td colspan="5"><font color="red"><strong>No draft sequences found.</strong></font>
+                        <td><font color="red"><strong>No draft sequences found.</strong></font>
                         </td>
                      </tr>
                   </c:if>
@@ -230,7 +230,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- =================DRAFT System sequence ========================= -->
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Draft system sequences</label></td>
+                     <td  ><label for="sequenceName">Draft system sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -242,7 +242,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </tr>
                   <c:if test="${modelUc.ucSysSeqMstDraftList[0]==null}">
                      <tr>
-                        <td colspan="5"><font color="red"><strong>No draft system sequences found.</strong></font>
+                        <td><font color="red"><strong>No draft system sequences found.</strong></font>
                         </td>
                      </tr>
                   </c:if>
@@ -298,7 +298,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- ***********************DEV RELEASE *************************************** -->
                <c:if test="${modelUc.userRequestAction=='dev_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Development sequences</label></td>
+                     <td  ><label for="sequenceName">Development sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -310,7 +310,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </tr>
                   <c:if test="${modelUc.ucSeqMstList[0]==null}">
                      <tr>
-                        <td colspan="5"><font color="red"><strong>No sequences found.</strong></font>
+                        <td><font color="red"><strong>No sequences found.</strong></font>
                         </td>
                      </tr>
                   </c:if>
@@ -366,7 +366,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- =================DEV System sequence ========================= -->
                <c:if test="${modelUc.userRequestAction=='dev_release'}">
                   <tr>
-                     <td width="100%" ><label for="sequenceName">Development system sequences</label></td>
+                     <td  ><label for="sequenceName">Development system sequences</label></td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -378,7 +378,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </tr>
                   <c:if test="${modelUc.ucSysSeqMstList[0]==null}">
                      <tr>
-                        <td colspan="5"><font color="red"><strong>No development system sequences found.</strong></font>
+                        <td><font color="red"><strong>No development system sequences found.</strong></font>
                         </td>
                      </tr>
                   </c:if>
