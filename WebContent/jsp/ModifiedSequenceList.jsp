@@ -145,7 +145,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                </tr>
                <c:if test="${modelUc.message=='' or modelUc.message==null}">
                   <tr style="height:50px;text-align:center;">
-                     <td colspan="2" ><label>Select from the below list of sequences </label> <button id="release" type="button" onclick="document.getElementById('release_form').submit();">Release</button><br>
+                     <td colspan="2" ><label>Select from the below list of sequences </label> <button class="btn btn-primary btn-raised" id="release" type="button" onclick="document.getElementById('release_form').submit();">Release</button><br>
                      </td>
                   </tr>
                </c:if>
@@ -164,7 +164,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
             <table align="center" class="table-striped table-hover">
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <td  ><label for="sequenceName">Draft sequences</label></td>
+                     <td>
+                       <div class="table-header">
+                         <label for="sequenceName">Draft sequences</label>
+                       </div>
+                     </td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -174,7 +178,10 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </tr>
                   <c:if test="${modelUc.ucSeqMstDraftList[0]==null}">
                      <tr>
-                        <td><font color="red"><strong>No draft sequences found.</strong></font>
+                        <td>
+                          <div class="table-header">
+                            <font color="red"><strong>No draft sequences found.</strong></font>
+                          </div>
                         </td>
                      </tr>
                   </c:if>
@@ -230,7 +237,11 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                <!-- =================DRAFT System sequence ========================= -->
                <c:if test="${modelUc.userRequestAction=='draft_release'}">
                   <tr>
-                     <td  ><label for="sequenceName">Draft system sequences</label></td>
+                     <td>
+                       <div class="table-header">
+                         <label for="sequenceName">Draft system sequences</label>
+                       </div>
+                     </td>
                   </tr>
                   <tr>
                      <th><label for="sequenceName">Sequence Name</label></th>
@@ -242,7 +253,10 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                   </tr>
                   <c:if test="${modelUc.ucSysSeqMstDraftList[0]==null}">
                      <tr>
-                        <td><font color="red"><strong>No draft system sequences found.</strong></font>
+                        <td>
+                          <div class="table-header">
+                            <font color="red"><strong>No draft system sequences found.</strong></font>
+                          </div>
                         </td>
                      </tr>
                   </c:if>
