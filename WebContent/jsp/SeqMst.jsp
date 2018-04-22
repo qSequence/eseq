@@ -195,19 +195,19 @@
             </div>
             <div class="form-group">
               <div class="col-lg-12">
-                <label>
+                <label class="control-label">
                 <strong>Access</strong>
                 : Note: if access is provided for a specific sequence, this will override all other access priviledges. Whoever is in the list will only be able to access the sequence.
                 </label>
               </div>
                 <c:if test="${modelUc.hasOwnerAccessToSeq==true}">
               <div class="col-lg-12">
-                <label>User</label>
-                <input type="text" id="user_name_param" maxlength="20"/><input type="hidden" id="user_id_param"/>
+                <label class="control-label">User</label>
+                <input class="width100" type="text" id="user_name_param" maxlength="20"/><input type="hidden" id="user_id_param"/>
               </div>
               <div class="col-lg-12">
-                <label>Access Level</label>
-                <select name="access_param" id="access_param">
+                <label class="control-label">Access Level</label>
+                <select class="width100" name="access_param" id="access_param">
                    <option value="RO">Read Only</option>
                    <option value="RW">Read Write</option>
                 </select>
