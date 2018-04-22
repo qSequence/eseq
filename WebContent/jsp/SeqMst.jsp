@@ -162,7 +162,7 @@
   </div>
 </div>
 
-<div id="cntainer">
+<div id="cntainer" class="container">
    <c:if test="${modelUc.status=='SAVED'}">
       <c:redirect url="/SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${modelUc.seqMstId}&sys_seq_id=${modelUc.sysSeqId}&message_param=${modelUc.message}&one_way_param=${modelUc.oneWay}&sequenceVersion=${modelUc.sequenceVersion}"/>
    </c:if>
@@ -307,12 +307,19 @@
          </tr>
          <tr>
             <td>
-               One way interaction
                <c:if test="${modelUc.oneWay=='Y'}">
-                  <input type="checkbox" name="one_way_param" checked="checked" value="Y">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="one_way_param" checked="checked" value="Y"><span class="checkbox-material"><span class="check"></span></span> One way interaction
+                    </label>
+                  </div>
                </c:if>
                <c:if test="${modelUc.oneWay!='Y'}">
-                  <input type="checkbox" name="one_way_param" value="Y">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="one_way_param" value="Y"><span class="checkbox-material"><span class="check"></span></span> One way interaction
+                    </label>
+                  </div>
                </c:if>
                <br>
             </td>
@@ -327,7 +334,7 @@
                <input id="request_action_param" name="request_action_param" type="hidden" value="save_sequence_action"/>
                <!--<input id="add_property_button" type="button" value="Add Property">-->
                <c:if test="${modelUc.hasReadWriteAccessToSeq==true}">
-                  <input id="form_submit_button" type="button" value="Save">&nbsp;&nbsp;&nbsp;<font color="red">${modelUc.message}</font>
+                  <input id="form_submit_button" class="btn btn-success btn-raised" type="button" value="Save"><font color="red">${modelUc.message}</font>
                </c:if>
             </td>
          </tr>
