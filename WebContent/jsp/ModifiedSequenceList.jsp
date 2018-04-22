@@ -189,7 +189,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeNote}">${seqMst.changeTitle}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
@@ -211,7 +211,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeNote}">${seqMst.changeTitle}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
@@ -257,7 +257,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeTitle}">${seqMst.changeNote}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
@@ -279,7 +279,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeNote}">${seqMst.changeTitle}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
@@ -325,7 +325,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeNote}">${seqMst.changeTitle}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
@@ -347,7 +347,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeNote}">${seqMst.changeTitle}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
@@ -393,7 +393,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeNote}">${seqMst.changeTitle}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
@@ -415,7 +415,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                            </td>
                            <td class="bottom seq-margin yellow-tooltip"  align="center" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${seqMst.changeNote}">${seqMst.changeTitle}
                            </td>
-                           <td align="center">
+                           <td>
                               <fmt:formatDate pattern="dd-MMM-yyyy hh:mm:ss a"  value="${seqMst.createdDate}" />
                            </td>
                            <td>
