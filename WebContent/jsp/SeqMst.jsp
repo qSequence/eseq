@@ -89,19 +89,19 @@
                     //    $(this).remove();
                     //});
 
-                     $("#form_submit_button").click(function(){
-                      //alert("The button was clicked.");
-                            var taVal=$("textarea#descriptionTA").val();
-                    		//alert("Before"+taVal);
-                    $("input#description_param").val(taVal);
-                    		//alert("Changed"+$("input#description_param").val());
+                      $("#form_submit_button").click(function(){
+                          alert("The button was clicked.");
+                          var taVal=$("textarea#descriptionTA").val();
+                          alert("Before"+taVal);
+                          $("input#description_param").val(taVal);
+                          alert("Changed"+$("input#description_param").val());
 
-                    		var taChangeVal=$("textarea#changeLongTA").val();
-                    		//alert("Before"+taVal);
-                    $("input#change_long_param").val(taChangeVal);
+                          var taChangeVal=$("textarea#changeLongTA").val();
+                          alert("Before"+taVal);
+                          $("input#change_long_param").val(taChangeVal);
 
-                    		document.getElementById("subscription_order_form").submit();
-                    });
+                          document.getElementById("subscription_order_form").submit();
+                      });
 
                     	$("#cat_name").combogrid({
                     		url: 'SearchCategories.htm?action_param=search_with_properties_only',
