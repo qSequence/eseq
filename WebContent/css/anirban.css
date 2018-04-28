@@ -430,7 +430,10 @@ table .table-header a.btn{
   background: #FFFFFF;
 }
 .profile .form-group{
-  
+
+}
+.profile table .table-header{
+  text-align: center;
 }
 .profile select{
 
