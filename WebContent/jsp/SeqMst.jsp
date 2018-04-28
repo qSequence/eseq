@@ -310,5 +310,5 @@ $('#add_property_button').click(function() {
       <br /> <br />
 		<br /> <br />
       <br /> <br />
-		<br /> <br />
+		<br /> <br /> 
 <%@ include file="footer.jsp"%>
