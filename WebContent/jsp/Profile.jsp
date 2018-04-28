@@ -186,45 +186,37 @@
                       <input class="col-lg-12" id="answer2" name="answer2" type="text" maxlength="50" value="${modelUc.credential.answer2}"/>
                   </div>
                 </div>
-              </td>
-            </tr>
-            <tr>
-               <td>
-                  <table>
-                     <tbody>
 
-                        <tr>
-                           <td><label for="company">Security Question3</label></td>
-                           <td><label for="company">Security Answer3</label></td>
-                        </tr>
-                        <tr>
-                           <td>
-                              <select id="question3" name="question3">
-                                 <c:forEach items="${modelUc.securityQuestionList}" var="securityQuestion3" >
-                                    <c:if test="${securityQuestion3 != modelUc.credential.question3}">
-                                       <option value="${securityQuestion3}">${securityQuestion3}</option>
-                                    </c:if>
-                                    <c:if test="${securityQuestion3 == modelUc.credential.question3}">
-                                       <option value="${securityQuestion3}" selected="selected">${securityQuestion3}</option>
-                                    </c:if>
-                                 </c:forEach>
-                              </select>
-                           </td>
-                           <td><input id="answer3" name="answer3" type="text" maxlength="50" value="${modelUc.credential.answer3}"/></td>
-                        </tr>
-                        <tr>
-                           <td>
-                              <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_profile_action" />
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>
-                              <input type="submit" value="Submit form">
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </td>
+                <div class="form-group">
+                  <div class="col-lg-6">
+                      <label class="control-label" for="company">Security Question3</label>
+                      <select id="question3" name="question3">
+                         <c:forEach items="${modelUc.securityQuestionList}" var="securityQuestion3" >
+                            <c:if test="${securityQuestion3 != modelUc.credential.question3}">
+                               <option value="${securityQuestion3}">${securityQuestion3}</option>
+                            </c:if>
+                            <c:if test="${securityQuestion3 == modelUc.credential.question3}">
+                               <option value="${securityQuestion3}" selected="selected">${securityQuestion3}</option>
+                            </c:if>
+                         </c:forEach>
+                      </select>
+                  </div>
+                  <div class="col-lg-6">
+                      <label class="control-label" for="company">Security Answer3</label>
+                      <input class="col-lg-12" id="answer3" name="answer3" type="text" maxlength="50" value="${modelUc.credential.answer3}"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_profile_action" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <input class="btn btn-success btn-raised" type="submit" value="Submit form">
+                  </div>
+                </div>
+              </td>
             </tr>
          </tbody>
       </table>
