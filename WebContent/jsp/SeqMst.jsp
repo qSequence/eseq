@@ -1,23 +1,25 @@
 <%@ include file="header_for_seqdet.jsp"%>
-  <%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
-    <%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
-      <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="css/qSequence-otherPages.css" rel="stylesheet">
-          <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-          <title>Edit Sequence</title>
-          <script type="text/javascript" src="jquery/jquery-1.10.2.js"></script>
-          <script type="text/javascript" src="jquery/jquery-ui.js"></script>
-          <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
-          <script src="jquery/jquery-latest.js"></script>
-          <%--  12 Oct added combogrid jquery libraries--%>
-            <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery-ui-1.10.1.custom.css" />">
-              <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
-              <script type="text/javascript" src="jquery/jquery-ui-1.10.1.custom.min.js"></script>
-              <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery.ui.combogrid.css" />">
-                <script type="text/javascript" src="jquery/jquery.ui.combogrid-1.6.3.js"></script>
-
+<%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
+<%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="css/qSequence-otherPages.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
+queries -->
+<title>Edit Sequence</title>
+<script type="text/javascript" src="jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+<script src="jquery/jquery-latest.js"></script>
+<%--  12 Oct added combogrid jquery libraries--%>
+<link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery-ui-1.10.1.custom.css" />">
+<script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui-1.10.1.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery.ui.combogrid.css" />">
+<script type="text/javascript" src="jquery/jquery.ui.combogrid-1.6.3.js"></script>
+<%-- END 12 Oct added combogrid jquery libraries--%>
+</script>
 
                   <link href="css/anirban.css" rel="stylesheet">
                     .navbar-inverse .navbar-nav>li>a {
