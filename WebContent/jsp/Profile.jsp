@@ -90,7 +90,9 @@
          <tbody>
             <tr>
                <td>
-                  <h1>My Profile</h1>
+                  <div class="table-header">
+                    <h1>My Profile</h1>
+                  </div>
                </td>
             </tr>
             <tr>
@@ -140,56 +142,78 @@
                     <input class="col-lg-12" id="mobile" name="mobile" type="text" maxlength="40" value="${modelUc.credential.mobile}"/>
                   </div>
                 </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="control-label" for="company">Company</label>
+                    <input class="col-lg-12" id="company" name="company" type="text" maxlength="100" value="${modelUc.credential.company}"/>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="col-lg-6">
+                      <label for="company" class="control-label">Security Question1</label>
+                      <select id="question1" name="question1">
+                         <c:forEach items="${modelUc.securityQuestionList}" var="securityQuestion1" >
+                            <c:if test="${securityQuestion1 != modelUc.credential.question1}">
+                               <option value="${securityQuestion1}">${securityQuestion1}</option>
+                            </c:if>
+                            <c:if test="${securityQuestion1 == modelUc.credential.question1}">
+                               <option value="${securityQuestion1}" selected="selected">${securityQuestion1}</option>
+                            </c:if>
+                         </c:forEach>
+                      </select>
+                  </div>
+                  <div class="col-lg-6">
+                      <label for="company" class="control-label">Security Answer1</label>
+                      <input class="col-lg-12" id="answer1" name="answer1" type="text" maxlength="50" value="${modelUc.credential.answer1}"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-6">
+                      <label class="control-label" for="company">Security Question2</label>
+                      <select id="question2" name="question2">
+                         <c:forEach items="${modelUc.securityQuestionList}" var="securityQuestion2" >
+                            <c:if test="${securityQuestion2 != modelUc.credential.question2}">
+                               <option value="${securityQuestion2}">${securityQuestion2}</option>
+                            </c:if>
+                            <c:if test="${securityQuestion2 == modelUc.credential.question2}">
+                               <option value="${securityQuestion2}" selected="selected">${securityQuestion2}</option>
+                            </c:if>
+                         </c:forEach>
+                      </select>
+                  </div>
+                  <div class="col-lg-6">
+                      <label class="control-label" for="company">Security Answer2</label>
+                      <input class="col-lg-12" id="answer2" name="answer2" type="text" maxlength="50" value="${modelUc.credential.answer2}"/>
+                  </div>
+                </div>
               </td>
             </tr>
             <tr>
                <td>
                   <table>
                      <tbody>
+
                         <tr>
-                           <td><label for="company">Company</label></td>
-                           <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                           <td><input id="company" name="company" type="text" maxlength="100" value="${modelUc.credential.company}"/></td>
-                        </tr>
-                        <tr>
-                           <td><label for="company">Security Question1</label></td>
-                           <td><label for="company">Security Answer1</label></td>
+                           <td></td>
+                           <td></td>
                         </tr>
                         <tr>
                            <td>
-                              <select id="question1" name="question1">
-                                 <c:forEach items="${modelUc.securityQuestionList}" var="securityQuestion1" >
-                                    <c:if test="${securityQuestion1 != modelUc.credential.question1}">
-                                       <option value="${securityQuestion1}">${securityQuestion1}</option>
-                                    </c:if>
-                                    <c:if test="${securityQuestion1 == modelUc.credential.question1}">
-                                       <option value="${securityQuestion1}" selected="selected">${securityQuestion1}</option>
-                                    </c:if>
-                                 </c:forEach>
-                              </select>
+
                            </td>
-                           <td><input id="answer1" name="answer1" type="text" maxlength="50" value="${modelUc.credential.answer1}"/></td>
+                           <td></td>
                         </tr>
                         <tr>
-                           <td><label for="company">Security Question2</label></td>
-                           <td><label for="company">Security Answer2</label></td>
+                           <td></td>
+                           <td></td>
                         </tr>
                         <tr>
                            <td>
-                              <select id="question2" name="question2">
-                                 <c:forEach items="${modelUc.securityQuestionList}" var="securityQuestion2" >
-                                    <c:if test="${securityQuestion2 != modelUc.credential.question2}">
-                                       <option value="${securityQuestion2}">${securityQuestion2}</option>
-                                    </c:if>
-                                    <c:if test="${securityQuestion2 == modelUc.credential.question2}">
-                                       <option value="${securityQuestion2}" selected="selected">${securityQuestion2}</option>
-                                    </c:if>
-                                 </c:forEach>
-                              </select>
+
                            </td>
-                           <td><input id="answer2" name="answer2" type="text" maxlength="50" value="${modelUc.credential.answer2}"/></td>
+                           <td></td>
                         </tr>
                         <tr>
                            <td><label for="company">Security Question3</label></td>
