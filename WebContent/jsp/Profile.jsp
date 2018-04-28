@@ -86,7 +86,7 @@
    <form action="Profile.htm" method="post" onsubmit="return checkCheckBox(this)">
       <!-- 		<div style="position: fixed; left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6; ">
          <table align="center" width="100%" style="position: relative; left: 20px;">-->
-      <table align="center">
+      <table style="margin: 0px auto;width: 1000px;">
          <tbody>
             <tr>
                <td>
@@ -94,26 +94,28 @@
                </td>
             </tr>
             <tr>
+              <td>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="col-lg-12 control-label" for="userName">Username</label>
+                    <input id="userName" class="col-lg-12" name="userName" type="text" value="${modelUc.credential.userName}" disabled />
+                    <font color="red">${modelUc.userNameError}</font>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="control-label" for="userName">Team</label>
+                    <input id="teamName" name="teamName" type="text" value="${modelUc.credential.userTeamName}" disabled />
+                    <font color="red">${modelUc.userTeamNameError}</font>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
                <td>
                   <table>
                      <tbody>
-                        <tr>
-                           <td><label for="userName">Username</label></td>
-                        </tr>
-                        <!-- 	***NOTE: note if you are allowing user to change these then check if username or email is already used-->
-                        <tr>
-                           <td><input id="userName" name="userName" type="text" value="${modelUc.credential.userName}" disabled /></td>
-                           <td><font color="red">${modelUc.userNameError}</font></td>
-                        </tr>
-                        <tr>
-                           <td><label for="userName">Team</label></td>
-                           <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                           <td><input id="teamName" name="teamName" type="text" value="${modelUc.credential.userTeamName}" disabled /></td>
-                           <td><font color="red">${modelUc.userTeamNameError}</font></td>
-                        </tr>
-                        <!-- 	***NOTE: note if you are allowing user to change these then check if username or email is already used-->
+                        
                         <tr>
                            <td><label for="userNameEmail">User (Email)</label></td>
                         </tr>
