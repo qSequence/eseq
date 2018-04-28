@@ -97,7 +97,7 @@
               <td>
                 <div class="form-group">
                   <div class="col-lg-12">
-                    <label class="col-lg-12 control-label" for="userName">Username</label>
+                    <label class="control-label" for="userName">Username</label>
                     <input id="userName" class="col-lg-12" name="userName" type="text" value="${modelUc.credential.userName}" disabled />
                     <font color="red">${modelUc.userNameError}</font>
                   </div>
@@ -105,8 +105,39 @@
                 <div class="form-group">
                   <div class="col-lg-12">
                     <label class="control-label" for="userName">Team</label>
-                    <input id="teamName" name="teamName" type="text" value="${modelUc.credential.userTeamName}" disabled />
+                    <input id="teamName" class="col-lg-12" name="teamName" type="text" value="${modelUc.credential.userTeamName}" disabled />
                     <font color="red">${modelUc.userTeamNameError}</font>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="control-label" for="userNameEmail">User (Email)</label>
+                    <input id="userNameEmail" class="col-lg-12" name="userNameEmail" type="text" value="${modelUc.credential.userNameEmail}" disabled />
+                    <font color="red">${modelUc.userNameEmailError}</font>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="control-label" for="firstName">First Name</label>
+                    <input id="firstName" class="col-lg-12" name="firstName" type="text" maxlength="40" value="${modelUc.credential.firstName}" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="control-label" for="firstName">Last Name</label>
+                    <input id="lastName" class="col-lg-12" name="lastName" type="text" maxlength="40" value="${modelUc.credential.lastName}"  />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="control-label" for="phone">Phone number</label>
+                    <input class="col-lg-12" id="phone" name="phone" type="text" maxlength="40"  value="${modelUc.credential.phone}"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <label class="control-label" for="mobile">Mobile</label>
+                    <input class="col-lg-12" id="mobile" name="mobile" type="text" maxlength="40" value="${modelUc.credential.mobile}"/>
                   </div>
                 </div>
               </td>
@@ -115,42 +146,6 @@
                <td>
                   <table>
                      <tbody>
-                        
-                        <tr>
-                           <td><label for="userNameEmail">User (Email)</label></td>
-                        </tr>
-                        <tr>
-                           <td><input id="userNameEmail" name="userNameEmail" type="text" value="${modelUc.credential.userNameEmail}" disabled /></td>
-                           <td><font color="red">${modelUc.userNameEmailError}</font></td>
-                        </tr>
-                        <!--
-                           <tr><td><label for="password">Create a password</label>*</td>
-                           	<td><label for="passwordReEntered">Re-enter password</label>*</td>
-                           </tr>
-
-
-                           	<tr><td><input id="password" name="password" type="password" maxlength="100" value="${modelUc.credential.password}"/></td>
-                                 	<td><input id="passwordReEntered" name="passwordReEntered" type="password" maxlength="100" value="${modelUc.passwordReEntered}"/>
-                                 		<font color="red">${modelUc.passwordError}${modelUc.passwordReEnteredError}</font>
-                                 	</td>
-                                 </tr>
-                                  -->
-                        <tr>
-                           <td><label for="firstName">First Name</label></td>
-                           <td><label for="firstName">Last Name</label></td>
-                        </tr>
-                        <tr>
-                           <td><input id="firstName" name="firstName" type="text" maxlength="40" value="${modelUc.credential.firstName}" /></td>
-                           <td><input id="lastName" name="lastName" type="text" maxlength="40" value="${modelUc.credential.lastName}"  /></td>
-                        </tr>
-                        <tr>
-                           <td><label for="phone">Phone number</label></td>
-                           <td><label for="mobile">Mobile</label></td>
-                        </tr>
-                        <tr>
-                           <td><input id="phone" name="phone" type="text" maxlength="40"  value="${modelUc.credential.phone}"/></td>
-                           <td><input id="mobile" name="mobile" type="text" maxlength="40" value="${modelUc.credential.mobile}"/></td>
-                        </tr>
                         <tr>
                            <td><label for="company">Company</label></td>
                            <td>&nbsp;</td>
