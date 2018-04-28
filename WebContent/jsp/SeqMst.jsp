@@ -37,7 +37,7 @@
                                 transition: all 0.3s ease 0s;
                             }
                     /* div#sometext{ */
-                    /* height: 4em; */
+                    /* height: 4em; */ 
                     /* width: 30em; */
                     /* -moz-border-radius: 1em 4em 1em 4em; */
                     /* border-radius: 1em 4em 1em 4em; */
