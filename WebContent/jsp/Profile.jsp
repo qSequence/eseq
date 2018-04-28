@@ -63,7 +63,7 @@
     </nav>
   </div>
 </div>
-<div id="container">
+<div id="container" class="container profile">
    <c:if test="${modelUc.status=='SAVED'}">
       <c:redirect url="/Profile.htm?successMessage=${modelUc.successMessage}"/>
    </c:if>
@@ -148,8 +148,6 @@
                     <input class="col-lg-12" id="company" name="company" type="text" maxlength="100" value="${modelUc.credential.company}"/>
                   </div>
                 </div>
-
-
                 <div class="form-group">
                   <div class="col-lg-6">
                       <label for="company" class="control-label">Security Question1</label>
@@ -195,26 +193,6 @@
                   <table>
                      <tbody>
 
-                        <tr>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>
-
-                           </td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>
-
-                           </td>
-                           <td></td>
-                        </tr>
                         <tr>
                            <td><label for="company">Security Question3</label></td>
                            <td><label for="company">Security Answer3</label></td>
