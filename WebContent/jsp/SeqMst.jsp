@@ -90,14 +90,14 @@
                     //});
 
                       $("#form_submit_button").click(function(){
-                          alert("The button was clicked.");
+                          //alert("The button was clicked.");
                           var taVal=$("textarea#descriptionTA").val();
-                          alert("Before"+taVal);
+                          //alert("Before"+taVal);
                           $("input#description_param").val(taVal);
-                          alert("Changed"+$("input#description_param").val());
+                          //alert("Changed"+$("input#description_param").val());
 
                           var taChangeVal=$("textarea#changeLongTA").val();
-                          alert("Before"+taVal);
+                          //alert("Before"+taVal);
                           $("input#change_long_param").val(taChangeVal);
 
                           document.getElementById("subscription_order_form").submit();
