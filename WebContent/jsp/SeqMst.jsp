@@ -23,92 +23,123 @@
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
                   <link href="css/anirban.css" rel="stylesheet">
+                    <style>
+                    .navbar-inverse .navbar-nav>li>a {
+                                color: #767676;
+                                font-size:14px;
+                                border:2px solid #e7f4c1;
+                                padding:10px 5px;
+                            }
+                            .navbar-inverse .navbar-nav>li>a:hover{
+                                color: #6b8f00;
+                                border:1px solid #98bf21;
+                                background-color:#f1f1f1;
+                                transition: all 0.3s ease 0s;
+                            }
+                    /* div#sometext{ */
+                    /* height: 4em; */
+                    /* width: 30em; */
+                    /* -moz-border-radius: 1em 4em 1em 4em; */
+                    /* border-radius: 1em 4em 1em 4em; */
+                    /* background:#E2E5E5; */
+                    /* line-height: 2em; */
+                    /* } */
+
+                    /* div#add_property_div{ */
+                    /* height: 2em; */
+                    /* width: 50em; */
+                    /* -moz-border-radius: 1em 4em 1em 4em; */
+                    /* border-radius: 1em 4em 1em 4em; */
+                    /* background:#E2E5E5; */
+                    /* line-height: 2em; */
+                    }
+                    </style>
                     <script type="text/javascript">
-                      function addLi(accessText, userId, access) {
-                        if (access == 'RO') {
-                          accessText += " - Read Only Access";
-                        } else if (access == 'RW') {
-                          accessText += " - Read Write Access";
-                        } else if (access == 'OW') {
-                          accessText += " - Owner Access";
-                        }
-                        document.getElementById('user_name_param').value = "";
-                        //		$("#div_id ul").append('<li><span class="tab">Message Center</span></li>');
-                        $("#div_id ul").append(
-                          '<li id="li_' + userId + '"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ' + accessText + '<input type="hidden" name="' + userId + '_' + access + '" value="' + userId + '_' + access +
-                          '" /> </a></li>'
-                        );
-                      }
+                    	function addLi(accessText, userId, access)
+                    	{
+                    		if(access=='RO'){
+                    			accessText+=" - Read Only Access";
+                    		}else if(access=='RW'){
+                    			accessText+=" - Read Write Access";
+                    		}else if(access=='OW'){
+                    			accessText+=" - Owner Access";
+                    		}
+                    		document.getElementById('user_name_param').value="";
+                    //		$("#div_id ul").append('<li><span class="tab">Message Center</span></li>');
+                    		$("#div_id ul").append('<li id="li_'+userId+'" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> '+accessText+'<input type="hidden" name="'+userId+'_'+access+'" value="'+userId+'_'+access+'" /> </a></li>');
+                    	}
                     </script>
-                  </head>
-                  <body>
+                    </head>
+                    <body>
                     <script type="text/javascript">
-                      $(document).ready(function () {
-                        // $("#sometext").hide(); 	$("#add_property_div").hide(); if ($("#sometext").text().trim().length > 0) { 	$("#sometext") 	.fadeIn("slow") 	.animate({ opacity: 0 }, 6000);    } $('<div class="save-alert">The current scenario has been saved.</div>')
-                        // .insertAfter($('#sometext'))    .fadeIn('slow')    .animate({ opacity: 1.0 }, 3000)    .fadeOut('slow', function () { 	alert('sdddd');    $(this).remove(); });
+                    $(document).ready(function() {
+                    // 	$("#sometext").hide();
+                    // 	$("#add_property_div").hide();
+                    // if ($("#sometext").text().trim().length > 0) {
 
-                        $("#form_submit_button").click(function () {
-                          //alert("The button was clicked.");
-                          var taVal = $("textarea#descriptionTA").val();
-                          //alert("Before"+taVal);
-                          $("input#description_param").val(taVal);
-                          //alert("Changed"+$("input#description_param").val());
+                    // 	$("#sometext")
+                    // 	.fadeIn("slow")
+                    // 	.animate({ opacity: 0 }, 6000);
+                    //    }
 
-                          var taChangeVal = $("textarea#changeLongTA").val();
-                          //alert("Before"+taVal);
-                          $("input#change_long_param").val(taChangeVal);
+                    //$('<div class="save-alert">The current scenario has been saved.</div>')
+                    //    .insertAfter($('#sometext'))
+                    //    .fadeIn('slow')
+                    //    .animate({ opacity: 1.0 }, 3000)
+                    //    .fadeOut('slow', function () {
+                    //	alert('sdddd');
+                    //    $(this).remove();
+                    //});
 
-                          document.getElementById("subscription_order_form").submit();
-                        });
+                     $("#form_submit_button").click(function(){
+                      //alert("The button was clicked.");
+                            var taVal=$("textarea#descriptionTA").val();
+                    		//alert("Before"+taVal);
+                    $("input#description_param").val(taVal);
+                    		//alert("Changed"+$("input#description_param").val());
 
-                        $("#cat_name").combogrid({
-                          url: 'SearchCategories.htm?action_param=search_with_properties_only',
-                          colModel: [
-                            {
-                              'columnName': 'catIdCol',
-                              'width': '0',
-                              'label': ''
-                            }, {
-                              'columnName': 'catNameCol',
-                              'width': '50',
-                              'label': 'Category Name'
-                            }
-                          ],
-                          select: function (event, ui) {
+                    		var taChangeVal=$("textarea#changeLongTA").val();
+                    		//alert("Before"+taVal);
+                    $("input#change_long_param").val(taChangeVal);
 
-                            $("#cat_name").val(ui.item.catNameCol);
-                            document.getElementById('cat_id').value = ui.item.catIdCol;
+                    		document.getElementById("subscription_order_form").submit();
+                    });
 
-                            return false;
-                          }
-                        });
-                        $("#user_name_param").combogrid({
-                          url: 'SearchUsers.htm?action_param=search_with_properties_only',
-                          colModel: [
-                            {
-                              'columnName': 'userIdCol',
-                              'width': '0',
-                              'label': ''
-                            }, {
-                              'columnName': 'userNameCol',
-                              'width': '50',
-                              'label': 'Username'
-                            }, {
-                              'columnName': 'nameCol',
-                              'width': '50',
-                              'label': 'Name'
-                            }
-                          ],
-                          select: function (event, ui) {
+                    	$("#cat_name").combogrid({
+                    		url: 'SearchCategories.htm?action_param=search_with_properties_only',
+                    		colModel: [
+                    		           {'columnName':'catIdCol','width':'0','label':''},
+                    		           {'columnName':'catNameCol','width':'50','label':'Category Name'}
+                    		           ],
+                    		select: function( event, ui ) {
 
-                            $("#user_name_param").val(ui.item.userNameCol);
-                            document.getElementById('user_id_param').value = "user_" + ui.item.userIdCol;
 
-                            return false;
-                          }
-                        });
+                    		$("#cat_name").val(ui.item.catNameCol);
+                    		document.getElementById('cat_id').value=ui.item.catIdCol;
 
-                      });
+                    		return false;
+                    		}
+                    		});
+                    	$("#user_name_param").combogrid({
+                    		url: 'SearchUsers.htm?action_param=search_with_properties_only',
+                    		colModel: [
+                    		           {'columnName':'userIdCol','width':'0','label':''},
+                    		           {'columnName':'userNameCol','width':'50','label':'Username'},
+                    		           {'columnName':'nameCol','width':'50','label':'Name'}
+                    		           ],
+                    		select: function( event, ui ) {
+
+
+                    		$("#user_name_param").val(ui.item.userNameCol);
+                    		document.getElementById('user_id_param').value="user_"+ui.item.userIdCol;
+
+                    		return false;
+                    		}
+                    		});
+
+                    });
+
+
                     </script>
 
 <!-- Navigation -->
