@@ -17,11 +17,8 @@
               <script type="text/javascript" src="jquery/jquery-ui-1.10.1.custom.min.js"></script>
               <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery.ui.combogrid.css" />">
                 <script type="text/javascript" src="jquery/jquery.ui.combogrid-1.6.3.js"></script>
-                <%-- END 12 Oct added combogrid jquery libraries--%>
-                </script>
 
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
+
                   <link href="css/anirban.css" rel="stylesheet">
                     <style>
                     .navbar-inverse .navbar-nav>li>a {
@@ -36,7 +33,7 @@
                                 background-color:#f1f1f1;
                                 transition: all 0.3s ease 0s;
                             }
-                            
+
                     /* div#sometext{ */
                     /* height: 4em; */
                     /* width: 30em; */
