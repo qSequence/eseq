@@ -32,10 +32,11 @@
                             }
                             .navbar-inverse .navbar-nav>li>a:hover{
                                 color: #6b8f00;
-                                border:1px solid #98bf21; 
+                                border:1px solid #98bf21;
                                 background-color:#f1f1f1;
                                 transition: all 0.3s ease 0s;
                             }
+                            
                     /* div#sometext{ */
                     /* height: 4em; */
                     /* width: 30em; */
