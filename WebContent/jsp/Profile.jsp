@@ -86,7 +86,7 @@
    <form action="Profile.htm" method="post" onsubmit="return checkCheckBox(this)">
       <!-- 		<div style="position: fixed; left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6; ">
          <table align="center" width="100%" style="position: relative; left: 20px;">-->
-      <table style="margin: 0px auto;width: 1000px;">
+      <table style="margin: 0px auto;width: 660px;">
          <tbody>
             <tr>
                <td>
