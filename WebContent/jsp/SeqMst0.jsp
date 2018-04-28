@@ -20,9 +20,9 @@
                 <%-- END 12 Oct added combogrid jquery libraries--%>
                 </script>
 
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
-                  <link href="css/anirban.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
+<link href="css/anirban.css" rel="stylesheet">
                     <script type="text/javascript">
                       function addLi(accessText, userId, access) {
                         if (access == 'RO') {
