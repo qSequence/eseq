@@ -423,3 +423,9 @@ table .table-header a.btn{
 .float-left{
   float: left !important;
 }
+#release_form table .table-header {
+	margin-top: 50px;
+}
+#release_form .table-striped > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1){
+  background: #FFFFFF;
+}
