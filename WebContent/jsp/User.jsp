@@ -241,7 +241,7 @@ $("#team_name_param").combogrid({
                          </td>
                          <td>${user.userType}
                          </td>
-                         <td align="center"><a href="<c:url value="User.htm?user_request_action_param=delete_action&user_id_param=${user.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${user.id}'  src="images/delete.png"/></a></td>
+                         <td align="center"><a href="<c:url value="User.htm?user_request_action_param=delete_action&user_id_param=${user.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                          <c:set var="changed" value="true" />
                          <c:set var="x" value="1" />
                       </tr>
@@ -258,7 +258,7 @@ $("#team_name_param").combogrid({
                          <td>${user.userType}
                          </td>
                          <td align="center">
-                            <a href="<c:url value="User.htm?user_request_action_param=delete_action&user_id_param=${user.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${user.id}'  src="images/delete.png"/></a>
+                            <a href="<c:url value="User.htm?user_request_action_param=delete_action&user_id_param=${user.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                          </td>
                          </td>
                          <c:set var="x" value="0" />

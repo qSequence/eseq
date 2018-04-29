@@ -541,12 +541,24 @@ table .table-header a.btn{
 .container.user .form-group select{
   width: 100%;
   height: 35px;
+  margin-bottom: 5px;
 }
 .container.user .form-group input{
   width: 100%;
   height: 35px;
+  margin-bottom: 5px;
 }
 .container.user .form-group button{
   width: 100%;
   height: 35px;
+  margin: 10px auto;
+}
+.container.user .table-header{
+    text-align: center;
+}
+.container.user .table-header h1{
+    margin-bottom: 30px;
+}
+.container.user table.table-striped{
+  margin-top: 50px;
 }
