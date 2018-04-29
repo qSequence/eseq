@@ -453,6 +453,16 @@ table .table-header a.btn{
   width: 700px;
   height: auto;
 }
-.buttons-nav{
+.admin .buttons-nav{
+  width: 300px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.admin .buttons-nav li a{
+  color: #fff;
+  background-color: #337ab7;
+}
+.admin .buttons-nav li a:hover{
   
 }
