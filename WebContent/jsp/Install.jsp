@@ -127,14 +127,14 @@ $('#dbList').on('change',function(){
       </nav>
     </div>
   </div>
-<div id="container" class="container admin">
+<div id="container" class="container Install">
 
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/InstallCompleted.htm?param=installcompleted"/>
 </c:if>
 
 <form action="Install.htm" method="post" onsubmit="return checkCheckBox(this)">
-   <table align="center" width="600px">
+   <table align="center">
       <tbody>
         <tr>
            <td>
