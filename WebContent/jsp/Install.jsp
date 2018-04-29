@@ -148,12 +148,14 @@ $('#dbList').on('change',function(){
              <div class="bs-component">
                 <div class="well">
                   <div class="col-lg-12">
-                    <c:if test="${modelUc.radioDBValue=='bundledDB'}">
-                       Default Bundled database (Suitable for evaluation and demonstration purposes only)
-                    </c:if>
-                    <c:if test="${modelUc.radioDBValue!='bundledDB'}">
-                       Default Bundled database (Suitable for evaluation and demonstration purposes only)
-                    </c:if>
+                    <p>
+											<c:if test="${modelUc.radioDBValue=='bundledDB'}">
+												 Default Bundled database (Suitable for evaluation and demonstration purposes only)
+											</c:if>
+											<c:if test="${modelUc.radioDBValue!='bundledDB'}">
+												 Default Bundled database (Suitable for evaluation and demonstration purposes only)
+											</c:if>
+										</p>
                   </div>
                 </div>
               </div>
