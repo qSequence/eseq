@@ -486,6 +486,7 @@ table .table-header a.btn{
 .Install select{
   width: 100%;
   height: 35px;
+  margin-bottom: 10px;
 }
 .Install .form-control {
 	overflow: auto;
@@ -517,9 +518,9 @@ table .table-header a.btn{
 .Install .table-header h1{
   text-align: center;
 }
-.Install .form-group > input{
+.Install .form-group input{
   width: 100%;
 }
-.Install .form-group > strong{
+.Install .form-group strong{
   width: 100%;
 }
