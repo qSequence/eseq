@@ -139,9 +139,7 @@ $("#team_name_param").combogrid({
                       <label class="control-label">Last name</label>
                       <input type="text" name="last_name_param" value="${modelUc.editedUser.lastName}" maxlength="100"/>
                   </div>
-                  <div class="form-group">
-                      <input type="submit" value="Save" />
-                  </div>
+
                   <div class="form-group">
                       <label class="control-label">Email Address</label>
                       <input type="text" name="email_address_param" value="${modelUc.editedUser.userNameEmail}" maxlength="100"/>
@@ -191,31 +189,33 @@ $("#team_name_param").combogrid({
                          <option value="LDAP" selected>Ldap</option>
                       </select>
                   </div>
-
-                  <div id="div_id">
-                     <table >
-                        <tr>
-                           <td><label><strong>Add Teams</strong></label></td>
-                        </tr>
-                        <tr>
-                           <td>
-                              <label>Team</label><input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/><label>Team type</label>
-                              <select name="access_param" id="access_param" >
-                                 <option value="PT">Permanent team</option>
-                                 <option value="TT">Temporary team</option>
-                              </select>
-                              <button type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
-                           </td>
-                        </tr>
-                     </table>
-                     <hr>
-                     <ul id="ul_id" style="width:100%">
-                        <c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
-                           <li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
-                        </c:forEach>
-                     </ul>
+                  <div class="form-group">
+                      <input type="submit" value="Save" class="btn btn-success btn-raised"/>
                   </div>
 
+                  <div id="div_id">
+                    <h3>Add Teams</h3>
+                    <div class="form-group">
+                        <label class="control-label">Team</label>
+                        <input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Team Type</label>
+                        <select name="access_param" id="access_param" >
+                           <option value="PT">Permanent team</option>
+                           <option value="TT">Temporary team</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-raised" type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+                    </div>
+
+                    <ul id="ul_id" style="width:100%">
+                       <c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
+                          <li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
+                       </c:forEach>
+                    </ul>
+                  </div>
                   <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
                   <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
 
