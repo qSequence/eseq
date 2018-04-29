@@ -460,9 +460,15 @@ table .table-header a.btn{
 }
 
 .admin .buttons-nav li a{
+  color: #4B4B4B;
+  background-color: #eaeaea;
+}
+
+.admin .buttons-nav li a:hover{
   color: #fff;
   background-color: #337ab7;
 }
-.admin .buttons-nav li a:hover{
-  
+.admin .all-lines{
+  width: 740px;
+  margin: 0px auto;
 }
