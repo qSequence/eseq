@@ -473,25 +473,53 @@ table .table-header a.btn{
   margin: 0px auto;
 }
 #container.Install{
-  width: 600px;
+  width: 630px;
+  height: auto;
   margin: 0px auto;
 }
-
+#container.Install .well{
+  overflow: auto;
+}
 .Install h4{
 
 }
 .Install select{
-
+  width: 100%;
+  height: 35px;
 }
-.Install ul{
-
+.Install .form-control {
+	overflow: auto;
+	height: auto;
+	clear: both;
+}
+.Install ul {
+	padding: 0px;
+	width: 100%;
+	max-width: 100%;
 }
 .Install ul li{
-
+  width: 100%;
+	float: left;
 }
-.Install ul li label{
-
+.Install ul li label {
+	width: 100%;
+	float: left;
 }
 .Install ul li input{
-
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+}
+.Install .bs-component {
+	margin-bottom: 60px;
+	margin-top: 20px;
+}
+.Install .table-header h1{
+  text-align: center;
+}
+.Install .form-group > input{
+  width: 100%;
+}
+.Install .form-group > strong{
+  width: 100%;
 }

@@ -204,32 +204,32 @@ $('#dbList').on('change',function(){
                    <div class="col-lg-12">
                          <ul>
                             <li>
-                               <label for="hostname">hostname</label>
-                               <input type="text" name="hostname" value="${modelUc.hostname}"/>*
+                               <label for="hostname">hostname*</label>
+                               <input type="text" name="hostname" value="${modelUc.hostname}"/>
                             </li>
                             <li>
-                               <label for="hostname">port</label>
-                               <input type="text" name="port" value="${modelUc.port}"/>*
+                               <label for="hostname">port*</label>
+                               <input type="text" name="port" value="${modelUc.port}"/>
                             </li>
                             <li class="database">
-                               <label for="hostname">database</label>
-                               <input type="text" name="database" value="${modelUc.database}"/>*
+                               <label for="hostname">database*</label>
+                               <input type="text" name="database" value="${modelUc.database}"/>
                             </li>
                             <li class="service">
-                               <label for="hostname">service</label>
-                               <input type="text" name="service" value="${modelUc.service}"/>*
+                               <label for="hostname">service*</label>
+                               <input type="text" name="service" value="${modelUc.service}"/>
                             </li>
                             <li class="schema">
-                               <label for="hostname">schema</label>
-                               <input type="text" name="schema"  value="${modelUc.schema}"/>*
+                               <label for="hostname">schema*</label>
+                               <input type="text" name="schema"  value="${modelUc.schema}"/>
                             </li>
                             <li>
-                               <label for="hostname">username</label>
-                               <input type="text" name="username" value="${modelUc.username}"/>*
+                               <label for="hostname">username*</label>
+                               <input type="text" name="username" value="${modelUc.username}"/>
                             </li>
                             <li>
-                               <label for="hostname">password</label>
-                               <input type="password" name="password" value="${modelUc.password}"/>*
+                               <label for="hostname">password*</label>
+                               <input type="password" name="password" value="${modelUc.password}"/>
                             </li>
                          </ul>
                    </div>
@@ -237,7 +237,8 @@ $('#dbList').on('change',function(){
                  <div class="form-group">
                     <div class="col-lg-12">
                       <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="install_qsequence" />
-                      <input type="submit" value="Configure and continue"><strong><font color="red">${modelUc.error}</font></strong>
+                      <input class="btn btn-success btn-raised" type="submit" value="Configure and continue">
+												<strong><font color="red">${modelUc.error}</font></strong>
                     </div>
                  </div>
              </div>
