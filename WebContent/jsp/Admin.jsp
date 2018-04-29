@@ -72,7 +72,7 @@ queries -->
     </nav>
   </div>
 </div>
-<div class="container admin" id="md-frame1" style="padding-top:100px;padding-bottom:190px;">
+<div class="container admin" id="md-frame1">
 <c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
     <div class="buttons-nav">
       <div class="row">
@@ -90,23 +90,81 @@ queries -->
       </div>
     </div>
 				<c:if test="${modelUc.currentCustomerSubscription!=null}">
-<table align="center">
-					<tr style="height:50px;"><td ><b><h4>Current License details</h4></b>  <a class="button" href="<c:url value="/License.htm" />">Upgrade/Downgrade</a><font color="red">${modelUc.error}</font></td></tr>
 
-					<tr><td><hr></td></tr>
-					<tr style="height:50px;"><td><b>Product key : ${modelUc.currentCustomerSubscription.productKey}</b></td></tr>
-					<tr style="height:50px;"><td><b>Customer Id : ${modelUc.currentCustomerSubscription.customerId}</b></td></tr>
-					<tr style="height:50px;"><td><b>Downgrade key : ${modelUc.currentCustomerSubscription.downgradeKey}</b></td></tr>
-					<tr style="height:50px;"><td><b>Number of users : ${modelUc.currentProductFeature.featureValue}</b></td></tr>
-					<tr style="height:50px;"><td><b>Subscription started : <fmt:formatDate value="${modelUc.currentCustomerSubscription.startDate}" pattern="MMM-yyyy" /></b></td></tr>
-					<c:if test="${modelUc.currentCustomerSubscription.licenseType=='trial'}">
-						<tr style="height:50px;"><td><b>License type : Trial Subscription</b></td></tr>
-					</c:if>
-					<c:if test="${modelUc.currentCustomerSubscription.licenseType!='trial'}">
-						<tr style="height:50px;"><td><b>License type : Subscription</b></td></tr>
-					</c:if>
-</table>
-				</c:if>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="all-lines">
+      <h4>Current License details</h4>
+      <div class="form-group">
+        <a class="button btn btn-success btn-raised" href="<c:url value="/License.htm" />">Upgrade/Downgrade</a>
+        <font color="red">${modelUc.error}</font>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Product key:</h3>
+        </div>
+        <div class="panel-body">
+          ${modelUc.currentCustomerSubscription.productKey}
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Customer Id :</h3>
+        </div>
+        <div class="panel-body">
+          ${modelUc.currentCustomerSubscription.customerId}
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Downgrade key :</h3>
+        </div>
+        <div class="panel-body">
+          ${modelUc.currentCustomerSubscription.downgradeKey}
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Number of users :</h3>
+        </div>
+        <div class="panel-body">
+          ${modelUc.currentProductFeature.featureValue}
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Subscription started :</h3>
+        </div>
+        <div class="panel-body">
+          <fmt:formatDate value="${modelUc.currentCustomerSubscription.startDate}" pattern="MMM-yyyy" />
+        </div>
+      </div>
+      <c:if test="${modelUc.currentCustomerSubscription.licenseType=='trial'}">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">License type :</h3>
+          </div>
+          <div class="panel-body">
+            Trial Subscription
+          </div>
+        </div>
+      </c:if>
+      <c:if test="${modelUc.currentCustomerSubscription.licenseType!='trial'}">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">License type :</h3>
+          </div>
+          <div class="panel-body">
+            Subscription
+          </div>
+        </div>
+      </c:if>
+    </div>
+  </div>
+</div>
+
+</c:if>
 </c:if>
 </div>
 
