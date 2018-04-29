@@ -530,6 +530,8 @@ table .table-header a.btn{
   height: auto;
   margin: 0px auto;
   width: 600px;
+  margin-bottom: 50px;
+  padding-bottom: 30px
 }
 .container.user .form-group{
   width: 100%;
