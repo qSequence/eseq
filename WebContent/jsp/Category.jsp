@@ -157,30 +157,31 @@ $("#team_name_param").combogrid({
                     </div>
                   </td>
                </tr>
-               <tr style="height:50px;text-align:left;">
-                  <td ><label>Category name </label> </td>
-                  <td><label>Description </label> </td>
-               </tr>
+
                <tr style="height:50px;text-align:left;">
                   <td colspan="2" >
                      <div id="div_id" style="overflow:auto;height:300px;width:700px;border: 2px solid grey;">
-                        <table >
-                           <tr>
-                              <td><label><strong>Access</strong></label></td>
-                           </tr>
-                           <tr style="height:50px;text-align:left;">
-                              <td>
-                                 <label>Team</label> <input type="text" id="team_name_param"  maxlength="20"/><input type="hidden" id="team_id_param" /><label>Access Level</label>
-                                 <select name="access_param" id="access_param" >
-                                    <option value="RO">Read Only</option>
-                                    <option value="RW">Read Write</option>
-                                    <option value="OW">Owner</option>
-                                 </select>
-                                 <button type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
-                              </td>
-                           </tr>
-                        </table>
-                        <hr>
+                       <div class="form-group">
+                         <div class="col-lg-12">
+                           <label class="control-label">Team</label>
+                           <input type="text" class="col-lg-12" id="team_name_param"  maxlength="20"/><input type="hidden" id="team_id_param" />
+                         </div>
+                       </div>
+                       <div class="form-group">
+                         <div class="col-lg-12">
+                           <label class="control-label">Access Level</label>
+                           <select class="col-lg-12" name="access_param" id="access_param" >
+                              <option value="RO">Read Only</option>
+                              <option value="RW">Read Write</option>
+                              <option value="OW">Owner</option>
+                           </select>
+                         </div>
+                       </div>
+                       <div class="form-group">
+                         <div class="col-lg-12">
+                           <button type="button" class="btn btn-success btn-raised" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+                         </div>
+                       </div>
                         <ul id="ul_id" style="width:100%">
                            <c:forEach items='${modelUc.category.accessList}' var="teamAccess">
                               <li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
