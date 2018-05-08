@@ -141,14 +141,13 @@ $("#team_name_param").combogrid({
                     <div class="form-group">
                       <div class="col-lg-12">
                         <label class="control-label">Category name </label>
-                        <input class="col-lg-12" id="seqName" name="seq_name_param" type="text" size="45" maxlength="100" value="${modelUc.seqName}"/>
+                        <input type="text" class="col-lg-12" name="cat_name_param" value="${modelUc.category.catName}" maxlength="20"/><input type="hidden" name="cat_id_param" value="${modelUc.category.id}" />
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="col-lg-12">
                         <label class="control-label">Description</label>
                         <input type="text" class="col-lg-12" name="cat_description_param" value="${modelUc.category.catDescription}" />
-                        <input type="text" class="col-lg-12" name="cat_name_param" value="${modelUc.category.catName}" maxlength="20"/><input type="hidden" name="cat_id_param" value="${modelUc.category.id}" />
                       </div>
                     </div>
                     <div class="form-group">
@@ -157,6 +156,10 @@ $("#team_name_param").combogrid({
                       </div>
                     </div>
                   </td>
+               </tr>
+               <tr style="height:50px;text-align:left;">
+                  <td ><label>Category name </label> </td>
+                  <td><label>Description </label> </td>
                </tr>
                <tr style="height:50px;text-align:left;">
                   <td colspan="2" >
