@@ -121,7 +121,7 @@ $("#team_name_param").combogrid({
       </nav>
     </div>
   </div>
-<div id="container">
+<div id="container" class="catagory">
 
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
@@ -156,13 +156,11 @@ $("#team_name_param").combogrid({
                       </div>
                     </div>
 
-                    <div id="div_id" style="width:100%;padding:20px;box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);">
-                      <h5>Access</h5>
+                    <div id="div_id" class="col-lg-12" style="width:100%;padding:15px;box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);overflow: auto;margin-top: 40px;float: left;margin-bottom: 40px;">
+                      <h3>Access</h3>
                       <div class="form-group">
-                        <div class="col-lg-12">
-                          <label class="control-label">Team</label>
-                          <input type="text" class="col-lg-12" id="team_name_param"  maxlength="20"/><input type="hidden" id="team_id_param" />
-                        </div>
+                        <label class="control-label">Team</label>
+                        <input type="text" class="col-lg-12" id="team_name_param"  maxlength="20"/><input type="hidden" id="team_id_param" />
                       </div>
                       <div class="form-group">
                         <div class="col-lg-12">

@@ -568,3 +568,11 @@ table .table-header a.btn{
 .container.user table.table-striped a{
   color: #595959;
 }
+.catagory input{
+  height: 35px;
+  margin-bottom: 10px;
+}
+.catagory select{
+  height: 35px;
+  margin-bottom: 10px;
+}
