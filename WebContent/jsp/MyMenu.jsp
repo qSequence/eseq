@@ -108,7 +108,7 @@ $("input#description_param").val(taVal);
                         <label class="control-label">Upload menu image</label>
                         <input class="col-lg-12" type="file" name="fileUploaded" placeholder='Choose a file...'/>
                         <input type="hidden" name="system_type_param" value="custom" maxlength="20"/>
-                        <font class="col-lg-12" size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check) <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</</a></font>
+                        <font class="col-lg-12" size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check) <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</a></font>
                       </div>
                       <div class="form-group">
                         <input class="col-lg-12 btn btn-success btn-raised" value="Upload" type="submit" />
