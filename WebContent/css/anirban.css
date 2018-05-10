@@ -604,5 +604,10 @@ table .table-header a.btn{
   margin: 0px auto;
 }
 #container.container.mymenu{
-
+  width: 700px;
+  margin: 0px auto;
+  height: auto;
+}
+#container.container.mymenu .form-group{
+  overflow: auto;
 }
