@@ -73,25 +73,24 @@
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/ViewSequenceList.htm?user_request_action_param=default_action_param"/>
 </c:if>
-<div id="container">
+<div id="container" class="container license">
 <form action="License.htm" method="post" onsubmit="return checkCheckBox(this)">
    <table align="center">
       <c:if test="${modelUc.userRequestAction!='requireConfirmation'}">
          <tr>
             <td>
-               <h1>Setup your new License</h1>
-            </td>
-         </tr>
-         <tr>
-            <td><label for="userNameEmail">Update New Product Key</label></td>
-         </tr>
-         <tr>
-            <td><input id="productKey" name="productKey" type="text" maxlength="500" /></td>
-         </tr>
-         <tr>
-            <td>
-               <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
-               <input type="submit" value="Submit"><font color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
+              <div class="table-header" style="text-align:center;">
+                <h1>Setup your new License</h1>
+              </div>
+              <div class="form-group">
+                <label class="control-label">>Update New Product Key</label>
+                <input class="col-lg-12" id="productKey" name="productKey" type="text" maxlength="500"/>
+              </div>
+              <div class="form-group">
+                <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
+                <input class="col-lg-12" type="submit" value="Submit">
+                <font class="col-lg-12" color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
+              </div>
             </td>
          </tr>
       </c:if>
