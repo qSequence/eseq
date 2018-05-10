@@ -83,13 +83,13 @@
                 <h1>Setup your new License</h1>
               </div>
               <div class="form-group">
-                <label class="control-label">>Update New Product Key</label>
+                <label class="control-label">Update New Product Key</label>
                 <input class="col-lg-12" id="productKey" name="productKey" type="text" maxlength="500"/>
               </div>
               <div class="form-group">
                 <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
-                <input class="col-lg-12" type="submit" value="Submit">
-                <font class="col-lg-12" color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
+                <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
+                <font  color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
               </div>
             </td>
          </tr>
@@ -97,63 +97,62 @@
       <c:if test="${modelUc.userRequestAction=='requireConfirmation'}">
          <tr>
             <td>
-               <h1>Your License details</h1>
+              <div class="table-header" style="text-align:center;">
+                <h1>Your License details</h1>
+                <b>${modelUc.message}</b>
+              </div>
+              <div class="form-group">
+                <input id="userRequestAction" name="userRequestAction" type="hidden" value="confirmation" />
+                <input id="productKey" name="productKey" type="hidden" value="${modelUc.productKey}" />
+                <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
+                <font color="red">${modelUc.error}${modelUc.loginError}</font>
+              </div>
             </td>
-         </tr>
-         <tr>
-            <td align="center"><b>${modelUc.message}</b></td>
-         </tr>
-         <input id="userRequestAction" name="userRequestAction" type="hidden" value="confirmation" />
-         <input id="productKey" name="productKey" type="hidden" value="${modelUc.productKey}" />
-         <tr>
-            <td><input type="submit" value="Submit"><font color="red">${modelUc.error}${modelUc.loginError}</font></td>
-         </tr>
       </c:if>
       <tr>
          <td>
-            <hr>
-         </td>
-      </tr>
-      <tr>
-         <td >
-            <b>
-               <h4>Current License details</h4>
-            </b>
-         </td>
-         <td>
-            <a class="button" target="_blank" href="
-            <c:url value="https://www.qsequence.com/Pricing.htm" />
-            ">Upgrade software - get new product key</a>
-         </td>
-      </tr>
-      <tr>
-         <td><b>Product key : ${modelUc.currentCustomerSubscription.productKey}</b></td>
-      </tr>
-      <tr>
-         <td><b>Customer Id : ${modelUc.currentCustomerSubscription.customerId}</b></td>
-      </tr>
-      <tr>
-         <td><b>Downgrade key : ${modelUc.currentCustomerSubscription.downgradeKey}</b></td>
-      </tr>
-      <tr>
-         <td><b>Number of users : ${modelUc.currentProductFeature.featureValue}</b></td>
-      </tr>
-      <tr>
-         <td>
-            <b>
-               Subscription started :
-               <fmt:formatDate value="${modelUc.currentCustomerSubscription.startDate}" pattern="MMM-yyyy" />
-            </b>
+           <div class="table-header" style="text-align:center;">
+             <h4>Current License details</h4>
+             <b>${modelUc.message}</b>
+             <a class="col-lg-12 btn btn-success btn-raised" target="_blank" href="
+             <c:url value="https://www.qsequence.com/Pricing.htm" />
+             ">Upgrade software - get new product key</a>
+           </div>
+
+           <div class="bs-component">
+            <div class="jumbotron">
+              <b class="col-lg-12">Product key : ${modelUc.currentCustomerSubscription.productKey}</b>
+              <b class="col-lg-12">Customer Id : ${modelUc.currentCustomerSubscription.customerId}</b>
+              <b class="col-lg-12">Downgrade key : ${modelUc.currentCustomerSubscription.downgradeKey}</b>
+              <b class="col-lg-12">Number of users : ${modelUc.currentProductFeature.featureValue}</b>
+              <b class="col-lg-12">
+                 Subscription started :
+                 <fmt:formatDate value="${modelUc.currentCustomerSubscription.startDate}" pattern="MMM-yyyy" />
+              </b>
+            </div>
+          </div>
          </td>
       </tr>
       <c:if test="${modelUc.currentCustomerSubscription.licenseType=='trial'}">
          <tr>
-            <td><b>License type : Trial Subscription</b></td>
+            <td>
+              <div class="bs-component">
+               <div class="jumbotron">
+                 <b class="col-lg-12">License type : Trial Subscription</b>
+               </div>
+             </div>
+            </td>
          </tr>
       </c:if>
       <c:if test="${modelUc.currentCustomerSubscription.licenseType!='trial'}">
          <tr>
-            <td><b>License type : Subscription</b></td>
+            <td>
+              <div class="bs-component">
+               <div class="jumbotron">
+                 <b class="col-lg-12">License type : Subscription</b>
+               </div>
+             </div>
+            </td>
          </tr>
       </c:if>
    </table>

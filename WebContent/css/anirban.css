@@ -618,3 +618,8 @@ table .table-header a.btn{
 #container.container.mymenu .wrap-fp{
 
 }
+#container.container.license{
+  width: 800px;
+  margin: 0px auto;
+  height: auto;
+}
