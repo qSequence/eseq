@@ -89,11 +89,11 @@ $("input#description_param").val(taVal);
   <c:if test="${modelUc.status=='SAVED'}">
      <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
   </c:if>
-  <tablewidth=500>
+  <table width="100%">
      <tr>
         <td>
            <form id="subscription_order_form" action="FileUpload.htm" method="post" enctype="multipart/form-data" >
-              <tablewidth=500>
+              <table width="100%">
                  <tr>
                     <td>
                       <div class="table-header" style="text-align:center;">
@@ -127,7 +127,7 @@ $("input#description_param").val(taVal);
               <input type="hidden" name="seq_mst_id_param" value="${modelUc.seq_mst_id_param}" />
               <input type="hidden" name="user_request_action_param" value="save_menu_action_param" />
               <c:set var="x" value="0" />
-              <table border="0"width="600">
+              <table width="100%">
                  <tr>
                     <td>
                       <div class="form-group">
