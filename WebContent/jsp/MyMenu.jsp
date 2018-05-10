@@ -89,35 +89,29 @@ $("input#description_param").val(taVal);
   <c:if test="${modelUc.status=='SAVED'}">
      <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
   </c:if>
-  <table align="center" border="0" width=600>
+  <table align="center" width=500>
      <tr>
         <td>
            <form id="subscription_order_form" action="FileUpload.htm" method="post" enctype="multipart/form-data" >
-              <table align="center" border="0" width=600>
+              <table align="center" width=500>
                  <tr>
                     <td>
-                      <div class="table-header">
+                      <div class="table-header" style="text-align:center;">
                         <h1>My Menu</h1>
                         <input type="hidden" name="seq_mst_id_param" value="${modelUc.seq_mst_id_param}" />
                       </div>
                       <div class="form-group">
-                        <div class="col-lg-12">
-                          <label class="control-label">Menu name</label>
-                          <input type="input" name="menu_item_name_param" maxlength="20"/>
-                        </div>
+                        <label class="control-label col-lg-12">Menu name</label>
+                        <input class="col-lg-12" type="input" name="menu_item_name_param" maxlength="20"/>
                       </div>
                       <div class="form-group">
-                        <div class="col-lg-12">
-                          <label class="control-label">Upload menu image</label>
-                          <input type="file" name="fileUploaded" />
-                          <input type="hidden" name="system_type_param" value="custom" maxlength="20"/>
-                          <font size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</</a></font>)
-                        </div>
+                        <label class="control-label col-lg-12">Upload menu image</label>
+                        <input class="col-lg-12" type="file" name="fileUploaded" />
+                        <input type="hidden" name="system_type_param" value="custom" maxlength="20"/>
+                        <font size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check) <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</</a></font>
                       </div>
                       <div class="form-group">
-                        <div class="col-lg-12">
-                          <input class="btn btn-success btn-raised" value="Upload" type="submit" />
-                        </div>
+                        <input class="col-lg-12 btn btn-success btn-raised" value="Upload" type="submit" />
                       </div>
                       <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
                       <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
