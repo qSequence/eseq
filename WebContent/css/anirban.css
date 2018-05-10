@@ -619,7 +619,17 @@ table .table-header a.btn{
 
 }
 #container.container.license{
-  width: 800px;
+  width: 600px;
   margin: 0px auto;
   height: auto;
+}
+#container.container.license .jumbotron{
+  overflow: auto;
+  width: 100%;
+}
+#container.container.license table{
+  width: 100%;
+}
+#container.container.license .table-header a.btn{
+  width: 100%;
 }

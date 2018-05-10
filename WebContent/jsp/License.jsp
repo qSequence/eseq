@@ -84,7 +84,7 @@
               </div>
               <div class="form-group">
                 <label class="control-label">Update New Product Key</label>
-                <input class="col-lg-12" id="productKey" name="productKey" type="text" maxlength="500"/>
+                <input class="col-lg-12" id="productKey" name="productKey" type="text"/>
               </div>
               <div class="form-group">
                 <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
@@ -111,14 +111,13 @@
       </c:if>
       <tr>
          <td>
-           <div class="table-header" style="text-align:center;">
+           <div class="table-header" style="text-align:center;margin-top: 50px;">
              <h4>Current License details</h4>
              <b>${modelUc.message}</b>
              <a class="col-lg-12 btn btn-success btn-raised" target="_blank" href="
              <c:url value="https://www.qsequence.com/Pricing.htm" />
              ">Upgrade software - get new product key</a>
            </div>
-
            <div class="bs-component">
             <div class="jumbotron">
               <b class="col-lg-12">Product key : ${modelUc.currentCustomerSubscription.productKey}</b>
