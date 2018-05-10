@@ -123,46 +123,44 @@ $("#team_name_param").combogrid({
   <c:if test="${modelUc.status=='SAVED'}">
      <c:redirect url="/LdapConfig.htm?message=${modelUc.message}&error=${modelUc.error}"/>
   </c:if>
-  <table align="center" border="0" width=800>
+  <table align="center">
      <tr>
         <td>
            <form id="subscription_order_form" action="LdapConfig.htm" method="post"  >
-              <table align="center" border="0" width=800>
+              <table align="center">
                  <tr>
-                    <td colspan="2">&nbsp;</td>
-                 </tr>
-                 <tr>
-                    <td colspan="2">&nbsp;</td>
-                 </tr>
-                 <tr>
-                    <td colspan="2" style="text-align:left;">
-                       <h1>LDAP Configuration</h1>
-                       <input type="hidden" name="user_request_action_param" value="save_action"/>
+                    <td>
+                      <div class="table-header" style="text-align:center;">
+                        <h1>LDAP Configuration</h1>
+                        <input type="hidden" name="user_request_action_param" value="save_action"/>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-12">LDAP URI</label>
+                        <input class="col-lg-12" type="text" name="ldap_uri" value="${modelUc.ldapUri}" size="30" maxlength="100"/>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-12">Context Factory</label>
+                        <input class="col-lg-12" type="text" name="context_factory" value="${modelUc.ldapContextFactory}" size="30" maxlength="100"/>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-12">User CN</label>
+                        <input class="col-lg-12" type="text" name="user_cn" value="${modelUc.ldapUserCn}" size="30" maxlength="100"/>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-12">Security Authentication</label>
+                        <input class="col-lg-12" type="text" name="security_authentication" value="${modelUc.ldapSecurityAuthentication}" size="30" maxlength="200" />
+                      </div>
+                      <div class="form-group">
+                        <strong><font color="red">${modelUc.message} ${modelUc.error}</font></strong>
+                      </div>
+                      <div class="form-group">
+                        <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Save" />
+                      </div>
                     </td>
-                 </tr>
-                 <tr style="height:50px;text-align:left;">
-                    <td ><label>LDAP URI </label></td>
-                    <td> <input type="text" name="ldap_uri" value="${modelUc.ldapUri}" size="30" maxlength="100"/></td>
-                    <td><label>Context Factory </label></td>
-                    <td> <input type="text" name="context_factory" value="${modelUc.ldapContextFactory}" size="30" maxlength="100"/><input type="submit" value="Save" />
-                    </td>
-                 </tr>
-                 <tr style="height:50px;text-align:left;">
-                    <td ><label>User CN </label> </td>
-                    <td><input type="text" name="user_cn" value="${modelUc.ldapUserCn}" size="30" maxlength="100"/></td>
-                    <td><label>Security Authentication </label> </td>
-                    <td><input type="text" name="security_authentication" value="${modelUc.ldapSecurityAuthentication}" size="30" maxlength="200" />
-                    </td>
-                 </tr>
-                 <tr>
-                    <td colspan="2" style="text-align:center;"><strong><font color="red">${modelUc.message} ${modelUc.error}</font></strong></td>
                  </tr>
               </table>
            </form>
         </td>
-     </tr>
-     <tr>
-        <td></td>
      </tr>
   </table>
 	<script type= "text/javascript" src="jquery/bootstrap.min.js"></script>
