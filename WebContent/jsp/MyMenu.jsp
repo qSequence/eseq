@@ -101,14 +101,19 @@ $("input#description_param").val(taVal);
                         <input type="hidden" name="seq_mst_id_param" value="${modelUc.seq_mst_id_param}" />
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-lg-12">Menu name</label>
+                        <label class="control-label">Menu name</label>
                         <input class="col-lg-12" type="input" name="menu_item_name_param" maxlength="20"/>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-lg-12">Upload menu image</label>
-                        <input class="col-lg-12" type="file" name="fileUploaded" />
-                        <input type="hidden" name="system_type_param" value="custom" maxlength="20"/>
-                        <font size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check) <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</</a></font>
+                        <label class="control-label">Upload menu image</label>
+                      	<div class="input-group input-file" name="Fichier1">
+                      		<span class="input-group-btn">
+                            <button class="btn btn-default btn-choose" type="button">Choose</button>
+                          </span>
+                          <input class="col-lg-12" type="file" name="fileUploaded" placeholder='Choose a file...'/>
+                          <input type="hidden" name="system_type_param" value="custom" maxlength="20"/>
+                          <font class="col-lg-12" size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check) <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</</a></font>
+                        </div>
                       </div>
                       <div class="form-group">
                         <input class="col-lg-12 btn btn-success btn-raised" value="Upload" type="submit" />
