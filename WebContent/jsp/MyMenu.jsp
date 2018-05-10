@@ -89,11 +89,11 @@ $("input#description_param").val(taVal);
   <c:if test="${modelUc.status=='SAVED'}">
      <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
   </c:if>
-  <table align="center" width=500>
+  <tablewidth=500>
      <tr>
         <td>
            <form id="subscription_order_form" action="FileUpload.htm" method="post" enctype="multipart/form-data" >
-              <table align="center" width=500>
+              <tablewidth=500>
                  <tr>
                     <td>
                       <div class="table-header" style="text-align:center;">
@@ -106,20 +106,15 @@ $("input#description_param").val(taVal);
                       </div>
                       <div class="form-group">
                         <label class="control-label">Upload menu image</label>
-                      	<div class="input-group input-file" name="Fichier1">
-                      		<span class="input-group-btn">
-                            <button class="btn btn-default btn-choose" type="button">Choose</button>
-                          </span>
-                          <input class="col-lg-12" type="file" name="fileUploaded" placeholder='Choose a file...'/>
-                          <input type="hidden" name="system_type_param" value="custom" maxlength="20"/>
-                          <font class="col-lg-12" size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check) <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</</a></font>
-                        </div>
+                        <input class="col-lg-12" type="file" name="fileUploaded" placeholder='Choose a file...'/>
+                        <input type="hidden" name="system_type_param" value="custom" maxlength="20"/>
+                        <font class="col-lg-12" size=1px>( *** Upload images with dimensions : width 150px, height 100px, and size less than 50kb check) <a href="<c:url value="faq.htm#MenuImageSpecs"/>">FAQ</</a></font>
                       </div>
                       <div class="form-group">
                         <input class="col-lg-12 btn btn-success btn-raised" value="Upload" type="submit" />
                       </div>
-                      <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
-                      <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
+                      <div id="sometext"><strong><font color="red">${modelUc.error}</font></strong></div>
+                      <div id="sometext"><strong>${modelUc.message}</strong></div>
                     </td>
                  </tr>
               </table>
@@ -132,17 +127,14 @@ $("input#description_param").val(taVal);
               <input type="hidden" name="seq_mst_id_param" value="${modelUc.seq_mst_id_param}" />
               <input type="hidden" name="user_request_action_param" value="save_menu_action_param" />
               <c:set var="x" value="0" />
-              <table border="0" align="center" width="600">
+              <table border="0"width="600">
                  <tr>
-                    <td align="center" >
-                       <hr>
+                    <td>
+                      <div class="form-group">
+                        <label class="control-label">Select from the below menu items for sequence and click save</label>
+                        <button id="save" class="col-lg-12 btn btn-danger btn-raised" type="button" onclick="document.getElementById('menu_save_form').submit();">Save</button>
+                      </div>
                     </td>
-                 </tr>
-                 <tr>
-                    <td align="center" ><label>Select from the below menu items for sequence and click save</label><button id="save" type="button" onclick="document.getElementById('menu_save_form').submit();">Save</button></td>
-                 </tr>
-                 <tr>
-                    <td align="center" ></td>
                  </tr>
                  <tr>
                     <th><label for="menuItem">Menu</label></th>
@@ -157,7 +149,6 @@ $("input#description_param").val(taVal);
                              <img style="vertical-align:middle;" title="Menu" alt="Menu" height="100" width="150" src="${menuImage.imageUrl}" >
                           </td>
                           <td>
-
                              <c:if test="${menuImage.selected=='Y'}">
                                 <input type="checkbox" name="custom_menu_item_id_${menuImage.menuItemId}" checked value="${menuImage.menuItemId}">
                              </c:if>
@@ -176,7 +167,6 @@ $("input#description_param").val(taVal);
                              <img style="vertical-align:middle;" title="Menu" alt="Menu" height="100" width="150" src="${menuImage.imageUrl}" >
                           </td>
                           <td>
-
                              <c:if test="${menuImage.selected=='Y'}">
                                 <input type="checkbox" name="custom_menu_item_id_${menuImage.menuItemId}" checked value="${menuImage.menuItemId}">
                              </c:if>
@@ -189,18 +179,8 @@ $("input#description_param").val(taVal);
                     </c:if>
                  </c:forEach>
                  <tr>
-                    <td align="center" >
-                       <hr>
-                    </td>
-                 </tr>
-                 <tr>
-                    <td align="center" >
+                    <td>
                        <h3>Default Menu</h3>
-                    </td>
-                 </tr>
-                 <tr>
-                    <td align="center" >
-                       <hr>
                     </td>
                  </tr>
                  <c:forEach items='${modelUc.defaultMenuImagesList}' var="menuImage">
