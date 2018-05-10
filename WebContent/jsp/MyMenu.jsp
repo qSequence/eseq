@@ -123,7 +123,7 @@ $("input#description_param").val(taVal);
      </tr>
      <tr>
         <td>
-           <form id="menu_save_form" action="MyMenu.htm" method="post" >
+           <form id="menu_save_form" action="MyMenu.htm" method="post" style="margin-top: 80px;">
               <input type="hidden" name="seq_mst_id_param" value="${modelUc.seq_mst_id_param}" />
               <input type="hidden" name="user_request_action_param" value="save_menu_action_param" />
               <c:set var="x" value="0" />

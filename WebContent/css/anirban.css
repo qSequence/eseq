@@ -611,10 +611,10 @@ table .table-header a.btn{
 #container.container.mymenu .form-group{
   overflow: auto;
 }
-#container.container.mymenu .form-group input{
+#container.container.mymenu .form-group input,#container.container.mymenu .form-group button{
   margin-left: 0px;
   margin-right: 0px;
 }
 #container.container.mymenu .wrap-fp{
-  
+
 }
