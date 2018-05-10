@@ -203,7 +203,7 @@ $("#team_name_param").combogrid({
                <td>
                   <a class="bottom seq-margin yellow-tooltip" href="<c:url value="Category.htm?user_request_action_param=edit_action&cat_id_param=${cat.id}"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${cat.catDescription}">${cat.catName}</a>
                </td>
-               <td align="center"><a href="<c:url value="Category.htm?user_request_action_param=delete_action&cat_id_param=${cat.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
+               <td align="right"><a href="<c:url value="Category.htm?user_request_action_param=delete_action&cat_id_param=${cat.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                <c:set var="changed" value="true" />
                <c:set var="x" value="1" />
             </tr>
@@ -213,7 +213,7 @@ $("#team_name_param").combogrid({
                <td>
                   <a class="bottom seq-margin yellow-tooltip" href="<c:url value="Category.htm?user_request_action_param=edit_action&cat_id_param=${cat.id}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${cat.catDescription}">${cat.catName}</a>
                </td>
-               <td align="center">
+               <td align="right">
                   <a href="<c:url value="Category.htm?user_request_action_param=delete_action&cat_id_param=${cat.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                </td>
                </td>
