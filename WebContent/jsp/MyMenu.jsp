@@ -127,15 +127,13 @@ $("input#description_param").val(taVal);
               <input type="hidden" name="seq_mst_id_param" value="${modelUc.seq_mst_id_param}" />
               <input type="hidden" name="user_request_action_param" value="save_menu_action_param" />
               <c:set var="x" value="0" />
+              <div class="wrap-fp">
+                <div class="form-group">
+                  <label class="control-label">Select from the below menu items for sequence and click save</label>
+                  <button id="save" class="col-lg-12 btn btn-danger btn-raised" type="button" onclick="document.getElementById('menu_save_form').submit();">Save</button>
+                </div>
+              </div>
               <table width="100%">
-                 <tr>
-                    <td>
-                      <div class="form-group">
-                        <label class="control-label">Select from the below menu items for sequence and click save</label>
-                        <button id="save" class="col-lg-12 btn btn-danger btn-raised" type="button" onclick="document.getElementById('menu_save_form').submit();">Save</button>
-                      </div>
-                    </td>
-                 </tr>
                  <tr>
                     <th><label for="menuItem">Menu</label></th>
                     <th><label for="sequenceName">Selected</label></th>
