@@ -593,3 +593,8 @@ table .table-header a.btn{
 .catagory .form-group{
   overflow: auto;
 }
+.catagory.container{
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0px auto;
+}

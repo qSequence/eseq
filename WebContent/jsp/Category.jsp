@@ -194,27 +194,27 @@ $("#team_name_param").combogrid({
    </tr>
 </table>
 <c:set var="x" value="0" />
-<table align="center" width="700">
+<table align="center" width="600" class="table-striped table-hover">
    <c:if test="${modelUc.categoryList[0]!=null}">
       <c:forEach items='${modelUc.categoryList}' var="cat">
          <c:set var="changed" value="false" />
          <c:if test="${x=='0' && changed=='false'}">
-            <tr style="background-color: #F0F0F0; color: black;">
+            <tr>
                <td>
                   <a class="bottom seq-margin yellow-tooltip" href="<c:url value="Category.htm?user_request_action_param=edit_action&cat_id_param=${cat.id}"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${cat.catDescription}">${cat.catName}</a>
                </td>
-               <td align="center"><a href="<c:url value="Category.htm?user_request_action_param=delete_action&cat_id_param=${cat.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${cat.id}'  src="images/delete.png"/></a></td>
+               <td align="center"><a href="<c:url value="Category.htm?user_request_action_param=delete_action&cat_id_param=${cat.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                <c:set var="changed" value="true" />
                <c:set var="x" value="1" />
             </tr>
          </c:if>
          <c:if test="${x=='1' && changed=='false'}">
-            <tr style="background-color:#E8E8E8; color: black;">
+            <tr>
                <td>
                   <a class="bottom seq-margin yellow-tooltip" href="<c:url value="Category.htm?user_request_action_param=edit_action&cat_id_param=${cat.id}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${cat.catDescription}">${cat.catName}</a>
                </td>
                <td align="center">
-                  <a href="<c:url value="Category.htm?user_request_action_param=delete_action&cat_id_param=${cat.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${cat.id}'  src="images/delete.png"/></a>
+                  <a href="<c:url value="Category.htm?user_request_action_param=delete_action&cat_id_param=${cat.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                </td>
                </td>
                <c:set var="x" value="0" />
@@ -224,13 +224,6 @@ $("#team_name_param").combogrid({
    </c:if>
 </table>
 
-
-      <br /> <br />
-		<br /> <br />
-      <br /> <br />
-		<br /> <br />
-      <br /> <br />
-		<br /> <br />
 	<script type= "text/javascript" src="jquery/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	    $(document).ready(function () {
