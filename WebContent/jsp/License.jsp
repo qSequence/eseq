@@ -77,7 +77,7 @@
 <form action="License.htm" method="post" onsubmit="return checkCheckBox(this)">
    <table align="center">
       <c:if test="${modelUc.userRequestAction!='requireConfirmation'}">
-         <tr>
+         <tr> 
             <td>
               <div class="table-header" style="text-align:center;">
                 <h1>Setup your new License</h1>
