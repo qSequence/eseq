@@ -611,3 +611,7 @@ table .table-header a.btn{
 #container.container.mymenu .form-group{
   overflow: auto;
 }
+#container.container.mymenu .form-group input{
+  margin-left: 0px;
+  margin-right: 0px;
+}
