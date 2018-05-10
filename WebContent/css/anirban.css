@@ -597,4 +597,9 @@ table .table-header a.btn{
   width: 100% !important;
   max-width: 1000px !important;
   margin: 0px auto;
+  height: auto;
+}
+#container.catagory .table-striped.table-hover{
+  width: 600px;
+  margin: 0px auto;
 }
