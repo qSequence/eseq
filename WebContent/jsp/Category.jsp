@@ -163,14 +163,12 @@ $("#team_name_param").combogrid({
                         <input type="text" class="col-lg-12" id="team_name_param"  maxlength="20"/><input type="hidden" id="team_id_param" />
                       </div>
                       <div class="form-group">
-                        <div class="col-lg-12">
-                          <label class="control-label">Access Level</label>
-                          <select class="col-lg-12" name="access_param" id="access_param" >
-                             <option value="RO">Read Only</option>
-                             <option value="RW">Read Write</option>
-                             <option value="OW">Owner</option>
-                          </select>
-                        </div>
+												<label class="control-label">Access Level</label>
+												<select class="col-lg-12" name="access_param" id="access_param" >
+													 <option value="RO">Read Only</option>
+													 <option value="RW">Read Write</option>
+													 <option value="OW">Owner</option>
+												</select>
                       </div>
                       <div class="form-group">
                         <div class="col-lg-12">
