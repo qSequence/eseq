@@ -577,7 +577,7 @@ table .table-header a.btn{
   margin-bottom: 10px;
 }
 #ul_id{
-
+  padding: 0px;
 }
 #ul_id li{
 
@@ -593,7 +593,7 @@ table .table-header a.btn{
 .catagory .form-group{
   overflow: auto;
 }
-.catagory.container{
+#container.catagory{
   width: 100% !important;
   max-width: 1000px !important;
   margin: 0px auto;

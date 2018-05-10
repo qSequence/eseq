@@ -121,7 +121,7 @@ $("#team_name_param").combogrid({
       </nav>
     </div>
   </div>
-<div id="container" class="catagory">
+<div id="container" class="catagory container">
 
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
