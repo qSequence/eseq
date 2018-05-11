@@ -77,29 +77,33 @@
 <form action="License.htm" method="post" onsubmit="return checkCheckBox(this)">
    <div class="lol">
       <c:if test="${modelUc.userRequestAction!='requireConfirmation'}">
-        <div class="table-header" style="text-align:center;">
-          <h1>Setup your new License</h1>
-        </div>
-        <div class="form-group">
-          <label class="control-label">Update New Product Key</label>
-          <input class="col-lg-12" id="productKey" name="productKey" type="text"/>
-        </div>
-        <div class="form-group">
-          <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
-          <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
-          <font  color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
+        <div class="wrap-ff">
+          <div class="table-header" style="text-align:center;">
+            <h1>Setup your new License</h1>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Update New Product Key</label>
+            <input class="col-lg-12" id="productKey" name="productKey" type="text"/>
+          </div>
+          <div class="form-group">
+            <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
+            <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
+            <font  color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
+          </div>
         </div>
       </c:if>
       <c:if test="${modelUc.userRequestAction=='requireConfirmation'}">
-          <div class="table-header" style="text-align:center;">
-            <h1>Your License details</h1>
-            <b>${modelUc.message}</b>
-          </div>
-          <div class="form-group">
-            <input id="userRequestAction" name="userRequestAction" type="hidden" value="confirmation" />
-            <input id="productKey" name="productKey" type="hidden" value="${modelUc.productKey}" />
-            <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
-            <font color="red">${modelUc.error}${modelUc.loginError}</font>
+          <div class="wrap-ff">
+            <div class="table-header" style="text-align:center;">
+              <h1>Your License details</h1>
+              <b>${modelUc.message}</b>
+            </div>
+            <div class="form-group">
+              <input id="userRequestAction" name="userRequestAction" type="hidden" value="confirmation" />
+              <input id="productKey" name="productKey" type="hidden" value="${modelUc.productKey}" />
+              <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
+              <font color="red">${modelUc.error}${modelUc.loginError}</font>
+            </div>
           </div>
       </c:if>
       <div class="table-header" style="text-align:center;margin-top: 50px;">

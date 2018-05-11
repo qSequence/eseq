@@ -130,31 +130,33 @@ $("#team_name_param").combogrid({
               <table align="center">
                  <tr>
                     <td>
-                      <div class="table-header" style="text-align:center;">
-                        <h1>LDAP Configuration</h1>
-                        <input type="hidden" name="user_request_action_param" value="save_action"/>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-lg-12">LDAP URI</label>
-                        <input class="col-lg-12" type="text" name="ldap_uri" value="${modelUc.ldapUri}" size="30" maxlength="100"/>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-lg-12">Context Factory</label>
-                        <input class="col-lg-12" type="text" name="context_factory" value="${modelUc.ldapContextFactory}" size="30" maxlength="100"/>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-lg-12">User CN</label>
-                        <input class="col-lg-12" type="text" name="user_cn" value="${modelUc.ldapUserCn}" size="30" maxlength="100"/>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-lg-12">Security Authentication</label>
-                        <input class="col-lg-12" type="text" name="security_authentication" value="${modelUc.ldapSecurityAuthentication}" size="30" maxlength="200" />
-                      </div>
-                      <div class="form-group">
-                        <strong><font color="red">${modelUc.message} ${modelUc.error}</font></strong>
-                      </div>
-                      <div class="form-group">
-                        <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Save" />
+                      <div class="wrap-ff">
+												<div class="table-header" style="text-align:center;">
+	                        <h1>LDAP Configuration</h1>
+	                        <input type="hidden" name="user_request_action_param" value="save_action"/>
+	                      </div>
+	                      <div class="form-group">
+	                        <label class="control-label">LDAP URI</label>
+	                        <input class="col-lg-12" type="text" name="ldap_uri" value="${modelUc.ldapUri}" size="30" maxlength="100"/>
+	                      </div>
+	                      <div class="form-group">
+	                        <label class="control-label">Context Factory</label>
+	                        <input class="col-lg-12" type="text" name="context_factory" value="${modelUc.ldapContextFactory}" size="30" maxlength="100"/>
+	                      </div>
+	                      <div class="form-group">
+	                        <label class="control-label">User CN</label>
+	                        <input class="col-lg-12" type="text" name="user_cn" value="${modelUc.ldapUserCn}" size="30" maxlength="100"/>
+	                      </div>
+	                      <div class="form-group">
+	                        <label class="control-label">Security Authentication</label>
+	                        <input class="col-lg-12" type="text" name="security_authentication" value="${modelUc.ldapSecurityAuthentication}" size="30" maxlength="200" />
+	                      </div>
+	                      <div class="form-group">
+	                        <strong><font color="red">${modelUc.message} ${modelUc.error}</font></strong>
+	                      </div>
+	                      <div class="form-group">
+	                        <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Save" />
+	                      </div>
                       </div>
                     </td>
                  </tr>

@@ -619,7 +619,7 @@ table .table-header a.btn{
 
 }
 #container.container.license{
-  width: 600px;
+  width: 900px;
   margin: 0px auto;
   height: auto;
 }
@@ -639,4 +639,8 @@ table .table-header a.btn{
 #container.container.license .form-group input,#container.container.license .form-group button{
   margin-left: 0px;
   margin-left: 0px;
+}
+#container.container.license .wrap-ff{
+  width: 550px;
+  margin: 0px auto;
 }
