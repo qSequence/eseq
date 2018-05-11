@@ -644,3 +644,6 @@ table .table-header a.btn{
   width: 550px;
   margin: 0px auto;
 }
+#container.container.license h1{
+  margin-bottom: 50px;
+}
