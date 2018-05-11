@@ -604,7 +604,7 @@ table .table-header a.btn{
   margin: 0px auto;
 }
 #container.container.mymenu{
-  width: 700px; 
+  width: 700px;
   margin: 0px auto;
   height: auto;
 }
@@ -632,4 +632,11 @@ table .table-header a.btn{
 }
 #container.container.license .table-header a.btn{
   width: 100%;
+}
+#container.container.license .form-group{
+  overflow: auto;
+}
+#container.container.license .form-group input,#container.container.license .form-group button{
+  margin-left: 0px;
+  margin-left: 0px;
 }

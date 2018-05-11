@@ -75,86 +75,67 @@
 </c:if>
 <div id="container" class="container license">
 <form action="License.htm" method="post" onsubmit="return checkCheckBox(this)">
-   <table align="center">
+   <div class="lol">
       <c:if test="${modelUc.userRequestAction!='requireConfirmation'}">
-         <tr> 
-            <td>
-              <div class="table-header" style="text-align:center;">
-                <h1>Setup your new License</h1>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Update New Product Key</label>
-                <input class="col-lg-12" id="productKey" name="productKey" type="text"/>
-              </div>
-              <div class="form-group">
-                <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
-                <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
-                <font  color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
-              </div>
-            </td>
-         </tr>
+        <div class="table-header" style="text-align:center;">
+          <h1>Setup your new License</h1>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Update New Product Key</label>
+          <input class="col-lg-12" id="productKey" name="productKey" type="text"/>
+        </div>
+        <div class="form-group">
+          <input id="userRequestAction" name="userRequestAction" type="hidden" value="requireConfirmation" />
+          <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
+          <font  color="red">${modelUc.error}${modelUc.loginError}${modelUc.message}</font>
+        </div>
       </c:if>
       <c:if test="${modelUc.userRequestAction=='requireConfirmation'}">
-         <tr>
-            <td>
-              <div class="table-header" style="text-align:center;">
-                <h1>Your License details</h1>
-                <b>${modelUc.message}</b>
-              </div>
-              <div class="form-group">
-                <input id="userRequestAction" name="userRequestAction" type="hidden" value="confirmation" />
-                <input id="productKey" name="productKey" type="hidden" value="${modelUc.productKey}" />
-                <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
-                <font color="red">${modelUc.error}${modelUc.loginError}</font>
-              </div>
-            </td>
-      </c:if>
-      <tr>
-         <td>
-           <div class="table-header" style="text-align:center;margin-top: 50px;">
-             <h4>Current License details</h4>
-             <b>${modelUc.message}</b>
-             <a class="col-lg-12 btn btn-success btn-raised" target="_blank" href="
-             <c:url value="https://www.qsequence.com/Pricing.htm" />
-             ">Upgrade software - get new product key</a>
-           </div>
-           <div class="bs-component">
-            <div class="jumbotron">
-              <b class="col-lg-12">Product key : ${modelUc.currentCustomerSubscription.productKey}</b>
-              <b class="col-lg-12">Customer Id : ${modelUc.currentCustomerSubscription.customerId}</b>
-              <b class="col-lg-12">Downgrade key : ${modelUc.currentCustomerSubscription.downgradeKey}</b>
-              <b class="col-lg-12">Number of users : ${modelUc.currentProductFeature.featureValue}</b>
-              <b class="col-lg-12">
-                 Subscription started :
-                 <fmt:formatDate value="${modelUc.currentCustomerSubscription.startDate}" pattern="MMM-yyyy" />
-              </b>
-            </div>
+          <div class="table-header" style="text-align:center;">
+            <h1>Your License details</h1>
+            <b>${modelUc.message}</b>
           </div>
-         </td>
-      </tr>
+          <div class="form-group">
+            <input id="userRequestAction" name="userRequestAction" type="hidden" value="confirmation" />
+            <input id="productKey" name="productKey" type="hidden" value="${modelUc.productKey}" />
+            <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
+            <font color="red">${modelUc.error}${modelUc.loginError}</font>
+          </div>
+      </c:if>
+      <div class="table-header" style="text-align:center;margin-top: 50px;">
+        <h4>Current License details</h4>
+        <b>${modelUc.message}</b>
+        <a class="col-lg-12 btn btn-success btn-raised" target="_blank" href="
+        <c:url value="https://www.qsequence.com/Pricing.htm" />
+        ">Upgrade software - get new product key</a>
+      </div>
+      <div class="bs-component">
+       <div class="jumbotron">
+         <b class="col-lg-12">Product key : ${modelUc.currentCustomerSubscription.productKey}</b>
+         <b class="col-lg-12">Customer Id : ${modelUc.currentCustomerSubscription.customerId}</b>
+         <b class="col-lg-12">Downgrade key : ${modelUc.currentCustomerSubscription.downgradeKey}</b>
+         <b class="col-lg-12">Number of users : ${modelUc.currentProductFeature.featureValue}</b>
+         <b class="col-lg-12">
+            Subscription started :
+            <fmt:formatDate value="${modelUc.currentCustomerSubscription.startDate}" pattern="MMM-yyyy" />
+         </b>
+       </div>
+     </div>
       <c:if test="${modelUc.currentCustomerSubscription.licenseType=='trial'}">
-         <tr>
-            <td>
-              <div class="bs-component">
-               <div class="jumbotron">
-                 <b class="col-lg-12">License type : Trial Subscription</b>
-               </div>
-             </div>
-            </td>
-         </tr>
+         <div class="bs-component">
+           <div class="jumbotron">
+             <b class="col-lg-12">License type : Trial Subscription</b>
+           </div>
+         </div>
       </c:if>
       <c:if test="${modelUc.currentCustomerSubscription.licenseType!='trial'}">
-         <tr>
-            <td>
-              <div class="bs-component">
-               <div class="jumbotron">
-                 <b class="col-lg-12">License type : Subscription</b>
-               </div>
-             </div>
-            </td>
-         </tr>
+          <div class="bs-component">
+           <div class="jumbotron">
+             <b class="col-lg-12">License type : Subscription</b>
+           </div>
+         </div>
       </c:if>
-   </table>
+   </div>
 </form>
 </div>
 <%@ include file="footer.jsp"%>
