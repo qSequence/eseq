@@ -106,12 +106,14 @@
             </div>
           </div>
       </c:if>
-      <div class="table-header" style="text-align:center;margin-top: 50px;">
-        <h4>Current License details</h4>
-        <b>${modelUc.message}</b>
-        <a class="col-lg-12 btn btn-success btn-raised" target="_blank" href="
-        <c:url value="https://www.qsequence.com/Pricing.htm" />
-        ">Upgrade software - get new product key</a>
+      <div class="wrap-ff">
+        <div class="table-header" style="text-align:center;margin-top: 50px;">
+          <h4>Current License details</h4>
+          <b>${modelUc.message}</b>
+          <a class="col-lg-12 btn btn-success btn-raised" target="_blank" href="
+          <c:url value="https://www.qsequence.com/Pricing.htm" />
+          ">Upgrade software - get new product key</a>
+        </div>
       </div>
       <div class="bs-component">
        <div class="jumbotron">
