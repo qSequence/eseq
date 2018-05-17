@@ -161,12 +161,12 @@
             <tr>
                 <td><label for="capabilityName">Request</label></td>
                 <td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}" /></td>
-                <td><label for="sequenceName"><input type="submit" class="btn btn-info btn-raised" name="request_update" value="Update Request"></label></td>
+                <td><label for="sequenceName"><input type="submit" class="btn btn-success btn-raised" name="request_update" value="Update Request"></label></td>
             </tr>
             <tr>
                 <td><label for="capabilityName">Response</label></td>
                 <td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}" /></td>
-                <td><label for="sequenceName"><input type="submit" class="btn btn-info btn-raised" name="response_update" value="Update Response"></label></td>
+                <td><label for="sequenceName"><input type="submit" class="btn btn-success btn-raised" name="response_update" value="Update Response"></label></td>
             </tr>
         </c:if>
         <c:if test="${modelUc.property_for_param=='response'}">
@@ -177,24 +177,24 @@
             <tr>
                 <td><label for="capabilityName">Request</label></td>
                 <td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}" /></td>
-                <td><label for="sequenceName"><input type="submit" class="btn btn-info btn-raised" name="request_update" value="Update Request"></label></td>
+                <td><label for="sequenceName"><input type="submit" class="btn btn-success btn-raised" name="request_update" value="Update Request"></label></td>
             </tr>
             <tr>
                 <td><label for="capabilityName">Response</label></td>
                 <td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}" /></td>
-                <td><label for="sequenceName"><input type="submit" class="btn btn-info btn-raised" name="response_update" value="Update Response"></label></td>
+                <td><label for="sequenceName"><input type="submit" class="btn btn-success btn-raised" name="response_update" value="Update Response"></label></td>
             </tr>
         </c:if>
         <c:if test="${modelUc.property_for_param=='system'}">
             <tr>
                 <td><label for="capabilityName">System</label></td>
                 <td><input id="system" name="system" type="text" maxlength="50" value="${modelUc.system}" /></td>
-                <td><label for="sequenceName"><input type="submit" class="btn btn-info btn-raised" name="system_update" value="Update System"></label></td>
+                <td><label for="sequenceName"><input type="submit" class="btn btn-success btn-raised" name="system_update" value="Update System"></label></td>
             </tr>
         </c:if>
         <tr align="center">
             <td align="center" colspan="3">
-                <input type="submit" class="btn btn-info btn-raised" name="delete" value="Delete Capability">
+                <input type="submit" class="btn btn-danger btn-raised" name="delete" value="Delete Capability">
                 <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action" />
                 <input id="property_for_param" name="property_for_param" type="hidden" value="${modelUc.property_for_param}" />
                 <input id="system_id_param" name="system_id_param" type="hidden" value="${modelUc.system_id_param}" />
