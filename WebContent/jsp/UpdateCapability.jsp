@@ -19,82 +19,72 @@
                     </head>
                     <body>
                       <script type="text/javascript">
-                        $(document).ready(function () {
-                          $("#tool_tip").hide();
+                      $(document).ready(function() {
+                      	$("#tool_tip").hide();
 
-                          $("#tool_tip").fadeIn(9000);
+                      	$("#tool_tip")
+                      	.fadeIn(9000);
 
-                          var tooltips = document.querySelectorAll('.tooltip span');
+                      	var tooltips = document.querySelectorAll('.tooltip span');
 
-                          window.onmousemove = function (e) {
-                            var x = (e.clientX + 20) + 'px',
-                              y = (e.clientY + 20) + 'px';
-                            for (var i = 0; i < tooltips.length; i++) {
-                              tooltips[i].style.top = y;
-                              tooltips[i].style.left = x;
-                            }
-                          };
-                          $("#userName").combogrid({
-                            url: 'SearchUsers.htm?action_param=search_with_properties_only',
-                            colModel: [
-                              {
-                                'columnName': 'userIdCol',
-                                'width': '0',
-                                'label': ''
-                              }, {
-                                'columnName': 'userNameCol',
-                                'width': '50',
-                                'label': 'Username'
-                              }, {
-                                'columnName': 'nameCol',
-                                'width': '50',
-                                'label': 'Name'
-                              }
-                            ],
-                            select: function (event, ui) {
+                      	window.onmousemove = function (e) {
+                      	    var x = (e.clientX + 20) + 'px',
+                      	        y = (e.clientY + 20) + 'px';
+                      	    for (var i = 0; i < tooltips.length; i++) {
+                      	        tooltips[i].style.top = y;
+                      	        tooltips[i].style.left = x;
+                      	    }
+                      	};
+                      	$("#userName").combogrid({
+                      		url: 'SearchUsers.htm?action_param=search_with_properties_only',
+                      		colModel: [
+                      		           {'columnName':'userIdCol','width':'0','label':''},
+                      		           {'columnName':'userNameCol','width':'50','label':'Username'},
+                      		           {'columnName':'nameCol','width':'50','label':'Name'}
+                      		           ],
+                      		select: function( event, ui ) {
 
-                              $("#userName").val(ui.item.userNameCol);
-                              document.getElementById('userId').value = "user_" + ui.item.userIdCol;
 
-                              return false;
-                            }
-                          });
-                          $("#catName").combogrid({
-                            url: 'SearchCategories.htm?action_param=search_with_properties_only',
-                            colModel: [
-                              {
-                                'columnName': 'catIdCol',
-                                'width': '0',
-                                'label': ''
-                              }, {
-                                'columnName': 'catNameCol',
-                                'width': '50',
-                                'label': 'Category Name'
-                              }
-                            ],
-                            select: function (event, ui) {
+                      		$("#userName").val(ui.item.userNameCol);
+                      		document.getElementById('userId').value="user_"+ui.item.userIdCol;
 
-                              $("#catName").val(ui.item.catNameCol);
-                              document.getElementById('catId').value = ui.item.catIdCol;
+                      		return false;
+                      		}
+                      		});
+                      	$("#catName").combogrid({
+                      		url: 'SearchCategories.htm?action_param=search_with_properties_only',
+                      		colModel: [
+                      		           {'columnName':'catIdCol','width':'0','label':''},
+                      		           {'columnName':'catNameCol','width':'50','label':'Category Name'}
+                      		           ],
+                      		select: function( event, ui ) {
 
-                              return false;
-                            }
-                          });
-                        });
 
-                        function updateSeqMst(user_request_action_param, social_network_param, seq_mst_id_param, sequenceVersion_param, url) {
+                      		$("#catName").val(ui.item.catNameCol);
+                      		document.getElementById('catId').value=ui.item.catIdCol;
 
-                          $("#img_" + seq_mst_id_param).attr('src', "images/secure-link-image.png");
-                          $("#img_" + seq_mst_id_param).attr('title', "Secure your shared link");
-                          $("#img_" + seq_mst_id_param).attr('alt', "Secure your shared link");
+                      		return false;
+                      		}
+                      		});
+                      });
 
-                          $.post(url, {
-                            user_request_action_param: user_request_action_param,
-                            seq_mst_id_param: seq_mst_id_param,
-                            social_network_param: social_network_param,
-                            sequenceVersion: sequenceVersion_param
-                          }, function (data, status) {});
-                        }
+                      function updateSeqMst( user_request_action_param, social_network_param, seq_mst_id_param,sequenceVersion_param, url) {
+
+                      $("#img_"+seq_mst_id_param).attr('src',"images/secure-link-image.png");
+                      $("#img_"+seq_mst_id_param).attr('title',"Secure your shared link");
+                      $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
+
+                      		$.post(url,
+                      				{
+                      					user_request_action_param:user_request_action_param,
+                      					seq_mst_id_param:seq_mst_id_param,
+                      					social_network_param:social_network_param,
+                      					sequenceVersion:sequenceVersion_param
+                      				},
+                      				function(data,status){
+
+                      				});
+                      	}
                       </script>
 
                       <!-- Navigation -->
@@ -152,117 +142,84 @@
 
                         <!--<div style="left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;height:100px ">-->
                         <c:if test="${modelUc.status=='SAVED'}">
-                          <c:redirect
-                            url="/UpdateCapability.htm?property_for_param=${modelUc.property_for_param}&system_id_param=${modelUc.system_id_param}&request_id_param=${modelUc.request_id_param}&response_id_param=${modelUc.response_id_param}&message=${modelUc.message}"/>
+                          <c:redirect url="/UpdateCapability.htm?property_for_param=${modelUc.property_for_param}&system_id_param=${modelUc.system_id_param}&request_id_param=${modelUc.request_id_param}&response_id_param=${modelUc.response_id_param}&message=${modelUc.message}"/>
                         </c:if>
                         <h1 style="text-align:center;">Update Capability</h1>
                         <div class="row table-section">
                           <table>
                             <tr>
                               <td>
-                                <form action="UpdateCapability.htm" method="post">
-                                  <table>
-                                    <c:if test="${modelUc.property_for_param=='request'}">
-                                      <tr>
-                                        <td>
-                                          <label for="capabilityName">System</label>
-                                        </td>
-                                        <td><input id="system" name="system" type="text" maxlength="50" value="${modelUc.system}" disabled="disabled"/></td>
-                                        <td>&nbsp;</td>
-                                      </tr>
-                                      <tr>
+                                <form action="UpdateCapability.htm" method="post" >
+                    		        	<table align="center" >
+                    						<c:if test="${modelUc.property_for_param=='request'}">
+                    							<tr>
+                    								<td><label for="capabilityName">System</label></td>
+                    				        		<td><input id="system" name="system" type="text" maxlength="50" value="${modelUc.system}" disabled="disabled"/></td>
+                    				        		<td>&nbsp;</td>
+                    				        	</tr>
+                    			        		<tr>
 
-                                        <td>
-                                          <label for="capabilityName">Request</label>
-                                        </td>
-                                        <td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}"/></td>
-                                        <td>
-                                          <label for="sequenceName">
-                                            <input type="submit" src="/images/login.png" name="request_update" class="btn btn-primary btn-sm" value="Update Request"></label>
-                                          </td>
-                                        </tr>
-                                        <tr>
+                    				        		<td><label for="capabilityName">Request</label></td>
+                    				        		<td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}" /></td>
+                    				        		<td><label for="sequenceName"><input type="submit" src="/images/login.png" name="request_update" value="Update Request"></label></td>
+                    				        	</tr>
+                    				        	<tr>
 
-                                          <td>
-                                            <label for="capabilityName">Response</label>
-                                          </td>
-                                          <td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}"/></td>
-                                          <td>
-                                            <label for="sequenceName">
-                                              <input type="submit" src="/images/login.png" name="response_update" class="btn btn-primary btn-sm" value="Update Response"></label>
-                                            </td>
-                                          </tr>
-                                        </c:if>
-                                        <c:if test="${modelUc.property_for_param=='response'}">
-                                          <tr>
-                                            <td>
-                                              <label for="capabilityName">System</label>
-                                            </td>
-                                            <td><input id="system" name="system" type="text" maxlength="50" value="${modelUc.system}" disabled="disabled"/></td>
-                                            <td>&nbsp;</td>
-                                          </tr>
-                                          <tr>
+                    				        		<td><label for="capabilityName">Response</label></td>
+                    				        		<td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}" /></td>
+                    				        		<td><label for="sequenceName"><input type="submit" src="/images/login.png" name="response_update" value="Update Response"></label></td>
+                    				        	</tr>
+                    			        	</c:if>
+                    			        	<c:if test="${modelUc.property_for_param=='response'}">
+                    							<tr>
+                    								<td><label for="capabilityName">System</label></td>
+                    				        		<td><input id="system" name="system" type="text" maxlength="50" value="${modelUc.system}" disabled="disabled"/></td>
+                    				        		<td>&nbsp;</td>
+                    				        	</tr>
+                    			        		<tr>
 
-                                            <td>
-                                              <label for="capabilityName">Request</label>
-                                            </td>
-                                            <td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}"/></td>
-                                            <td>
-                                              <label for="sequenceName">
-                                                <input type="submit" src="/images/login.png" name="request_update" class="btn btn-primary btn-sm" value="Update Request"></label>
-                                              </td>
-                                            </tr>
-                                            <tr>
+                    				        		<td><label for="capabilityName">Request</label></td>
+                    				        		<td><input id="request" name="request" type="text" maxlength="50" value="${modelUc.request}" /></td>
+                    				        		<td><label for="sequenceName"><input type="submit" src="/images/login.png" name="request_update" value="Update Request"></label></td>
+                    				        	</tr>
+                    				        	<tr>
 
-                                              <td>
-                                                <label for="capabilityName">Response</label>
-                                              </td>
-                                              <td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}"/></td>
-                                              <td>
-                                                <label for="sequenceName">
-                                                  <input type="submit" src="/images/login.png" name="response_update" class="btn btn-primary btn-sm" value="Update Response"></label>
-                                                </td>
-                                              </tr>
-                                            </c:if>
-                                            <c:if test="${modelUc.property_for_param=='system'}">
-                                              <tr>
+                    				        		<td><label for="capabilityName">Response</label></td>
+                    				        		<td><input id="response" name="response" type="text" maxlength="50" value="${modelUc.response}" /></td>
+                    				        		<td><label for="sequenceName"><input type="submit" src="/images/login.png" name="response_update" value="Update Response"></label></td>
+                    				        	</tr>
+                    			        	</c:if>
+                    			        	<c:if test="${modelUc.property_for_param=='system'}">
+                    			        		<tr>
 
-                                                <td>
-                                                  <label for="capabilityName">System</label>
-                                                </td>
-                                                <td><input  id="system" name="system" type="text" maxlength="50" value="${modelUc.system}"/></td>
-                                                <td>
-                                                  <label for="sequenceName">
-                                                    <input class="btn btn-info btn-lg" type="submit" src="/images/login.png" name="system_update" value="Update System"></label>
-                                                  </td>
-                                                </tr>
-                                              </c:if>
-                                              <tr>
-                                                <td colspan="3">
-                                                  <input class="btn btn-info btn-lg" type="submit" src="/images/login.png" name="delete" value="Delete Capability">
+                    				        		<td><label for="capabilityName">System</label></td>
+                    				        		<td><input id="system" name="system" type="text" maxlength="50" value="${modelUc.system}" /></td>
+                    				        		<td><label for="sequenceName"><input type="submit" src="/images/login.png" name="system_update" value="Update System"></label></td>
+                    				        	</tr>
+                    			        	</c:if>
+                    						<tr align="center">
+                    							<td align="center" colspan="3">
+                    			            		<input type="submit" src="/images/login.png" name="delete" value="Delete Capability">
+                    			            		<input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action" />
 
-                                                    <input id="user_request_action_param" name="user_request_action_param" type="hidden" value="save_sequence_action"/>
 
-                                                    <input id="property_for_param" name="property_for_param" type="hidden" value="${modelUc.property_for_param}"/>
-                                                    <input id="system_id_param" name="system_id_param" type="hidden" value="${modelUc.system_id_param}"/>
-                                                    <input id="request_id_param" name="request_id_param" type="hidden" value="${modelUc.request_id_param}"/>
-                                                    <input id="response_id_param" name="response_id_param" type="hidden" value="${modelUc.response_id_param}"/>
+                    			            		<input id="property_for_param" name="property_for_param" type="hidden" value="${modelUc.property_for_param}" />
+                    			            		<input id="system_id_param" name="system_id_param" type="hidden" value="${modelUc.system_id_param}" />
+                    			            		<input id="request_id_param" name="request_id_param" type="hidden" value="${modelUc.request_id_param}" />
+                    			            		<input id="response_id_param" name="response_id_param" type="hidden" value="${modelUc.response_id_param}" />
 
-                                                  </td>
 
-                                                </tr>
+                    			                </td>
 
-                                                <tr>
-                                                  <td colspan="3">
-                                                    <font color="red">${modelUc.message}</font>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td colspan="3">&nbsp;</td>
-                                                </tr>
+                    		                </tr>
 
-                                              </table>
-                                            </form>
+                    		        		<tr>
+                    		        		<td colspan="3"><font color="red">${modelUc.message}</font>
+                    		        		</td></tr>
+                    						<tr><td colspan="3">&nbsp;</td></tr>
+
+                    		        	</table>
+                    		        </form>
 
                                           </td>
                                         </tr>
