@@ -309,12 +309,13 @@ function showProperties( id, action_param, event) {
     </div>
     <div class="content">
       <p>Copy Information from</p>
-      <input id="comboGrid_${modelUc.propertyFor}" name="informationCopy" type="text" size="50" maxlength="1900"  />
-      <img  id="img_information_injection" class="mousetoHand" title="Information" alt="Information" height="20" width="20" src="
-      <c:url value="/images/information_injection_gray.png" />
-      "
-      onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucSeqMst.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}','prop_copy_view', event);">
-      <button id="copy_submit_button"  type="button">Copy</button>
+      <div class="form-group">
+          <label class="control-label">First name</label>
+          <input id="comboGrid_${modelUc.propertyFor}" name="informationCopy" type="text" size="50" maxlength="1900"  />
+      </div>
+      <button class="btn btn-primary btn-raised"  id="img_information_injection" class="mousetoHand" title="Information" alt="Information"
+      onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucSeqMst.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}','prop_copy_view', event);"></button>
+      <button class="btn btn-success btn-raised" id="copy_submit_button"  type="button">Copy</button>
       <input id="copy_system_id_param" name="copy_system_id_param" type="hidden" value="" />
       <input id="copy_request_id_param" name="copy_request_id_param" type="hidden" value="" />
       <input id="copy_response_id_param" name="copy_response_id_param" type="hidden" value="" />
