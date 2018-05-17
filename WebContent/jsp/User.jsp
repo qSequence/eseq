@@ -178,7 +178,7 @@ $("#team_name_param").combogrid({
                          </c:if>
                       </select>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group"> 
                       <label class="control-label">Set Password</label>
                       <input type="password" name="password_param" maxlength="100" />
                   </div>

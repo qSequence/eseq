@@ -470,7 +470,7 @@
                         // 	.fadeIn("slow")
                         // 	.animate({ opacity: 0 }, 6000);
                         });
-                    </script>
+                    </script> 
                 </td>
             </tr>
         </table>
