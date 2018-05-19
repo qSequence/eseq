@@ -108,7 +108,7 @@ $("#team_name_param").combogrid({
   </div>
 </div>
 
-<div id="container">
+<div id="container" class="team">
     <c:if test="${modelUc.status=='SAVED'}">
         <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
     </c:if>
@@ -119,14 +119,27 @@ $("#team_name_param").combogrid({
                     <table align="center" border="0" width=600>
 
                         <tr>
-                            <td style="text-align:left;">
-                                <h1>Teams</h1>
+                            <td>
+                                <div class="table-header">
+                                    <h1>Teams</h1>
+                                    <input type="hidden" name="user_request_action_param" value="save_action" maxlength="20"/>
+                                </div>
+                                <div class="save-team">
+                                    <div class="form-group col-lg-12">
+                                        <label class="control-label">Team name </label>
+                                        <input type="text" name="team_name_param" value="${modelUc.team.teamName}" maxlength="200"/>
+                                        <input type="hidden" name="team_id_param" value="${modelUc.team.id}" />
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <label class="control-label">Description</label>
+                                        <input type="text" name="team_description_param" value="${modelUc.team.teamDescription}" />
+                                        <input type="submit" value="Save" />
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <input class="btn btn-info btn-raised" type="submit" value="Save" />
+                                    </div>
+                                </div>
                             </td>
-                            <td><input type="hidden" name="user_request_action_param" value="save_action" maxlength="20"/></td>
-                        </tr>
-                        <tr>
-                            <td ><label>Team name </label> <input type="text" name="team_name_param" value="${modelUc.team.teamName}" maxlength="200"/><input type="hidden" name="team_id_param" value="${modelUc.team.id}" /></td>
-                            <td><label>Description </label> <input type="text" name="team_description_param" value="${modelUc.team.teamDescription}" /><input type="submit" value="Save" /></td>
                         </tr>
                         <tr>
                             <td>
@@ -136,7 +149,7 @@ $("#team_name_param").combogrid({
                         </tr>
                     </table>
                     <c:set var="x" value="0" />
-                    <table align="center" width="700">
+                    <table align="center" class="table-striped table-hover">
                         <c:if test="${modelUc.teamsList[0]!=null}">
                             <c:forEach items='${modelUc.teamsList}' var="team">
                                 <c:set var="changed" value="false" />
@@ -145,7 +158,7 @@ $("#team_name_param").combogrid({
                                         <td>
                                             <a class="bottom seq-margin yellow-tooltip" href="<c:url value="Team.htm?user_request_action_param=edit_action&team_id_param=${team.id}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${team.teamDescription}">${team.teamName}</a>
                                         </td>
-                                        <td align="center"><a href="<c:url value="Team.htm?user_request_action_param=delete_action&team_id_param=${team.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${team.id}'  src="images/delete.png"/></a></td>
+                                        <td align="center"><a href="<c:url value="Team.htm?user_request_action_param=delete_action&team_id_param=${team.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
                                         <c:set var="changed" value="true" />
                                         <c:set var="x" value="1" />
                                     </tr>
@@ -156,7 +169,7 @@ $("#team_name_param").combogrid({
                                             <a class="bottom seq-margin yellow-tooltip" href="<c:url value="Team.htm?user_request_action_param=edit_action&team_id_param=${team.id}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${team.teamDescription}">${team.teamName}</a>
                                         </td>
                                         <td align="center">
-                                            <a href="<c:url value="Team.htm?user_request_action_param=delete_action&team_id_param=${team.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><img id='${team.id}'  src="images/delete.png"/></a>
+                                            <a href="<c:url value="Team.htm?user_request_action_param=delete_action&team_id_param=${team.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
                                         </td>
                                         </td>
                                         <c:set var="x" value="0" />
