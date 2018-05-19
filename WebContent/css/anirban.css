@@ -647,20 +647,20 @@ table .table-header a.btn{
 #container.container.license h1{
   margin-bottom: 50px;
 }
-#container.container.team{
+#container.team{
   margin: 0px auto;
   width: 700px;
 }
-#container.container.team .table-header{
+#container.team .table-header{
   text-align: center;
 }
-#container.container.team .save-team{
+#container.team .save-team{
   width: 400px;
   margin: 0px auto;
 }
-#container.container.team .save-team input{
+#container.team .save-team input{
   width: 100%;
 }
-#container.container.team a{
+#container.team a{
   color: #595959;
 }
