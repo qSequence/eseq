@@ -650,7 +650,7 @@ table .table-header a.btn{
 #container.container.team{
 
 }
-#container.container.team .table-header{ 
+#container.container.team .table-header{
   text-align: center;
 }
 #container.container.team .save-team{
@@ -659,4 +659,7 @@ table .table-header a.btn{
 }
 #container.container.team .save-team input{
   width: 100%;
+}
+#container.container.team a{
+  color: #595959;
 }
