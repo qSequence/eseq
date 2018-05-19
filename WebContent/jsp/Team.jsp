@@ -133,7 +133,6 @@ $("#team_name_param").combogrid({
                                     <div class="form-group col-lg-12">
                                         <label class="control-label">Description</label>
                                         <input type="text" name="team_description_param" value="${modelUc.team.teamDescription}" />
-                                        <input type="submit" value="Save" />
                                     </div>
                                     <div class="form-group col-lg-12">
                                         <input class="btn btn-info btn-raised" type="submit" value="Save" />

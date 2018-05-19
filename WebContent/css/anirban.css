@@ -648,5 +648,15 @@ table .table-header a.btn{
   margin-bottom: 50px;
 }
 #container.container.team{
-  
+
+}
+#container.container.team .table-header{ 
+  text-align: center;
+}
+#container.container.team .save-team{
+  width: 400px;
+  margin: 0px auto;
+}
+#container.container.team .save-team input{
+  width: 100%;
 }
