@@ -648,7 +648,8 @@ table .table-header a.btn{
   margin-bottom: 50px;
 }
 #container.container.team{
-
+  margin: 0px auto;
+  width: 700px;
 }
 #container.container.team .table-header{
   text-align: center;
