@@ -22,61 +22,21 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
   <style type="text/css">
-  /* ---- reset ---- */
-body {
- margin: 0;
- font: normal 75% Arial, Helvetica, sans-serif;
-}
-canvas {
- display: block;
- vertical-align: bottom;
-}
-#particles-js {
- position: absolute;
- width: 100%;
- height: 100%;
- background-color: #0c200b;
- background-image: url("");
- background-repeat: no-repeat;
- background-size: cover;
- background-position: 50% 50%;
-}
-.count-particles {
- background: #000022;
- position: absolute;
- top: 48px;
- left: 0;
- width: 80px;
- color: #13e8e9;
- font-size: 0.8em;
- text-align: left;
- text-indent: 4px;
- line-height: 14px;
- padding-bottom: 2px;
- font-family: Helvetica, Arial, sans-serif;
- font-weight: bold;
-}
-.js-count-particles {
- font-size: 1.1em;
-}
-#stats,
-.count-particles {
- -webkit-user-select: none;
- margin-top: 5px;
- margin-left: 5px;
-}
-#stats {
- border-radius: 3px 3px 0 0;
- overflow: hidden;
-}
-.count-particles {
- border-radius: 0 0 3px 3px;
-}
-
+  .navbar-inverse .navbar-nav>li>a {
+    color: #767676;
+    font-size:14px;
+    border:2px solid #e7f4c1;
+    padding:10px 5px;
+  }
+  .navbar-inverse .navbar-nav>li>a:hover{
+    color: #6b8f00;
+    border:1px solid #98bf21;
+    background-color:#f1f1f1;
+    transition: all 0.3s ease 0s;
+  }
 </style>
 </head>
 <body class="homeBG">
-<div id="particles-js"></div>
     <div class="topHeader">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -122,7 +82,6 @@ canvas {
     <script src="jquery/jquery-otherPages.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="jquery/bootstrap.min-otherPages.js"></script>
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="javascript/anirbanJS.js"></script>
 
 </body>
