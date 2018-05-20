@@ -178,7 +178,7 @@ $("#team_name_param").combogrid({
                          </c:if>
                       </select>
                   </div>
-                  <div class="form-group"> 
+                  <div class="form-group">
                       <label class="control-label">Set Password</label>
                       <input type="password" name="password_param" maxlength="100" />
                   </div>
@@ -193,31 +193,7 @@ $("#team_name_param").combogrid({
                       <input type="submit" value="Save" class="btn btn-success btn-raised"/>
                   </div>
 
-                  <div id="div_id">
-                    <h3>Add Teams</h3>
-                    <div class="form-group">
-                        <label class="control-label">Team</label>
-                        <input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Team Type</label>
-                        <select name="access_param" id="access_param" >
-                           <option value="PT">Permanent team</option>
-                           <option value="TT">Temporary team</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-success btn-raised" type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
-                    </div>
 
-                    <ul id="ul_id" style="width:100%">
-                       <c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
-                          <li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
-                       </c:forEach>
-                    </ul>
-                  </div>
-                  <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
-                  <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
 
               </div>
           </div>
@@ -267,6 +243,31 @@ $("#team_name_param").combogrid({
                 </c:forEach>
              </c:if>
           </table>
+					<div id="div_id">
+						<h3>Add Teams</h3>
+						<div class="form-group">
+								<label class="control-label">Team</label>
+								<input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/>
+						</div>
+						<div class="form-group">
+								<label class="control-label">Team Type</label>
+								<select name="access_param" id="access_param" >
+									 <option value="PT">Permanent team</option>
+									 <option value="TT">Temporary team</option>
+								</select>
+						</div>
+						<div class="form-group">
+								<button class="btn btn-success btn-raised" type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+						</div>
+
+						<ul id="ul_id" style="width:100%">
+							 <c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
+									<li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
+							 </c:forEach>
+						</ul>
+					</div>
+					<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
+					<div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
         </div>
      </div>
 
