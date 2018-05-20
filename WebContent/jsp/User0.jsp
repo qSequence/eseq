@@ -118,168 +118,170 @@ $("#team_name_param").combogrid({
       </nav>
     </div>
   </div>
-  <div id="container" class="container user">
-     <c:if test="${modelUc.status=='SAVED'}">
+	<div id="container">
+    <c:if test="${modelUc.status=='SAVED'}">
         <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
-     </c:if>
-
-     <div class="row">
-       <form id="subscription_order_form" action="User.htm" method="post"  >
-          <div class="col-lg-12">
-              <div class="table-header">
-                  <h1>Users</h1>
-                  <input type="hidden" id="team_id_param" name="team_id_param" value="${modelUc.editedUser.teamId}"/>
-              </div>
-              <div class="all-wrap">
-                  <div class="form-group">
-                      <label class="control-label">First name</label>
-                      <input type="text" name="first_name_param" value="${modelUc.editedUser.firstName}" maxlength="100"/><input type="hidden" name="user_id_param" value="${modelUc.editedUser.id}" />
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label">Last name</label>
-                      <input type="text" name="last_name_param" value="${modelUc.editedUser.lastName}" maxlength="100"/>
-                  </div>
-
-                  <div class="form-group">
-                      <label class="control-label">Email Address</label>
-                      <input type="text" name="email_address_param" value="${modelUc.editedUser.userNameEmail}" maxlength="100"/>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label">Phone</label>
-                      <input type="text" name="phone_param" value="${modelUc.editedUser.phone}" maxlength="30" />
-                  </div>
-
-
-                  <div class="form-group">
-                      <label class="control-label">Username</label>
-                      <input type="text" name="username_param" value="${modelUc.editedUser.userName}" maxlength="100"/>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label">User type</label>
-                      <select name="user_type_param" id="user_type_param" >
-                         <option value=""></option>
-                         <c:if test="${modelUc.editedUser.userType=='ADMIN'}">
-                            <option value="ADMIN" selected>Admin</option>
-                         </c:if>
-                         <c:if test="${modelUc.editedUser.userType=='ENTERPRISE_ARCHITECT'}">
-                            <option value="ENTERPRISE_ARCHITECT"  selected>Enterprise Architect</option>
-                         </c:if>
-                         <c:if test="${modelUc.editedUser.userType=='DELETED'}">
-                            <option value="DELETED" selected>Deleted</option>
-                         </c:if>
-                         <c:if test="${modelUc.editedUser.userType!='ADMIN'}">
-                            <option value="ADMIN">Admin</option>
-                         </c:if>
-                         <c:if test="${modelUc.editedUser.userType!='ENTERPRISE_ARCHITECT'}">
-                            <option value="ENTERPRISE_ARCHITECT">Enterprise Architect</option>
-                         </c:if>
-                         <c:if test="${modelUc.editedUser.userType!='DELETED'}">
-                            <option value="DELETED">Deleted</option>
-                         </c:if>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label">Set Password</label>
-                      <input type="password" name="password_param" maxlength="100" />
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label">Source</label>
-                      <select name="source_param" id="source_param" >
-                         <option value=""></option>
-                         <option value="LDAP" selected>Ldap</option>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                      <input type="submit" value="Save" class="btn btn-success btn-raised"/>
-                  </div>
-
-
-
-              </div>
-          </div>
-      </form>
-     </div>
-     <c:set var="x" value="0" />
-     <div class="row">
-        <div class="col-lg-12">
-          <table class="table-striped table-hover">
-             <c:if test="${modelUc.userList[0]!=null}">
-                <c:forEach items='${modelUc.userList}' var="user">
-                   <c:set var="changed" value="false" />
-                   <c:if test="${x=='0' && changed=='false'}">
-                      <tr>
-                         <td>
+    </c:if>
+    <table align="center" border="0" width=600>
+        <tr>
+            <td>
+                <input type="hidden" id="team_id_param" name="team_id_param" value="${modelUc.editedUser.teamId}"/>
+                <form id="subscription_order_form" action="User.htm" method="post"  >
+                    <table align="center" border="0" width=600>
+                        <tr>
+                            <td style="text-align:left;">
+                                <h1>Users</h1>
+                            </td>
+                            <td><input type="hidden" name="user_request_action_param" value="save_action"/></td>
+                        </tr>
+                        <tr>
+                            <td ><label>First name </label></td>
+                            <td> <input type="text" name="first_name_param" value="${modelUc.editedUser.firstName}" maxlength="100"/><input type="hidden" name="user_id_param" value="${modelUc.editedUser.id}" /></td>
+                            <td><label>Last name </label></td>
+                            <td> <input type="text" name="last_name_param" value="${modelUc.editedUser.lastName}" maxlength="100"/><input type="submit" value="Save" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td ><label>Email Address </label></td>
+                            <td><input type="text" name="email_address_param" value="${modelUc.editedUser.userNameEmail}" maxlength="100"/></td>
+                            <td><label>Phone </label> </td>
+                            <td><input type="text" name="phone_param" value="${modelUc.editedUser.phone}" maxlength="30" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td ><label>Username</label></td>
+                            <td> <input type="text" name="username_param" value="${modelUc.editedUser.userName}" maxlength="100"/></td>
+                            <td><label>User type</label></td>
+                            <td>
+                                <select name="user_type_param" id="user_type_param" >
+                                    <option value=""></option>
+                                    <c:if test="${modelUc.editedUser.userType=='ADMIN'}">
+                                        <option value="ADMIN" selected>Admin</option>
+                                    </c:if>
+                                    <c:if test="${modelUc.editedUser.userType=='ENTERPRISE_ARCHITECT'}">
+                                        <option value="ENTERPRISE_ARCHITECT"  selected>Enterprise Architect</option>
+                                    </c:if>
+                                    <c:if test="${modelUc.editedUser.userType=='DELETED'}">
+                                        <option value="DELETED" selected>Deleted</option>
+                                    </c:if>
+                                    <c:if test="${modelUc.editedUser.userType!='ADMIN'}">
+                                        <option value="ADMIN">Admin</option>
+                                    </c:if>
+                                    <c:if test="${modelUc.editedUser.userType!='ENTERPRISE_ARCHITECT'}">
+                                        <option value="ENTERPRISE_ARCHITECT">Enterprise Architect</option>
+                                    </c:if>
+                                    <c:if test="${modelUc.editedUser.userType!='DELETED'}">
+                                        <option value="DELETED">Deleted</option>
+                                    </c:if>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Set Password</label></td>
+                            <td><input type="password" name="password_param" maxlength="100" /></td>
+                            <td><label>Source</label></td>
+                            <td>
+                                <select name="source_param" id="source_param" >
+                                    <option value=""></option>
+                                    <option value="LDAP" selected>Ldap</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="div_id" style="overflow:auto;height:300px;width:700px;border: 2px solid grey;">
+                                    <table >
+                                        <tr>
+                                            <td><label><strong>Add Teams</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>Team</label><input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/><label>Team type</label>
+                                                <select name="access_param" id="access_param" >
+                                                    <option value="PT">Permanent team</option>
+                                                    <option value="TT">Temporary team</option>
+                                                </select>
+                                                <button type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr>
+                                    <ul id="ul_id" style="width:100%">
+                                        <c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
+                                            <li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
+                                <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+    <c:set var="x" value="0" />
+    <table align="center" width="700">
+        <c:if test="${modelUc.userList[0]!=null}">
+            <c:forEach items='${modelUc.userList}' var="user">
+                <c:set var="changed" value="false" />
+                <c:if test="${x=='0' && changed=='false'}">
+                    <tr>
+                        <td>
                             <a class="bottom seq-margin yellow-tooltip" href="<c:url value="User.htm?user_request_action_param=edit_action&user_id_param=${user.id}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${user.userNameEmail}">${user.userName}</a>
-                         </td>
-                         <td>${user.firstName} ${user.lastName}
-                         </td>
-                         <td>${user.userTeamName}
-                         </td>
-                         <td>${user.userType}
-                         </td>
-                         <td align="center"><a href="<c:url value="User.htm?user_request_action_param=delete_action&user_id_param=${user.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
-                         <c:set var="changed" value="true" />
-                         <c:set var="x" value="1" />
-                      </tr>
-                   </c:if>
-                   <c:if test="${x=='1' && changed=='false'}">
-                      <tr>
-                         <td>
+                        </td>
+                        <td>${user.firstName} ${user.lastName}
+                        </td>
+                        <td>${user.userTeamName}
+                        </td>
+                        <td>${user.userType}
+                        </td>
+                        <td align="center"><a href="<c:url value="User.htm?user_request_action_param=delete_action&user_id_param=${user.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a></td>
+                        <c:set var="changed" value="true" />
+                        <c:set var="x" value="1" />
+                    </tr>
+                </c:if>
+                <c:if test="${x=='1' && changed=='false'}">
+                    <tr>
+                        <td>
                             <a class="bottom seq-margin yellow-tooltip" href="<c:url value="User.htm?user_request_action_param=edit_action&user_id_param=${user.id}"/>"  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${user.userNameEmail}">${user.userName}</a>
-                         </td>
-                         <td>${user.firstName} ${user.lastName}
-                         </td>
-                         <td>${user.userTeamName}
-                         </td>
-                         <td>${user.userType}
-                         </td>
-                         <td align="center">
+                        </td>
+                        <td>${user.firstName} ${user.lastName}
+                        </td>
+                        <td>${user.userTeamName}
+                        </td>
+                        <td>${user.userType}
+                        </td>
+                        <td align="center">
                             <a href="<c:url value="User.htm?user_request_action_param=delete_action&user_id_param=${user.id}"/>" onclick="return confirm('Do you really want to DELETE?')"><i class="mdi-action-delete"></i></a>
-                         </td>
-                         </td>
-                         <c:set var="x" value="0" />
-                      </tr>
-                   </c:if>
-                </c:forEach>
-             </c:if>
-          </table>
-					<div id="div_id">
-						<h3>Add Teams</h3>
-						<div class="form-group">
-								<label class="control-label">Team</label>
-								<input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/>
-						</div>
-						<div class="form-group">
-								<label class="control-label">Team Type</label>
-								<select name="access_param" id="access_param" >
-									 <option value="PT">Permanent team</option>
-									 <option value="TT">Temporary team</option>
-								</select>
-						</div>
-						<div class="form-group">
-								<button class="btn btn-success btn-raised" type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
-						</div>
+                        </td>
+                        </td>
+                        <c:set var="x" value="0" />
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </c:if>
+    </table>
+    <br /> <br />
+    <br /> <br />
+    <br /> <br />
+    <br /> <br />
+    <br /> <br />
+    <br /> <br />
+    <script type= "text/javascript" src="jquery/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('a').tooltip();
+        });
+    </script>
+</div>
 
-						<ul id="ul_id" style="width:100%">
-							 <c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
-									<li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
-							 </c:forEach>
-						</ul>
-					</div>
-					<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
-					<div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
-        </div>
-     </div>
-
-
-
-
-  </div>
-
-	<script type= "text/javascript" src="jquery/bootstrap.min.js"></script>
-	<script type="text/javascript">
-	    $(document).ready(function () {
-	        $('a').tooltip();
-	    });
-	</script>
 <%@ include file="footer.jsp"%>
