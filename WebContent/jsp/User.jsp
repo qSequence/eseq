@@ -128,7 +128,7 @@ $("#team_name_param").combogrid({
              <td>
                  <input type="hidden" id="team_id_param" name="team_id_param" value="${modelUc.editedUser.teamId}"/>
                  <form id="subscription_order_form" action="User.htm" method="post"  >
-                     <table align="center">
+                     <table align="center"  width="100%">
                          <tr>
 													 <div class="table-header">
 														 	<h1>Users</h1>
@@ -239,7 +239,7 @@ $("#team_name_param").combogrid({
 												 		<td><input class="btn btn-success btn-raised" type="submit" value="Save" /></td>
 												 </tr>
                      </table>
-                 </form>
+                 </form> 
              </td>
          </tr>
          <tr>
