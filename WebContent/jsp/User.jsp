@@ -128,36 +128,26 @@ $("#team_name_param").combogrid({
              <td>
                  <input type="hidden" id="team_id_param" name="team_id_param" value="${modelUc.editedUser.teamId}"/>
                  <form id="subscription_order_form" action="User.htm" method="post"  >
-                     <table align="center" border="0" width=600>
-                         <tr>
-                             <td colspan="2">&nbsp;</td>
-                         </tr>
-                         <tr>
-                             <td colspan="2">&nbsp;</td>
-                         </tr>
+                     <table align="center">
                          <tr>
                              <td style="text-align:left;">
                                  <h1>Users</h1>
                              </td>
                              <td style="text-align:right;">&nbsp;<input type="hidden" name="user_request_action_param" value="save_action"/></td>
-                             <td>&nbsp;</td>
-                             <td>&nbsp;</td>
                          </tr>
-                         <tr style="height:50px;text-align:left;">
+                         <tr>
                              <td ><label>First name </label></td>
-                             <td> <input type="text" name="first_name_param" value="${modelUc.editedUser.firstName}" maxlength="100"/><input type="hidden" name="user_id_param" value="${modelUc.editedUser.id}" /></td>
+                             <td><input type="text" name="first_name_param" value="${modelUc.editedUser.firstName}" maxlength="100"/><input type="hidden" name="user_id_param" value="${modelUc.editedUser.id}" /></td>
                              <td><label>Last name </label></td>
-                             <td> <input type="text" name="last_name_param" value="${modelUc.editedUser.lastName}" maxlength="100"/><input type="submit" value="Save" />
-                             </td>
+                             <td><input type="text" name="last_name_param" value="${modelUc.editedUser.lastName}" maxlength="100"/></td>
                          </tr>
-                         <tr style="height:50px;text-align:left;">
+                         <tr>
                              <td ><label>Email Address </label> </td>
                              <td><input type="text" name="email_address_param" value="${modelUc.editedUser.userNameEmail}" maxlength="100"/></td>
                              <td><label>Phone </label> </td>
-                             <td><input type="text" name="phone_param" value="${modelUc.editedUser.phone}" maxlength="30" />
-                             </td>
+                             <td><input type="text" name="phone_param" value="${modelUc.editedUser.phone}" maxlength="30" /></td>
                          </tr>
-                         <tr style="height:50px;text-align:left;">
+                         <tr>
                              <td ><label>Username </label></td>
                              <td> <input type="text" name="username_param" value="${modelUc.editedUser.userName}" maxlength="100"/></td>
                              <td><label>User type</label></td>
@@ -185,9 +175,9 @@ $("#team_name_param").combogrid({
                                  </select>
                              </td>
                          </tr>
-                         <tr style="height:50px;text-align:left;">
+                         <tr>
                              <td><label>Set Password</label></td>
-                             <td colspan="2"> <input type="password" name="password_param" maxlength="100" /></td>
+                             <td><input type="password" name="password_param" maxlength="100" /></td>
                              <td><label>Source</label></td>
                              <td>
                                  <select name="source_param" id="source_param" >
@@ -196,31 +186,33 @@ $("#team_name_param").combogrid({
                                  </select>
                              </td>
                          </tr>
-                         <tr style="height:50px;text-align:left;">
-                             <td colspan="4" >
-                                 <div id="div_id" style="overflow:auto;height:300px;width:700px;border: 2px solid grey;">
-                                     <table >
-                                         <tr>
-                                             <td><label><strong>Add Teams</strong></label></td>
-                                         </tr>
-                                         <tr style="height:50px;text-align:left;">
-                                             <td>
-                                                 <label>Team</label><input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/><label>Team type</label>
-                                                 <select name="access_param" id="access_param" >
-                                                     <option value="PT">Permanent team</option>
-                                                     <option value="TT">Temporary team</option>
-                                                 </select>
-                                                 <button type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
-                                             </td>
-                                         </tr>
-                                     </table>
-                                     <hr>
-                                     <ul id="ul_id" style="width:100%">
-                                         <c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
-                                             <li id="li_${teamAccess.id}" style="padding-left:10px"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
-                                         </c:forEach>
-                                     </ul>
-                                 </div>
+                         <tr>
+                             <td>
+															 <div class="jumbotron">
+																	 <div id="div_id">
+	 																		<table >
+	 																				<tr>
+	 																						<td><label><strong>Add Teams</strong></label></td>
+	 																				</tr>
+	 																				<tr>
+	 																						<td>
+	 																								<label>Team</label><input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/><label>Team type</label>
+	 																								<select name="access_param" id="access_param" >
+	 																										<option value="PT">Permanent team</option>
+	 																										<option value="TT">Temporary team</option>
+	 																								</select>
+	 																								<button type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+	 																						</td>
+	 																				</tr>
+	 																		</table>
+	 																		<hr>
+	 																		<ul id="ul_id" style="width:100%">
+	 																				<c:forEach items='${modelUc.editedUser.accessList}' var="teamAccess">
+	 																						<li id="li_${teamAccess.id}"><a href="#" onclick="parentNode.parentNode.removeChild(parentNode)"> ${teamAccess.accessText }<input type="hidden" name="team_${teamAccess.id}" value="team_${teamAccess.id}_${teamAccess.access}" /> </a></li>
+	 																				</c:forEach>
+	 																		</ul>
+	 																</div>
+															 </div>
                              </td>
                          </tr>
                          <tr>
@@ -229,6 +221,9 @@ $("#team_name_param").combogrid({
                                  <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
                              </td>
                          </tr>
+												 <tr>
+												 		<td><input class="btn btn-success btn-raised" type="submit" value="Save" /></td>
+												 </tr>
                      </table>
                  </form>
              </td>
