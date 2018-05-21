@@ -236,10 +236,10 @@ $("#team_name_param").combogrid({
                              </td>
                          </tr>
 												 <tr>
-												 		<td><input class="btn btn-success btn-raised" type="submit" value="Save" /></td>
+												 		<td><input style="width: 100%;" class="btn btn-success btn-raised" type="submit" value="Save" /></td>
 												 </tr>
                      </table>
-                 </form> 
+                 </form>
              </td>
          </tr>
          <tr>
