@@ -123,7 +123,7 @@ $("#team_name_param").combogrid({
         <c:redirect url="/MyMenu.htm?seq_mst_id_param=${modelUc.seq_mst_id_param}&message=${modelUc.message}&error=${modelUc.error}"/>
      </c:if>
 
-		 <table align="center" border="0" width=600>
+		 <table align="center" width="100%">
          <tr>
              <td>
                  <input type="hidden" id="team_id_param" name="team_id_param" value="${modelUc.editedUser.teamId}"/>
@@ -196,9 +196,9 @@ $("#team_name_param").combogrid({
                              <td>
 															 <div class="jumbotron">
 																	 <div id="div_id">
-	 																		<table >
+	 																		<table width="100%">
 	 																				<tr>
-	 																						<td><label><strong>Add Teams</strong></label></td>
+	 																						<td><h3><strong>Add Teams</strong></h3></td>
 	 																				</tr>
 	 																				<tr>
 	 																						<td>
@@ -230,7 +230,7 @@ $("#team_name_param").combogrid({
                              </td>
                          </tr>
                          <tr>
-                             <td colspan="4">
+                             <td>
                                  <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
                                  <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
                              </td>
