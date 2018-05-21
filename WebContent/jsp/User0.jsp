@@ -214,9 +214,10 @@ $("#team_name_param").combogrid({
 												 </c:forEach>
 											</ul>
 										</div>
-										<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
-										<div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
 									</div>
+									
+									<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
+									<div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
 
                   <div class="form-group">
                       <input type="submit" value="Save" class="btn btn-success btn-raised"/>
