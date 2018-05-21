@@ -130,10 +130,10 @@ $("#team_name_param").combogrid({
                  <form id="subscription_order_form" action="User.htm" method="post"  >
                      <table align="center">
                          <tr>
-                             <td style="text-align:left;">
-                                 <h1>Users</h1>
-                             </td>
-                             <td style="text-align:right;">&nbsp;<input type="hidden" name="user_request_action_param" value="save_action"/></td>
+													 <div class="table-header">
+														 	<h1>Users</h1>
+															<input type="hidden" name="user_request_action_param" value="save_action"/>
+													 </div>
                          </tr>
                          <tr>
 														 <div class="form-group">
@@ -202,12 +202,20 @@ $("#team_name_param").combogrid({
 	 																				</tr>
 	 																				<tr>
 	 																						<td>
-	 																								<label>Team</label><input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/><label>Team type</label>
-	 																								<select name="access_param" id="access_param" >
-	 																										<option value="PT">Permanent team</option>
-	 																										<option value="TT">Temporary team</option>
-	 																								</select>
-	 																								<button type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+																									<div class="form-group">
+										 					                       <label class="control-label">Team</label>
+										 					                       <input type="text" id="team_name_param" name="team_name_param"  maxlength="100" value="${modelUc.editedUser.userTeamName}"/>
+										 					                   	</div>
+																									<div class="form-group">
+										 					                       <label class="control-label">Team type</label>
+																										 <select name="access_param" id="access_param" >
+	 	 																										<option value="PT">Permanent team</option>
+	 	 																										<option value="TT">Temporary team</option>
+	 	 																								</select>
+										 					                   	</div>
+																									<div class="form-group">
+																											<button class="btn btn-info btn-raised" type="button" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+																									</div>
 	 																						</td>
 	 																				</tr>
 	 																		</table>
