@@ -551,7 +551,7 @@ table .table-header a.btn{
   margin: 0px auto;
   margin-bottom: 5px;
 }
-.container.user .form-group button{
+.container.user .form-group button{ 
   height: 35px;
   margin: 10px auto;
 }
