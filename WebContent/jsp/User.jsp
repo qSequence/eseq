@@ -136,23 +136,29 @@ $("#team_name_param").combogrid({
                              <td style="text-align:right;">&nbsp;<input type="hidden" name="user_request_action_param" value="save_action"/></td>
                          </tr>
                          <tr>
-                             <td ><label>First name </label></td>
-                             <td><input type="text" name="first_name_param" value="${modelUc.editedUser.firstName}" maxlength="100"/><input type="hidden" name="user_id_param" value="${modelUc.editedUser.id}" /></td>
-                             <td><label>Last name </label></td>
-                             <td><input type="text" name="last_name_param" value="${modelUc.editedUser.lastName}" maxlength="100"/></td>
-                         </tr>
-                         <tr>
-                             <td ><label>Email Address </label> </td>
-                             <td><input type="text" name="email_address_param" value="${modelUc.editedUser.userNameEmail}" maxlength="100"/></td>
-                             <td><label>Phone </label> </td>
-                             <td><input type="text" name="phone_param" value="${modelUc.editedUser.phone}" maxlength="30" /></td>
-                         </tr>
-                         <tr>
-                             <td ><label>Username </label></td>
-                             <td> <input type="text" name="username_param" value="${modelUc.editedUser.userName}" maxlength="100"/></td>
-                             <td><label>User type</label></td>
-                             <td>
-                                 <select name="user_type_param" id="user_type_param" >
+														 <div class="form-group">
+					                       <label class="control-label">First name</label>
+					                       <input type="text" name="first_name_param" value="${modelUc.editedUser.firstName}" maxlength="100"/><input type="hidden" name="user_id_param" value="${modelUc.editedUser.id}" />
+					                   </div>
+														 <div class="form-group">
+					                       <label class="control-label">Last name</label>
+					                       <input type="text" name="last_name_param" value="${modelUc.editedUser.lastName}" maxlength="100"/>
+					                   </div>
+														 <div class="form-group">
+					                       <label class="control-label">Email Address</label>
+					                       <input type="text" name="email_address_param" value="${modelUc.editedUser.userNameEmail}" maxlength="100"/>
+					                   </div>
+														 <div class="form-group">
+					                       <label class="control-label">Phone</label>
+					                       <input type="text" name="phone_param" value="${modelUc.editedUser.phone}" maxlength="30" />
+					                   </div>
+														 <div class="form-group">
+					                       <label class="control-label">Username</label>
+					                       <input type="text" name="username_param" value="${modelUc.editedUser.userName}" maxlength="100"/>
+					                   </div>
+														 <div class="form-group">
+					                       <label class="control-label">User type</label>
+																 <select name="user_type_param" id="user_type_param" >
                                      <option value=""></option>
                                      <c:if test="${modelUc.editedUser.userType=='ADMIN'}">
                                          <option value="ADMIN" selected>Admin</option>
@@ -173,18 +179,18 @@ $("#team_name_param").combogrid({
                                          <option value="DELETED">Deleted</option>
                                      </c:if>
                                  </select>
-                             </td>
-                         </tr>
-                         <tr>
-                             <td><label>Set Password</label></td>
-                             <td><input type="password" name="password_param" maxlength="100" /></td>
-                             <td><label>Source</label></td>
-                             <td>
-                                 <select name="source_param" id="source_param" >
+					                   </div>
+														 <div class="form-group">
+					                       <label class="control-label">Set Password</label>
+					                       <input type="password" name="password_param" maxlength="100" />
+					                   </div>
+														 <div class="form-group">
+					                       <label class="control-label">Source</label>
+																 <select name="source_param" id="source_param" >
                                      <option value=""></option>
                                      <option value="LDAP" selected>Ldap</option>
                                  </select>
-                             </td>
+					                   </div>
                          </tr>
                          <tr>
                              <td>
