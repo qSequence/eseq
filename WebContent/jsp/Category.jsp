@@ -180,10 +180,8 @@ $("#team_name_param").combogrid({
                     <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
                     <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
 
-										<div class="form-group">
-                      <div class="col-lg-12">
-                        <input class="btn btn-success btn-raised" type="submit" value="Save" />
-                      </div>
+										<div class="form-group" style="margin: 30px 0px 50px 0px;">
+                      <input class="btn btn-success btn-raised col-lg-12" type="submit" value="Save" />
                     </div>
                   </td>
                </tr>
