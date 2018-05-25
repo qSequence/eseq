@@ -11,8 +11,10 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/css/jquery.ui.combogrid.css" />">
 <script type="text/javascript" src="jquery/jquery.ui.combogrid-1.6.3.js"></script>
 <%-- END 12 Oct added combogrid jquery libraries--%>
-        <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
+<link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
+<link href="css/anirban.css" rel="stylesheet">
 <style>
 .navbar-inverse .navbar-nav>li>a {
             color: #767676;
@@ -138,7 +140,7 @@ div.terms strong {color:#000;}
 	<script type="text/javascript"
 		src="<c:url value="/javascript/utils.js"/>">
 
-		
+
 	</script>
 <c:if test="${modelUc.status=='SAVED'}">
 <c:redirect url="/Properties.htm?user_request_action_param=edit_properties_action_param&seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&seq_item_id_param=${modelUc.seqItemId}&system_type_param=${modelUc.systemType}&system_type_param=${modelUc.systemType}&request_id_param=${modelUc.requestId}&response_id_param=${modelUc.responseId}&property_for_param=${modelUc.propertyFor}&row_no_param=${modelUc.rowNo}&col_no_param=${modelUc.columnNo}&error_message_param=${modelUc.error}&sequenceVersion=${modelUc.sequenceVersion}"/>
@@ -151,7 +153,7 @@ $(document).ready(function() {
 
 	$("#tool_tip")
 	.fadeIn(9000);
-	
+
 	var tooltips = document.querySelectorAll('.tooltip span');
 
 	window.onmousemove = function (e) {
@@ -162,7 +164,7 @@ $(document).ready(function() {
 	        tooltips[i].style.left = x;
 	    }
 	};
-	
+
  $("#copy_submit_button").click(function(){
 	 $.post("CopyProperties.htm",
 				{
@@ -174,10 +176,10 @@ $(document).ready(function() {
 					property_for_param:document.getElementById('property_for_param').value
 				},
 				function(data,status){
-					
+
 					//var content=$("#prop_menu_place_holder").html();
 					var $response=$(data);
-					
+
 					$("#descriptionTA").val($response.filter("#descriptionTA").val());
 					$("#sampleTA").val($response.filter("#sampleTA").val());
 					$("#sampleFailureTA").val($response.filter("#sampleFailureTA").val());
@@ -193,7 +195,7 @@ $(document).ready(function() {
 								$("#propertyIdValue"+i).val($response.filter("#propertyIdValue"+i).val());
 							}
 						}//end for
-					
+
 				});
 });
 
@@ -207,10 +209,10 @@ $(document).ready(function() {
 		$("input#sample_param").val(sampleVal);
 		$("input#sample_failure_param").val(sampleFailureVal);
 			//alert("Changed"+$("input#description_param").val());
-			
+
 			document.getElementById("subscription_order_form").submit();
 	});
- 
+
 $(".header").click(function () {
 
     $header = $(this);
@@ -226,7 +228,7 @@ $(".header").click(function () {
         });
     });
 
-});  
+});
 
 $(".sub_header").click(function () {
 
@@ -243,7 +245,7 @@ $(".sub_header").click(function () {
         });
     });
 
-}); 
+});
 
 $( "#comboGrid_system").combogrid({
 // 	url: '/eseq-100/SearchSystems.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',
@@ -280,7 +282,7 @@ $( "#comboGrid_response").combogrid({
 	           {'columnName':'systemId','width':'0','label':''},
 	           {'columnName':'systemName','width':'50','label':'System'},
 	           {'columnName':'systemDescription','width':'0','label':''}
-	           
+
 	           ],
 	select: function( event, ui ) {
 
@@ -295,16 +297,16 @@ $( "#comboGrid_response").combogrid({
 		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");
 	}else{
 // 		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"','prop_copy_view', event);\">  ");
-		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");	
+		$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_response_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");
 	}
-	
+
 	return false;
 	}
 	});
 
  $( "#comboGrid_request").combogrid({
 // 		url: '/eseq-100/SearchRequests.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',
-		url: 'SearchRequests.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',				
+		url: 'SearchRequests.htm?system_type_param='+$("#system_type_param").val()+'&action_param=search_with_properties_only',
 		colModel: [
 				   {'columnName':'requestId','width':'0','label':''},
 		           {'columnName':'requestName','width':'50','label':'Request'},
@@ -330,13 +332,13 @@ $( "#comboGrid_response").combogrid({
 // 			$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_request_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"','prop_copy_view', event);\">  ");
 			$("#img_information_injection").replaceWith( "<img  id=\"img_information_injection\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" height=\"20\" width=\"20\" src=\"/images/information_injection_gray.png\"  onclick=\"showProperties('prop_menu_view_request_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+ui.item.systemId+"_SEPERATOR_"+ui.item.requestId+"_SEPERATOR_"+ui.item.responseId+"_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_0_SEPERATOR_"+document.getElementById('system_type_param').value+"_SEPERATOR_0','prop_copy_view', event);\">  ");
 		}
-		
-         
+
+
 		return false;
 		}
 		});
-	
-		
+
+
 });
 
 
@@ -365,18 +367,18 @@ function showProperties( id, action_param, event) {
 					copy_properties_param:'true'
 				},
 				function(data,status){
-					
+
 					//var content=$("#prop_menu_place_holder").html();
 					var $response=$(data);
-					
+
 					var propertyMenu = $response.filter("#response_prop_menu").html();
-						
-					
+
+
 					$("#prop_menu_place_holder").empty().append( propertyMenu );
 					//alert("ID_HTML after: " + $( "#prop_menu_place_holder" ).html());
-					
+
 					showMenu1('prop_menu_place_holder', event)
-					
+
 				});
 	}else{
 		$.post("ViewProperties.htm",
@@ -385,69 +387,60 @@ function showProperties( id, action_param, event) {
 			copy_properties_param:'true'
 		},
 		function(data,status){
-			
+
 			//var content=$("#prop_menu_place_holder").html();
 			var $response=$(data);
-			
+
 			var propertyMenu = $response.filter("#response_prop_menu").html();
-				
-			
+
+
 			$("#prop_menu_place_holder").empty().append( propertyMenu );
 			//alert("ID_HTML after: " + $( "#prop_menu_place_holder" ).html());
-			
+
 			showMenu1('prop_menu_place_holder', event)
-			
+
 		});
 	}
 }
 
-	
+
 </script>
 <!-- Navigation -->
-<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-<!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#md-navbar-collapse-1">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="navbar-brand" href="/">
-<img src="images/logo.png" alt="qSequence logo" class="img-responsive">
-</a>
+<div class="wrap-navbar">
+  <div class="topHeader">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header navbar-left">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/logo2.png" alt="" /></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
+              <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+              <li><a href="<c:url value="/Login.htm" />">Login</a></li>
+            </c:if>
+            <c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
+              <li><a href="<c:url value="/Dashboard.htm" />">Home</a></li>
+              <li><a href="<c:url value="/Profile.htm" />">Profile</a></li>
+              <c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
+                <li><a href="<c:url value="/Admin.htm" />">Admin</a></li>
+              </c:if>
+              <li><a href="<c:url value="/Logout.htm" />">Logout</a></li>
+            </c:if>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
 </div>
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse" id="md-navbar-collapse-1">
-<ul class="nav navbar-nav navbar-right">
-<c:if test="${modelUc.loginSuccessful!='SUCCESSFUL'}">
-<li>
-<a href="<c:url value="/Dashboard.htm" />">Home</a>
-</li>
-<li>
-<a href="<c:url value="/Login.htm" />">Login</a>
-</li>
-</c:if>
-<c:if test="${modelUc.loginSuccessful=='SUCCESSFUL'}">
-<li>
-<a href="<c:url value="/Dashboard.htm" />">Home</a>
-</li>
-<li>
-<a href="<c:url value="/Profile.htm" />">Profile</a>
-</li>
-<c:if test="${modelUc.role=='ADMIN' or modelUc.role=='ENTERPRISE_ARCHITECT' }">
-	<li>
-	<a href="<c:url value="/Admin.htm" />">Admin</a>
-	</li>
-</c:if>
-<li>
-<a href="<c:url value="/Logout.htm" />">Logout</a>
-</li>
-</c:if>
-</ul>
-</div>
-<!-- /.navbar-collapse -->
-</nav>
 <div id="container">
 
 
@@ -481,11 +474,11 @@ function showProperties( id, action_param, event) {
 			<tr><td>&nbsp;</td></tr>
 			<tr><td>
 				<table align="center" border="0"  width="900 px" >
-					
+
 					<tr><td colspan="2">&nbsp;</td></tr>
 					<tr><td style="text-align:center;"><h1>Change Release List</h1></td><td style="text-align:right;"><!-- <a href="<c:url value="SeqMst.htm?request_action_param=edit_sequence_action&seq_mst_id_param=${modelUc.seq_mst_id_param}"/>">&lt;&lt;&nbsp;Back</a> -->&nbsp;</td></tr>
-		
-        			<tr style="height:50px;text-align:center;"><td colspan="2" > 
+
+        			<tr style="height:50px;text-align:center;"><td colspan="2" >
         			<c:if test="${modelUc.sequenceVersion=='draft_release'}">
         				<button id="push_release" type="button" onclick="pushRelease();">Push to Dev</button>
         			</c:if>
@@ -498,7 +491,7 @@ function showProperties( id, action_param, event) {
 					<tr><td colspan="2">
 						<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
 						<div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
-					</td></tr>	
+					</td></tr>
 				</table>
 			</td></tr>
 
@@ -508,7 +501,7 @@ function showProperties( id, action_param, event) {
         	<table align="center"  width="900 px">
         		<c:if test="${modelUc.userRequestAction=='draft_release'}">
 	        		<tr height="50px"><td  align="center" colspan = "5" bgcolor="gray" width="100%" ><label for="sequenceName">Change Release list</label></td></tr>
-	         		
+
 
          			<c:if test="${modelUc.releaseDisplayObjectSeqList[0]==null}">
 	         			<tr style="background-color: #F0F0F0; color: black;">
@@ -518,25 +511,25 @@ function showProperties( id, action_param, event) {
          			</c:if>
 				</c:if>
         	<c:if test="${modelUc.releaseDisplayObjectSeqList[0]!=null}">
-        		
+
          		<c:forEach items='${modelUc.releaseDisplayObjectSeqList}' var="releaseDisplayObjectSeq">
-         		
+
 <%--          		<c:set var="changed" value="false" /> --%>
 <%--          		<c:if test="${x=='0' && changed=='false'}"> --%>
         		<tr style="background-color: #F0F0F0; color: black;">
         			<td>
 	        			<div class="container_expand">
 						    <div id="${releaseDisplayObjectSeq.ucSeqMst.seqName}" class="header"><span>- ${releaseDisplayObjectSeq.ucSeqMst.seqName}</span>
-								
+
 						    </div>
 						    <div class="content">
-						    
+
 						    <c:if test="${modelUc.sequenceVersion=='draft_release'}">
 						    	<label>Sequence Name</label> : <a class="bottom seq-margin yellow-tooltip" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
 						    </c:if>
 						    <c:if test="${modelUc.sequenceVersion=='dev_release'}">
 						    	<label>Sequence Name</label> : <a class="bottom seq-margin yellow-tooltip" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=SEQ"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
-						    </c:if>	
+						    </c:if>
 								<div class="tooltip" ><label>Change</label> : ${releaseDisplayObjectSeq.ucSeqMst.changeTitle}<span>${releaseDisplayObjectSeq.ucSeqMst.changeNote}</span></div><br />
 								<label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
 								<c:if test="${releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList==null and releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList[0]==null}">
@@ -550,7 +543,7 @@ function showProperties( id, action_param, event) {
 							    	<c:forEach items='${releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList}' var="releaseDisplaySubObjectSeq">
 										<div class="sub_container_expand">
 								    		<div id="${releaseDisplaySubObjectSeq.requestName} - ${releaseDisplaySubObjectSeq.systemName}" class="sub_header"><span>- ${releaseDisplaySubObjectSeq.requestName} - ${releaseDisplaySubObjectSeq.systemName}</span>
-								    		
+
 											</div>
 								    		<div class="content">
 								    			<c:forEach items='${releaseDisplaySubObjectSeq.ucSeqReleaseList}' var="ucSeqRelease">
@@ -565,7 +558,7 @@ function showProperties( id, action_param, event) {
 								        				<tr><td width="66%" colspan="2"><div class="terms">${ucSeqRelease.changeDescTo}</div></td><td width="33%"><textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea></td></tr>
 								        				</c:if>
 								        			</table>
-								        		</c:forEach> 
+								        		</c:forEach>
 								    			<c:forEach items='${releaseDisplaySubObjectSeq.consumerUcSeqReleaseList}' var="ucSeqRelease">
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Change : ${ucSeqRelease.changeTitle}</div>
 								        			<table width="825px">
@@ -578,7 +571,7 @@ function showProperties( id, action_param, event) {
 								        				<tr><td width="66%" colspan="2"><div class="terms">${ucSeqRelease.changeDescTo}</div></td><td width="33%"><textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea></td></tr>
 								        				</c:if>
 								        			</table>
-								        		</c:forEach> 
+								        		</c:forEach>
 											</div>
 										</div>
 									</c:forEach>
@@ -586,7 +579,7 @@ function showProperties( id, action_param, event) {
 						    </div>
 						</div>
 					</td>
-					
+
 <%-- 					<c:set var="changed" value="true" /> --%>
 <%-- 					<c:set var="x" value="1" /> --%>
         		</tr>
@@ -597,7 +590,7 @@ function showProperties( id, action_param, event) {
 <!--         			<td> -->
 <!--         			<div class="container_expand"> -->
 <%-- 						    <div id="${releaseDisplayObjectSeq.ucSeqMst.seqName}" class="header"><span>- ${releaseDisplayObjectSeq.ucSeqMst.seqName}</span> --%>
-								
+
 <!-- 						    </div> -->
 <!-- 						    <div class="content"> -->
 <%-- 						    	Sequence Name : <a class="tooltip" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=DRAFT"/>">${releaseDisplayObjectSeq.ucSeqMst.seqName}<span>${releaseDisplayObjectSeq.ucSeqMst.seqDescription}</span></a><br /> --%>
@@ -606,7 +599,7 @@ function showProperties( id, action_param, event) {
 <%-- 						    	<c:forEach items='${releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList}' var="releaseDisplaySubObjectSeq"> --%>
 <!-- 									<div class="container_expand"> -->
 <%-- 							    		<div id="${releaseDisplaySubObjectSeq.requestName} - ${releaseDisplaySubObjectSeq.systemName}" class="header"><span>- ${releaseDisplaySubObjectSeq.requestName} - ${releaseDisplaySubObjectSeq.systemName}</span> --%>
-							    			
+
 <!-- 										</div> -->
 <!-- 							    		<div class="content"> -->
 <%-- 							    			<c:forEach items='${releaseDisplaySubObjectSeq.ucSeqReleaseList}' var="ucSeqRelease"> --%>
@@ -623,23 +616,23 @@ function showProperties( id, action_param, event) {
 <!-- 						</div> -->
 <!-- 					</td> -->
 <%-- 					<c:set var="x" value="0" /> --%>
-					
+
 <!--         		</tr> -->
 <%--         		</c:if> --%>
         		</c:forEach>
         		</c:if>
-        <!--  processing SYS_SEQ -->		
+        <!--  processing SYS_SEQ -->
         		<c:if test="${modelUc.releaseDisplayObjectSysSeqList[0]!=null}">
-        		
+
          		<c:forEach items='${modelUc.releaseDisplayObjectSysSeqList}' var="releaseDisplayObjectSeq">
-         		
+
 <%--          		<c:set var="changed" value="false" /> --%>
 <%--          		<c:if test="${x=='0' && changed=='false'}"> --%>
         		<tr style="background-color: #F0F0F0; color: black;">
         			<td>
 	        			<div class="container_expand">
 						    <div id="${releaseDisplayObjectSeq.ucSeqMst.seqName}" class="header"><span>- ${releaseDisplayObjectSeq.ucSeqMst.seqName}</span>
-								
+
 						    </div>
 						    <div class="content">
 						    <c:if test="${modelUc.sequenceVersion=='draft_release'}">
@@ -647,7 +640,7 @@ function showProperties( id, action_param, event) {
 						    </c:if>
 						    <c:if test="${modelUc.sequenceVersion=='dev_release'}">
 						    	<label>Sequence Name</label> : <a class="bottom seq-margin yellow-tooltip" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&sys_seq_id=${releaseDisplayObjectSeq.ucSeqMst.sysSeqId}&sequenceVersion=sys_seq"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
-						    </c:if>	
+						    </c:if>
 								<div class="tooltip" ><label>Change</label> : ${releaseDisplayObjectSeq.ucSeqMst.changeTitle}<span>${releaseDisplayObjectSeq.ucSeqMst.changeNote}</span></div><br />
 								<label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
 								<c:if test="${releaseDisplayObjectSeq.releaseDisplaySubObjectSysSeqList==null and releaseDisplayObjectSeq.releaseDisplaySubObjectSysSeqList[0]==null}">
@@ -661,7 +654,7 @@ function showProperties( id, action_param, event) {
 							    	<c:forEach items='${releaseDisplayObjectSeq.releaseDisplaySubObjectSysSeqList}' var="releaseDisplaySubObjectSeq">
 										<div class="sub_container_expand">
 								    		<div id="${releaseDisplaySubObjectSeq.requestName} - ${releaseDisplaySubObjectSeq.systemName}" class="sub_header"><span>- ${releaseDisplaySubObjectSeq.requestName} - ${releaseDisplaySubObjectSeq.systemName}</span>
-								    		
+
 											</div>
 								    		<div class="content">
 								    			<c:forEach items='${releaseDisplaySubObjectSeq.ucSeqReleaseList}' var="ucSeqRelease">
@@ -676,7 +669,7 @@ function showProperties( id, action_param, event) {
 								        				<tr><td width="66%" colspan="2"><div class="terms">${ucSeqRelease.changeDescTo}</div></td><td width="33%"><textarea rows="11" cols="35" name="xmlSysDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea></td></tr>
 								        				</c:if>
 								        			</table>
-								        		</c:forEach> 
+								        		</c:forEach>
 								    			<c:forEach items='${releaseDisplaySubObjectSeq.consumerUcSeqReleaseList}' var="ucSeqRelease">
 								        			<div style="background-color:yellow;width:99%;text-align: center;">Change : ${ucSeqRelease.changeTitle}</div>
 								        			<table width="825px">
@@ -689,7 +682,7 @@ function showProperties( id, action_param, event) {
 								        				<tr><td width="66%" colspan="2"><div class="terms">${ucSeqRelease.changeDescTo}</div></td><td width="33%"><textarea rows="11" cols="35" name="xmlSysDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea></td></tr>
 								        				</c:if>
 								        			</table>
-								        		</c:forEach> 
+								        		</c:forEach>
 											</div>
 										</div>
 									</c:forEach>
@@ -702,7 +695,7 @@ function showProperties( id, action_param, event) {
         		</c:if>
         	</table>
        </td>
-       </tr> 
+       </tr>
 	</table>
 	</form>
 	<br/><br/><br/><br/><br/>

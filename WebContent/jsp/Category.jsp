@@ -150,11 +150,6 @@ $("#team_name_param").combogrid({
                         <input type="text" class="col-lg-12" name="cat_description_param" value="${modelUc.category.catDescription}" />
                       </div>
                     </div>
-                    <div class="form-group">
-                      <div class="col-lg-12">
-                        <input class="btn btn-success btn-raised" type="submit" value="Save" />
-                      </div>
-                    </div>
 
                     <div id="div_id" class="col-lg-12" style="width:100%;padding:15px;box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);overflow: auto;margin-top: 40px;float: left;margin-bottom: 40px;">
                       <h3>Access</h3>
@@ -184,6 +179,12 @@ $("#team_name_param").combogrid({
 
                     <div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
                     <div id="sometext" align="center" ><strong>${modelUc.message}</strong></div>
+
+										<div class="form-group">
+                      <div class="col-lg-12">
+                        <input class="btn btn-success btn-raised" type="submit" value="Save" />
+                      </div>
+                    </div>
                   </td>
                </tr>
 
