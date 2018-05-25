@@ -10,6 +10,12 @@
 <!-- Custom CSS -->
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <link href="css/anirban.css" rel="stylesheet">
+<style media="screen">
+.md-footer {
+position: relative !important;
+margin-top: 50px;
+}
+</style>
 </head>
 <body>
 <!-- Navigation -->
