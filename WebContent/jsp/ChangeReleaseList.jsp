@@ -15,7 +15,7 @@
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" />
 <link href="css/anirban.css" rel="stylesheet">
-<style>
+<%-- <style>
 .navbar-inverse .navbar-nav>li>a {
             color: #767676;
             font-size:14px;
@@ -28,22 +28,6 @@
             background-color:#f1f1f1;
             transition: all 0.3s ease 0s;
         }
-/* div#sometext{ */
-/* height: 4em; */
-/* width: 30em; */
-/* -moz-border-radius: 1em 4em 1em 4em; */
-/* border-radius: 1em 4em 1em 4em; */
-/* background:#E2E5E5; */
-/* line-height: 2em; */
-/* } */
-
-/* div#add_property_div{ */
-/* height: 2em; */
-/* width: 50em; */
-/* -moz-border-radius: 1em 4em 1em 4em; */
-/* border-radius: 1em 4em 1em 4em; */
-/* background:#E2E5E5; */
-/* line-height: 2em; */
 label {
 color: gray;
 font-weight: bold;
@@ -136,7 +120,7 @@ div.terms li {font:normal 11px/15px arial;color:#333;}
 div.terms h3 {font:bold 14px/19px arial;color:#000;}
 div.terms h4 {font:bold 12px/17px arial;color:#000;}
 div.terms strong {color:#000;}
-</style>
+</style> --%>
 	<script type="text/javascript"
 		src="<c:url value="/javascript/utils.js"/>">
 
@@ -480,13 +464,13 @@ function showProperties( id, action_param, event) {
 
         			<tr style="height:50px;text-align:center;"><td colspan="2" >
         			<c:if test="${modelUc.sequenceVersion=='draft_release'}">
-        				<button id="push_release" type="button" onclick="pushRelease();">Push to Dev</button>
+        				<button id="push_release" type="button" class="btn btn-info btn-raised" onclick="pushRelease();">Push to Dev</button>
         			</c:if>
         			<c:if test="${modelUc.sequenceVersion=='dev_release'}">
-        				<button id="push_release" type="button" onclick="pushRelease();">Push to Prod</button>
+        				<button id="push_release" type="button" class="btn btn-info btn-raised" onclick="pushRelease();">Push to Prod</button>
         			</c:if>
-        			<button id="save_release" type="button" onclick="saveRelease();">Save</button>
-        			<button id="regenerate_release" type="button" onclick="regenerateRelease();">Regenerate release</button><br>
+        			<button id="save_release" type="button" class="btn btn-success btn-raised" onclick="saveRelease();">Save</button>
+        			<button id="regenerate_release" class="btn btn-primary btn-raised" type="button" onclick="regenerateRelease();">Regenerate release</button><br>
 					</td></tr>
 					<tr><td colspan="2">
 						<div id="sometext" align="center" ><strong><font color="red">${modelUc.error}</font></strong></div>
@@ -518,8 +502,9 @@ function showProperties( id, action_param, event) {
 <%--          		<c:if test="${x=='0' && changed=='false'}"> --%>
         		<tr style="background-color: #F0F0F0; color: black;">
         			<td>
+                <div class="wrap-table-del">
 	        			<div class="container_expand">
-						    <div id="${releaseDisplayObjectSeq.ucSeqMst.seqName}" class="header"><span>- ${releaseDisplayObjectSeq.ucSeqMst.seqName}</span>
+						    <div id="${releaseDisplayObjectSeq.ucSeqMst.seqName}" class="header"><span>- ${releaseDisplayObjectSeq.ucSeqMst.seqName}</span><i class="fa pull-right fa-chevron-up"></i>
 
 						    </div>
 						    <div class="content">
@@ -578,6 +563,7 @@ function showProperties( id, action_param, event) {
 							    </c:if>
 						    </div>
 						</div>
+            </div>
 					</td>
 
 <%-- 					<c:set var="changed" value="true" /> --%>
