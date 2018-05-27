@@ -167,7 +167,7 @@ $("#team_name_param").combogrid({
                       </div>
                       <div class="form-group">
                         <div class="col-lg-12">
-                          <button type="button" class="btn btn-success btn-raised" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
+                          <button type="button" class="btn btn-info btn-raised" onclick="addLi(document.getElementById('team_name_param').value, document.getElementById('team_id_param').value, document.getElementById('access_param').value)">Add</button>
                         </div>
                       </div>
                        <ul id="ul_id" style="width:100%">
