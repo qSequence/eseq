@@ -671,13 +671,17 @@ table .table-header a.btn{
   margin: 0px auto;
   height: auto;
 }
-.ChangeReleaseList .content .row .col-md-12{
+.ChangeReleaseList .content .sub_container_expand table .row{
+  margin: 0px;
+}
+.ChangeReleaseList .content .row .col-md-4{
   width: 33.33333333% !important;
   padding: 2px !important;
 }
-.ChangeReleaseList .content .row .col-md-12 .panel h3{
-
+.ChangeReleaseList .content .row .col-md-4 .panel h3{
+  font-weight: bold;
 }
-.ChangeReleaseList .content .row .col-md-12 .panel textarea{
-
+.ChangeReleaseList .content .row .col-md-4 .panel textarea{
+  width: 100%;
+  height: auto;
 }
