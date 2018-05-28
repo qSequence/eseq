@@ -418,15 +418,19 @@ function showProperties( id, action_param, event) {
                                                 <div id="${releaseDisplayObjectSeq.ucSeqMst.seqName}" class="header"><span>- ${releaseDisplayObjectSeq.ucSeqMst.seqName}</span><i class="fa pull-right fa-chevron-up"></i>
                                                 </div>
                                                 <div class="content">
-                                                    <c:if test="${modelUc.sequenceVersion=='draft_release'}">
-                                                        <label>Sequence Name</label> : <a class="bottom seq-margin yellow-tooltip" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
-                                                    </c:if>
-                                                    <c:if test="${modelUc.sequenceVersion=='dev_release'}">
-                                                        <label>Sequence Name</label> : <a class="bottom seq-margin yellow-tooltip" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=SEQ"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
-                                                    </c:if>
-                                                    <div class="tooltip" style="width: auto;"><label>Change</label> : ${releaseDisplayObjectSeq.ucSeqMst.changeTitle}<span>${releaseDisplayObjectSeq.ucSeqMst.changeNote}</span></div>
-                                                    <br />
-                                                    <label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
+																										<div class="bs-component">
+																						          <div class="alert alert-dismissable alert-info">
+																													<c:if test="${modelUc.sequenceVersion=='draft_release'}">
+																															<label>Sequence Name</label> : <a class="bottom btn btn-info btn-raised" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
+																													</c:if>
+																													<c:if test="${modelUc.sequenceVersion=='dev_release'}">
+																															<label>Sequence Name</label> : <a class="bottom btn btn-info btn-raised" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=SEQ"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
+																													</c:if>
+																													<div class="tooltip" style="width: auto;"><label>Change</label> : ${releaseDisplayObjectSeq.ucSeqMst.changeTitle}<span>${releaseDisplayObjectSeq.ucSeqMst.changeNote}</span></div>
+																													<br />
+																													<label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
+																						          </div>
+																						        </div>
                                                     <c:if test="${releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList==null and releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList[0]==null}">
                                                         <div class="sub_container_expand">
                                                             <br><font color="red"><b>No change detected</b></font>
@@ -441,7 +445,11 @@ function showProperties( id, action_param, event) {
                                                                 </div>
                                                                 <div class="content">
                                                                     <c:forEach items='${releaseDisplaySubObjectSeq.ucSeqReleaseList}' var="ucSeqRelease">
-                                                                        <div>Change : ${ucSeqRelease.changeTitle}</div>
+																																				<div class="bs-component">
+																																          <div class="well well-sm">
+																																	            <div>Change : ${ucSeqRelease.changeTitle}</div>
+																																          </div>
+																																        </div>
                                                                         <table>
                                                                             <c:if test="${ucSeqRelease.changeType=='REQUEST_MESSAGE'  or ucSeqRelease.changeType=='RESPONSE_SUCCESS_MESSAGE' or ucSeqRelease.changeType=='RESPONSE_FAILURE_MESSAGE' or ucSeqRelease.changeType=='SEQUENCE'}">
                                                                                 <tr>
