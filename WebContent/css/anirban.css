@@ -671,3 +671,13 @@ table .table-header a.btn{
   margin: 0px auto;
   height: auto;
 }
+.ChangeReleaseList .content .row .col-md-12{
+  width: 33.33333333% !important;
+  padding: 2px !important;
+}
+.ChangeReleaseList .content .row .col-md-12 .panel h3{
+
+}
+.ChangeReleaseList .content .row .col-md-12 .panel textarea{
+
+}

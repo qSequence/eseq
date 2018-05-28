@@ -458,7 +458,7 @@ function showProperties( id, action_param, event) {
 																																											<div class="col-md-4">
 																																												<div class="panel panel-primary">
 																																													<div class="panel-heading">
-																																														<h3 class="panel-title"><h3>Change From</h3></h3>
+																																														<h3 class="panel-title">Change From</h3>
 																																													</div>
 																																													<div class="panel-body">
 																																														<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescFrom}</textarea>
@@ -468,7 +468,7 @@ function showProperties( id, action_param, event) {
 																																											<div class="col-md-4">
 																																												<div class="panel panel-primary">
 																																													<div class="panel-heading">
-																																														<h3 class="panel-title"><h3>Change To</h3></h3>
+																																														<h3 class="panel-title">Change To</h3>
 																																													</div>
 																																													<div class="panel-body">
 																																														<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescTo}</textarea>
@@ -478,7 +478,7 @@ function showProperties( id, action_param, event) {
 																																											<div class="col-md-4">
 																																												<div class="panel panel-primary">
 																																													<div class="panel-heading">
-																																														<h3 class="panel-title"><h3>Comments</h3></h3>
+																																														<h3 class="panel-title">Comments</h3>
 																																													</div>
 																																													<div class="panel-body">
 																																														<textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea>
