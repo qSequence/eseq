@@ -462,7 +462,7 @@ function showProperties( id, action_param, event) {
 																																												<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescFrom}</textarea>
 																																											</div>
 																																										</div>
-																																									</div>
+																																									</div> 
 																																									<div class="col-md-4">
 																																										<div class="panel panel-primary">
 																																											<div class="panel-heading">
