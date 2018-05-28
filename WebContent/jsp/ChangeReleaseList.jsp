@@ -421,10 +421,10 @@ function showProperties( id, action_param, event) {
 																										<div class="bs-component">
 																						          <div class="alert alert-dismissable alert-info">
 																													<c:if test="${modelUc.sequenceVersion=='draft_release'}">
-																															<label>Sequence Name</label> : <a class="bottom btn btn-info btn-raised" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
+																															<label>Sequence Name</label> : <a class="bottom btn btn-success btn-raised" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
 																													</c:if>
 																													<c:if test="${modelUc.sequenceVersion=='dev_release'}">
-																															<label>Sequence Name</label> : <a class="bottom btn btn-info btn-raised" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=SEQ"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
+																															<label>Sequence Name</label> : <a class="bottom btn btn-success btn-raised" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=SEQ"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
 																													</c:if>
 																													<div class="tooltip" style="width: auto;"><label>Change</label> : ${releaseDisplayObjectSeq.ucSeqMst.changeTitle}<span>${releaseDisplayObjectSeq.ucSeqMst.changeNote}</span></div>
 																													<br />
@@ -453,9 +453,9 @@ function showProperties( id, action_param, event) {
                                                                         <table>
                                                                             <c:if test="${ucSeqRelease.changeType=='REQUEST_MESSAGE'  or ucSeqRelease.changeType=='RESPONSE_SUCCESS_MESSAGE' or ucSeqRelease.changeType=='RESPONSE_FAILURE_MESSAGE' or ucSeqRelease.changeType=='SEQUENCE'}">
                                                                                 <tr>
-                                                                                    <td width="33%">Change From</td>
-                                                                                    <td  width="33%">Change To</td>
-                                                                                    <td width="33%">Comments</td>
+                                                                                    <td width="33%"> <h3>Change From</h3> </td>
+                                                                                    <td  width="33%"> <h3>Change To</h3> </td>
+                                                                                    <td width="33%"> <h3>Comments</h3> </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td width="33%"><textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescFrom}</textarea></td>
@@ -465,8 +465,8 @@ function showProperties( id, action_param, event) {
                                                                             </c:if>
                                                                             <c:if test="${ucSeqRelease.changeType!='REQUEST_MESSAGE'  and ucSeqRelease.changeType!='RESPONSE_SUCCESS_MESSAGE' and ucSeqRelease.changeType!='RESPONSE_FAILURE_MESSAGE' and ucSeqRelease.changeType!='SEQUENCE'}">
                                                                                 <tr>
-                                                                                    <td width="66%">Description</td>
-                                                                                    <td width="33%">Comments</td>
+                                                                                    <td width="66%"><h3>Description</h3></td>
+                                                                                    <td width="33%"><h3>Comments</h3></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td width="66%">
@@ -482,14 +482,36 @@ function showProperties( id, action_param, event) {
                                                                         <table>
                                                                             <c:if test="${ucSeqRelease.changeType=='REQUEST_MESSAGE'  or ucSeqRelease.changeType=='RESPONSE_SUCCESS_MESSAGE' or ucSeqRelease.changeType=='RESPONSE_FAILURE_MESSAGE' or ucSeqRelease.changeType=='SEQUENCE'}">
                                                                                 <tr>
-                                                                                    <td width="33%">Change From</td>
-                                                                                    <td  width="33%">Change To</td>
-                                                                                    <td width="33%">Comments</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td width="33%"><textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescFrom}</textarea></td>
-                                                                                    <td width="33%"><textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescTo}</textarea></td>
-                                                                                    <td width="33%"><textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea></td>
+																																										<div class="col-md-4">
+																																											<div class="panel panel-primary">
+																																												<div class="panel-heading">
+																																													<h3 class="panel-title">Change From</h3>
+																																												</div>
+																																												<div class="panel-body">
+																																													<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescFrom}</textarea>
+																																												</div>
+																																											</div>
+																																										</div>
+																																										<div class="col-md-4">
+																																											<div class="panel panel-primary">
+																																												<div class="panel-heading">
+																																													<h3 class="panel-title">Change To</h3>
+																																												</div>
+																																												<div class="panel-body">
+																																													<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescTo}</textarea>
+																																												</div>
+																																											</div>
+																																										</div>
+																																										<div class="col-md-4">
+																																											<div class="panel panel-primary">
+																																												<div class="panel-heading">
+																																													<h3 class="panel-title">Comments</h3>
+																																												</div>
+																																												<div class="panel-body">
+																																													<textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea>
+																																												</div>
+																																											</div>
+																																										</div>
                                                                                 </tr>
                                                                             </c:if>
                                                                             <c:if test="${ucSeqRelease.changeType!='REQUEST_MESSAGE'  and ucSeqRelease.changeType!='RESPONSE_SUCCESS_MESSAGE' and ucSeqRelease.changeType!='RESPONSE_FAILURE_MESSAGE' and ucSeqRelease.changeType!='SEQUENCE'}">
