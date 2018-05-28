@@ -666,3 +666,7 @@ table .table-header a.btn{
 #container.container.user .jumbotron{
   margin: 50px 0px;
 }
+#container.ChangeReleaseList{
+  width: 1000px;
+  margin: 0px auto;
+}
