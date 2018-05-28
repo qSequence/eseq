@@ -669,4 +669,5 @@ table .table-header a.btn{
 #container.ChangeReleaseList{
   width: 1000px;
   margin: 0px auto;
+  height: auto;
 }

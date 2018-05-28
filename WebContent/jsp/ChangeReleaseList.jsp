@@ -424,7 +424,7 @@ function showProperties( id, action_param, event) {
                                                     <c:if test="${modelUc.sequenceVersion=='dev_release'}">
                                                         <label>Sequence Name</label> : <a class="bottom seq-margin yellow-tooltip" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=SEQ"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
                                                     </c:if>
-                                                    <div class="tooltip" ><label>Change</label> : ${releaseDisplayObjectSeq.ucSeqMst.changeTitle}<span>${releaseDisplayObjectSeq.ucSeqMst.changeNote}</span></div>
+                                                    <div class="tooltip" style="width: auto;"><label>Change</label> : ${releaseDisplayObjectSeq.ucSeqMst.changeTitle}<span>${releaseDisplayObjectSeq.ucSeqMst.changeNote}</span></div>
                                                     <br />
                                                     <label>Created Date</label> : 	${releaseDisplayObjectSeq.ucSeqMst.createdDate}
                                                     <c:if test="${releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList==null and releaseDisplayObjectSeq.releaseDisplaySubObjectSeqList[0]==null}">
