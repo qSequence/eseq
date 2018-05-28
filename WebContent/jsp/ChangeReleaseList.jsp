@@ -370,7 +370,7 @@ function showProperties( id, action_param, event) {
                     <table align="center">
                         <tr>
                             <td style="text-align:center;">
-                                <h1>Change Release List</h1>
+                                <h1>Change Release Listss</h1>
                             </td>
                         </tr>
                         <tr>
