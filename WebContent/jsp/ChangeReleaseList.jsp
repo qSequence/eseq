@@ -453,40 +453,36 @@ function showProperties( id, action_param, event) {
                                                                         <table>
                                                                             <c:if test="${ucSeqRelease.changeType=='REQUEST_MESSAGE'  or ucSeqRelease.changeType=='RESPONSE_SUCCESS_MESSAGE' or ucSeqRelease.changeType=='RESPONSE_FAILURE_MESSAGE' or ucSeqRelease.changeType=='SEQUENCE'}">
                                                                                 <tr>
-
-																																										<td>
-																																											<div class="col-md-4">
-																																												<div class="panel panel-primary">
-																																													<div class="panel-heading">
-																																														<h3 class="panel-title"><h3>Change From</h3></h3>
-																																													</div>
-																																													<div class="panel-body">
-																																														<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescFrom}</textarea>
-																																													</div>
-																																												</div>
+																																									<div class="col-md-4">
+																																										<div class="panel panel-primary">
+																																											<div class="panel-heading">
+																																												<h3 class="panel-title"><h3>Change From</h3></h3>
 																																											</div>
-																																											<div class="col-md-4">
-																																												<div class="panel panel-primary">
-																																													<div class="panel-heading">
-																																														<h3 class="panel-title"><h3>Change To</h3></h3>
-																																													</div>
-																																													<div class="panel-body">
-																																														<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescTo}</textarea>
-																																													</div>
-																																												</div>
+																																											<div class="panel-body">
+																																												<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescFrom}</textarea>
 																																											</div>
-																																											<div class="col-md-4">
-																																												<div class="panel panel-primary">
-																																													<div class="panel-heading">
-																																														<h3 class="panel-title"><h3>Comments</h3></h3>
-																																													</div>
-																																													<div class="panel-body">
-																																														<textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea>
-																																													</div>
-																																												</div>
+																																										</div>
+																																									</div>
+																																									<div class="col-md-4">
+																																										<div class="panel panel-primary">
+																																											<div class="panel-heading">
+																																												<h3 class="panel-title"><h3>Change To</h3></h3>
 																																											</div>
-																																										</td>
-
+																																											<div class="panel-body">
+																																												<textarea rows="11" cols="35" name="xmlDocument" disabled WRAP="off">${ucSeqRelease.changeDescTo}</textarea>
+																																											</div>
+																																										</div>
+																																									</div>
+																																									<div class="col-md-4">
+																																										<div class="panel panel-primary">
+																																											<div class="panel-heading">
+																																												<h3 class="panel-title"><h3>Comments</h3></h3>
+																																											</div>
+																																											<div class="panel-body">
+																																												<textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea>
+																																											</div>
+																																										</div>
+																																									</div>
                                                                                 </tr>
                                                                             </c:if>
                                                                             <c:if test="${ucSeqRelease.changeType!='REQUEST_MESSAGE'  and ucSeqRelease.changeType!='RESPONSE_SUCCESS_MESSAGE' and ucSeqRelease.changeType!='RESPONSE_FAILURE_MESSAGE' and ucSeqRelease.changeType!='SEQUENCE'}">
