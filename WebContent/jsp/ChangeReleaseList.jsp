@@ -518,7 +518,11 @@ function showProperties( id, action_param, event) {
                                                                         </table>
                                                                     </c:forEach>
                                                                     <c:forEach items='${releaseDisplaySubObjectSeq.consumerUcSeqReleaseList}' var="ucSeqRelease">
-                                                                        <div>Change : ${ucSeqRelease.changeTitle}</div>
+																																				<div class="bs-component">
+																																          <div class="well well-sm">
+																																	            <div>Change : ${ucSeqRelease.changeTitle}</div>
+																																          </div>
+																																        </div>
                                                                         <table width="100%">
                                                                             <c:if test="${ucSeqRelease.changeType=='REQUEST_MESSAGE'  or ucSeqRelease.changeType=='RESPONSE_SUCCESS_MESSAGE' or ucSeqRelease.changeType=='RESPONSE_FAILURE_MESSAGE' or ucSeqRelease.changeType=='SEQUENCE'}">
                                                                                 <tr>
@@ -620,7 +624,11 @@ function showProperties( id, action_param, event) {
                                                             </div>
                                                             <div class="content">
                                                                 <c:forEach items='${releaseDisplaySubObjectSeq.ucSeqReleaseList}' var="ucSeqRelease">
-                                                                    <div>Change : ${ucSeqRelease.changeTitle}</div>
+																																		<div class="bs-component">
+																																			<div class="well well-sm">
+																																					<div>Change : ${ucSeqRelease.changeTitle}</div>
+																																			</div>
+																																		</div>
                                                                     <table>
                                                                         <c:if test="${ucSeqRelease.changeType=='REQUEST_MESSAGE'  or ucSeqRelease.changeType=='RESPONSE_SUCCESS_MESSAGE' or ucSeqRelease.changeType=='RESPONSE_FAILURE_MESSAGE' or ucSeqRelease.changeType=='SEQUENCE'}">
                                                                             <tr>
@@ -649,7 +657,11 @@ function showProperties( id, action_param, event) {
                                                                     </table>
                                                                 </c:forEach>
                                                                 <c:forEach items='${releaseDisplaySubObjectSeq.consumerUcSeqReleaseList}' var="ucSeqRelease">
-                                                                    <div>Change : ${ucSeqRelease.changeTitle}</div>
+																																		<div class="bs-component">
+																																			<div class="well well-sm">
+																																					<div>Change : ${ucSeqRelease.changeTitle}</div>
+																																			</div>
+																																		</div>
                                                                     <table>
                                                                         <c:if test="${ucSeqRelease.changeType=='REQUEST_MESSAGE'  or ucSeqRelease.changeType=='RESPONSE_SUCCESS_MESSAGE' or ucSeqRelease.changeType=='RESPONSE_FAILURE_MESSAGE' or ucSeqRelease.changeType=='SEQUENCE'}">
                                                                             <tr>
