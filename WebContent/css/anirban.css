@@ -681,7 +681,7 @@ table .table-header a.btn{
 .ChangeReleaseList .content .row .col-md-4 .panel h3{
   font-weight: bold;
 }
-.ChangeReleaseList .content .row .col-md-4 .panel textarea{
+.ChangeReleaseList .content .row .col-md-4 .panel textarea,.ChangeReleaseList .content .panel textarea{
   width: 100%;
   height: auto;
 }
