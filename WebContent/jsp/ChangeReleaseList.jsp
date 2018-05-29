@@ -491,15 +491,29 @@ function showProperties( id, action_param, event) {
                                                                             </c:if>
                                                                             <c:if test="${ucSeqRelease.changeType!='REQUEST_MESSAGE'  and ucSeqRelease.changeType!='RESPONSE_SUCCESS_MESSAGE' and ucSeqRelease.changeType!='RESPONSE_FAILURE_MESSAGE' and ucSeqRelease.changeType!='SEQUENCE'}">
                                                                                 <tr>
-                                                                                    <td width="66%"><h3>Description</h3></td>
-                                                                                    <td width="33%"><h3>Comments</h3></td>
+                                                                                    <td>
+																																											<div class="panel panel-primary">
+																																												<div class="panel-heading">
+																																													<h3 class="panel-title">Description</h3>
+																																												</div>
+																																												<div class="panel-body">
+																																													<div class="terms">${ucSeqRelease.changeDescTo}</div>
+																																												</div>
+																																											</div>
+																																										</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td width="66%">
-                                                                                        <div class="terms">${ucSeqRelease.changeDescTo}</div>
-                                                                                    </td>
-                                                                                    <td width="33%"><textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea></td>
-                                                                                </tr>
+																																								<tr>
+																																									<td>
+																																										<div class="panel panel-primary">
+																																											<div class="panel-heading">
+																																												<h3 class="panel-title">Comments</h3>
+																																											</div>
+																																											<div class="panel-body">
+																																												<textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea>
+																																											</div>
+																																										</div>
+																																									</td>
+																																								</tr>
                                                                             </c:if>
                                                                         </table>
                                                                     </c:forEach>
@@ -542,14 +556,28 @@ function showProperties( id, action_param, event) {
                                                                             </c:if>
                                                                             <c:if test="${ucSeqRelease.changeType!='REQUEST_MESSAGE'  and ucSeqRelease.changeType!='RESPONSE_SUCCESS_MESSAGE' and ucSeqRelease.changeType!='RESPONSE_FAILURE_MESSAGE' and ucSeqRelease.changeType!='SEQUENCE'}">
                                                                                 <tr>
-                                                                                    <td width="66%">Description</td>
-                                                                                    <td width="33%">Comments</td>
+																																										<td>
+																																											<div class="panel panel-primary">
+																																												<div class="panel-heading">
+																																													<h3 class="panel-title">Description</h3>
+																																												</div>
+																																												<div class="panel-body">
+																																													<div class="terms">${ucSeqRelease.changeDescTo}</div>
+																																												</div>
+																																											</div>
+																																										</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td width="66%">
-                                                                                        <div class="terms">${ucSeqRelease.changeDescTo}</div>
-                                                                                    </td>
-                                                                                    <td width="33%"><textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea></td>
+																																										<td>
+																																											<div class="panel panel-primary">
+																																												<div class="panel-heading">
+																																													<h3 class="panel-title">Comments</h3>
+																																												</div>
+																																												<div class="panel-body">
+																																													<textarea rows="11" cols="35" name="xmlDocument_${ucSeqRelease.detectChangeId}" WRAP="off">${ucSeqRelease.comments}</textarea>
+																																												</div>
+																																											</div>
+																																										</td>
                                                                                 </tr>
                                                                             </c:if>
                                                                         </table>
