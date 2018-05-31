@@ -370,7 +370,7 @@ function showProperties( id, action_param, event) {
                     <table align="center">
                         <tr>
                             <td style="text-align:center;">
-                                <h1>Change Release Listss</h1>
+                                <h1>Change Release List</h1>
                             </td>
                         </tr>
                         <tr>
@@ -419,7 +419,7 @@ function showProperties( id, action_param, event) {
                                                 </div>
                                                 <div class="content">
 																										<div class="bs-component">
-																						          <div class="alert alert-dismissable alert-info">
+																						          <div class="jumbotron">
 																													<c:if test="${modelUc.sequenceVersion=='draft_release'}">
 																															<label>Sequence Name</label> : <a class="bottom btn btn-success btn-raised" target="_blank" href="<c:url value="SeqDetA.htm?user_request_action_param=default_action&seq_mst_id_param=${releaseDisplayObjectSeq.ucSeqMst.seqMstId}&sequenceVersion=DRAFT"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${releaseDisplayObjectSeq.ucSeqMst.seqDescription}">${releaseDisplayObjectSeq.ucSeqMst.seqName}</a><br />
 																													</c:if>
