@@ -584,7 +584,7 @@ function showProperties( id, action_param, event) {
                </c:if>
             </table>
          </td>
-      </tr>
+      </tr> 
    </table>
 </form>
 ${modelUc.footerLineBreaks}
