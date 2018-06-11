@@ -685,3 +685,6 @@ table .table-header a.btn{
   width: 100%;
   height: auto;
 }
+.ChangeReleaseList table{
+  width: 100%;
+}
