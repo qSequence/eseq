@@ -102,17 +102,19 @@
               <input id="userRequestAction" name="userRequestAction" type="hidden" value="confirmation" />
               <input id="productKey" name="productKey" type="hidden" value="${modelUc.productKey}" />
               <input class="col-lg-12 btn btn-success btn-raised" type="submit" value="Submit">
-              <font color="red">${modelUc.error}${modelUc.loginError}</font>
+              
             </div>
           </div>
       </c:if>
       <div class="wrap-ff">
         <div class="table-header" style="text-align:center;margin-top: 50px;">
-          <h4>Current License details</h4>
-          <b>${modelUc.message}</b>
           <a class="col-lg-12 btn btn-success btn-raised" target="_blank" href="
           <c:url value="https://www.qsequence.com/Pricing.htm" />
           ">Upgrade software - get new product key</a>
+          <font color="red">${modelUc.error}${modelUc.loginError}</font>
+          <h4>Current License details</h4>
+          <b>${modelUc.message}</b>
+          
         </div>
       </div>
       <div class="bs-component">

@@ -1111,7 +1111,7 @@ function linkFields()
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
                                Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="
                                <c:url value="/images/menui_selection.png" />
-                               " > below and select interaction action, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a>
+                               " > below and select interaction action, check <a href="<c:url value="www.qsequence.com/faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a>
                             </div>
                          </c:if>
                          <c:if test="${modelUc.toolTip=='SEQUENCE_NAME_EDIT_TIP'}">
@@ -1121,14 +1121,14 @@ function linkFields()
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
                                Tip : Click on <img title="Information" alt="Information" height="20" width="20" src="
                                <c:url value="/images/information_injection.png" />
-                               " > to edit or view existing properties, check <a href="<c:url value="faq.htm#properties"/>"><strong>FAQ - properties</strong></a>
+                               " > to edit or view existing properties, check <a href="<c:url value="www.qsequence.com/faq.htm#properties"/>"><strong>FAQ - properties</strong></a>
                             </div>
                          </c:if>
                          <c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
                                Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="
                                <c:url value="/images/menui_selection.png" />
-                               " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
+                               " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="www.qsequence.com/faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
                             </div>
                          </c:if>
                          <c:if test="${modelUc.toolTip=='SYS_SEQ_SAVE_ERROR'}">
@@ -1176,7 +1176,7 @@ function linkFields()
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
                                Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="
                                <c:url value="/images/menui_selection.png" />
-                               " > below and select interaction, for more details on what you can create click <a href="<c:url value="faq.htm#CreatingFirstSequence"/>">FAQ - Creating Your First Sequence</a>
+                               " > below and select interaction, for more details on what you can create click <a href="<c:url value="www.qsequence.com/faq.htm#CreatingFirstSequence"/>">FAQ - Creating Your First Sequence</a>
                             </div>
                          </c:if>
                          <c:if test="${modelUc.toolTip=='SEQUENCE_NAME_EDIT_TIP'}">
@@ -1186,14 +1186,14 @@ function linkFields()
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
                                Tip : Click on <img title="Information" alt="Information" height="20" width="20" src="
                                <c:url value="/images/information_injection.png" />
-                               " > to edit or view existing details, check <a href="<c:url value="faq.htm#properties"/>"><strong>FAQ - properties</strong></a>
+                               " > to edit or view existing details, check <a href="<c:url value="www.qsequence.com/faq.htm#properties"/>"><strong>FAQ - properties</strong></a>
                             </div>
                          </c:if>
                          <c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
                                Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="
                                <c:url value="/images/menui_selection.png" />
-                               " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
+                               " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="www.qsequence.com/faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
                             </div>
                          </c:if>
                          <c:if test="${modelUc.toolTip==null or modelUc.toolTip=='NO_TIP'}">

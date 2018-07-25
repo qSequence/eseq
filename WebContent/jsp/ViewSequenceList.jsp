@@ -155,10 +155,10 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                 <c:redirect url="/ViewSequenceList.htm?user_request_action_param=default_action_param&sequenceSaveError=${modelUc.sequenceSaveError}&buyEnterpriseVersionLink=${modelUc.buyEnterpriseVersionLink}&displayUpgradeProductLink=${modelUc.displayUpgradeProductLink}"/>
              </c:if>
              <c:if test="${modelUc.toolTip=='CREATE_SEQUENCE_TIP'}">
-                <div id="tool_tip">Tip : Enter name of the sequence & click the create sequence button, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
+                <div id="tool_tip">Tip : Enter name of the sequence & click the create sequence button, check <a href="<c:url value="www.qsequence.com/faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
              </c:if>
              <c:if test="${modelUc.toolTip=='FIRST_SEQUENCE_SAVE'}">
-                <div id="tool_tip">Tip : Click on the sequence name to get started, check <a href="<c:url value="faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
+                <div id="tool_tip">Tip : Click on the sequence name to get started, check <a href="<c:url value="www.qsequence.com/faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a></div>
              </c:if>
              <c:if test="${modelUc.toolTip=='ADD_SEQUENCE_DESC'}">
                 <div id="tool_tip">Tip : Click on   <img id="img1"  src="images/yellow_+_button.png"/>   to add description to the sequence</div>
@@ -203,6 +203,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                      <div class="form-group">
                        <div class="col-lg-12">
                          <select name="access_param" id="access_param" >
+                            <option value="" selected></option>
                             <option value="RO">Read Only</option>
                             <option value="RW">Read Write</option>
                          </select>

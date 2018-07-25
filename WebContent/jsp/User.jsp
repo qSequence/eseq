@@ -187,8 +187,14 @@ $("#team_name_param").combogrid({
 														 <div class="form-group">
 					                       <label class="control-label">Source</label>
 																 <select name="source_param" id="source_param" >
-                                     <option value=""></option>
-                                     <option value="LDAP" selected>Ldap</option>
+                                     <c:if test="${modelUc.ldapConfig=='false'}">
+                                     	<option value="" selected></option>
+	                                    <option value="LDAP">Ldap</option>
+	                                 </c:if>
+                                     <c:if test="${modelUc.ldapConfig=='true'}">
+	                                     <option value="LDAP" selected>Ldap</option>
+	                                     <option value=""></option>
+	                                 </c:if>
                                  </select>
 					                   </div>
                          </tr>

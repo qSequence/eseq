@@ -74,7 +74,7 @@
       <div class="home-cont">
         <div class="wrap-item">
           <h1 align="center">Welcome to qSequence</h1>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis </p>
+          <p>Easily create dynamic sequence diagrams and re-use them with context sensitive search.</p>
         </div>
       </div>
     </div>

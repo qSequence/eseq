@@ -16,6 +16,18 @@
 <link href="css/anirban.css" rel="stylesheet">
 <%-- END 12 Oct added combogrid jquery libraries--%>
 <title>Dashboard</title>
+<style type="text/css">
+.container_expand div {
+    text-align: center;
+    padding: 00px 60px 20px 60px;
+}
+.container_expand .header {
+    background-color:#d3d3d3;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>
 </head>
 <body>
 <!-- Navigation -->
@@ -58,7 +70,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1>Dashboard</h1>
-            <c:if test="${modelUc.demoDB=='derby'}">
+           <c:if test="${modelUc.demoDB=='derby'}">
             <div class="bs-component">
               <div class="well text-success">
                 Note : You are using evaluation and demonstration purpose derrby database. Change to your own <a href="<c:url value=" Install.htm "/>">database</a>
@@ -66,7 +78,17 @@
             </div>
             </c:if>
         </div>
-
+		<div class="container_expand">
+		    <div><span><b>Search</b></span>
+		
+		    </div>
+		    <div class="content">
+				<form action="Search.htm" method="post" >
+		        	<input id="searchString" name="searchString" type="text" size="50" maxlength="1900"  />
+		        	<input type="submit" src="/images/login.png" value="Search">
+				</form>
+		    </div>
+		</div>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
