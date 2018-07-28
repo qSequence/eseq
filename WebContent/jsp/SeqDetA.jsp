@@ -718,7 +718,13 @@ function linkFields()
 	                    url = addUrlParameter( url, "add_position_enum_param", "NEXT_LEVEL");
 	                    seqUpdate( user_request_action_param, sequenceVersion, seq_mst_id_param, output_type_param, url, sysSeqId);
 
-	                }
+	                },
+		             "Replace":  function() {
+		               	 dialog.dialog('close');
+		               	 url = addUrlParameter( url, "add_position_enum_param", "REPLACE_LEVEL");
+		               	 seqUpdate( user_request_action_param, sequenceVersion, seq_mst_id_param, output_type_param, url, sysSeqId);
+
+		           }
 
 	            }
 	        });
