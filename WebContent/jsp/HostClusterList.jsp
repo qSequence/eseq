@@ -100,13 +100,13 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
         <tr>
             <td>
                 <c:set var="x" value="0" />
-                <table align="center" width="1000">
-                    <!-- DRAFT sequences --> 
+                <table align="center" width="1000" class="table table-striped">
+                    <!-- DRAFT sequences -->
                     <c:if test="${modelUc.ucHostClusterMstList[0]!=null}">
                         <tr>
                             <td>
-                                <div><label for="sequenceName">Host Cluster List</label></div>
-                                <div><a align="right" class="button" href="<c:url value="EditHostCluster.htm?user_request_action_param=prop_menu_new_host"/>">Create New</a></div>
+                                <div><h2>Host Cluster List</h2></div>
+                                <div><a align="right" class="btn btn-info" href="<c:url value="EditHostCluster.htm?user_request_action_param=prop_menu_new_host"/>">Create New</a></div>
                             </td>
                         </tr>
                         <tr>
