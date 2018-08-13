@@ -100,7 +100,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
         <tr>
             <td>
                 <c:set var="x" value="0" />
-                <table align="center" width="900">
+                <table align="center" width="1000">
                     <!-- DRAFT sequences -->
                     <c:if test="${modelUc.ucHostClusterMstList[0]!=null}">
                         <tr>
@@ -110,7 +110,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                             </td>
                         </tr>
                         <tr>
-                            <th width="50%" ><label for="sequenceName">Cluster Name</label></th>
+                            <th><label for="sequenceName">Cluster Name</label></th>
                             <th><label for="createdDate">Primary Host Name</label></th>
                             <th><label for="share">Other Host Names</label></th>
                             <th><label for="secure">Host Type</label></th>
@@ -157,7 +157,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
                                 </tr>
                             </c:if>
                             <c:if test="${x=='1' && changed=='false'}">
-                                <tr style="background-color:#E8E8E8; color: black;">
+                                <tr>
                                     <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="EditHostCluster.htm?hostId=${hostCluster.hostId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${hostCluster.description}">${hostCluster.hostClusterName}</a>
                                     </td>
                                     <td align="center">${hostCluster.primaryHostName} </td>
