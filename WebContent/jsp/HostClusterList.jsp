@@ -85,13 +85,12 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
     </nav>
   </div>
 </div>
-<div class="container">
-    <!--<div style="left: 100px; top: 100px;background-color: #E7ECEE;border-width:medium;border-style:solid;border-color: #DDE4E6;height:100px ">-->
+<div class="container Capabilities">
     <c:if test="${modelUc.status=='SAVED'}">
         <c:redirect url="/HostClusterList.htm?user_request_action_param=default_action_param&sequenceSaveError=${modelUc.sequenceSaveError}&buyEnterpriseVersionLink=${modelUc.buyEnterpriseVersionLink}&displayUpgradeProductLink=${modelUc.displayUpgradeProductLink}"/>
     </c:if>
     <c:if test="${modelUc.toolTip=='CREATE_HOST_TIP'}">
-        <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
+        <div id="tool_tip" class="bubble">
             Tip : Enter name of the sequence & click the create sequence button, check <a href="
             <c:url value="www.qsequence.com/faq.htm#new_sequence"/>
             "><strong>FAQ - Creating Your First Sequence</strong></a>
@@ -99,62 +98,52 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
     </c:if>
     <table align="center">
         <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
             <td>
                 <c:set var="x" value="0" />
                 <table align="center" width="900">
                     <!-- DRAFT sequences -->
                     <c:if test="${modelUc.ucHostClusterMstList[0]!=null}">
-                        <tr height="50px">
-                            <td  align="center" colspan = "7" bgcolor="gray" width="100%" >
-                                <div style="float:center;width:80%;"><label for="sequenceName">Host Cluster List</label></div>
-                                <div style="float:right;width:20%;"><a align="right" class="button" href="<c:url value="EditHostCluster.htm?user_request_action_param=prop_menu_new_host"/>">Create New</a></div>
+                        <tr>
+                            <td>
+                                <div><label for="sequenceName">Host Cluster List</label></div>
+                                <div><a align="right" class="button" href="<c:url value="EditHostCluster.htm?user_request_action_param=prop_menu_new_host"/>">Create New</a></div>
                             </td>
                         </tr>
-                        <tr height="50px">
-                            <th  bgcolor="#98bf21" width="50%" ><label for="sequenceName">Cluster Name</label></th>
-                            <th  bgcolor="#98bf21"><label for="createdDate">Primary Host Name</label></th>
-                            <th  bgcolor="#98bf21"><label for="share">Other Host Names</label></th>
-                            <th  bgcolor="#98bf21"><label for="secure">Host Type</label></th>
-                            <th  bgcolor="#98bf21"><label for="delete">In Connection IpAddress</label></th>
-                            <th  bgcolor="#98bf21"><label for="delete">Out Connection IpAddress</label></th>
-                            <th  bgcolor="#98bf21"><label for="delete">Created Date</label></th>
+                        <tr>
+                            <th width="50%" ><label for="sequenceName">Cluster Name</label></th>
+                            <th><label for="createdDate">Primary Host Name</label></th>
+                            <th><label for="share">Other Host Names</label></th>
+                            <th><label for="secure">Host Type</label></th>
+                            <th><label for="delete">In Connection IpAddress</label></th>
+                            <th><label for="delete">Out Connection IpAddress</label></th>
+                            <th><label for="delete">Created Date</label></th>
                         </tr>
                     </c:if>
                     <c:if test="${modelUc.ucHostClusterMstList[0]==null }">
-                        <tr height="50px">
-                            <td  align="center" colspan = "7" bgcolor="gray" width="100%" >
-                                <div style="float:center;width:80%;"><label for="sequenceName">Host Cluster List</label></div>
-                                <div style="float:right;width:20%;"><a align="right" class="button" href="<c:url value="EditHostCluster.htm?user_request_action_param=prop_menu_new_host"/>">Create New</a></div>
+                        <tr>
+                            <td>
+                                <div><label for="sequenceName">Host Cluster List</label></div>
+                                <div><a align="right" class="button" href="<c:url value="EditHostCluster.htm?user_request_action_param=prop_menu_new_host"/>">Create New</a></div>
                             </td>
                         </tr>
-                        <tr height="50px">
-                            <th  bgcolor="#98bf21" width="50%" ><label for="sequenceName">Cluster Name</label></th>
-                            <th  bgcolor="#98bf21"><label for="createdDate">Primary Host Name</label></th>
-                            <th  bgcolor="#98bf21"><label for="share">Other Host Names</label></th>
-                            <th  bgcolor="#98bf21"><label for="secure">Host Type</label></th>
-                            <th  bgcolor="#98bf21"><label for="delete">In Connection IpAddress</label></th>
-                            <th  bgcolor="#98bf21"><label for="delete">Out Connection IpAddress</label></th>
-                            <th  bgcolor="#98bf21"><label for="delete">Created Date</label></th>
+                        <tr>
+                            <th><label for="sequenceName">Cluster Name</label></th>
+                            <th><label for="createdDate">Primary Host Name</label></th>
+                            <th><label for="share">Other Host Names</label></th>
+                            <th><label for="secure">Host Type</label></th>
+                            <th><label for="delete">In Connection IpAddress</label></th>
+                            <th><label for="delete">Out Connection IpAddress</label></th>
+                            <th><label for="delete">Created Date</label></th>
                         </tr>
-                        <tr style="background-color: #F0F0F0; color: black;">
-                            <td colspan="7"><font color="red">No host clusters found !</font>
-                            </td>
+                        <tr>
+                            <td><font color="red">No host clusters found !</font></td>
                         </tr>
                     </c:if>
                     <c:if test="${modelUc.ucHostClusterMstList[0]!=null}">
                         <c:forEach items='${modelUc.ucHostClusterMstList}' var="hostCluster">
                             <c:set var="changed" value="false" />
                             <c:if test="${x=='0' && changed=='false'}">
-                                <tr style="background-color: #F0F0F0; color: black;">
+                                <tr>
                                     <td><a class="bottom seq-margin yellow-tooltip" href="<c:url value="EditHostCluster.htm?hostId=${hostCluster.hostId}"/>" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="${hostCluster.description}">${hostCluster.hostClusterName}</a>
                                     </td>
                                     <td align="center">${hostCluster.primaryHostName} </td>
