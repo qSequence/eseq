@@ -688,10 +688,13 @@ table .table-header a.btn{
 .ChangeReleaseList table{
   width: 100%;
 }
-.search-holder-d{
-  width: 400px;
-  margin: 0px auto;
-  text-align: center;
+.search-holder-d {
+	width: 400px;
+	margin: 0px auto;
+	text-align: center;
+	overflow: auto;
+	background: #FFFFFF;
+	margin-bottom: 50px;
 }
 .search-holder-d #searchString{
 
