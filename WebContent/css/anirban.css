@@ -688,3 +688,7 @@ table .table-header a.btn{
 .ChangeReleaseList table{
   width: 100%;
 }
+.search-holder-d{
+  width: 400px;
+  margin: 0px auto;
+}
