@@ -369,28 +369,32 @@ function showProperties( id, action_param, event) {
                 </div>
             </td>
         </tr>
-        <c:forEach items="${modelUc.ucHostPropertiesList}" var="ucSeqDiagramProperty" varStatus="status" begin="0" end="${modelUc.numberOfPropertiesAllowed}">
-            <c:if test="${ucSeqDiagramProperty.propertyId==null}">
-                <div class="wrap-name-value-prop">
-                    <div class="propertyName">
-                        <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyName${status.count}" type="text" size="30" value="${ucSeqDiagramProperty.propertyName}" />
-                    </div>
-                    <div class="propertyValue">
-                        <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyValue${status.count}" type="text" size="80" value="${ucSeqDiagramProperty.propertyValue}" />
-                    </div>
-                </div>
-            </c:if>
-            <c:if test="${ucSeqDiagramProperty.propertyId!=null}">
-                <div class="wrap-name-value-prop">
-                    <div class="propertyName">
-                        <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdName${ucSeqDiagramProperty.propertyId}" type="text" size="30"  value="${ucSeqDiagramProperty.propertyName}" />
-                    </div>
-                    <div class="propertyValue">
-                        <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdValue${ucSeqDiagramProperty.propertyId}" type="text" size="80"  value="${ucSeqDiagramProperty.propertyValue}" />
-                    </div>
-                </div>
-            </c:if>
-        </c:forEach>
+        <tr>
+          <td>
+              <c:forEach items="${modelUc.ucHostPropertiesList}" var="ucSeqDiagramProperty" varStatus="status" begin="0" end="${modelUc.numberOfPropertiesAllowed}">
+                  <c:if test="${ucSeqDiagramProperty.propertyId==null}">
+                      <div class="wrap-name-value-prop">
+                          <div class="propertyName">
+                              <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyName${status.count}" type="text" size="30" value="${ucSeqDiagramProperty.propertyName}" />
+                          </div>
+                          <div class="propertyValue">
+                              <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyValue${status.count}" type="text" size="80" value="${ucSeqDiagramProperty.propertyValue}" />
+                          </div>
+                      </div>
+                  </c:if>
+                  <c:if test="${ucSeqDiagramProperty.propertyId!=null}">
+                      <div class="wrap-name-value-prop">
+                          <div class="propertyName">
+                              <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdName${ucSeqDiagramProperty.propertyId}" type="text" size="30"  value="${ucSeqDiagramProperty.propertyName}" />
+                          </div>
+                          <div class="propertyValue">
+                              <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdValue${ucSeqDiagramProperty.propertyId}" type="text" size="80"  value="${ucSeqDiagramProperty.propertyValue}" />
+                          </div>
+                      </div>
+                  </c:if>
+              </c:forEach>
+          </td>
+        </tr>
         <tr>
             <td>
                 <input id="description_param" name="description_param" type="hidden"  />
