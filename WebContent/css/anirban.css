@@ -709,31 +709,37 @@ table .table-header a.btn{
 
 }
 #subscription_order_form input{
-
+  width: 100%;
+  margin-bottom: 20px;
 }
 #subscription_order_form label{
 
 }
 #subscription_order_form textarea{
-
+  width: 100%;
+  margin-bottom: 20px;
 }
 .wrp-pn-pv{
 
 }
 .wrp-pn-pv .pn{
-
+  width: 50%;
+  float: left;
 }
 .wrp-pn-pv .pv{
-
+  width: 50%;
+  float: left;
 }
 .wrap-name-value-prop{
 
 }
 .wrap-name-value-prop .propertyName{
-
+  width: 50%;
+  float: left;
 }
 .wrap-name-value-prop .propertyValue{
-
+  width: 50%;
+  float: left;
 }
 .submit-sects{
 

@@ -282,15 +282,15 @@ function showProperties( id, action_param, event) {
 <table align="center">
     <tr>
         <td>
-            <div class="table-header">
+            <div class="table-header" style="text-align: center;margin-bottom: 20px;"> 
               <h1>Edit Information</h1>
-              <a href="<c:url value="HostClusterList.htm?user_request_action_param=default_action"/>">Host Cluster List</a>
+              <a class="btn btn-info" href="<c:url value="HostClusterList.htm?user_request_action_param=default_action"/>">Host Cluster List</a>
             </div>
         </td>
     </tr>
 </table>
 <form id="subscription_order_form" action="EditHostCluster.htm" method="post" >
-    <table>
+    <table style="width: 700px;margin: 0px auto;">
         <tr>
             <td><label for="description">Host Cluster Name</label><font color="red" size="1px">${modelUc.hostClusterNameMessage}</font></td>
         </tr>
@@ -301,7 +301,7 @@ function showProperties( id, action_param, event) {
             <td><label for="description">Description</label><font color="red" size="1px">${modelUc.descriptionMessage}</font></td>
         </tr>
         <tr>
-            <td><textarea maxlength="3900" name="descriptionTA" id="descriptionTA" cols="90" rows="4">${modelUc.ucHostClusterMst.description}</textarea></td>
+            <td><textarea name="descriptionTA" id="descriptionTA" cols="90" rows="4">${modelUc.ucHostClusterMst.description}</textarea></td>
         </tr>
         <tr>
             <td><label for="imageUrl">Host Type</label><font color="red"  size="1px">${modelUc.hostTypeMessage}</font></td>
