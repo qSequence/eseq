@@ -96,7 +96,7 @@ $("#img_"+seq_mst_id_param).attr('alt',"Secure your shared link");
             "><strong>FAQ - Creating Your First Sequence</strong></a>
         </div>
     </c:if>
-    <table align="center">
+    <table align="center" style="background:#FFFFFF;">
         <tr>
             <td>
                 <c:set var="x" value="0" />
