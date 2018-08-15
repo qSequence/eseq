@@ -358,29 +358,37 @@ function showProperties( id, action_param, event) {
             <td><input id="outConnectionSupportedProtocols" name="outConnectionSupportedProtocols" type="text" size="100"  value="${modelUc.ucHostClusterMst.outConnectionSupportedProtocols}" /></td>
         </tr>
         <tr>
-            <td><label for="propertyName">Property Name</label></td>
-            <td><label for="propertyValue">Property Value</label><font color="red" size="1px">${modelUc.propMessage}</font></td>
+            <td>
+                <div class="wrp-pn-pv">
+                    <div class="pn">
+                        <label for="propertyName">Property Name</label>
+                    </div>
+                    <div class="pv">
+                        <label for="propertyValue">Property Value</label><font color="red" size="1px">${modelUc.propMessage}</font>
+                    </div>
+                </div>
+            </td>
         </tr>
         <c:forEach items="${modelUc.ucHostPropertiesList}" var="ucSeqDiagramProperty" varStatus="status" begin="0" end="${modelUc.numberOfPropertiesAllowed}">
             <c:if test="${ucSeqDiagramProperty.propertyId==null}">
-                <tr>
-                    <td>
+                <div class="wrap-name-value-prop">
+                    <div class="propertyName">
                         <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyName${status.count}" type="text" size="30" value="${ucSeqDiagramProperty.propertyName}" />
-                    </td>
-                    <td>
+                    </div>
+                    <div class="propertyValue">
                         <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyValue${status.count}" type="text" size="80" value="${ucSeqDiagramProperty.propertyValue}" />
-                    </td>
-                </tr>
+                    </div>
+                </div>
             </c:if>
             <c:if test="${ucSeqDiagramProperty.propertyId!=null}">
-                <tr>
-                    <td>
+                <div class="wrap-name-value-prop">
+                    <div class="propertyName">
                         <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdName${ucSeqDiagramProperty.propertyId}" type="text" size="30"  value="${ucSeqDiagramProperty.propertyName}" />
-                    </td>
-                    <td>
+                    </div>
+                    <div class="propertyValue">
                         <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdValue${ucSeqDiagramProperty.propertyId}" type="text" size="80"  value="${ucSeqDiagramProperty.propertyValue}" />
-                    </td>
-                </tr>
+                    </div>
+                </div>
             </c:if>
         </c:forEach>
         <tr>
@@ -406,7 +414,17 @@ function showProperties( id, action_param, event) {
             </td>
         </tr>
         <tr>
-            <td><input id="form_submit_button" type="button" value="Save"><input id="delete_form_submit_button" type="button" value="Delete"><font color="red">${modelUc.error}</font></td>
+            <td>
+                <div class="submit-sects">
+                    <div class="col-lg-6">
+                        <input class="btn btn-success" id="form_submit_button" type="button" value="Save">
+                    </div>
+                    <div class="col-lg-6">
+                        <input class="btn btn-danger" id="delete_form_submit_button" type="button" value="Delete">
+                    </div>
+                    <font color="red">${modelUc.error}</font>
+                </div>
+            </td>
         </tr>
     </table>
 </form>
