@@ -278,13 +278,15 @@ function showProperties( id, action_param, event) {
     </nav>
   </div>
 </div>
-<div id="container">
+<div class="container Capabilities">
 <table align="center">
     <tr>
         <td>
-            <h1>Edit Information</h1>
+            <div class="table-header">
+              <h1>Edit Information</h1>
+              <a href="<c:url value="HostClusterList.htm?user_request_action_param=default_action"/>">Host Cluster List</a>
+            </div>
         </td>
-        <td><a href="<c:url value="HostClusterList.htm?user_request_action_param=default_action"/>">Host Cluster List</a></td>
     </tr>
 </table>
 <form id="subscription_order_form" action="EditHostCluster.htm" method="post" >
@@ -294,7 +296,7 @@ function showProperties( id, action_param, event) {
             <td><input id="form_submit_button" type="button" value="Save"><input id="delete_form_submit_button" type="button" value="Delete"><font color="red">${modelUc.error}</font></td>
         </tr>
         <tr>
-            <td><input id="hostClusterName" name="hostClusterName" type="text" size="100" maxlength="100" value="${modelUc.ucHostClusterMst.hostClusterName}" /></td>
+            <td><input id="hostClusterName" name="hostClusterName" type="text" size="100"  value="${modelUc.ucHostClusterMst.hostClusterName}" /></td>
         </tr>
         <tr>
             <td><label for="description">Description</label><font color="red" size="1px">${modelUc.descriptionMessage}</font></td>
@@ -306,55 +308,55 @@ function showProperties( id, action_param, event) {
             <td><label for="imageUrl">Host Type</label><font color="red"  size="1px">${modelUc.hostTypeMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="hostType" name="hostType" type="text" size="100" maxlength="100" value="${modelUc.ucHostClusterMst.hostType}" /></td>
+            <td><input id="hostType" name="hostType" type="text" size="100"  value="${modelUc.ucHostClusterMst.hostType}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">Primary Host Name</label><font color="red"  size="1px">${modelUc.primaryHostNameMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="primaryHostName" name="primaryHostName" type="text" size="100" maxlength="100" value="${modelUc.ucHostClusterMst.primaryHostName}" /></td>
+            <td><input id="primaryHostName" name="primaryHostName" type="text" size="100"  value="${modelUc.ucHostClusterMst.primaryHostName}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">Other Host Name(s)</label><font color="red"  size="1px">${modelUc.otherHostNamesMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="otherHostNames" name="otherHostNames" type="text" size="100" maxlength="1000" value="${modelUc.ucHostClusterMst.otherHostNames}" /></td>
+            <td><input id="otherHostNames" name="otherHostNames" type="text" size="100"  value="${modelUc.ucHostClusterMst.otherHostNames}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">In Connection IpAddress(s)</label><font color="red"  size="1px">${modelUc.inConnectionIpaddressMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="inConnectionIpaddress" name="inConnectionIpaddress" type="text" size="100" maxlength="1000" value="${modelUc.ucHostClusterMst.inConnectionIpaddress}" /></td>
+            <td><input id="inConnectionIpaddress" name="inConnectionIpaddress" type="text" size="100"  value="${modelUc.ucHostClusterMst.inConnectionIpaddress}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">Out Connection IpAddress(s)</label><font color="red"  size="1px">${modelUc.outConnectionIpaddressMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="outConnectionIpaddress" name="outConnectionIpaddress" type="text" size="100" maxlength="1000" value="${modelUc.ucHostClusterMst.outConnectionIpaddress}" /></td>
+            <td><input id="outConnectionIpaddress" name="outConnectionIpaddress" type="text" size="100"  value="${modelUc.ucHostClusterMst.outConnectionIpaddress}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">In Connection Port(s)</label><font color="red"  size="1px">${modelUc.inConnectionOpenPortsMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="inConnectionOpenPorts" name="inConnectionOpenPorts" type="text" size="100" maxlength="1000" value="${modelUc.ucHostClusterMst.inConnectionOpenPorts}" /></td>
+            <td><input id="inConnectionOpenPorts" name="inConnectionOpenPorts" type="text" size="100"  value="${modelUc.ucHostClusterMst.inConnectionOpenPorts}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">Out Connection Port(s)</label><font color="red"  size="1px">${modelUc.outConnectionOpenPortsMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="outConnectionOpenPorts" name="outConnectionOpenPorts" type="text" size="100" maxlength="1000" value="${modelUc.ucHostClusterMst.outConnectionOpenPorts}" /></td>
+            <td><input id="outConnectionOpenPorts" name="outConnectionOpenPorts" type="text" size="100"  value="${modelUc.ucHostClusterMst.outConnectionOpenPorts}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">In Connection Protocol(s)</label><font color="red"  size="1px">${modelUc.inConnectionSupportedProtocolsMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="inConnectionSupportedProtocols" name="inConnectionSupportedProtocols" type="text" size="100" maxlength="1000" value="${modelUc.ucHostClusterMst.inConnectionSupportedProtocols}" /></td>
+            <td><input id="inConnectionSupportedProtocols" name="inConnectionSupportedProtocols" type="text" size="100"  value="${modelUc.ucHostClusterMst.inConnectionSupportedProtocols}" /></td>
         </tr>
         <tr>
             <td><label for="imageUrl">Out Connection Protocol(s)</label><font color="red"  size="1px">${modelUc.outConnectionSupportedProtocolsMessage}</font></td>
         </tr>
         <tr>
-            <td><input id="outConnectionSupportedProtocols" name="outConnectionSupportedProtocols" type="text" size="100" maxlength="1000" value="${modelUc.ucHostClusterMst.outConnectionSupportedProtocols}" /></td>
+            <td><input id="outConnectionSupportedProtocols" name="outConnectionSupportedProtocols" type="text" size="100"  value="${modelUc.ucHostClusterMst.outConnectionSupportedProtocols}" /></td>
         </tr>
         <tr>
             <td><label for="propertyName">Property Name</label></td>
@@ -364,20 +366,20 @@ function showProperties( id, action_param, event) {
             <c:if test="${ucSeqDiagramProperty.propertyId==null}">
                 <tr>
                     <td>
-                        <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyName${status.count}" type="text" size="30" maxlength="100" value="${ucSeqDiagramProperty.propertyName}" />
+                        <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyName${status.count}" type="text" size="30" value="${ucSeqDiagramProperty.propertyName}" />
                     </td>
                     <td>
-                        <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyValue${status.count}" type="text" size="80" maxlength="4000" value="${ucSeqDiagramProperty.propertyValue}" />
+                        <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyValue${status.count}" type="text" size="80" value="${ucSeqDiagramProperty.propertyValue}" />
                     </td>
                 </tr>
             </c:if>
             <c:if test="${ucSeqDiagramProperty.propertyId!=null}">
                 <tr>
                     <td>
-                        <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdName${ucSeqDiagramProperty.propertyId}" type="text" size="30" maxlength="100" value="${ucSeqDiagramProperty.propertyName}" />
+                        <input id="propertyIdName${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdName${ucSeqDiagramProperty.propertyId}" type="text" size="30"  value="${ucSeqDiagramProperty.propertyName}" />
                     </td>
                     <td>
-                        <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdValue${ucSeqDiagramProperty.propertyId}" type="text" size="80" maxlength="4000"  value="${ucSeqDiagramProperty.propertyValue}" />
+                        <input id="propertyIdValue${ucSeqDiagramProperty.propertyIdNo}" name="propertyIdValue${ucSeqDiagramProperty.propertyId}" type="text" size="80"  value="${ucSeqDiagramProperty.propertyValue}" />
                     </td>
                 </tr>
             </c:if>
