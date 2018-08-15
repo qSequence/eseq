@@ -293,7 +293,6 @@ function showProperties( id, action_param, event) {
     <table>
         <tr>
             <td><label for="description">Host Cluster Name</label><font color="red" size="1px">${modelUc.hostClusterNameMessage}</font></td>
-            <td><input id="form_submit_button" type="button" value="Save"><input id="delete_form_submit_button" type="button" value="Delete"><font color="red">${modelUc.error}</font></td>
         </tr>
         <tr>
             <td><input id="hostClusterName" name="hostClusterName" type="text" size="100"  value="${modelUc.ucHostClusterMst.hostClusterName}" /></td>
@@ -405,6 +404,9 @@ function showProperties( id, action_param, event) {
                     });
                 </script>
             </td>
+        </tr>
+        <tr>
+            <td><input id="form_submit_button" type="button" value="Save"><input id="delete_form_submit_button" type="button" value="Delete"><font color="red">${modelUc.error}</font></td>
         </tr>
     </table>
 </form>

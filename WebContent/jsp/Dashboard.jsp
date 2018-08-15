@@ -82,7 +82,7 @@
             <div class="col-lg-12">
                 <div class="search-holder-d">
                     <div class="form-group">
-                      <h1>Search</h1>
+                      <h4>SEARCH</h4>
                       <div class="col-lg-12">
                           <input class="form-control" id="searchString" name="searchString" type="text" size="50" maxlength="1900"  />
                           <input type="submit" class="btn btn-primary" value="Search" />

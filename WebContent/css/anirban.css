@@ -691,4 +691,14 @@ table .table-header a.btn{
 .search-holder-d{
   width: 400px;
   margin: 0px auto;
+  text-align: center;
+}
+.search-holder-d #searchString{
+
+}
+.search-holder-d h4{
+  font-weight: bold;
+}
+.search-holder-d input.btn {
+  width: 100%;
 }
