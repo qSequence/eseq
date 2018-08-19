@@ -689,15 +689,26 @@ table .table-header a.btn{
   width: 100%;
 }
 .search-holder-d {
-	width: 400px;
+	width: 551px;
 	margin: 0px auto;
 	text-align: center;
 	overflow: auto;
 	background: #FFFFFF;
 	margin-bottom: 50px;
+	padding: 25px;
+	border-radius: 7px;
 }
 .search-holder-d #searchString{
-
+  width: 346px;
+  float: left;
+  height: 37px;
+  margin: 0px;
+}
+.search-holder-d .btn.btn-primary{
+  float: left;
+  width: 150px;
+  margin: 0px;
+  margin-left: 5px;
 }
 .search-holder-d h4{
   font-weight: bold;
