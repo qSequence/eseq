@@ -81,13 +81,17 @@
 		    <div class="row">
             <div class="col-lg-12">
                 <div class="search-holder-d">
-                    <div class="form-group">
+                    <%-- <div class="form-group">
                       <h4>SEARCH</h4>
                       <div class="col-lg-12">
                           <input class="form-control" id="searchString" name="searchString" type="text" size="50" maxlength="1900"  />
                           <input type="submit" class="btn btn-primary" value="Search" />
                       </div>
-                    </div>
+                    </div> --%>
+                    <form action="Search.htm" method="post" >
+                      <input id="searchString" name="searchString" type="text" size="50" maxlength="1900" />
+                      <input type="submit" src="/images/login.png" value="Search">
+                    </form>
                 </div>
             </div>
         </div>
