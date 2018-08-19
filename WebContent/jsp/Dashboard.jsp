@@ -90,7 +90,7 @@
                     </div> --%>
                     <form action="Search.htm" method="post" >
                       <input id="searchString" name="searchString" type="text" size="50" maxlength="1900" />
-                      <input type="submit" src="/images/login.png" value="Search">
+                      <input class="btn btn-primary" type="submit" src="/images/login.png" value="Search">
                     </form>
                 </div>
             </div>
