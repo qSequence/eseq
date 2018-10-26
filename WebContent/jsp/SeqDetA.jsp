@@ -10,7 +10,7 @@
 <%-- END 12 Oct added combogrid jquery libraries--%>
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
   <link href="css/anirban.css" rel="stylesheet">
 <title>${modelUc.seqName}</title>
@@ -43,6 +43,7 @@
  font-size:12pt;
  cursor:pointer;
  text-decoration:none;
+width: 42px;
 }
 table{ table-layout:fixed; overflow:hidden }
 td{  padding:0 }
@@ -1256,7 +1257,7 @@ function linkFields()
                             <td height="15%" width="15%" style="vertical-align: top;text-align: left;">
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.expanded=='true'}">
-                              <a class="mousetoHand" onclick="seqUpdateOpenClose( 'close_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"><i class="fas fa-info-circle"></i></a>
+                            <img  class="mousetoHand" src="images/nav/minus.png" alt="close" onclick="seqUpdateOpenClose( 'close_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"/>
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.expanded!='true'}">
                             <img   class="mousetoHand" src="images/nav/plus.png" alt="open" onclick="seqUpdateOpenClose( 'expand_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"/>
