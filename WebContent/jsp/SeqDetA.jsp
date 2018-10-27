@@ -10,12 +10,12 @@
 <%-- END 12 Oct added combogrid jquery libraries--%>
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
   <link href="css/anirban.css" rel="stylesheet">
 <title>${modelUc.seqName}</title>
 <meta name="description" content="${modelUc.seqDescription}">
-<style type="text/css">
+<%-- <style type="text/css">
 .navbar-inverse .navbar-nav>li>a {
             color: #767676;
             font-size:14px;
@@ -101,7 +101,7 @@ dl dd {
     font-family:Arial;
  font-size:8pt;
 }
-</style>
+</style> --%>
 
 <%-- <script type="text/javascript" 	src="<c:url value="/jquery/jquery.min.js"/>"></script>  --%>
 <%-- Commented on 12 Oct Clashes with combogrid jquery libraries
