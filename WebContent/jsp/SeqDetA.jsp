@@ -43,7 +43,6 @@
  font-size:12pt;
  cursor:pointer;
  text-decoration:none;
-width: 42px;
 }
 table{ table-layout:fixed; overflow:hidden }
 td{  padding:0 }
