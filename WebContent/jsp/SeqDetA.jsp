@@ -1480,71 +1480,70 @@ function linkFields()
                    <td>
                       <!-- CHECK  multiLevelPopupMenus , minfield-->
                       <div id="${ucDisplayObject.ucObjectEnum}_prop_menu_edit" class="multiLevelPopupMenus"
-                         onclick="event.cancelBubble=true">
-                         <table border="0" cellpadding="0" cellspacing="0">
-                            <tbody id="${ucDisplayObject.ucObjectEnum}_menu_append">
-                               <c:forEach items="${ucDisplayObject.menuItemList}" var="menuItem" >
-                                  <c:if test="${menuItem.menuEnabled=='true'}">
-                                     <c:if test="${menuItem.itemAction=='asynch_paste_action'}">
-                                        <c:if test="${menuItem.itemType=='custom'}">
-                                           <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
-                                              onMouseOut="this.bgColor='#F6F6F6'; "
-                                              onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
-                                        </c:if>
-                                        <c:if test="${menuItem.itemType!='custom'}">
-                                        <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
-                                           onMouseOut="this.bgColor='#F6F6F6'; "
-                                           onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
-                                        </c:if>
-                                     </c:if>
-                                     <c:if test="${menuItem.itemAction!='asynch_paste_action'}">
-                                     <c:if test="${menuItem.itemType=='custom'}">
-                                     <tr  onMouseOver="this.bgColor='#99CCFF';"
-                                        onMouseOut="this.bgColor='#F6F6F6'; "
-                                        onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
-                                     </c:if>
-                                     <c:if test="${menuItem.itemType!='custom'}">
-                                     <tr  onMouseOver="this.bgColor='#99CCFF';"
-                                        onMouseOut="this.bgColor='#F6F6F6'; "
-                                        onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
-                                     </c:if>
-                                     </c:if>
-                                     <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
-                                     <td align="left" height="20" width="20">&nbsp;<img
-                                     src="<c:url value="${menuItem.itemImage}" />" style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
-                                     </td>
-                                     </c:if>
-                                     <c:if test="${menuItem.itemType=='synch_asynch'}">
-                                     <td align="left" height="20" width="150" nowrap="nowrap"><strong>${menuItem.itemName}</strong></td>
-                                     </c:if>
-                                     <c:if test="${menuItem.itemType!='synch_asynch'}">
-                                     <td align="left" height="20" width="150" nowrap="nowrap">${menuItem.itemName}</td>
-                                     </c:if>
-                                     </tr>
-                                  </c:if>
-                                  <c:if test="${menuItem.menuEnabled=='false'}">
-                                     <tr onMouseOver="this.bgColor='#99CCFF';"
-                                        onMouseOut="this.bgColor='#F6F6F6';">
-                                        <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
-                                           <td align="left" height="20" width="20">
-                                              &nbsp;<img
-                                              src="
-                                              <c:url value="${menuItem.itemImage}" />
-                                              " style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
-                                           </td>
-                                        </c:if>
-                                        <c:if test="${menuItem.itemType=='synch_asynch'}">
-                                           <td align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3"><strong>${menuItem.itemName}</strong></font></td>
-                                        </c:if>
-                                        <c:if test="${menuItem.itemType!='synch_asynch'}">
-                                           <td align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3">${menuItem.itemName}</font></td>
-                                        </c:if>
-                                     </tr>
-                                  </c:if>
-                               </c:forEach>
-                            </tbody>
-                         </table>
+                          onclick="event.cancelBubble=true">
+                          <div border="0" cellpadding="0" cellspacing="0">
+                              <div id="${ucDisplayObject.ucObjectEnum}_menu_append">
+                                  <c:forEach items="${ucDisplayObject.menuItemList}" var="menuItem" >
+                                      <c:if test="${menuItem.menuEnabled=='true'}">
+                                          <c:if test="${menuItem.itemAction=='asynch_paste_action'}">
+                                              <c:if test="${menuItem.itemType=='custom'}">
+                                                  <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
+                                                      onMouseOut="this.bgColor='#F6F6F6'; "
+                                                      onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
+                                              </c:if>
+                                              <c:if test="${menuItem.itemType!='custom'}">
+                                              <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
+                                                  onMouseOut="this.bgColor='#F6F6F6'; "
+                                                  onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
+                                              </c:if>
+                                          </c:if>
+                                          <c:if test="${menuItem.itemAction!='asynch_paste_action'}">
+                                              <c:if test="${menuItem.itemType=='custom'}">
+                                              <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                                  onMouseOut="this.bgColor='#F6F6F6'; "
+                                                  onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
+                                              </c:if>
+                                              <c:if test="${menuItem.itemType!='custom'}">
+                                              <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                                  onMouseOut="this.bgColor='#F6F6F6'; "
+                                                  onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
+                                              </c:if>
+                                          </c:if>
+                                          <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
+                                              <td align="left" height="20" width="20">&nbsp;<img
+                                              src="<c:url value="${menuItem.itemImage}" />" style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
+                                              </td>
+                                          </c:if>
+                                          <c:if test="${menuItem.itemType=='synch_asynch'}">
+                                              <td align="left" height="20" width="150" nowrap="nowrap"><strong>${menuItem.itemName}</strong></td>
+                                          </c:if>
+                                          <c:if test="${menuItem.itemType!='synch_asynch'}">
+                                              <td align="left" height="20" width="150" nowrap="nowrap">${menuItem.itemName}</td>
+                                          </c:if>
+                                      </c:if>
+                                      <c:if test="${menuItem.menuEnabled=='false'}">
+                                          <div>
+                                              <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
+                                                  <a align="left" height="20" width="20">
+                                                      &nbsp;<img
+                                                      src="
+                                                      <c:url value="${menuItem.itemImage}" />
+                                                      " style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
+                                                  </a>
+                                              </c:if>
+                                              <c:if test="${menuItem.itemType=='synch_asynch'}">
+                                                  <a align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3"><strong>${menuItem.itemName}</strong></font></a>
+                                              </c:if>
+                                              <c:if test="${menuItem.itemType!='synch_asynch'}">
+                                                  <a align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3">${menuItem.itemName}</font></a>
+                                              </c:if>
+                                          </div>
+                                      </c:if>
+                                  </c:forEach>
+                              </div>
+                          </div>
                       </div>
+
                    </td>
                 </c:forEach>
              </tr>
