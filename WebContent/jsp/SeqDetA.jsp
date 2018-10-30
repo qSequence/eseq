@@ -1487,24 +1487,24 @@ function linkFields()
                                   <c:if test="${menuItem.menuEnabled=='true'}">
                                      <c:if test="${menuItem.itemAction=='asynch_paste_action'}">
                                         <c:if test="${menuItem.itemType=='custom'}">
-                                           <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
+                                           <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}"
                                               onMouseOut="this.bgColor='#F6F6F6'; "
                                               onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
                                         </c:if>
                                         <c:if test="${menuItem.itemType!='custom'}">
-                                        <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}" onMouseOver="this.bgColor='#99CCFF';"
+                                        <tr id="sourceToBeRemoved_${menuItem.asynchSourceRow}_${menuItem.asynchSourceCol}"
                                            onMouseOut="this.bgColor='#F6F6F6'; "
                                            onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',${menuItem.asynchSourceRow},${menuItem.asynchSourceCol}, '${modelUc.sysSeqId}')">
                                         </c:if>
                                      </c:if>
                                      <c:if test="${menuItem.itemAction!='asynch_paste_action'}">
                                      <c:if test="${menuItem.itemType=='custom'}">
-                                     <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                     <tr
                                         onMouseOut="this.bgColor='#F6F6F6'; "
                                         onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}_${menuItem.itemId}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
                                      </c:if>
                                      <c:if test="${menuItem.itemType!='custom'}">
-                                     <tr  onMouseOver="this.bgColor='#99CCFF';"
+                                     <tr
                                         onMouseOut="this.bgColor='#F6F6F6'; "
                                         onClick="JavaScript:askForAdditionalInput('${menuItem.itemAction}','${modelUc.sequenceVersion}','${modelUc.seqMstId}','${menuItem.itemType}', '${modelUc.CONTEXT_PATH}${menuItem.itemUrl}',0,0, '${modelUc.sysSeqId}')">
                                      </c:if>
@@ -1523,8 +1523,7 @@ function linkFields()
                                      </tr>
                                   </c:if>
                                   <c:if test="${menuItem.menuEnabled=='false'}">
-                                     <tr onMouseOver="this.bgColor='#99CCFF';"
-                                        onMouseOut="this.bgColor='#F6F6F6';">
+                                     <tr>
                                         <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
                                            <td align="left" height="20" width="20">
                                               &nbsp;<img
