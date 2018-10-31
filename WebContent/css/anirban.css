@@ -760,6 +760,7 @@ table .table-header a.btn{
 }
 .propertiesMenus b a{
   color: #FFF;
+  text-decoration: none;
 }
 .noteditable{
   text-align: center;
@@ -772,7 +773,7 @@ table .table-header a.btn{
   height: 70px;
 }
 .noteditable b{
-  float: left;
+  float: left; 
   width: 100%;
   margin: 0px;
   margin-left: 0px;
