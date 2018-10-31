@@ -5,7 +5,7 @@
 			<c:if test="${modelUc.copyProperties!='true'}">
 				<c:if test="${modelUc.userReadWriteAccess=='true'}">
 				  <tr
-						
+
 						onClick="JavaScript:editProperties('edit_properties_action_param','${modelUc.ucSeqMst.seqMstId}','${modelUc.seqItemId}','${modelUc.systemId}','${modelUc.requestId}','${modelUc.responseId}','${modelUc.rowNo}','${modelUc.columnNo}', '${modelUc.propertyFor}','${modelUc.requestName}','${modelUc.responseName}','${modelUc.systemName}', '${modelUc.CONTEXT_PATH}/Properties.htm','${modelUc.systemType}','${modelUc.sequenceVersion}','${modelUc.sysSeqId}')">
 						<td id="new_propName" class="${modelUc.editclass}" align="left" height="20" width="150" nowrap="nowrap" colspan="2"><b>Edit Information</b></td>
 					</tr>
@@ -99,8 +99,7 @@
 		    	<c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
 		  			<c:set var="changed" value="false" />
 		         	<c:if test="${x=='0' && changed=='false'}">
-						<tr
-							onMouseOut="this.bgColor='#85E0E0';">
+						<tr>
 							<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
 							<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
 								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
