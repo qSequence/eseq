@@ -100,7 +100,7 @@
 		  			<c:set var="changed" value="false" />
 		         	<c:if test="${x=='0' && changed=='false'}">
 						<tr>
-							<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+							<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;">${prop.propertyName}</td>
 							<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
 								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
 							</c:if>
@@ -115,7 +115,7 @@
 						<c:set var="x" value="0" />
 						<tr
 							>
-							<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;vertical-align: bottom;">${prop.propertyName}</td>
+							<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;font-family:times;color:#996633;font-size:14px;">${prop.propertyName}</td>
 							<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
 								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" align="left"  width="150" style="width:150px;word-wrap:break-word;"><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
 							</c:if>
