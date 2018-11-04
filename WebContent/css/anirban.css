@@ -762,19 +762,19 @@ table .table-header a.btn{
   color: #FFF;
   text-decoration: none;
 }
-.noteditable{
+.noteditable,.editable{
   text-align: center;
   font-size: 15px;
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.noteditable textarea{
+.noteditable textarea,.editable textarea{
   width: 100%;
   text-align: center;
   font-size: 14px;
   height: 70px;
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.noteditable b{
+.noteditable b,.editable b{
   float: left;
   width: 100%;
   margin: 0px;
@@ -799,8 +799,27 @@ table .table-header a.btn{
 
 }
 .MenuTable tr{
-   
+  background: #FFF;
 }
-.MenuTable tr td{
-
+.MenuTable tr td {
+	background-color: #03a9f4;
+	color: rgba(255, 255, 255, 0.84);
+	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+	transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	/* padding: 8px 30px; */
+	border: 0;
+	margin: 2px 1px;
+	cursor: pointer;
+	border-radius: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.84);
+	transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+	outline: none !important;
+	text-align: center;
+	display: inline-table;
+	height: 20px; 
+	vertical-align: middle;
+	font-size: 14px;
 }
