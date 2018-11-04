@@ -1481,7 +1481,7 @@ function linkFields()
                       <!-- CHECK  multiLevelPopupMenus , minfield-->
                       <div id="${ucDisplayObject.ucObjectEnum}_prop_menu_edit" class="multiLevelPopupMenus"
                          onclick="event.cancelBubble=true">
-                         <table border="0" cellpadding="0" cellspacing="0">
+                         <table class="MenuTable" border="0" cellpadding="0" cellspacing="0">
                             <tbody id="${ucDisplayObject.ucObjectEnum}_menu_append">
                                <c:forEach items="${ucDisplayObject.menuItemList}" var="menuItem" >
                                   <c:if test="${menuItem.menuEnabled=='true'}">
