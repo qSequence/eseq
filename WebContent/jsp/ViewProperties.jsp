@@ -55,7 +55,7 @@
 			</tr>
 		  <tr>
 				<td id="new_propName" class="${modelUc.editclass}">
-					<textarea maxlength="3900" name="descTA" id="descTA" cols="60" rows="6">${modelUc.description}</textarea></td>
+					<textarea  name="descTA" id="descTA" >${modelUc.description}</textarea></td>
 			</tr>
 			</c:if>
 
@@ -65,7 +65,7 @@
 					</tr>
 				    <tr>
 						<td id="new_propName" class="${modelUc.editclass}">
-						<textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="60" rows="6">${modelUc.sample}</textarea></td>
+						<textarea  name="sampleTA" id="sampleTA" >${modelUc.sample}</textarea></td>
 					</tr>
 				</c:if>
 
@@ -76,7 +76,7 @@
 						</tr>
 					    <tr>
 							<td id="new_propName" class="${modelUc.editclass}">
-							<textarea maxlength="3900" name="sampleTA" id="sampleFailureTA" cols="60" rows="6">${modelUc.sampleFailure}</textarea></td>
+							<textarea  name="sampleTA" id="sampleFailureTA" >${modelUc.sampleFailure}</textarea></td>
 						</tr>
 					</c:if>
 				</c:if>
@@ -86,7 +86,7 @@
 				</tr>
 			    <tr>
 					<td id="new_propName" class="${modelUc.editclass}">
-						<textarea maxlength="3900" name="descTA" id="descTA" cols="60" rows="6">${modelUc.hostClusterName}</textarea></td>
+						<textarea  name="descTA" id="descTA" >${modelUc.hostClusterName}</textarea></td>
 				</tr>
 			</c:if>
 			<c:if test="${modelUc.ucSeqDiagramPropertyList[0].propertyName!=null}">
@@ -102,7 +102,7 @@
 						<tr>
 							<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" >${prop.propertyName}</td>
 							<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" ><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" ><textarea name="sampleTA" id="sampleTA" >${prop.propertyValue}</textarea></td>
 							</c:if>
 							<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
 								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" ><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
@@ -117,7 +117,7 @@
 							>
 							<td id="${prop.propertyId}_propName" class="${modelUc.editclass}" >${prop.propertyName}</td>
 							<c:if test="${not fn:startsWith(prop.propertyValue, 'http') and not fn:startsWith(prop.propertyValue, 'www')}">
-								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" ><textarea maxlength="3900" name="sampleTA" id="sampleTA" cols="18" rows="1">${prop.propertyValue}</textarea></td>
+								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" ><textarea  name="sampleTA" id="sampleTA" >${prop.propertyValue}</textarea></td>
 							</c:if>
 							<c:if test="${fn:startsWith(prop.propertyValue, 'http') or fn:startsWith(prop.propertyValue, 'www')}">
 								<td id="${prop.propertyId}_propVal" class="${modelUc.editclass}" ><a name="urlLink" id="urlLink" href="${prop.propertyValue}" target="_blank">${prop.propertyValue}</a></td>
