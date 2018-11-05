@@ -829,7 +829,8 @@ table .table-header a.btn{
   cursor: pointer;
 }
 .propertiesMenus{
-
+  width: 400px;
+  white-space: normal;
 }
 .propertiesMenus table{
 
@@ -838,5 +839,8 @@ table .table-header a.btn{
 
 }
 .propertiesMenus table tr td{
+
+}
+.propertiesMenus table tr td.two-td{
 
 }
