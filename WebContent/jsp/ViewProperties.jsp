@@ -6,7 +6,13 @@
                 <c:if test="${modelUc.userReadWriteAccess=='true'}">
                     <tr
                         onClick="JavaScript:editProperties('edit_properties_action_param','${modelUc.ucSeqMst.seqMstId}','${modelUc.seqItemId}','${modelUc.systemId}','${modelUc.requestId}','${modelUc.responseId}','${modelUc.rowNo}','${modelUc.columnNo}', '${modelUc.propertyFor}','${modelUc.requestName}','${modelUc.responseName}','${modelUc.systemName}', '${modelUc.CONTEXT_PATH}/Properties.htm','${modelUc.systemType}','${modelUc.sequenceVersion}','${modelUc.sysSeqId}')">
-                        <td id="new_propName" class="${modelUc.editclass}" ><b>Edit Information</b></td>
+                        <td id="new_propName" class="${modelUc.editclass}" >
+                          <table>
+                            <tr>
+                              <td><b>Edit Information</b></td>
+                            </tr>
+                          </table>
+                        </td>
                     </tr>
                 </c:if>
             </c:if>
