@@ -832,13 +832,22 @@ table .table-header a.btn{
   width: 400px;
   white-space: normal;
 }
-.propertiesMenus > div{
+.propertiesMenus{
 
 }
-.propertiesMenus > div div.row{
+.propertiesMenus div.row{
 
 }
-.propertiesMenus > div div.row div.column{
+.propertiesMenus div.row div.column{
+
+}
+.propertiesMenus div.row div.column a{
+
+}
+.propertiesMenus div.row div.column b{
+
+}
+.propertiesMenus div.row div.column textarea{
 
 }
 .propertiesMenus > div div.row div.column .two{
