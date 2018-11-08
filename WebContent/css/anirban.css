@@ -832,15 +832,15 @@ table .table-header a.btn{
   width: 400px;
   white-space: normal;
 }
-.propertiesMenus table{
+.propertiesMenus > div{
 
 }
-.propertiesMenus table tr{
+.propertiesMenus > div div.row{
 
 }
-.propertiesMenus table tr td{
+.propertiesMenus > div div.row div.column{
 
 }
-.propertiesMenus table tr td.two-td{
+.propertiesMenus > div div.row div.column .two{
 
 }
