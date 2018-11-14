@@ -835,20 +835,20 @@ table .table-header a.btn{
 .propertiesMenus{
 
 }
-.propertiesMenus div.row{
+.propertiesMenus div.row-c{
   margin: 0px;
   text-align: center;
   overflow: auto;
   clear: both;
 }
-.propertiesMenus div.row div.column{
+.propertiesMenus div.row-c div.c-clm{
   overflow: auto;
   clear: both;
 }
-.propertiesMenus div.row div.column a{
+.propertiesMenus div.row-c div.c-clm a{
 
 }
-.propertiesMenus div.row div.column b{
+.propertiesMenus div.row div.c-clm b{
   background-color: #009688;
   color: rgba(255, 255, 255, 0.84);
   position: relative;
@@ -864,9 +864,9 @@ table .table-header a.btn{
   outline: none !important;
   display: block;
 }
-.propertiesMenus div.row div.column textarea{
+.propertiesMenus div.row-c div.c-clm textarea{
   width: 100%;
 }
-.propertiesMenus > div div.row div.column .two{
+.propertiesMenus > div div.row-c div.c-clm .two{
 
 }
