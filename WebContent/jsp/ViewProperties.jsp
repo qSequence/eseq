@@ -1,6 +1,14 @@
 <%@ include file="include.jsp"%>
 <<<<<<< HEAD
-<div id="response_prop_menu">
+<div id="response_prop_menu" class="well well-lg">
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel info</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
     <div>
         <div>
             <c:if test="${modelUc.copyProperties!='true'}">
@@ -20,7 +28,7 @@
             <c:if test="${fn:containsIgnoreCase(modelUc.systemType, 'sys_seq') and modelUc.copyProperties!='true'}">
                 <c:if test="${modelUc.userReadAccess=='true'}">
                     <div class="row-c">
-                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}" ><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View >>> Interface <<<</a></b></div>
+                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}" ><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View Interface</a></b></div>
                     </div>
                     <div class="row-c">
                         <div class="c-clm" id="new_propName" class="${modelUc.editclass}" ><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/SeqDetA.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&for_request_id=${modelUc.forRequestId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}">View System Sequence</a></b></div>
@@ -29,68 +37,80 @@
             </c:if>
             <c:if test="${modelUc.rowNo==1 and modelUc.columnNo==1}">
                 <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}" ><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&sys_seq_id=${modelUc.ucSeqMst.sysSeqId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View >>> Interface <<<</a></b></div>
+                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}" ><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&sys_seq_id=${modelUc.ucSeqMst.sysSeqId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View Interface</a></b></div>
                 </div>
             </c:if>
             <c:if test="${modelUc.imageUrl!=null and modelUc.imageUrl!=''}">
-                <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">--------- webpage ${modelUc.propertyFor} ---------</div>
-                </div>
-                <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}"><a href="${modelUc.imageUrl}" target="_blank"><img src="${modelUc.imageUrl}" alt="Loading Image..." height="200" width="440"></a></div>
+                <div class="panel panel-info">
+                    <div class="row-c panel-heading">
+                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}">--------- webpage ${modelUc.propertyFor} ---------</div>
+                    </div>
+                    <div class="row-c panel-body">
+                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}"><a href="${modelUc.imageUrl}" target="_blank"><img src="${modelUc.imageUrl}" alt="Loading Image..." height="200" width="440"></a></div>
+                    </div>
                 </div>
             </c:if>
             <c:if test="${modelUc.failureImageUrl!=null and modelUc.failureImageUrl!=''}">
                 <c:if test="${modelUc.propertyFor=='response'}">
-                    <div class="row-c">
-                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}">----- webpage failure ${modelUc.propertyFor} ----</div>
-                    </div>
-                    <div class="row-c">
-                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}"><a href="${modelUc.failureImageUrl}" target="_blank"><img src="${modelUc.failureImageUrl}" alt="Loading Image..." height="200" width="440"></a></div>
-                    </div>
-                </c:if>
-            </c:if>
-            <c:if test="${modelUc.description!=null and modelUc.description!=''}">
-                <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">------------- description -------------</div>
-                </div>
-                <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">
-                        <textarea  name="descTA" id="descTA" >${modelUc.description}</textarea>
-                    </div>
-                </div>
-            </c:if>
-            <c:if test="${modelUc.sample!=null and modelUc.sample!=''}">
-                <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">------------ sample message --------</div>
-                </div>
-                <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">
-                        <textarea  name="sampleTA" id="sampleTA" >${modelUc.sample}</textarea>
-                    </div>
-                </div>
-            </c:if>
-            <c:if test="${modelUc.sampleFailure!=null and modelUc.sampleFailure!=''}">
-                <c:if test="${modelUc.propertyFor=='response'}">
-                    <div class="row-c">
-                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}">-------- sample failure message ---</div>
-                    </div>
-                    <div class="row-c">
-                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}">
-                            <textarea  name="sampleTA" id="sampleFailureTA" >${modelUc.sampleFailure}</textarea>
+                    <div class="panel panel-info">
+                        <div class="row-c panel-heading">
+                            <div class="c-clm" id="new_propName" class="${modelUc.editclass}">----- webpage failure ${modelUc.propertyFor} ----</div>
+                        </div>
+                        <div class="row-c panel-body">
+                            <div class="c-clm" id="new_propName" class="${modelUc.editclass}"><a href="${modelUc.failureImageUrl}" target="_blank"><img src="${modelUc.failureImageUrl}" alt="Loading Image..." height="200" width="440"></a></div>
                         </div>
                     </div>
                 </c:if>
             </c:if>
+            <c:if test="${modelUc.description!=null and modelUc.description!=''}">
+              <div class="panel panel-info">
+                <div class="row-c panel-heading">
+                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">------------- description -------------</div>
+                </div>
+                <div class="row-c panel-body">
+                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">
+                        <textarea  name="descTA" id="descTA" >${modelUc.description}</textarea>
+                    </div>
+                </div>
+              </div>
+            </c:if>
+            <c:if test="${modelUc.sample!=null and modelUc.sample!=''}">
+              <div class="panel panel-info">
+                <div class="row-c panel-heading">
+                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">------------ sample message --------</div>
+                </div>
+                <div class="row-c panel-body">
+                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">
+                        <textarea  name="sampleTA" id="sampleTA" >${modelUc.sample}</textarea>
+                    </div>
+                </div>
+              </div>
+            </c:if>
+            <c:if test="${modelUc.sampleFailure!=null and modelUc.sampleFailure!=''}">
+                <c:if test="${modelUc.propertyFor=='response'}">
+                  <div class="panel panel-info">
+                    <div class="row-c panel-heading">
+                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}">-------- sample failure message ---</div>
+                    </div>
+                    <div class="row-c panel-body">
+                        <div class="c-clm" id="new_propName" class="${modelUc.editclass}">
+                            <textarea  name="sampleTA" id="sampleFailureTA" >${modelUc.sampleFailure}</textarea>
+                        </div>
+                    </div>
+                  </div>
+                </c:if>
+            </c:if>
             <c:if test="${modelUc.hostClusterName!=null and modelUc.hostClusterName!=''}">
-                <div class="row-c">
+              <div class="panel panel-info">
+                <div class="row-c panel-heading">
                     <div class="c-clm" id="new_propName" class="${modelUc.editclass}">------------- Host -------------</div>
                 </div>
-                <div class="row-c">
+                <div class="row-c panel-body">
                     <div class="c-clm" id="new_propName" class="${modelUc.editclass}">
                         <textarea  name="descTA" id="descTA" >${modelUc.hostClusterName}</textarea>
                     </div>
                 </div>
+              </div>
             </c:if>
             <c:if test="${modelUc.ucSeqDiagramPropertyList[0].propertyName!=null}">
                 <div class="row-c">
@@ -148,7 +168,7 @@
 				<c:if test="${modelUc.userReadAccess=='true'}">
 					<div class="row-c" onMouseOver="this.bgColor='#99CCFF';"
 						onMouseOut="this.bgColor='#F6F6F6';">
-						<div class="c-clm" id="new_propName" class="${modelUc.editclass}" align="left" height="20" width="150" nowrap="nowrap" colspan="2"><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View >>> Interface <<<</a></b></div>
+						<div class="c-clm" id="new_propName" class="${modelUc.editclass}" align="left" height="20" width="150" nowrap="nowrap" colspan="2"><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View Interface</a></b></div>
 					</div>
 
 				  <div class="row-c" onMouseOver="this.bgColor='#99CCFF';"
@@ -160,7 +180,7 @@
 			<c:if test="${modelUc.rowNo==1 and modelUc.columnNo==1}">
 				<div class="row-c" onMouseOver="this.bgColor='#99CCFF';"
 					onMouseOut="this.bgColor='#F6F6F6';">
-					<div class="c-clm" id="new_propName" class="${modelUc.editclass}" align="left" height="20" width="150" nowrap="nowrap" colspan="2"><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&sys_seq_id=${modelUc.ucSeqMst.sysSeqId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View >>> Interface <<<</a></b></div>
+					<div class="c-clm" id="new_propName" class="${modelUc.editclass}" align="left" height="20" width="150" nowrap="nowrap" colspan="2"><b><a target="_blank" href="${modelUc.CONTEXT_PATH}/ViewInterface.htm?seq_mst_id_param=${modelUc.ucSeqMst.seqMstId}&sys_seq_id=${modelUc.ucSeqMst.sysSeqId}&requestId=${modelUc.requestId}&responseId=${modelUc.responseId}&sequenceVersion=UNKNOWN_${modelUc.sequenceVersion}&systemId=${modelUc.systemId}&propertyFor=${modelUc.propertyFor}">View Interface</a></b></div>
 				</div>
 			</c:if>
 			<c:if test="${modelUc.imageUrl!=null and modelUc.imageUrl!=''}">
