@@ -1558,7 +1558,7 @@ function linkFields()
           <table>
              <tr>
                 <td>
-                   <div  id="prop_menu_place_holder" class="propertiesMenus"
+                   <div  id="prop_menu_place_holder" class="propertiesMenus well"
                       onclick="event.cancelBubble=true">
                    </div>
                 </td>

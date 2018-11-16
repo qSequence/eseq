@@ -1,6 +1,6 @@
 <%@ include file="include.jsp"%>
 <<<<<<< HEAD
-<div id="response_prop_menu" class="well well-lg">
+<div id="response_prop_menu" class="well">
     <div>
         <div>
             <c:if test="${modelUc.copyProperties!='true'}">
