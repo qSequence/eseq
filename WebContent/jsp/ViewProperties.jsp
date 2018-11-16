@@ -112,11 +112,15 @@
                 </div>
               </div>
             </c:if>
+            <div class="panel panel-info">
+            <div class="row-c panel-heading">
             <c:if test="${modelUc.ucSeqDiagramPropertyList[0].propertyName!=null}">
                 <div class="row-c">
-                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}">--------------- properties ------------</div>
+                    <div class="c-clm" id="new_propName" class="${modelUc.editclass}"></div>
                 </div>
             </c:if>
+            </div>
+            <div class="row-c panel-body">
             <c:set var="x" value="0" />
             <c:forEach items="${modelUc.ucSeqDiagramPropertyList}" var="prop" >
                 <c:if test="${prop.propertyName!=null and prop.propertyValue!=null}">
@@ -148,6 +152,8 @@
                     </c:if>
                 </c:if>
             </c:forEach>
+            </div>
+            </div>
         </div>
     </div>
 </div>
