@@ -1,14 +1,6 @@
 <%@ include file="include.jsp"%>
 <<<<<<< HEAD
 <div id="response_prop_menu" class="well well-lg">
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel info</h3>
-  </div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
     <div>
         <div>
             <c:if test="${modelUc.copyProperties!='true'}">
