@@ -4,6 +4,8 @@ phases:
   install:
     commands:
       - cp ./settings.xml /root/.m2/settings.xml
+      - echo $AWS_USERNAME
+      - echo $AWS_PASSWORD
   build:
     commands:
        - mvn clean install -Dmaven.test.skip=true -Diam-user-access-key-id=$AWS_USERNAME -Diam-user-secret-key=$AWS_PASSWORD
