@@ -873,3 +873,6 @@ div div.row-c div.c-clm .two{
 .row-c b a{
   color: #FFFFFF;
 }
+.panel-info{
+	margin-bottom: 15px !important;
+}
