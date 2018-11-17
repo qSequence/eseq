@@ -132,7 +132,7 @@ under the License.
     -->
     <server>
        <id>maven-repo-sydney-qsequence</id>
-       <username>$AWS_USERNAME</username>
+       <username>AKIAJAHJGDM4TPMGKZVQ</username>
        <password>$AWS_PASSWORD</password>
     </server>
   </servers>
