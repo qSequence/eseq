@@ -132,8 +132,8 @@ under the License.
     -->
     <server>
        <id>maven-repo-sydney-qsequence</id>
-       <username>AKIAJAHJGDM4TPMGKZVQ</username>
-       <password>{er/XfjyTiJsHqp8AxkFdsZ2nn4vXTB8vDcEoE5PYUddxfXKi4dqXSxmu8f4i+m2Ja3/vFO0MAKrl7I+jacNRng==}</password>
+       <username>${iam-user-access-key-id}</username>
+       <password>${iam-user-secret-key}</password>
     </server>
   </servers>
 
