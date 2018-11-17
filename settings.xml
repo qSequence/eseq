@@ -132,8 +132,8 @@ under the License.
     -->
     <server>
        <id>maven-repo-sydney-qsequence</id>
-       <username>${iam-user-access-key-id}</username>
-       <password>${iam-user-secret-key}</password>
+       <username>$AWS_USERNAME</username>
+       <password>$AWS_PASSWORD</password>
     </server>
   </servers>
 
