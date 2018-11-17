@@ -8,4 +8,4 @@ phases:
       - echo $AWS_PASSWORD
   build:
     commands:
-       - mvn clean install -Dmaven.test.skip=true -Diam-user-access-key-id=$AWS_USERNAME -Diam-user-secret-key=$AWS_PASSWORD
+       - mvn clean deploy -Dmaven.test.skip=true 
