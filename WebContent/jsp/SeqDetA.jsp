@@ -10,12 +10,12 @@
 <%-- END 12 Oct added combogrid jquery libraries--%>
 <link href="css/bootstrap.min-otherPages.css" rel="stylesheet">
 <link href="css/qSequence-otherPages.css" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css"/>
   <link href="css/anirban.css" rel="stylesheet">
 <title>${modelUc.seqName}</title>
 <meta name="description" content="${modelUc.seqDescription}">
-<%-- <style type="text/css">
+<style type="text/css">
 .navbar-inverse .navbar-nav>li>a {
             color: #767676;
             font-size:14px;
@@ -101,7 +101,7 @@ dl dd {
     font-family:Arial;
  font-size:8pt;
 }
-</style> --%>
+</style>
 
 <%-- <script type="text/javascript" 	src="<c:url value="/jquery/jquery.min.js"/>"></script>  --%>
 <%-- Commented on 12 Oct Clashes with combogrid jquery libraries
@@ -1256,10 +1256,10 @@ function linkFields()
                             <td height="15%" width="15%" style="vertical-align: top;text-align: left;">
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.expanded=='true'}">
-                            <a class="mousetoHand" onclick="seqUpdateOpenClose( 'close_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');" ><i class="fas fa-minus-circle"></i></a>
+                              <a class="mousetoHand" onclick="seqUpdateOpenClose( 'close_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"><i class="fas fa-info-circle"></i></a>
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.expanded!='true'}">
-                            <a class="mousetoHand" onclick="seqUpdateOpenClose( 'expand_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"><i class="fas fa-plus-circle"></i></a>
+                            <img   class="mousetoHand" src="images/nav/plus.png" alt="open" onclick="seqUpdateOpenClose( 'expand_tree_node', '${modelUc.sequenceVersion}', '${col.ucSeqDiagram.seqMstId}', ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '<c:url value="/GetSeqUpdate.htm" />', '${col.ucSeqDiagram.sysSeqId}');"/>
                             </c:if>
                             </td>
                             <!-- TD 2-->
