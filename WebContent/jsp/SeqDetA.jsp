@@ -1114,8 +1114,7 @@ function linkFields()
                       <td>
                          <c:if test="${modelUc.toolTip=='MENU_TIP'}">
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
-                               Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="
-                               <c:url value="/images/menui_selection.png" />
+                               Tip : Click on menu <a title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                                " > below and select interaction action, check <a href="<c:url value="www.qsequence.com/faq.htm#new_sequence"/>"><strong>FAQ - Creating Your First Sequence</strong></a>
                             </div>
                          </c:if>
@@ -1131,8 +1130,7 @@ function linkFields()
                          </c:if>
                          <c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
-                               Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="
-                               <c:url value="/images/menui_selection.png" />
+                               Error : Save error, you have <strong>Paste Asynch</strong> in the menu <a title="Menu" alt="Menu" height="20" width="20" ><i class="fas fa-bars"></i></a>
                                " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="www.qsequence.com/faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
                             </div>
                          </c:if>
@@ -1179,8 +1177,7 @@ function linkFields()
                       <td>
                          <c:if test="${modelUc.toolTip=='MENU_TIP'}">
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
-                               Tip : Click on menu <img title="Menu" alt="Menu" height="20" width="20" src="
-                               <c:url value="/images/menui_selection.png" />
+                               Tip : Click on menu <a title="Menu" alt="Menu" height="20" width="20" ><i class="fas fa-bars"></i></a>
                                " > below and select interaction, for more details on what you can create click <a href="<c:url value="www.qsequence.com/faq.htm#CreatingFirstSequence"/>">FAQ - Creating Your First Sequence</a>
                             </div>
                          </c:if>
@@ -1196,8 +1193,7 @@ function linkFields()
                          </c:if>
                          <c:if test="${modelUc.toolTip=='ASYNCH_MENU_SAVE_ERROR'}">
                             <div id="tool_tip" class="bubble" style="width:500px;height:60px;">
-                               Error : Save error, you have <strong>Paste Asynch</strong> in the menu <img title="Menu" alt="Menu" height="20" width="20" src="
-                               <c:url value="/images/menui_selection.png" />
+                               Error : Save error, you have <strong>Paste Asynch</strong> in the menu <a title="Menu" alt="Menu" height="20" width="20" ><i class="fas fa-bars"></i></a>
                                " > before you save you need to paste, or discard changes, please have a look at  <a href="<c:url value="www.qsequence.com/faq.htm#asynch"/>"><strong>FAQ - how to create asynchronous interactions</strong></a>
                             </div>
                          </c:if>
@@ -1274,21 +1270,21 @@ function linkFields()
                             </c:if>
                             <c:if test="${modelUc.editclass=='editable'}">
                             <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination !=null}">
                             <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId==null  and col.ucSeqDiagram.asynchSourceDestination ==null}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             </c:if>
@@ -1323,7 +1319,7 @@ function linkFields()
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
                             <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             <a  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20"
@@ -1331,28 +1327,28 @@ function linkFields()
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination !=null}">
                             <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}');">
                             </c:if>
                             <a  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20"
                             onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId!=null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}');">
                             <a  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20"
                             onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( ${col.ucSeqDiagram.seqItemId}, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination !=null}">
                             <c:if test="${ col.ucSeqDiagram.asynchSourceDestination=='SOURCE' or (col.ucSeqDiagram.asynchSourceDestination=='DESTINATION' and not(fn:containsIgnoreCase(col.ucSeqDiagram.systemType, 'sys_seq')))}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}');">
                             </c:if>
                             <a  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20"
                             onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '${col.ucSeqDiagram.asynchSourceDestination}', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');">
                             </c:if>
                             <c:if test="${col.ucSeqDiagram.seqItemId==null and col.ucSeqDiagram.asynchSourceDestination ==null}">
-                            <img  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20" src="<c:url value="/images/menui_selection.png" />"
+                            <a  class="mousetoHand" title="Menu" alt="Menu" height="20" width="20"><i class="fas fa-bars"></i></a>
                             onclick="showMenu1('${col.ucObjectEnum}_prop_menu_edit', event);updateRwoCol(0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}');">
                             <a  id="SYS_${col.ucSeqDiagram.rowNo}_${col.ucSeqDiagram.colNo}" class="${col.ucSeqDiagram.systemAccess}" title="Information" alt="Information" height="20" width="20"
                             onclick="showProperties('prop_menu_view_system_SEPERATOR_${modelUc.ucId}_SEPERATOR_${col.ucSeqDiagram.seqMstId}_SEPERATOR_${col.ucSeqDiagram.seqItemId}_SEPERATOR_${col.ucSeqDiagram.systemId}_SEPERATOR_${col.ucSeqDiagram.requestId}_SEPERATOR_${col.ucSeqDiagram.responseId}_SEPERATOR_${col.ucSeqDiagram.rowNo}_SEPERATOR_${col.ucSeqDiagram.colNo}_SEPERATOR_${col.ucSeqDiagram.systemName}_SEPERATOR_${col.ucSeqDiagram.request}_SEPERATOR_${col.ucSeqDiagram.response}_SEPERATOR_${col.ucSeqDiagram.systemType}_SEPERATOR_${col.ucSeqDiagram.sysSeqId}', event);updateRwoCol( 0, ${col.ucSeqDiagram.rowNo}, ${col.ucSeqDiagram.colNo}, '', '${col.ucSeqDiagram.systemName}', '${col.ucSeqDiagram.systemType}');"><i class="fas fa-info-circle"></i></a>
