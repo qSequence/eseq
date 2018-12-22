@@ -1506,8 +1506,8 @@ function linkFields()
                                      </c:if>
                                      </c:if>
                                      <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
-                                     <td align="left" height="20" width="20">&nbsp;<img
-                                     src="<c:url value="${menuItem.itemImage}" />" style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
+                                     <td align="left" height="20" width="20">
+                                       <a  style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}"><i class="fas fa-bars"></i></a>
                                      </td>
                                      </c:if>
                                      <c:if test="${menuItem.itemType=='synch_asynch'}">
@@ -1521,12 +1521,9 @@ function linkFields()
                                   <c:if test="${menuItem.menuEnabled=='false'}">
                                      <tr>
                                         <c:if test="${menuItem.itemImage!=''}  and menuItem.itemImage!=null">
-                                           <td align="left" height="20" width="20">
-                                              &nbsp;<img
-                                              src="
-                                              <c:url value="${menuItem.itemImage}" />
-                                              " style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}">
-                                           </td>
+                                          <td align="left" height="20" width="20">
+                                            <a  style="margin-bottom:.25em; vertical-align:middle;" alt="${menuItem.itemName}"><i class="fas fa-bars"></i></a>
+                                          </td>
                                         </c:if>
                                         <c:if test="${menuItem.itemType=='synch_asynch'}">
                                            <td align="left" height="20" width="150" nowrap="nowrap"><font color="#D3D3D3"><strong>${menuItem.itemName}</strong></font></td>
