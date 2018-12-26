@@ -30,11 +30,11 @@ public class DisplayUtil {
 	@Autowired
 	Util util;
     public UcDisplayObject getDisplayObjectForLastEditLink() {
-        
-        
+
+
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
         StringBuilder sb = new StringBuilder ();
-        sb.append("<!-- getDisplayObjectForLastEditLink -->");            
+        sb.append("<!-- getDisplayObjectForLastEditLink -->");
         sb.append("<td align=center valign=\"top\" height=\"");
         sb.append(AppConstants.CELL_HEIGHT);
         sb.append("\"");
@@ -46,20 +46,20 @@ public class DisplayUtil {
         sb.append("</td></tr></table></td>");
         ucDisplayObject.setHtmlStr(sb.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.emptyColumn.toString());
-        return ucDisplayObject;    
+        return ucDisplayObject;
     }
     private UcDisplayObject getDisplayObjectForVerticalLineConnector(String colour, String boundary, String ifConditionBoundaryCOLOUR, boolean selected, int i, int j) {
         if (colour==null){
             colour="cyan";
         }// if colour == BLUE the it is the CROSS_OVER_LINE
-        
+
         String selectTag="";
         if(selected){
             selectTag="<A NAME=\"selectedSeqItem\"></A>";
         }
 
         StringBuilder colouredBoundries = new StringBuilder();
-        
+
         if(boundary!=null){
             String[] boundaryArray = boundary.split("----");
 
@@ -73,7 +73,7 @@ public class DisplayUtil {
         //convention use the 2nd TD from 2nd TR for lines, then 1st TD from 2nd TR
         StringBuilder sb = new StringBuilder ();
         sb.append("<!-- getDisplayObjectForVerticalLineConnector colour:"+colour+" boundary:"+boundary+" ifConditionBoundaryCOLOUR:"+ifConditionBoundaryCOLOUR+" selected:"+selected+"-->");
-//CHANGE THIS TD for SPACES        
+//CHANGE THIS TD for SPACES
         sb.append("<td align=center valign=\"top\" height=\"");
         sb.append(AppConstants.CELL_HEIGHT);
         sb.append("\"");
@@ -91,7 +91,7 @@ public class DisplayUtil {
         }
         sb.append(i);
         sb.append("\"    border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\">         <tr>");
-        
+
         //sb.append("<table  border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\">         <tr>");
         sb.append("<td>&nbsp;</td>");
         sb.append("<td style=\"border-left: ");
@@ -109,17 +109,17 @@ public class DisplayUtil {
         sb.append("</tr></table></td>");
         ucDisplayObject.setHtmlStr(sb.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.vertivalLineConnector.toString());
-        return ucDisplayObject;        
+        return ucDisplayObject;
     }
-    
+
     private UcDisplayObject getDisplayObjectForSystemToSystemTwoWayConnector(BigDecimal seqMstId,String userId,BigInteger ucId, String isEdited, String oneWay, UcSeqDiagram ucSeqDiagram,String colour, String boundary, String ifConditionBoundaryCOLOUR, boolean selected, String displayView, String sequenceVersion, String CONTEXT_PATH) {
         if (colour==null){
             colour="cyan";
         }
-        
+
         Map<BigInteger, String> requestAccess =access.getUserRequestAccess(userId);
 		Map<BigInteger, String> systemAccess = access.getUserSystemAccess(userId);
-		
+
         //set editable class only when editing
         String htmlClass="";
         if(isEdited!=null && isEdited.equals(AppConstants.Y) && !UcObjectEnum.sys_seq.toString().equalsIgnoreCase(ucSeqDiagram.getSystemType())){
@@ -127,8 +127,8 @@ public class DisplayUtil {
         }else{
             htmlClass = "noteditable";
         }
-        
-        
+
+
         String selectTag="";
         if(selected){
             selectTag="<A NAME=\"selectedSeqItem\"></A>";
@@ -138,19 +138,19 @@ public class DisplayUtil {
         }
         if(ucSeqDiagram.getResponse()==null){
             ucSeqDiagram.setResponse("Response");
-        }        
-        
+        }
+
         StringBuilder colouredBoundries = new StringBuilder();
         if(boundary!=null){
         String[] boundaryArray = boundary.split("----");
-        
+
         for(String boundryPart :boundaryArray){
             colouredBoundries.append("border-"+boundryPart+": 1px solid "+ifConditionBoundaryCOLOUR+";");
         }
         }
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
         //convention use the 2nd TD from 2nd TR for lines, then 1st TD from 2nd TR
-        
+
         StringBuilder htmlStr = new StringBuilder();
         htmlStr.append("<!-- getDisplayObjectForSystemToSystemTwoWayConnector row:"+ucSeqDiagram.getRowNo()+" column:"+ucSeqDiagram.getColNo()+" colour:"+colour+" boundary:"+boundary+" ifConditionBoundaryCOLOUR:"+ifConditionBoundaryCOLOUR+" selected:"+selected+"-->");
         htmlStr.append("<td align=center valign=\"top\" height=\"");
@@ -171,7 +171,7 @@ public class DisplayUtil {
         //htmlStr.append("<table    border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr>");
         htmlStr.append("<td>");
 
-    //REQUEST        
+    //REQUEST
     String requestIdPart1="prop_menu_view_request_SEPERATOR_";
     StringBuilder idPart2 = new StringBuilder();
     if(ucId!=null){
@@ -200,7 +200,7 @@ public class DisplayUtil {
     idPart2.append("_SEPERATOR_");
     idPart2.append(ucSeqDiagram.getRowNo());
     idPart2.append("_SEPERATOR_");
-    idPart2.append(ucSeqDiagram.getColNo());        
+    idPart2.append(ucSeqDiagram.getColNo());
     idPart2.append("_SEPERATOR_");
 
     String systemName = (StringUtils.isNotEmpty(ucSeqDiagram.getSystemName())) ? ucSeqDiagram.getSystemName():"";
@@ -220,11 +220,11 @@ public class DisplayUtil {
             htmlStr.append("<img class=\"mousetoHand\" title=\"Make Synch\" alt=\"Make Synch\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
             htmlStr.append("/images/synch.png\"");
-        
+
             htmlStr.append(" onclick=\"updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');seqUpdate('update_to_synch_display_action', '"+sequenceVersion+"', "+seqMstId+",'null', '");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
             htmlStr.append("/GetSeqUpdate.htm',"+ucSeqDiagram.getSysSeqId()+");\"");
-        
+
             htmlStr.append(" height=\"20\" width=\"20\">");
         }
     }else if (displayView.equals(AppConstants.FULL_ACCESS_VIEW)
@@ -234,16 +234,16 @@ public class DisplayUtil {
 //            htmlStr.append("<img class=\"mousetoHand\" title=\"Make Asynch\" alt=\"Make Asynch\" src=\"");
 //            htmlStr.append(AppConstants.APP_CONTEXT);
 //            htmlStr.append("/images/asynch.png\" ");
-//            
+//
 //            htmlStr.append(" onclick=\"updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');seqUpdate('update_to_asynch_display_action', '"+sequenceVersion+"', "+seqMstId+",'null', '");
 //            htmlStr.append(AppConstants.APP_CONTEXT);
 //            htmlStr.append("/GetSeqUpdate.htm',"+ucSeqDiagram.getSysSeqId()+");\" ");
-//            
+//
 //            htmlStr.append(" height=\"20\" width=\"20\">");
 //        }
     }
     if(ucSeqDiagram.getRequestPropertiesFound()!=null && ucSeqDiagram.getRequestPropertiesFound().contains("gray") && requestAccess.get(ucSeqDiagram.getRequestId())!=null
-            &&ucSeqDiagram.getSystemType()!=null 
+            &&ucSeqDiagram.getSystemType()!=null
             && ((requestAccess.get(ucSeqDiagram.getRequestId()).equals("RO") &&ucSeqDiagram.getSystemType().contains(AppConstants.SYS_SEQ))
             		||requestAccess.get(ucSeqDiagram.getRequestId()).equals("RW")||requestAccess.get(ucSeqDiagram.getRequestId()).equals("OW")
             	)
@@ -255,7 +255,7 @@ public class DisplayUtil {
             &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
         htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-        htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
+        htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");
 
     }else if(ucSeqDiagram.getRequestPropertiesFound()!=null && requestAccess.get(ucSeqDiagram.getRequestId())!=null
             &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
@@ -264,17 +264,17 @@ public class DisplayUtil {
         htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
     }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
     		&& requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-        htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
+        htmlStr.append("<a class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-        htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
+        htmlStr.append("onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>");
     }else{
-    	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
+    	htmlStr.append("<a id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-        htmlStr.append("/images/information_injection_gray.png\"  height=\"20\" width=\"20\">");
+        htmlStr.append("height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
     }
-            
+
     htmlStr.append("</td>");
-        
+
         htmlStr.append("<td class=\""+htmlClass+"\" colspan=\"3\" id=\"");
         //setting ID
         htmlStr.append(UcObjectEnum.request);
@@ -304,7 +304,7 @@ public class DisplayUtil {
         htmlStr.append(colour);
         htmlStr.append("; word-wrap:break-word;font-family:times;color:black;font-size:12px;\" ");
 
-        
+
         //Add the request combogrid here
         htmlStr.append("oninput=\"updateSelectedComboGridForRequest('");
         htmlStr.append(UcObjectEnum.request);
@@ -348,13 +348,13 @@ public class DisplayUtil {
         htmlStr.append(ucSeqDiagram.getRequest());
         htmlStr.append("</td>");
         htmlStr.append("</tr><tr>");
-        
+
         if(oneWay!=null && oneWay.equals(AppConstants.Y)){
 
-            
+
             htmlStr.append("<td>");
             //RESPONSE
-            
+
             htmlStr.append("&nbsp;</td>");
             htmlStr.append("<td class=\"noteditable\" colspan=\"3\" style=\"border-top: ");
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
@@ -365,7 +365,7 @@ public class DisplayUtil {
 //            }else{
                 htmlStr.append(colour);
 //            }
-            
+
             htmlStr.append(";border-left: ");
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
             htmlStr.append("px    solid "+colour+"; word-wrap:break-word; font-family:times;color:black;font-size:12px;\"  id=\"");
@@ -393,12 +393,12 @@ public class DisplayUtil {
 //            htmlStr.append("----");
 //            htmlStr.append(ucSeqDiagram.getResponse());
             htmlStr.append("\">&nbsp;");
-            
+
             htmlStr.append("</td>");
             htmlStr.append("</tr><tr>");
             htmlStr.append("<td>&nbsp;</td>");
             htmlStr.append("<td style=\"border-left: ");
-            
+
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
             htmlStr.append("px    solid ");
             htmlStr.append(colour);
@@ -406,18 +406,18 @@ public class DisplayUtil {
             htmlStr.append("<td>&nbsp;</td>");
 
             htmlStr.append("<td>&nbsp;</td>");
-            
+
         }else{
-            
+
             htmlStr.append("<td>");
             //RESPONSE
             //String responseIdPart1="prop_menu_view_response_GGGGGSEPERATOR_";
             String responseIdPart1="prop_menu_view_response_SEPERATOR_";
-            
+
             String responseIdPart3= ucSeqDiagram.getRequest()+"_SEPERATOR_"+ucSeqDiagram.getResponse();
     //        System.out.println("RESPONSE="+responseIdPart1+idPart2+responseIdPart3);
             if(ucSeqDiagram.getResponsePropertiesFound()!=null && ucSeqDiagram.getResponsePropertiesFound().contains("gray") && requestAccess.get(ucSeqDiagram.getRequestId())!=null
-                    &&ucSeqDiagram.getSystemType()!=null && 
+                    &&ucSeqDiagram.getSystemType()!=null &&
                 		((requestAccess.get(ucSeqDiagram.getRequestId()).equals("RO") &&ucSeqDiagram.getSystemType().contains(AppConstants.SYS_SEQ))
                         		||requestAccess.get(ucSeqDiagram.getRequestId()).equals("RW")||requestAccess.get(ucSeqDiagram.getRequestId()).equals("OW")
                         	)
@@ -429,7 +429,7 @@ public class DisplayUtil {
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
                 htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");                        
+                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
                     && requestAccess.get(ucSeqDiagram.getRequestId())!=null){
@@ -438,16 +438,16 @@ public class DisplayUtil {
             htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
             		&& requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+                htmlStr.append("<a class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-            htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
+            htmlStr.append(" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
             }else{
-            	htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+            	htmlStr.append("<a  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/information_injection_gray.png\"  height=\"20\" width=\"20\">");
+                htmlStr.append("  height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
             }
-            
-            
+
+
             htmlStr.append("&nbsp;</td>");
             htmlStr.append("<td class=\""+htmlClass+"\" colspan=\"3\" style=\"border-top: ");
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
@@ -565,26 +565,26 @@ public class DisplayUtil {
             htmlStr.append(";\">&nbsp;</td>");
         }
         htmlStr.append("</tr></table></td>");
-        
+
         ucDisplayObject.setHtmlStr(htmlStr.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.systemSystemTwoWayConnector.toString());
-        return ucDisplayObject;        
+        return ucDisplayObject;
     }
     private UcDisplayObject getDisplayObjectForSystemToSystemLastConnector(BigDecimal seqMstId,String userId,BigInteger ucId, String isEdited, String oneWay, UcSeqDiagram ucSeqDiagram,String colour, String boundary, String ifConditionBoundaryCOLOUR, boolean selected, String displayView, String sequenceVersion, String CONTEXT_PATH) {
-        
+
     	Map<BigInteger, String> requestAccess =access.getUserRequestAccess(userId);
  		Map<BigInteger, String> systemAccess = access.getUserSystemAccess(userId);
     	if (colour==null){
             colour="cyan";
         }
-        
+
         String htmlClass="";
         if(isEdited!=null && isEdited.equals(AppConstants.Y) && !UcObjectEnum.sys_seq.toString().equalsIgnoreCase(ucSeqDiagram.getSystemType())){
             htmlClass = "editable";
         }else{
             htmlClass = "noteditable";
         }
-        
+
         String selectTag="";
         if(selected){
             selectTag="<A NAME=\"selectedSeqItem\"></A>";
@@ -594,19 +594,19 @@ public class DisplayUtil {
         }
         if(ucSeqDiagram.getResponse()==null){
             ucSeqDiagram.setResponse("Response");
-        }        
+        }
         StringBuilder colouredBoundries = new StringBuilder();
         String tableTDStyle="";
         if(boundary!=null){
         String[] boundaryArray = boundary.split("----");
         for(String boundryPart :boundaryArray){
-            
+
             if(!boundryPart.equals("bottom")){
                 colouredBoundries.append("border-"+boundryPart+": 1px solid "+ifConditionBoundaryCOLOUR+";");
             }else if(boundryPart.equals("bottom")){
                 tableTDStyle="border-"+boundryPart+": 1px solid "+ifConditionBoundaryCOLOUR+";";
             }
-            
+
         }
         }
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
@@ -622,17 +622,17 @@ public class DisplayUtil {
         htmlStr.append(" style=\"");
         htmlStr.append(colouredBoundries);
         htmlStr.append("\">"+selectTag);
-        
+
         htmlStr.append("<table    id=\"");
         htmlStr.append("table_SYSTEM_LAST_CONNECTOR");
         htmlStr.append(ucSeqDiagram.getRowNo());
         htmlStr.append("\"    border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr>");
 
-        
+
         //htmlStr.append("<table    border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr>");
         htmlStr.append("<td>");
 
-            //REQUEST        
+            //REQUEST
             String requestIdPart1="prop_menu_view_request_SEPERATOR_";
             StringBuilder idPart2 = new StringBuilder();
             if(ucId!=null){
@@ -661,14 +661,14 @@ public class DisplayUtil {
             idPart2.append("_SEPERATOR_");
             idPart2.append(ucSeqDiagram.getRowNo());
             idPart2.append("_SEPERATOR_");
-            idPart2.append(ucSeqDiagram.getColNo());                
+            idPart2.append(ucSeqDiagram.getColNo());
             idPart2.append("_SEPERATOR_");
-            
+
             String systemName = (StringUtils.isNotEmpty(ucSeqDiagram.getSystemName())) ?ucSeqDiagram.getSystemName():"";
             systemName = systemName.replaceAll("\\s+", "");
             idPart2.append(systemName);
             idPart2.append("_SEPERATOR_");
-            
+
             String requestIdPart3= ucSeqDiagram.getRequest()+"_SEPERATOR_"+ucSeqDiagram.getResponse();
             String idPart4= "_SEPERATOR_";
             idPart4+=ucSeqDiagram.getSystemType();
@@ -707,7 +707,7 @@ public class DisplayUtil {
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
                 htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
+                htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getRequestPropertiesFound()!=null&& requestAccess.get(ucSeqDiagram.getRequestId())!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
                 htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
@@ -715,15 +715,15 @@ public class DisplayUtil {
                 htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
             		&& requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+                htmlStr.append("<q class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
+                htmlStr.append(" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
             }else{
-            	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+            	htmlStr.append("<a id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/information_injection_gray.png\"  height=\"20\" width=\"20\">");
+                htmlStr.append("  height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
             }
-                    
+
             htmlStr.append("</td>");
 
         htmlStr.append("<td class=\""+htmlClass+"\" colspan=\"3\" id=\"");
@@ -790,20 +790,20 @@ public class DisplayUtil {
         htmlStr.append(ucSeqDiagram.getSystemType());
         htmlStr.append("----");
         htmlStr.append(ucSeqDiagram.getSysSeqId());
-        
+
         htmlStr.append("', '");
         htmlStr.append(ucSeqDiagram.getSystemType());
         htmlStr.append("');\" ");
         htmlStr.append(">");
-        
-        
+
+
         htmlStr.append(ucSeqDiagram.getRequest());
         htmlStr.append("</td>");
         htmlStr.append("</tr><tr>");
 
         if(oneWay!=null && oneWay.equals(AppConstants.Y)){
             //RESPONSE
-            //String responseIdPart1="prop_menu_view_response_EEEEESEPERATOR_";    
+            //String responseIdPart1="prop_menu_view_response_EEEEESEPERATOR_";
             htmlStr.append("<td>&nbsp;</td>");
 
             htmlStr.append("<td class=\"noteditable\" colspan=\"3\" style=\"border-top: ");
@@ -815,7 +815,7 @@ public class DisplayUtil {
 //            }else{
                 htmlStr.append(colour);
 //            }
-            
+
             htmlStr.append("; word-wrap:break-word; font-family:times;color:black;font-size:12px;\"  id=\"");
             //setting ID
             htmlStr.append(UcObjectEnum.response);
@@ -847,26 +847,26 @@ public class DisplayUtil {
             htmlStr.append("<td style=\"");
             htmlStr.append(tableTDStyle);
             htmlStr.append("\">&nbsp;</td>");
-    
-            
+
+
             htmlStr.append("<td style=\"");
-            
+
             htmlStr.append(tableTDStyle);
             htmlStr.append("\">&nbsp;</td>");
             htmlStr.append("<td style=\"");
-            
+
             htmlStr.append(tableTDStyle);
             htmlStr.append("\">&nbsp;</td>");
             htmlStr.append("<td style=\"");
-            
+
             htmlStr.append(tableTDStyle);
             htmlStr.append("\">&nbsp;</td>");
 
         }else{
             //RESPONSE
-            //String responseIdPart1="prop_menu_view_response_EEEEESEPERATOR_";    
+            //String responseIdPart1="prop_menu_view_response_EEEEESEPERATOR_";
             htmlStr.append("<td>");
-            String responseIdPart1="prop_menu_view_response_SEPERATOR_";        
+            String responseIdPart1="prop_menu_view_response_SEPERATOR_";
             String responseIdPart3= ucSeqDiagram.getRequest()+"_SEPERATOR_"+ucSeqDiagram.getResponse();
     //        System.out.println("RESPONSE="+responseIdPart1+idPart2+responseIdPart3);
 
@@ -883,8 +883,8 @@ public class DisplayUtil {
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
                 htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
-                
+                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");
+
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null  && requestAccess.get(ucSeqDiagram.getRequestId())!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
                 htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
@@ -892,11 +892,11 @@ public class DisplayUtil {
                 htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
             		 && requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+                htmlStr.append("<a class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
+                htmlStr.append("onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
             }
-            
+
             htmlStr.append("&nbsp;</td>");
             htmlStr.append("<td class=\""+htmlClass+"\" colspan=\"3\" style=\"border-top: ");
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
@@ -974,15 +974,15 @@ public class DisplayUtil {
             htmlStr.append(ucSeqDiagram.getSystemType());
             htmlStr.append("');\" ");
             htmlStr.append(">");
-            
+
             htmlStr.append(ucSeqDiagram.getResponse());
             htmlStr.append("</td>");
             htmlStr.append("</tr><tr>");
             htmlStr.append("<td style=\"");
             htmlStr.append(tableTDStyle);
             htmlStr.append("\">&nbsp;</td>");
-    
-            
+
+
             htmlStr.append("<td style=\"border-top: ");
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
             htmlStr.append("px solid ");
@@ -1024,30 +1024,30 @@ public class DisplayUtil {
         htmlStr.append("</tr></table></td>");
         ucDisplayObject.setHtmlStr(htmlStr.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.systemSystemLastConnector.toString());
-        return ucDisplayObject;        
-    
-    }    
+        return ucDisplayObject;
+
+    }
 
     private UcDisplayObject getDisplayObjectForSysSeqConnector(String isEdited, UcSeqDiagram ucSeqDiagram, String displayView, String sequenceVersion,String CONTEXT_PATH) {
     	String colour="cyan";
 //        if (colour==null){
 //            colour="cyan";
 //        }
-        
+
         String htmlClass="";
 //        if(isEdited!=null && isEdited.equalsIgnoreCase(AppConstants.Y)){
 //            htmlClass = "editable";
 //        }else{
             htmlClass = "noteditable";//SYS_SEQ request & response will not be editable from here
 //        }
-        
+
         if(ucSeqDiagram.getRequest()==null){
             ucSeqDiagram.setRequest("Request");
         }
         if(ucSeqDiagram.getResponse()==null){
             ucSeqDiagram.setResponse("Response");
-        }        
-        
+        }
+
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
         //convention use the 2nd TD from 2nd TR for lines, then 1st TD from 2nd TR
         StringBuilder htmlStr = new StringBuilder();
@@ -1059,18 +1059,18 @@ public class DisplayUtil {
         htmlStr.append(AppConstants.CELL_WIDTH);
         htmlStr.append("\"");
         htmlStr.append("\">");
-        
+
         htmlStr.append("<table    id=\"");
         htmlStr.append("table_SYS_SEQ_CONNECTOR");
         htmlStr.append(ucSeqDiagram.getRowNo());
         htmlStr.append("\"    border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr>");
 
-        
+
         //htmlStr.append("<table    border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr>");
         htmlStr.append("<td>");
 
-            
-                    
+
+
             htmlStr.append("&nbsp;</td>");
 
         htmlStr.append("<td class=\""+htmlClass+"\" colspan=\"3\" style=\" word-wrap:break-word; font-family:times;color:black;font-size:12px;\"  id=\"");
@@ -1132,9 +1132,9 @@ public class DisplayUtil {
         htmlStr.append(ucSeqDiagram.getSystemType());
         htmlStr.append("');\" ");
         htmlStr.append(">");
-        
+
         //------
-      //REQUEST        
+      //REQUEST
         String requestIdPart1="prop_menu_view_request_SEPERATOR_";
         StringBuilder idPart2 = new StringBuilder();
 
@@ -1162,20 +1162,20 @@ public class DisplayUtil {
         idPart2.append("_SEPERATOR_");
         idPart2.append(ucSeqDiagram.getRowNo());
         idPart2.append("_SEPERATOR_");
-        idPart2.append(ucSeqDiagram.getColNo());                
+        idPart2.append(ucSeqDiagram.getColNo());
         idPart2.append("_SEPERATOR_");
-        
+
         String systemName = ucSeqDiagram.getSystemName();
         systemName = systemName.replaceAll("\\s+", "");
         idPart2.append(systemName);
         idPart2.append("_SEPERATOR_");
-        
+
         String requestIdPart3= ucSeqDiagram.getRequest()+"_SEPERATOR_"+ucSeqDiagram.getResponse();
         String idPart4= "_SEPERATOR_";
         idPart4+=ucSeqDiagram.getSystemType();
         idPart4+= "_SEPERATOR_";
         idPart4+=ucSeqDiagram.getSysSeqId();
-        
+
         if(ucSeqDiagram.getRequestPropertiesFound()!=null && ucSeqDiagram.getRequestPropertiesFound().contains("gray") && displayView.equals(AppConstants.FULL_ACCESS_VIEW)
                 &&ucSeqDiagram.getSystemType()!=null &&  !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
             htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand\" title=\"Information\" alt=\"Information\" src=\"");
@@ -1185,16 +1185,16 @@ public class DisplayUtil {
                 &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
             htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-            htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
+            htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");
         }else if(ucSeqDiagram.getRequestPropertiesFound()!=null
                 &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
             htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
             htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
         }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-            htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+            htmlStr.append("<a class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-            htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
+            htmlStr.append(" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
         }
         //-----
         htmlStr.append(ucSeqDiagram.getRequest());
@@ -1202,10 +1202,10 @@ public class DisplayUtil {
         htmlStr.append("</tr><tr>");
 
             //RESPONSE
-            //String responseIdPart1="prop_menu_view_response_EEEEESEPERATOR_";    
+            //String responseIdPart1="prop_menu_view_response_EEEEESEPERATOR_";
             htmlStr.append("<td>");
-           
-            
+
+
             htmlStr.append("&nbsp;</td>");
             htmlStr.append("<td class=\""+htmlClass+"\" colspan=\"3\" style=\"border-top: ");
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
@@ -1282,7 +1282,7 @@ public class DisplayUtil {
             htmlStr.append("');\" ");
             htmlStr.append(">");
             //---
-            String responseIdPart1="prop_menu_view_response_SEPERATOR_";        
+            String responseIdPart1="prop_menu_view_response_SEPERATOR_";
             String responseIdPart3= ucSeqDiagram.getRequest()+"_SEPERATOR_"+ucSeqDiagram.getResponse();
     //        System.out.println("RESPONSE="+responseIdPart1+idPart2+responseIdPart3);
 
@@ -1295,25 +1295,25 @@ public class DisplayUtil {
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
                 htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
-                
+                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");
+
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
                 htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+                htmlStr.append("<a class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
+                htmlStr.append(" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
             }
             //----
             htmlStr.append(ucSeqDiagram.getResponse());
             htmlStr.append("</td>");
             htmlStr.append("</tr><tr>");
             htmlStr.append("<td>&nbsp;</td>");
-    
-            
+
+
             htmlStr.append("<td style=\"border-top: ");
             htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
             htmlStr.append("px solid ");
@@ -1352,9 +1352,9 @@ public class DisplayUtil {
         htmlStr.append("</tr></table></td>");
         ucDisplayObject.setHtmlStr(htmlStr.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.systemSystemLastConnector.toString());
-        return ucDisplayObject;        
-    
-    }    
+        return ucDisplayObject;
+
+    }
     private UcDisplayObject getDisplayObjectForTopCornerConnector() {
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
         //convention use the 2nd TD from 2nd TR for lines, then 1st TD from 2nd TR
@@ -1367,7 +1367,7 @@ public class DisplayUtil {
         htmlStr.append("px solid cyan;\">&nbsp;"+UcObjectEnum.topCornerConnector+"</td></tr></table></td>");
         ucDisplayObject.setHtmlStr(htmlStr.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.topCornerConnector.toString());
-        return ucDisplayObject;        
+        return ucDisplayObject;
     }
 
     private UcDisplayObject getDisplayObjectForOddConnector() {
@@ -1375,7 +1375,7 @@ public class DisplayUtil {
         //convention use the 2nd TD from 2nd TR for lines, then 1st TD from 2nd TR
         StringBuilder htmlStr = new StringBuilder();
         htmlStr.append("<td align=center valign=\"top\" height=\"100\" width=\"100\"><table  border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td>&nbsp;</td><td style=\"border-left: ");
-        
+
         htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
         htmlStr.append("px solid cyan;\">&nbsp;</td></tr><tr><td style=\"border-top: ");
         htmlStr.append(AppConstants.REQUEST_RESPONSE_LINE_THICKNESS);
@@ -1386,8 +1386,8 @@ public class DisplayUtil {
         htmlStr.append("px solid cyan;\">&nbsp;"+UcObjectEnum.oddConnector+"</td></tr></table></td>");
         ucDisplayObject.setHtmlStr(htmlStr.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.oddConnector.toString());
-        
-        return ucDisplayObject;        
+
+        return ucDisplayObject;
     }
 
     private UcDisplayObject getDisplayObjectForBottomCornerConnector() {
@@ -1402,11 +1402,11 @@ public class DisplayUtil {
         htmlStr.append("px solid cyan;\">&nbsp;"+UcObjectEnum.bottomCornerConnector+"</td></tr></table></td>");
         ucDisplayObject.setHtmlStr(htmlStr.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.bottomCornerConnector.toString());
-        return ucDisplayObject;    
+        return ucDisplayObject;
     }
-    
+
     private UcDisplayObject getDisplayObjectForComponentEmptyColumn(String height, String width) {
-        
+
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
         StringBuilder sb = new StringBuilder ();
         //sb.append("<!-- getDisplayObjectForComponentEmptyColumn height:"+height+" width:"+width+"  -->");
@@ -1420,24 +1420,24 @@ public class DisplayUtil {
         sb.append("</td></tr></table></td>");
         ucDisplayObject.setHtmlStr(sb.toString());
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.emptyColumn.toString());
-        return ucDisplayObject;    
+        return ucDisplayObject;
     }
-    
+
 
     private UcDisplayObject getDisplayObjectForEmptyColumn(boolean selected, boolean fixedLengthColumn, boolean lastColumn, boolean lastRow, boolean asynch, int row, int col, String asynchRequest) {
         /*
          * boolean lastColumn, boolean lastRow
          *
          * are added to make these row/column 100% as it does not display properly on IE
-         *  
+         *
          */
-        
+
         String selectTag="";
         if(selected){
             selectTag="<A NAME=\"selectedSeqItem\"></A>";
         }
 
-        
+
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
         StringBuilder sb = new StringBuilder ();
         sb.append("<!-- getDisplayObjectForEmptyColumn fixedLengthColumn:"+fixedLengthColumn+" lastColumn:"+lastColumn+"  lastRow:"+lastRow+"-->");
@@ -1498,17 +1498,17 @@ public class DisplayUtil {
             sb.append(selectTag+"&nbsp;");
             sb.append("</td></tr></table></td>");
             ucDisplayObject.setHtmlStr(sb.toString());
-            
+
         }
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.emptyColumn.toString());
-        return ucDisplayObject;    
+        return ucDisplayObject;
     }
 
     private UcDisplayObject getDisplayObjectForEvenConnector() {
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
         ucDisplayObject.setHtmlStr("<td align=center valign=\"top\" height=\"100\" width=\"100\"><table  border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td>&nbsp;</td><td style=\"border-left: 1px solid cyan;\">&nbsp;</td></tr><tr><td style=\"border-top: 1px solid cyan;\">&nbsp;</td><td  style=\"border-left: 1px solid cyan;\">&nbsp;"+UcObjectEnum.evenConnector+"</td></tr></table></td>");
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.evenConnector.toString());
-        return ucDisplayObject;    
+        return ucDisplayObject;
     }
 
 
@@ -1517,7 +1517,7 @@ public class DisplayUtil {
         //convention use the 2nd TD from 2nd TR for lines, then 1st TD from 2nd TR
         ucDisplayObject.setHtmlStr("<td align=center valign=\"top\" class=\"minfield\"><table  border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td>&nbsp;</td></tr><tr><td style=\"border-top: 1px solid cyan;\">&nbsp;"+UcObjectEnum.rightArrow+"</td></tr></table></td>");
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.rightArrow.toString());
-        return ucDisplayObject;    
+        return ucDisplayObject;
         }
     private UcDisplayObject getUcDisplayObjectForSystem(UcSeqDiagram ucSeqDiagram, String contextPath, String view) {
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
@@ -1536,10 +1536,10 @@ public class DisplayUtil {
                 ucDisplayObject.setUcObjectEnum(UcObjectEnum.system.toString());
             }
         }
-        
+
 
         StringBuilder colouredBoundries = new StringBuilder();
-        
+
 //        if(ucSeqDiagram.getSystemNew()!= null && ucSeqDiagram.getSystemNew().equals(AppConstants.Y)
 //                &&view.equals(AppConstants.FULL_ACCESS_VIEW)){
 //            colouredBoundries.append("border-right: 1px solid red;");
@@ -1547,7 +1547,7 @@ public class DisplayUtil {
 //            colouredBoundries.append("border-top: 1px solid red;");
 //            colouredBoundries.append("border-bottom: 1px solid red;");
 //        }
-        
+
 //        if(ucSeqDiagram.getAsynchSourceDestination()!=null
 //                &&ucSeqDiagram.getAsynchSourceDestination().equals(AppConstants.SOURCE)){
 //            colouredBoundries.append("border-right: 4px dashed gray;");
@@ -1559,8 +1559,8 @@ public class DisplayUtil {
 //            colouredBoundries.append("border-left: 4px dashed gray;");
 //            colouredBoundries.append("border-bottom: 4px dashed gray;");
 //        }
-        
-        
+
+
         colouredBoundries.append("background-image: url('");
         if(ucSeqDiagram.getSystemType()!=null && ucSeqDiagram.getSystemType().contains(UcObjectEnum.custom.toString()+"_")){
             colouredBoundries.append(ucSeqDiagram.getMenuImageUrl());
@@ -1580,10 +1580,10 @@ public class DisplayUtil {
         colouredBoundries.append("');");
         colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
-        
+
         ucDisplayObject.setUcSeqDiagram(ucSeqDiagram);
         return ucDisplayObject;
-    }    
+    }
 
 //    //Set the row and column to 1 as this is only called for 1st row column of any sequence
 //    private UcDisplayObject getUcDisplayObjectForSystem(UcSeqMst ucSeqMst, String contextPath, String userId, String view) {
@@ -1606,7 +1606,7 @@ public class DisplayUtil {
 //        }else if(ucSeqMst!=null && ucSeqMst.getSystemType()!=null){
 //            colouredBoundries.append(contextPath);
 //            colouredBoundries.append("/images/");
-//        
+//
 //            colouredBoundries.append(ucSeqMst.getSystemType()+".png");
 //        }else{
 //            colouredBoundries.append(contextPath);
@@ -1616,8 +1616,8 @@ public class DisplayUtil {
 //        colouredBoundries.append("');");
 //        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
 //        ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
-//        
-//        
+//
+//
 //        UcSeqDiagram ucSeqDiagram = new UcSeqDiagram();
 //        ucSeqDiagram.setSystemType(ucSeqMst.getSystemType());
 //        ucSeqDiagram.setSystemName(ucSeqMst.getSystemName());
@@ -1638,12 +1638,12 @@ public class DisplayUtil {
 //        //Set the row and column to 1 as this is only called for 1st row column of any sequence
 //        ucSeqDiagram.setColNo(AppConstants.CUSTOMER_SEQUENCE_POSITION_COL_NO);
 //        ucSeqDiagram.setRowNo(AppConstants.CUSTOMER_SEQUENCE_POSITION_ROW_NO);
-//        
+//
 //        ucDisplayObject.setUcSeqDiagram(ucSeqDiagram );
 //
 //        return ucDisplayObject;
 //    }
-    
+
     private UcDisplayObject getDisplayObjectForIfConditionBoundary(String boundary, String colour, boolean selected, int i) {
         String selectTag="";
         if(selected){
@@ -1663,16 +1663,16 @@ public class DisplayUtil {
                 tableTDStyle="border-"+boundryPart+": 1px solid "+colour+";";
             }
         }
-        
+
 
         ucDisplayObject.setHtmlStr("<!-- CHANGED_getDisplayObjectForIfConditionBoundary --> <td style=\""+colouredBoundries+"\" width=\""+ AppConstants.CELL_WIDTH+"\" height=\""+ AppConstants.CELL_HEIGHT+"\" align=center valign=\"top\" class=\"minfield\"><table id=\"table_IF_BORDER"+i+"\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td style=\""+tableTDStyle+"\">"+selectTag+"&nbsp;</td></tr></table></td>");
 
         return ucDisplayObject;
     }
-    
+
     //This system is within the IF condition
     private UcDisplayObject getUcDisplayObjectForSystemIfItem(UcSeqDiagram ucSeqDiagram,String boundary, String colour,String contextPath, String view) {
-        
+
         String[] boundaryArray = boundary.split("----");
         boolean foundBoundaryTop=false;
         boolean foundBoundaryBottom=false;
@@ -1692,11 +1692,11 @@ public class DisplayUtil {
             }
             if(boundryPart.equals("left")){
                 foundBoundaryLeft=true;
-                colouredBoundries.append("border-"+boundryPart+": 1px solid "+colour+";");                
+                colouredBoundries.append("border-"+boundryPart+": 1px solid "+colour+";");
             }
             if(boundryPart.equals("top")){
                 foundBoundaryTop=true;
-                colouredBoundries.append("border-"+boundryPart+": 1px solid "+colour+";");                
+                colouredBoundries.append("border-"+boundryPart+": 1px solid "+colour+";");
             }
             //NOT appending colouredBoundries for BOTTOM as this is to fix UI will move this boundry into TD inside the table
             if(boundryPart.equals("bottom")){
@@ -1722,7 +1722,7 @@ public class DisplayUtil {
 //            colouredBoundries.append("border-bottom: 1px solid red;");
 //        }
         colouredBoundries.append("background-image: url('");
-        
+
         if(ucSeqDiagram.getSystemType()!=null && ucSeqDiagram.getSystemType().contains(UcObjectEnum.custom.toString()+"_")){
             colouredBoundries.append(ucSeqDiagram.getMenuImageUrl());
         }else if(ucSeqDiagram!=null && ucSeqDiagram.getSystemType()!=null){
@@ -1742,12 +1742,12 @@ public class DisplayUtil {
         colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
 
-        
+
         ucDisplayObject.setUcSeqDiagram(ucSeqDiagram);
         return ucDisplayObject;
-    }    
-    
-    //This IF_CONDITION has children    
+    }
+
+    //This IF_CONDITION has children
     private UcDisplayObject getUcDisplayObjectForIfAndSectionWithChildren(String colspan, UcSeqDiagram ucSeqDiagram, String colour, boolean selected) {
 
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
@@ -1763,8 +1763,8 @@ public class DisplayUtil {
         }else{
             ucSeqDiagram.setSelected("false");
         }
-        
-                
+
+
         ucDisplayObject.setHtmlStr(colspan+" style=\" border-left: 1px solid  "+colour+"; border-right: 1px solid  "+colour+"; border-top: 1px solid  "+colour+";\"");
         ucDisplayObject.setUcSeqDiagram(ucSeqDiagram);
         return ucDisplayObject;
@@ -1787,7 +1787,7 @@ public class DisplayUtil {
         ucDisplayObject.setUcSeqDiagram(ucSeqDiagram);
         return ucDisplayObject;
     }
-    
+
     public List<List<UcDisplayObject>> generateComponentDiagram(
             UcSystemMst ucSystemMst,
             Map<BigInteger, Map<BigInteger, UcPrintComponentObject>> printComponentObjectListMapBySystemId,
@@ -1801,14 +1801,14 @@ public class DisplayUtil {
         // validate
         if (ucSystemMst == null ||printComponentObjectListMapBySystemId==null) {
             throw new Exception("Please select appropriate sequence to Display...");
-        }        
-        
+        }
+
         /*         Initialise variables
          *
          */
         BigInteger bigIntegerSystemId = util.convertBigDecimalToBigInteger(ucSystemMst.getSystemId());
         int numberOfRows=0;           //This variable is used to define the initial row size of the sequence
-        
+
         Map<String, Object> returnObject = util.findNoOfRowsInDiagramAndSourceTargetMap(printComponentObjectListMapBySystemId, ucSystemMst, ucSystemMapBySystemId);
         Map<String, List<String>> parentSystemMap = (Map<String, List<String>>)returnObject.get("parentSystemMap");
         Map<String, List<String>> childSystemMap = (Map<String, List<String>>)returnObject.get("childSystemMap");
@@ -1825,7 +1825,7 @@ public class DisplayUtil {
             numberOfRows=noOfRowsInDiagram+3;               //-----Initialise based on input parameters
         }
         int numberOfColumns=7;        //This variable is used to define the initial column size of the sequence
-        
+
         //find row positions for diagram
         //Step 1: Find center row of the diagram
         int centerRow = 0;
@@ -1838,7 +1838,7 @@ public class DisplayUtil {
             centerRow = numberOfRows/2;
             centerRow+=1;
         }
-        
+
         //Step2 find parent start row position
         int parentStartRow = 0;
         String parentCenterRowPosition=AppConstants.ODD;
@@ -1849,7 +1849,7 @@ public class DisplayUtil {
             parentStartRow= centerRow-noOfParentRowsInDiagram/2;
             parentCenterRowPosition=AppConstants.ODD;
         }
-        
+
         //Step3 find child start row position
         int childStartRow = 0;
         String childCenterRowPosition=AppConstants.ODD;
@@ -1860,16 +1860,16 @@ public class DisplayUtil {
             childStartRow= centerRow-noOfChildRowsInDiagram/2;
             childCenterRowPosition=AppConstants.ODD;
         }
-        
-        
-        
+
+
+
         Iterator<Entry<String, List<String>>> parentSystemItr = parentSystemMap.entrySet().iterator();
         Iterator<Entry<String, List<String>>> childSystemItr = childSystemMap.entrySet().iterator();
-        
-        
-        
+
+
+
         List<List<UcDisplayObject>> ucDisplayDataRowList = new ArrayList<List<UcDisplayObject>>();
-        
+
         List<UcDisplayObject> ucDisplayDataColumnEmptyList=new ArrayList<UcDisplayObject>(11);
         for(int i=1;i<=numberOfColumns;i++){
             ucDisplayDataColumnEmptyList.add(getDisplayObjectForComponentEmptyColumn(height,width));
@@ -1891,14 +1891,14 @@ public class DisplayUtil {
                         ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 5 - empty
                     }
                     ucDisplayDataColumnList.add(getUcDisplayObjectForComponent(ucSystemMst.getSystemName(), contextPath));//Col 6 - System
-                    
+
                 }else if(row==centerRow && parentCenterRowPosition==AppConstants.ODD){
                     List<String> requestList = new ArrayList<String>();
                     String requests = "";
                     if(parentSystemItr.hasNext()){
                         Entry<String, List<String>> entry = parentSystemItr.next();
                         systemName = entry.getKey();
-                        
+
                         requestList = entry.getValue();
                     }
                     for(String request:requestList){
@@ -1923,7 +1923,7 @@ public class DisplayUtil {
                     if(parentSystemItr.hasNext()){
                         Entry<String, List<String>> entry = parentSystemItr.next();
                         systemName = entry.getKey();
-                        
+
                         requestList = entry.getValue();
                     }
                     for(String request:requestList){
@@ -1938,7 +1938,7 @@ public class DisplayUtil {
                     //ucDisplayDataColumnList.add(getUcDisplayObjectForHorizontalLine(requests, contextPath));//Col 4 - horizontal line
                     ucDisplayDataColumnList.add(getUcDisplayObjectForTopLeftConnector(contextPath));//Col 5 - top left connector
                     ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 6 - empty
-                    
+
                 }else{
                     List<String> requestList = new ArrayList<String>();
                     String requests = "";
@@ -1946,7 +1946,7 @@ public class DisplayUtil {
                     if(parentSystemItr.hasNext()){
                         Entry<String, List<String>> entry = parentSystemItr.next();
                         systemName = entry.getKey();
-                        
+
                         requestList = entry.getValue();
                     }
                     for(String request:requestList){
@@ -1976,7 +1976,7 @@ public class DisplayUtil {
                         ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 6 - empty
                     }//end if
                 }//end if
-                    
+
             }else{
                 ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 2 - empty
                 ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 3 - empty
@@ -1984,7 +1984,7 @@ public class DisplayUtil {
                 ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 5 - empty
                 ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 6 - empty
             }//end if
-            
+
             //Step 2 : process the children
             if(row >= childStartRow){
                 if(row==centerRow && childCenterRowPosition==AppConstants.EVEN){
@@ -2003,7 +2003,7 @@ public class DisplayUtil {
                     if(childSystemItr.hasNext()){
                         Entry<String, List<String>> entry = childSystemItr.next();
                         systemName = entry.getKey();
-                        
+
                         requestList = entry.getValue();
                     }
                     for(String request:requestList){
@@ -2029,7 +2029,7 @@ public class DisplayUtil {
                     if(childSystemItr.hasNext()){
                         Entry<String, List<String>> entry = childSystemItr.next();
                         systemName = entry.getKey();
-                        
+
                         requestList = entry.getValue();
                     }
                     for(String request:requestList){
@@ -2043,7 +2043,7 @@ public class DisplayUtil {
                     //ucDisplayDataColumnList.add(getUcDisplayObjectForHorizontalLine(requests, contextPath));//Col 8 - horizontal line
                     ucDisplayDataColumnList.add(getUcDisplayObjectForAssemblyConnector(contextPath, requests));//Col 9 - assembly connector
                     ucDisplayDataColumnList.add(getUcDisplayObjectForComponent(systemName, contextPath));//Col 10 - System
-                    //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty                    
+                    //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty
                 }else if(childSystemItr!=null){
                     List<String> requestList = new ArrayList<String>();
                     String requests = "";
@@ -2051,7 +2051,7 @@ public class DisplayUtil {
                     if(childSystemItr.hasNext()){
                         Entry<String, List<String>> entry = childSystemItr.next();
                         systemName = entry.getKey();
-                        
+
                         requestList = entry.getValue();
                     }
                     for(String request:requestList){
@@ -2066,13 +2066,13 @@ public class DisplayUtil {
                         //ucDisplayDataColumnList.add(getUcDisplayObjectForHorizontalLine(requests, contextPath));//Col 8 - horizontal line
                         ucDisplayDataColumnList.add(getUcDisplayObjectForAssemblyConnector(contextPath, requests));//Col 9 - assembly connector
                         ucDisplayDataColumnList.add(getUcDisplayObjectForComponent(systemName, contextPath));//Col 10 - System
-                        //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty                    
+                        //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty
                     }else if(systemName!=""){
                         ucDisplayDataColumnList.add(getDisplayObjectForRightTConnector(contextPath));//Col 7 - RightTConnector
                         //ucDisplayDataColumnList.add(getUcDisplayObjectForHorizontalLine(requests, contextPath));//Col 8 - horizontal line
                         ucDisplayDataColumnList.add(getUcDisplayObjectForAssemblyConnector(contextPath, requests));//Col 9 - assembly connector
                         ucDisplayDataColumnList.add(getUcDisplayObjectForComponent(systemName, contextPath));//Col 10 - System
-                        //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty                    
+                        //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty
                     }else{
                         ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 7 - empty
                         //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 8 - empty
@@ -2081,29 +2081,29 @@ public class DisplayUtil {
                         //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty
                     }//end if
                 }//end if
-                    
+
             }else{
                 ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 7 - empty
             //    ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 8 - empty
                 ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 9 - empty
                 ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 10 - empty
-                //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty                
+                //ucDisplayDataColumnList.add(getDisplayObjectForComponentEmptyColumn(height,width));//Col 11 - empty
             }//end if
             ucDisplayDataRowList.add(ucDisplayDataColumnList);
         }//end for
-        
-        
-        
+
+
+
         return ucDisplayDataRowList;
     }
-    
+
     public List<List<UcDisplayObject>> generateSequenceDisplayData(BigDecimal seqMstId, List<UcSeqDiagram> rowList, String userRequestAction, String contextPath, String row_no_param, String col_no_param, String displayView, String userId, String sequenceVersion,String isEdited,String oneWay,BigInteger ucId, String CONTEXT_PATH)
             throws Exception{
         // validate
         if (rowList == null ) {
             throw new Exception("Please select appropriate sequence to Display...");
-        }        
-        
+        }
+
         /*         Initialise variables
          *
          */
@@ -2134,20 +2134,20 @@ public class DisplayUtil {
             //When DELETE action the selectedColumnNo goes beyond the numberOfColumns(max cols for display), and so no selecting occurs
             selectedColumnNo=selectedColumnNo-1;
         }
-        
+
         //Colours initialization
         String verticalLineConnectorCOLOUR="blue";
         String ifConditionBoundaryCOLOUR="gray";
 
         // DISPLAY_CONTEXT: HTML table Row 1-------------------------------------------------------
-        
+
         List<List<UcDisplayObject>> ucDisplayDataRowList = new ArrayList<List<UcDisplayObject>>();
         List<UcDisplayObject> ucDisplayDataColumnListEmpty = new ArrayList<UcDisplayObject>();
         ucDisplayDataColumnListEmpty.add(getDisplayObjectForEmptyColumn(false, false, false, false, false,0,0, null));
         ucDisplayDataColumnListEmpty.add(getDisplayObjectForEmptyColumn(false, true, false, false, false,0,0, null));
         //ucDisplayDataColumnListEmpty.add(getDisplayObjectForVerticalLineConnector(verticalLineConnectorCOLOUR, null, ifConditionBoundaryCOLOUR, false,0,2));
-        
-        
+
+
         ucDisplayDataColumnListEmpty.add(getDisplayObjectForEmptyColumn(false, true, false, false, false,0,0, null));
         for(int i=ucDisplayDataColumnListEmpty.size();i<=numberOfColumns;i++){
             boolean lastColumn=false;
@@ -2156,7 +2156,7 @@ public class DisplayUtil {
                 ucDisplayDataColumnListEmpty.add(getDisplayObjectForEmptyColumn(false, false, lastColumn, false, false,0,0, null));
             }else{
                 ucDisplayDataColumnListEmpty.add(getDisplayObjectForEmptyColumn(false, true, lastColumn, false, false,0,0, null));
-            }                
+            }
         }
         ucDisplayDataRowList.add(ucDisplayDataColumnListEmpty);
         // END DISPLAY_CONTEXT: HTML table Row 1-------------------------------------------------------
@@ -2165,22 +2165,22 @@ public class DisplayUtil {
          *  KEY             : is the COLUMN of the NEXT LEVEL child(ie; the next column of the item)
          *  VALUE           : [rownNoOfFirstNextLevelChildItem,   rownNoOfLastNextLevelChildItem]
          */
-//?????? - need to consider the effect of close and open on this variable        
+//?????? - need to consider the effect of close and open on this variable
         Map<BigInteger, PositionRange> rowRangeMapbyColumnNo =new HashMap<BigInteger, PositionRange>();
 
-        //convert list to Map        
+        //convert list to Map
         Map<BigInteger, Map<BigInteger, UcSeqDiagram>> rowMap = util.convertSequenceListToMap(rowList);
-        
+
         // DISPLAY_CONTEXT: HTML table Row 2-------------------------------------------------------
-        
+
 //        List<UcDisplayObject> ucDisplayDataColumnList = new ArrayList<UcDisplayObject>();
 //        ucDisplayDataColumnList.add(getDisplayObjectForEmptyColumn(false, false, false, false, false,0,0, null));
 //        //TODO : Remove below
 //        ucDisplayDataColumnList.add(getUcDisplayObjectForSystem(ucSeqMst, contextPath, userId, displayView));
-//        
-//        
-//        
-//        if(rowMap!=null && !rowMap.isEmpty() && rowMap.get(AppConstants.FIRST_SEQUENCE_POSITION_ROW_NO)!=null  
+//
+//
+//
+//        if(rowMap!=null && !rowMap.isEmpty() && rowMap.get(AppConstants.FIRST_SEQUENCE_POSITION_ROW_NO)!=null
 //                &&rowMap.get(AppConstants.FIRST_SEQUENCE_POSITION_ROW_NO).get(AppConstants.FIRST_SEQUENCE_POSITION_COL_NO)!=null){
 //            ucSeqDiagram=rowMap.get(AppConstants.FIRST_SEQUENCE_POSITION_ROW_NO).get(AppConstants.FIRST_SEQUENCE_POSITION_COL_NO);
 //            if(ucSeqDiagram.getRequest()==null){
@@ -2192,18 +2192,18 @@ public class DisplayUtil {
 //        }
 ////TODO : Remove below
 //        ucDisplayDataColumnList.add(getDisplayObjectForCustomerToSystemTwoWayConnector(ucSeqMst, ucSeqDiagram, null,null,ifConditionBoundaryCOLOUR, false, displayView));
-//        
-//        
+//
+//
 //        if(ucSeqDiagram!=null && ucSeqDiagram.getRowNo()!=null && ucSeqDiagram.getColNo()!=null){
 //            //TODO : Remove below
 //            ucDisplayDataColumnList.add(getUcDisplayObjectForSystem(ucSeqDiagram, contextPath, displayView));
-//            // Populate MAP for the current ROW and COLUMN in ucSeqDiagram    
+//            // Populate MAP for the current ROW and COLUMN in ucSeqDiagram
 //            Map<String, Object> rowColumnRangeMap=populateRowRangeMapbyColumnNo(ucSeqDiagram, rowMap);
-//            
+//
 //            PositionRange rowRange = (PositionRange)rowColumnRangeMap.get("rowRange");
 //
 //            ucSeqDiagram.setLastChildRowNo(rowRange.getEndNo());
-//            
+//
 //            rowRangeMapbyColumnNo.put(ucSeqDiagram.getColNo().add(new BigInteger("1")), (PositionRange)rowColumnRangeMap.get("rowRangeForlastRowForLastNextLevelChild"));
 //        }
 //        for(int i=ucDisplayDataColumnList.size();i<=numberOfColumns;i++){
@@ -2212,12 +2212,12 @@ public class DisplayUtil {
 //                lastColumn=true;
 //            }
 //            ucDisplayDataColumnList.add(getDisplayObjectForEmptyColumn(false, false, lastColumn, false, false,i,0, null));
-//            
+//
 //        }
 //        ucDisplayDataRowList.add(ucDisplayDataColumnList);
-        
+
         // END DISPLAY_CONTEXT: HTML table Row 2-------------------------------------------------------
-        
+
         //This variable is used by the IF_CONDITION, to draw the OUTER boundaries
         List<Map<String,Object>> rowColumnRangeList= new ArrayList<Map<String,Object>>();
         /*-------111111------LOOP through all records and construct the rowColumnRangeList
@@ -2225,7 +2225,7 @@ public class DisplayUtil {
          *                 IF condition boundries before we construct the page
          *
          *         OTHER option is to loop through when a if condition/section is encountered
-         *             
+         *
          */
 //        System.out.println("++++++++++++++++++++++++++++++++++++++++++ looking for row="+(selectedRowNo));
 //        System.out.println("++++++++++++++++++++++++++++++++++++++++++ looking for column="+(selectedColumnNo));
@@ -2236,9 +2236,9 @@ public class DisplayUtil {
             BigInteger bigIntegerI = util.convertIntToBigInteger(i);
             int updateNumberOfRows=numberOfRows;
             int updateI=i;
-            
+
             for(int j =ucDisplayDataColumnListLocal.size(); j<=numberOfColumns;j++){
-                BigInteger bigIntegerJ = util.convertIntToBigInteger(j);    
+                BigInteger bigIntegerJ = util.convertIntToBigInteger(j);
                 if((bigIntegerI.intValue()==2
                         &&bigIntegerJ.intValue()==2)
                         ||
@@ -2247,8 +2247,8 @@ public class DisplayUtil {
                         ){
                     System.out.print("s");
                 }
-                
-                
+
+
                 boolean selected=false;
                 //Setting selected value
                 if(i==selectedRowNo && j==selectedColumnNo){
@@ -2262,7 +2262,7 @@ public class DisplayUtil {
 
                     ucSeqDiagram = rowMap.get(bigIntegerI).get(bigIntegerJ);
                     //ASYNCH action
-        
+
                     if(ucSeqDiagram.getAsynchSourceDestination()!=null
                             && ucSeqDiagram.getAsynchSourceDestination().equals(AppConstants.SOURCE)){
                         //PositionRange
@@ -2278,13 +2278,13 @@ public class DisplayUtil {
                         asynchRequestMap.put(ucSeqDiagram.getColNo(), ucSeqDiagram.getRequest());
                         asynchMap.put(ucSeqDiagram.getColNo(), positionRangeList);
                     }
-                    
+
                     //END ASYNCH action
                     Map<String, Object> rowColumnRangeMap = populateRowRangeMapbyColumnNo(ucSeqDiagram, rowMap);
                     //UsedFor_SKIPPING_ASYNCH_DESTINATION_IF_TREE_CLOSED
                     Map<BigInteger, BigInteger> asynchRowSkipMap = (Map<BigInteger, BigInteger>)rowColumnRangeMap.get("asynchRowSkipMap");
                     asynchRowSkipMapGlobal.putAll(asynchRowSkipMap);
-                    
+
                     //UsedFor_EXPAND_CLOSE
                     PositionRange rowRange = (PositionRange)rowColumnRangeMap.get("rowRange");
                     //UsedFor_FRONT_END_JSP_Javascript
@@ -2300,15 +2300,15 @@ public class DisplayUtil {
 
                     //update ucSeqDiagram lastRow
                     ucSeqDiagram.setLastChildRowNo(rowRange.getEndNo());
-                    
+
                     //START - Logic for expand and close
-                    
+
                     //VALIDATION
                     if(ucSeqDiagram.getExpanded()==null){
                         ucSeqDiagram.setExpanded("true");
                     }
-                    
-    
+
+
                     /*We need to update the selectedRowNo if we are skipping rows
                      * otherwise this row is skipped and does not get selected
                      */
@@ -2323,10 +2323,10 @@ public class DisplayUtil {
                     }else{
                         ucSeqDiagram.setSelected("false");
                     }
-                    
+
                     //END - Logic for expand and close
-                    
-//-------------------------------------------------------------------------------------                    
+
+//-------------------------------------------------------------------------------------
                     /*
                      * Check if we need to get displayObject for IF_CONDITION or SYSTEM
                      */
@@ -2335,10 +2335,10 @@ public class DisplayUtil {
                          *  another variable for row range, we will still be using the same END position though
                          */
                         //Only add to the rowColumnRangeList list if it is SECTION/IF condition
-                        rowColumnRangeList.add(rowColumnRangeMap);                            
-                        
-                        
-                        
+                        rowColumnRangeList.add(rowColumnRangeMap);
+
+
+
                         if(lastColumnIfBoundryRange!=null
                                 && ucSeqDiagram.getExpanded()=="true"){
 
@@ -2356,7 +2356,7 @@ public class DisplayUtil {
                                 /*if the selectedColumnNo is between originalJ and j, then just make this as selected
                                  * otherwise this column is skipped and does not get selected
                                  */
-                                
+
                                 if(i==selectedRowNo && selectedColumnNo>=originalJ && selectedColumnNo <= j){
                                     selectedColumnNo=j+1;
 //                                        System.out.println("++++++++++++++++++++++++++++++++++++++++++ selected i="+i+" j="+j);
@@ -2364,24 +2364,24 @@ public class DisplayUtil {
                                         && (selectedColumnNo>=j && selectedColumnNo <= j+colspanInt)){
                                     selected=true;
 //                                        System.out.println("++++++++++++++++++++++++++++++++++++++++++ selected i="+i+" j="+j);
-                                    
+
                                 }
-                                
+
                             }
-                            
-//                                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getUcDisplayObjectForIfAndSectionWithChildren");                
+
+//                                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getUcDisplayObjectForIfAndSectionWithChildren");
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++ i="+i+" j="+j);
                             ucDisplayDataColumnListLocal.add(getUcDisplayObjectForIfAndSectionWithChildren(colspan, ucSeqDiagram, ifConditionBoundaryCOLOUR, selected));
                         }else{
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getUcDisplayObjectForIfAndSectionWithOutChildren");
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++ i="+i+" j="+j);
                             ucDisplayDataColumnListLocal.add(getUcDisplayObjectForIfAndSectionWithOutChildren(ucSeqDiagram, ifConditionBoundaryCOLOUR));
-                            
-                            
-                        }
-                        
 
-                        
+
+                        }
+
+
+
                     }else{
                         String boundary=getIfConditionBoundary(rowColumnRangeList, bigIntegerI, bigIntegerJ);
                         if(boundary!=null){
@@ -2392,8 +2392,8 @@ public class DisplayUtil {
 //                                    && rowBetweenAsynchRange(asynchMap, ucSeqDiagram)){
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getUcDisplayObjectForSystemIfItem");
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++ i="+i+" j="+j);
-//                                ucDisplayDataColumnListLocal.add(getUcDisplayObjectForAsynchConnectorItem(ucSeqDiagram,  contextPath));                                
-                            
+//                                ucDisplayDataColumnListLocal.add(getUcDisplayObjectForAsynchConnectorItem(ucSeqDiagram,  contextPath));
+
                         }else{
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getUcDisplayObjectForSystem");
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++ i="+i+" j="+j);
@@ -2407,11 +2407,11 @@ public class DisplayUtil {
                     if(rowRange!=null
                         &&ucSeqDiagram.getExpanded()=="false"
                         &&i<=rowRange.getEndNo().intValue()){
-                        
+
                         //numberOfRows have to be calculated before the VALUE of i is updated
                         updateNumberOfRows=numberOfRows+rowRange.getEndNo().intValue()-i;
                         updateI=rowRange.getEndNo().intValue();
-                    
+
                         //TODO : Check if updateI+1 is
 
                         int z=0;
@@ -2442,7 +2442,7 @@ public class DisplayUtil {
                             }
                         }//end while
 
-                        
+
                     }else if(asynchRowSkipMapGlobal.get(new BigInteger(Integer.toString(i+1)))!=null){ // check if next row belongs to asynch DESTINATION
                         int z=0;
                         while(asynchRowSkipMapGlobal.get(new BigInteger(Integer.toString(i+1))) !=null){
@@ -2490,7 +2490,7 @@ public class DisplayUtil {
                             if(rowRangeMapbyColumnNo.get(nextCol).endNo.intValue()==bigIntegerI.intValue()){
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getDisplayObjectForSystemToSystemLastConnector");
 //                                System.out.println("++++++++++++++++++++++++++++++++++++++++++ i="+i+" j="+j);
-    
+
                                 if(rowMap.get(bigIntegerI).get(nextCol).getAsynchSourceDestination()!=null
                                         &&rowMap.get(bigIntegerI).get(nextCol).getAsynchSourceDestination().equals(AppConstants.DESTINATION)){
                                     //TODO : Add Empty//CHECK.......................................CHECK.....................
@@ -2520,10 +2520,10 @@ public class DisplayUtil {
                                 &&rowRangeMapbyColumnNo.get(nextCol).endNo.intValue()>=bigIntegerI.intValue()){
                             //CHECK.......................................CHECK.....................
 //                            System.out.println("Row="+bigIntegerI.intValue()+"    Column="+bigIntegerJ.intValue());
-//                            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getDisplayObjectForVerticalLineConnector");                            
+//                            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ selected getDisplayObjectForVerticalLineConnector");
 //                            System.out.println("++++++++++++++++++++++++++++++++++++++++++ i="+i+" j="+j);
                             ucDisplayDataColumnListLocal.add(getDisplayObjectForVerticalLineConnector(null, boundary, ifConditionBoundaryCOLOUR, selected,i , j));
-                        
+
                         }else{
 
                             if(boundary!=null){
@@ -2543,7 +2543,7 @@ public class DisplayUtil {
                                 }
 
                                 if(asynchMap.get(util.convertStringToBigInteger(Integer.toString(j)))!=null
-                                        && rowBetweenAsynchRange(asynchMap, i,j)){    
+                                        && rowBetweenAsynchRange(asynchMap, i,j)){
                                     ucDisplayDataColumnListLocal.add(getDisplayObjectForEmptyColumn(selected,true, lastColumn, lastRow, true,i,j, asynchRequestMap.get(new BigInteger(Integer.toString(j)))));
                                 }else if(sequenceVersion!=null && (sequenceVersion.equals(AppConstants.SYS_SEQ) || sequenceVersion.equals(AppConstants.SYS_SEQ_DRAFT)|| sequenceVersion.equals(AppConstants.SYS_SEQ_PROD))
                                         && bigIntegerI.intValue() == AppConstants.SYS_SEQ_FIRST_ROW_NO.intValue()
@@ -2562,14 +2562,14 @@ public class DisplayUtil {
                          */
                     }
 
-                    
+
 //                }
             }//for j ie;column
-            
+
             //update these values based on Logic for expand and close
             numberOfRows=updateNumberOfRows;
             i=updateI;
-            
+
             ucDisplayDataRowList.add(ucDisplayDataColumnListLocal);
 
         }
@@ -2588,7 +2588,7 @@ public class DisplayUtil {
         ucDisplayObject.setUcObjectEnum(UcObjectEnum.system.toString());
         String fileName = util.drawImage(systemName, AppConstants.COMPONENT_DEFAULT_IMAGE, 30, CONTEXT_PATH);
         StringBuilder colouredBoundries = new StringBuilder();
-        
+
 //        colouredBoundries.append("background-image: url('");
 //        if(fileName.equals(AppConstants.COMPONENT_DEFAULT_IMAGE)){
 //        colouredBoundries.append(contextPath);
@@ -2601,7 +2601,7 @@ public class DisplayUtil {
         ucDisplayObject.setImageName(fileName);
         return ucDisplayObject;
     }
-    
+
     private UcDisplayObject getDisplayObjectForRightTConnector(
             String contextPath) {
         UcDisplayObject ucDisplayObject = new UcDisplayObject();
@@ -2703,7 +2703,7 @@ public class DisplayUtil {
         colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 75px 50px;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
         ucDisplayObject.setImageName(contextPath+"/images/"+"bottom_right_corner.png");
-        
+
         return ucDisplayObject;
     }
 
@@ -2758,7 +2758,7 @@ public class DisplayUtil {
         colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 75px 50px;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
         ucDisplayObject.setImageName(contextPath+"/images/"+"bottom_left_corner.png");
-        
+
         return ucDisplayObject;
     }
     private Map<String, Object> populateRowRangeMapbyColumnNo(
@@ -2772,7 +2772,7 @@ public class DisplayUtil {
         /* NOTE: This will be used for getting the row and column ranges without considering if the nodes are expanded
          * also the start position for these would be the first child
          */
-        
+
         PositionRange rowRange = new PositionRange();
         PositionRange columnRange = new PositionRange();
         /* NOTE: This will be used for getting the row and column ranges considering if the nodes are expanded
@@ -2780,8 +2780,8 @@ public class DisplayUtil {
          */
         PositionRange lastRowIfBoundryRange = new PositionRange();
         PositionRange lastColumnIfBoundryRange= new PositionRange();
-        
-        
+
+
         /*
          * This MAP lastRowColMap is used for returing 3 values
          *
@@ -2800,7 +2800,7 @@ public class DisplayUtil {
             rowRangeForlastRowForLastNextLevelChild.setEndNo((BigInteger)lastRowColMap.get("lastRowForLastNextLevelChild"));
             //rowRange.setStartNo(ucSeqDiagram.getRowNo());
             rowRange.setStartNo(firstChildRow);
-            
+
             if(lastRowColMap.get("lastRow")!=null)
                 rowRange.setEndNo((BigInteger)lastRowColMap.get("lastRow"));
             else
@@ -2818,11 +2818,11 @@ public class DisplayUtil {
             rowRange.setStartNo(new BigInteger("0"));
             rowRange.setEndNo(new BigInteger("0"));
         }
-        
+
         //Setting lastColumnIfBoundry & lastRowIfBoundry
         lastColumnIfBoundryRange.setStartNo(ucSeqDiagram.getColNo());
         lastRowIfBoundryRange.setStartNo(ucSeqDiagram.getRowNo());
-        
+
         if(lastRowColMap.get("lastColumnIfBoundry")!=null){
             lastColumnIfBoundryRange.setEndNo((BigInteger)lastRowColMap.get("lastColumnIfBoundry"));
         }else{
@@ -2834,7 +2834,7 @@ public class DisplayUtil {
             lastRowIfBoundryRange.setEndNo(new BigInteger("0"));
         }
         //END : Setting lastColumnIfBoundry & lastRowIfBoundry
-        
+
         Map<String, Object> rowColRangeMap = new HashMap <String, Object>(8);
         //UsedFor_LINKS
         rowColRangeMap.put("rowRangeForlastRowForLastNextLevelChild", rowRangeForlastRowForLastNextLevelChild);
@@ -2842,14 +2842,14 @@ public class DisplayUtil {
         rowColRangeMap.put("asynchRowSkipMap", asynchRowSkipMap);
 
         rowColRangeMap.put("columnRange", columnRange);
-        
+
         rowColRangeMap.put("rowRange", rowRange);
         /*IF_NOTEEEEEEEEEEEEEEE
          * columnRange.setStartNo(bigIntergerJ);
          * columnRange.setEndNo(lastColumn);
          * rowRange.setStartNo(bigIntergerI)
          * rowRange.setEndNo(lastRow)
-         */        
+         */
         //UsedFor_IF
         rowColRangeMap.put("lastRowIfBoundryRange", lastRowIfBoundryRange);
         /*LINKS_NOTEEEEEEEEEEEEEEE
@@ -2860,28 +2860,28 @@ public class DisplayUtil {
         //UsedFor_IF
 
         rowColRangeMap.put("lastColumnIfBoundryRange", lastColumnIfBoundryRange);
-        
-        
+
+
         return rowColRangeMap;
     }
 
-   
+
     private String getIfConditionBoundary(
             List<Map<String, Object>> rowColumnRangeList,
             BigInteger bigIntegerI, BigInteger bigIntegerJ) {
         String  boundary=null;
-        
+
 //        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------------------------ROW="+bigIntegerI.toString());
-//        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------------------------COLUMN="+bigIntegerJ.toString());        
-        
+//        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------------------------COLUMN="+bigIntegerJ.toString());
+
         for(Map<String, Object> rowColumnRangeMap:rowColumnRangeList){
             //NOTE: we need to change here to use the new Map elements
             PositionRange rowRange=(PositionRange)rowColumnRangeMap.get("lastRowIfBoundryRange");
             PositionRange columnRange=(PositionRange)rowColumnRangeMap.get("lastColumnIfBoundryRange");
 //            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------startRow="+rowRange.getStartNo().toString());
-//            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------endRow="+rowRange.getEndNo().toString());        
+//            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------endRow="+rowRange.getEndNo().toString());
 //            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------startColumn="+columnRange.getStartNo().toString());
-//            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------endColumn="+columnRange.getEndNo().toString());        
+//            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------endColumn="+columnRange.getEndNo().toString());
 
             if(bigIntegerI.intValue()==3&&bigIntegerJ.intValue()==5){
 //                System.out.print("s");
@@ -2890,7 +2890,7 @@ public class DisplayUtil {
                     && bigIntegerI.intValue()<=rowRange.getEndNo().intValue()
                     && bigIntegerJ.intValue()>=columnRange.getStartNo().intValue()
                     && bigIntegerJ.intValue()<=columnRange.getEndNo().intValue()){
-                
+
                 if(bigIntegerI.intValue()==rowRange.getStartNo().intValue()){
                     boundary="top";
                 }
@@ -2906,7 +2906,7 @@ public class DisplayUtil {
                         boundary="left";;
                     }else{
                         boundary+="----left";;
-                    }                    
+                    }
                 }
                 if(bigIntegerJ.intValue()==columnRange.getEndNo().intValue()){
                     if(boundary==null){
@@ -2923,27 +2923,27 @@ public class DisplayUtil {
     private boolean rowBetweenAsynchRange(
             Map<BigInteger, List<PositionRange>> asynchMap,
             int row, int col) {
-        
+
         if(row==8 && col==9){
 //            return true;
 //            System.out.println("ucSeqDiagram.getRowNo="+row);
 //            System.out.println("ucSeqDiagram.getColNo="+col);
         }
-        
+
         List<PositionRange> rowRangeList = asynchMap.get(util.convertStringToBigInteger(Integer.toString(col)));
-        
+
         for(PositionRange rowRange:rowRangeList){
 //            System.out.println("rowRange.row.start="+rowRange.startNo);
 //            System.out.println("rowRange.row.end="+rowRange.endNo);
 //            System.out.println("ucSeqDiagram.getRowNo="+row);
 //            System.out.println("ucSeqDiagram.getColNo="+col);
-            
+
             if(rowRange.getStartNo().intValue() < row
                     &&rowRange.getEndNo().intValue() > row){
                 return true;
             }
         }
-        
+
         // TODO Auto-generated method stub
         return false;
     }
@@ -2963,13 +2963,13 @@ public class DisplayUtil {
                 }
                 ucDisplayObjectPrevious = ucDisplayObject;
             }//end col loop
-            
+
         }
-        
+
         // TODO Auto-generated method stub
         return displayMap;
     }
-    
+
 
     class PositionRange{
         BigInteger startNo;
@@ -2989,5 +2989,5 @@ public class DisplayUtil {
     }
 
 
-    
+
 }
