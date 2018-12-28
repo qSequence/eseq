@@ -248,6 +248,7 @@ function linkFields()
 			$("#"+this.id+'_element').remove();
 			$("#"+emptyId).remove();
 		}else{
+			
 			var systemId=null;
 			if( document.getElementById(this.id+'_systemId')!=null){
 			   systemId= document.getElementById(this.id+'_systemId').value;
