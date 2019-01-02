@@ -270,7 +270,7 @@ public class DisplayUtil {
     }else{
     	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-        htmlStr.append("height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
+        htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
     }
             
     htmlStr.append("</td>");
@@ -444,7 +444,7 @@ public class DisplayUtil {
             }else{
             	htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
+                htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
             }
             
             
@@ -721,7 +721,7 @@ public class DisplayUtil {
             }else{
             	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("height=\"20\" width=\"20\"><i class="fas fa-info-circle"></i></a>"");
+                htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
             }
                     
             htmlStr.append("</td>");
