@@ -268,7 +268,7 @@ public class DisplayUtil {
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
         htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
     }else{
-    	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
+    	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Informationcheck\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
         htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
     }
@@ -442,7 +442,7 @@ public class DisplayUtil {
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
             htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else{
-            	htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+            	htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Informationcheck\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
             }
@@ -719,7 +719,7 @@ public class DisplayUtil {
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else{
-            	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
+            	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Informationcheck\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
             }
