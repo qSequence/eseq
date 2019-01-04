@@ -1578,7 +1578,7 @@ public class DisplayUtil {
             colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
         }
         colouredBoundries.append("');");
-        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
+        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
         
         ucDisplayObject.setUcSeqDiagram(ucSeqDiagram);
@@ -1614,7 +1614,7 @@ public class DisplayUtil {
 //            colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
 //        }
 //        colouredBoundries.append("');");
-//        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
+//        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;");
 //        ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
 //        
 //        
@@ -1739,7 +1739,7 @@ public class DisplayUtil {
             colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
         }
         colouredBoundries.append("');");
-        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
+        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
 
         

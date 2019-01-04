@@ -827,6 +827,7 @@ table .table-header a.btn{
 }
 .mousetoHand{
   cursor: pointer;
+  font-size: 21px;
 }
 .propertiesMenus{
   width: 300px;
@@ -875,4 +876,7 @@ div div.row-c div.c-clm .two{
 }
 .panel-info{
 	margin-bottom: 15px !important;
+}
+.at{
+	color:green;
 }
