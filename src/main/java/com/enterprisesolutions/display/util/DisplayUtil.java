@@ -1578,7 +1578,7 @@ public class DisplayUtil {
             colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
         }
         colouredBoundries.append("');");
-        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;");
+        colouredBoundries.append(" background-repeat: no-repeat; background-position: center; color:red;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
         
         ucDisplayObject.setUcSeqDiagram(ucSeqDiagram);
@@ -1739,7 +1739,7 @@ public class DisplayUtil {
             colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
         }
         colouredBoundries.append("');");
-        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;");
+        colouredBoundries.append(" background-repeat: no-repeat; background-position: center; color:green;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
 
         
