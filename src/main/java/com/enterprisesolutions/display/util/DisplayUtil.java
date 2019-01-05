@@ -41,7 +41,7 @@ public class DisplayUtil {
         sb.append(" width=\"");
         sb.append(AppConstants.CELL_WIDTH);
         sb.append("\"");
-        sb.append("><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td colspan=\"2\">&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;");
+        sb.append("><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr class=\"test1\"><td colspan=\"2\">&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;");
         sb.append("&nbsp;");
         sb.append("</td></tr></table></td>");
         ucDisplayObject.setHtmlStr(sb.toString());
@@ -1462,7 +1462,7 @@ public class DisplayUtil {
             }
             sb.append("\"");
             if(asynch){//<tr><td>&nbsp;</td><td>&nbsp;
-                sb.append("><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td colspan=\"2\"><font color=\"#D8D8D8\"> Processing "+asynchRequest+"</font></td></tr>");
+                sb.append("><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr class=\"test2\"><td colspan=\"2\"><font color=\"#D8D8D8\"> Processing "+asynchRequest+"</font></td></tr>");
 //                sb.append("><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td colspan=\"2\"><font color=\"#D8D8D8\"> Processing "+asynchRequest+" ROW:"+row+" COL:"+col+"</font></td></tr>");
             }else{
                 sb.append("><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"  height=\"100%\" width=\"100%\"><tr><td>&nbsp;</td><td>&nbsp;" +"</td></tr>");
