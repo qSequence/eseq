@@ -881,11 +881,25 @@ div div.row-c div.c-clm .two{
 	color:green !important;
 }
 .tdpadding{
-	
+  height: 135px;
+  width: 100px;
 }
 .tdpadding td{
 	
 }
 .tdpadding td span{
-	
+  display: block;
+  text-align: center;
+  line-height: 12px;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 0px 30px;
+}
+td{
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  line-height: 12px !important;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
