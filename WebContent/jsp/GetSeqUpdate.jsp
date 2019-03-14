@@ -1,4 +1,31 @@
 <%@ include file="include.jsp"%>
+<script type="text/javascript">
+function seqUpdateOpenClose( user_request_action_param, sequenceVersion, seq_mst_id_param, row_no_param, col_no_param, url, sysSeqId) {
+
+	$.post(url,
+			{
+				user_request_action_param:user_request_action_param,
+				seq_mst_id_param:seq_mst_id_param,
+				sequenceVersion:sequenceVersion,
+				sys_seq_id:sysSeqId,
+				row_no_param:row_no_param,
+				col_no_param:col_no_param
+			},
+			function(data,status){
+
+				//var content=$("#prop_menu_place_holder").html();
+				var $response=$(data);
+				var seqDet = $response.filter("#response_seqdet").html();
+
+				var error = $response.filter("#error").html();
+				if(error!=null){
+					$("#error").empty().append( error );
+				}
+				$("#seq_det_holder").empty().append( seqDet );
+				linkFields();
+			});
+}
+</script>
 <div id="${modelUc.seqdetDiv}">
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 
