@@ -1,4 +1,5 @@
 <%@ include file="include.jsp"%>
+<link href="css/anirban.css" rel="stylesheet">
 <script type="text/javascript">
 function seqUpdateOpenClose( user_request_action_param, sequenceVersion, seq_mst_id_param, row_no_param, col_no_param, url, sysSeqId) {
 
@@ -275,7 +276,7 @@ function seqUpdateOpenClose( user_request_action_param, sequenceVersion, seq_mst
 										</c:if>
 									  </c:if>
 									</c:if>
-											${col.displayName}
+											<span>${col.displayName}</span>
 										</td>
 									</tr>
 
