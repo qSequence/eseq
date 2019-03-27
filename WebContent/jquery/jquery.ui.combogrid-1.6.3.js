@@ -502,7 +502,7 @@ $.widget( "cg.combogrid", {
 
 	_search: function( value ) {
 		this.pending++;
-		this.element.addClass( "" );
+		this.element.addClass( "cg-loading" );
 
 		this.source( { term: value }, this.response );
 	},
