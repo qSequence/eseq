@@ -4,10 +4,3 @@ $(document).ready(function(){
   var winPaddTop= winHeight/4;
 	$(".home-cont").css("margin-top",winPaddTop);
 });
-
-$(document).ready(function(){
-
-	var winBHeight = $(window).height();
-  var winBPaddTop= winBHeight/7;
-	$(".loginCenter").css("margin-top",winBPaddTop);
-});

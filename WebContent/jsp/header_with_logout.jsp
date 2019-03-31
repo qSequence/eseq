@@ -8,5 +8,4 @@
 <link rel="stylesheet" href="<c:url value="/header.css" />"
 	type="text/css">
 <link rel="stylesheet" href="<c:url value="/css/css.css" />"
-	type="text/css">
-<link href="css/anirban.css" rel="stylesheet">
+	type="text/css">	
