@@ -500,27 +500,27 @@ $.widget( "cg.combogrid", {
 		}
 	},
 
-	// _search: function( value ) {
-	// 	this.pending++;
-	// 	this.element.addClass( "cg-loading" );
-	//
-	// 	this.source( { term: value }, this.response );
-	// },
+	_search: function( value ) {
+		this.pending++;
+		this.element.addClass( "cg-loading" );
 
-	// _response: function(records, total, content ) {
-	//
-	// 	if ( !this.options.disabled && content && content.length ) {
-	// 		//content = this._normalize( content );
-	// 		this._suggest(records, total, content );
-	// 		this._trigger( "open" );
-	// 	} else {
-	// 		this.close();
-	// 	}
-	// 	this.pending--;
-	// 	if ( !this.pending ) {
-	// 		this.element.removeClass( "cg-loading" );
-	// 	}
-	// },
+		this.source( { term: value }, this.response );
+	},
+
+	_response: function(records, total, content ) {
+
+		if ( !this.options.disabled && content && content.length ) {
+			//content = this._normalize( content );
+			this._suggest(records, total, content );
+			this._trigger( "open" );
+		} else {
+			this.close();
+		}
+		this.pending--;
+		if ( !this.pending ) {
+			this.element.removeClass( "cg-loading" );
+		}
+	},
 
 	close: function( event ) {
 		var self = this;
