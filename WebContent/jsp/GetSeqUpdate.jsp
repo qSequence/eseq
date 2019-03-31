@@ -5,7 +5,7 @@
 
 			<c:forEach items="${modelUc.ucDisplayDataRowList}" var="row" >
 				<tr>
-			<c:forEach items="${row}" var="col" >
+			<c:forEach items="${row}" var="col">
 
 
 
@@ -13,10 +13,10 @@
 							<td id="td_SYSTEM${col.ucSeqDiagram.rowNo}" align=center valign="top"  height="100" width="150" ${col.htmlStr} >
 								<table id="table_SYSTEM${col.ucSeqDiagram.rowNo}" align="center" height="100%" width="100%" cellpadding="0" cellspacing="0">
 									<tr>
- 
+
 									<c:if test="${col.ucSeqDiagram.expanded!=null}">
 
-<!-- TR 1-->
+<!-- TR 1 -->
 	<!-- TD 1-->
 									  <c:if test="${col.ucSeqDiagram.asynchSourceDestination!=null and col.ucSeqDiagram.asynchSourceDestination=='SOURCE'}">
 									  <td height="15%" width="15%" style="vertical-align: top;text-align: left;border-top: 4px dashed gray;border-left: 4px dashed gray;">
