@@ -500,12 +500,12 @@ $.widget( "cg.combogrid", {
 		}
 	},
 
-	_search: function( value ) {
-		this.pending++;
-		this.element.addClass( "cg-loading" );
-
-		this.source( { term: value }, this.response );
-	},
+	// _search: function( value ) {
+	// 	this.pending++;
+	// 	this.element.addClass( "cg-loading" );
+	//
+	// 	this.source( { term: value }, this.response );
+	// },
 
 	_response: function(records, total, content ) {
 
