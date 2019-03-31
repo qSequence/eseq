@@ -89,7 +89,7 @@ $(document).ready(function() {
 <td style="BORDER-RIGHT: #000088 1px solid"  align="center" ><a href="<c:url value="PrivacyPolicy.htm"/>">&nbsp;privacy policy&nbsp;</a></td>
 <td style="BORDER-RIGHT: #000088 1px solid"  align="center" ><a href="<c:url value="TermsAndConditions.htm"/>">&nbsp;terms & conditions&nbsp;</a></td>
 <td style="BORDER-RIGHT: #000088 1px solid"  align="center" ><a href="<c:url value="LegalStatement.htm"/>">&nbsp;legal statement&nbsp;</a></td>
-<td  align="center" ><a href="<c:url value="www.qsequence.com/faq.htm"/>">&nbsp;FAQ</a></td>
+<td  align="center" ><a href="<c:url value="faq.htm"/>">&nbsp;FAQ</a></td>
 
 </table> 
 </div>

@@ -103,10 +103,10 @@ queries -->
 <h3>Quicklinks</h3>
 <ul class="list-unstyled">
 <li>
-<a href="www.qsequence.com/faq.htm">FAQ</a>
+<a href="faq.htm">FAQ</a>
 </li>
 <li>
-<a href="www.qsequence.com/Contact.htm">Contact us</a>
+<a href="Contact.htm">Contact us</a>
 </li>
 </ul>
 </div>

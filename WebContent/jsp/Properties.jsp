@@ -367,13 +367,6 @@ function showProperties( id, action_param, event) {
 
                 <c:if test="${modelUc.propertyFor!='system'}">
                    <div class="form-group">
-                    <label for="description" class="col-lg-2 control-label">Description</label>
-                    <font color="red" size="1px">${modelUc.descMessage}</font>
-                    <div class="col-lg-12">
-                      <textarea maxlength="3900" name="descriptionTA" id="descriptionTA" cols="100" rows="4">${modelUc.description}</textarea>
-                    </div>
-                  </div>
-                   <div class="form-group">
                      <div class="col-lg-12">
                        <label for="sample">Sample ${modelUc.propertyFor}</label>
                        <font color="red" size="1px">${modelUc.sampleMessage}</font>
