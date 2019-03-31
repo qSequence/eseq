@@ -8,6 +8,7 @@
 
   <!-- Bootstrap Core CSS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/anirban.css" rel="stylesheet">
 
@@ -73,7 +74,7 @@
       <div class="home-cont">
         <div class="wrap-item">
           <h1 align="center">Welcome to qSequence</h1>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis </p>
+          <p>Easily create dynamic sequence diagrams and re-use them with context sensitive search.</p>
         </div>
       </div>
     </div>

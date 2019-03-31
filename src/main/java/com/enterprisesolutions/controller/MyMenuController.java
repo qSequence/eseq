@@ -33,7 +33,7 @@ public class MyMenuController implements Controller {
 //		
 //		for(UcSeqMenuImages ucSeqMenuImages : ucSeqMenuImagesList){
 //			//set ImageUrl
-//			ucSeqMenuImages.setImageUrl("/qSequence_IMAGES/"+symDir+"/"+ucSeqMenuImages.getMenuImageFileName());
+//			ucSeqMenuImages.setImageUrl("/IMAGES/"+symDir+"/"+ucSeqMenuImages.getMenuImageFileName());
 //			if(tempMenuItemList.contains(ucSeqMenuImages.getMenuItemId())){
 //				ucSeqMenuImages.setSelected(true);
 //			}else{

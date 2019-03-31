@@ -248,29 +248,29 @@ public class DisplayUtil {
             		||requestAccess.get(ucSeqDiagram.getRequestId()).equals("RW")||requestAccess.get(ucSeqDiagram.getRequestId()).equals("OW")
             	)
             && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-        htmlStr.append("<a  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" class=\"mousetoHand info\" title=\"Information\" alt=\"InformationLL\" src=\"");
+        htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" class=\"mousetoHand\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-        htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>");
+        htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
     }else if(ucSeqDiagram.getRequestPropertiesFound()!=null && ucSeqDiagram.getRequestPropertiesFound().contains("gray")
             &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-        htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationMM\" src=\"");
+        htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
         htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
 
     }else if(ucSeqDiagram.getRequestPropertiesFound()!=null && requestAccess.get(ucSeqDiagram.getRequestId())!=null
             &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-        htmlStr.append("<a class=\"mousetoHand at\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationSS\" src=\"");
+        htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-        htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-at\"></i></a>");
+        htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
     }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
     		&& requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-        htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationC\" src=\"");
+        htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
         htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2.toString()+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
     }else{
-    	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Informationcheck\" src=\"");
+    	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
         htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-        htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
+        htmlStr.append("/images/information_injection_gray.png\"  height=\"20\" width=\"20\">");
     }
             
     htmlStr.append("</td>");
@@ -422,29 +422,29 @@ public class DisplayUtil {
                         		||requestAccess.get(ucSeqDiagram.getRequestId()).equals("RW")||requestAccess.get(ucSeqDiagram.getRequestId()).equals("OW")
                         	)
                     && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<a  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand info\" title=\"Information\" alt=\"InformationLL\" src=\"");
+                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand\" title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-            htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>");
+            htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null && ucSeqDiagram.getResponsePropertiesFound().contains("gray")
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationMM\" src=\"");
+                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");                        
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
                     && requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-                htmlStr.append("<a class=\"mousetoHand at\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationSS\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-            htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-at\"></i></a>");
+            htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
             		&& requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationC\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
             htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+responseIdPart1+idPart2.toString()+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else{
-            	htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Informationcheck\" src=\"");
+            	htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
+                htmlStr.append("/images/information_injection_gray.png\"  height=\"20\" width=\"20\">");
             }
             
             
@@ -700,28 +700,28 @@ public class DisplayUtil {
                     		||requestAccess.get(ucSeqDiagram.getRequestId()).equals("RW")||requestAccess.get(ucSeqDiagram.getRequestId()).equals("OW")
                     	)
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<a  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand info\" title=\"Information\" alt=\"InformationLL\" src=\"");
+                htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>");
+                htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getRequestPropertiesFound()!=null && ucSeqDiagram.getRequestPropertiesFound().contains("gray")
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationMM\" src=\"");
+                htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
             }else if(ucSeqDiagram.getRequestPropertiesFound()!=null&& requestAccess.get(ucSeqDiagram.getRequestId())!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<a class=\"mousetoHand at\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationSS\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-at\"></i></a>");
+                htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
             		&& requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationC\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else{
-            	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Informationcheck\" src=\"");
+            	htmlStr.append("<img id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>\"");
+                htmlStr.append("/images/information_injection_gray.png\"  height=\"20\" width=\"20\">");
             }
                     
             htmlStr.append("</td>");
@@ -876,23 +876,23 @@ public class DisplayUtil {
                         		||requestAccess.get(ucSeqDiagram.getRequestId()).equals("RW")||requestAccess.get(ucSeqDiagram.getRequestId()).equals("OW")
                         	)
                     && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<a  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand info\" title=\"Information\" alt=\"InformationLL\" src=\"");
+                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>");
+                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null && ucSeqDiagram.getResponsePropertiesFound().contains("gray")
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationMM\" src=\"");
+                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
                 
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null  && requestAccess.get(ucSeqDiagram.getRequestId())!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<a class=\"mousetoHand at\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationSS\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-at\"></i></a>");
+                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())
             		 && requestAccess.get(ucSeqDiagram.getRequestId())!=null){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationC\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+systemName+"');\" height=\"20\" width=\"20\">");
             }
@@ -1178,21 +1178,21 @@ public class DisplayUtil {
         
         if(ucSeqDiagram.getRequestPropertiesFound()!=null && ucSeqDiagram.getRequestPropertiesFound().contains("gray") && displayView.equals(AppConstants.FULL_ACCESS_VIEW)
                 &&ucSeqDiagram.getSystemType()!=null &&  !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-            htmlStr.append("<a  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand info\" title=\"Information\" alt=\"InformationLL\" src=\"");
+            htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand\" title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-            htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>");
+            htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
         }else if(ucSeqDiagram.getRequestPropertiesFound()!=null && ucSeqDiagram.getRequestPropertiesFound().contains("gray")
                 &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-            htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationMM\" src=\"");
+            htmlStr.append("<img  id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
             htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
         }else if(ucSeqDiagram.getRequestPropertiesFound()!=null
                 &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-            htmlStr.append("<a class=\"mousetoHand at\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationSS\" src=\"");
+            htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-            htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-at\"></i></a>");
+            htmlStr.append("/images/"+ucSeqDiagram.getRequestPropertiesFound()+".png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
         }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-            htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationC\" src=\"");
+            htmlStr.append("<img class=\"mousetoHand\" id=\"REQ_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
             htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
             htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+requestIdPart1+idPart2+requestIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
         }
@@ -1288,22 +1288,22 @@ public class DisplayUtil {
 
             if(ucSeqDiagram.getResponsePropertiesFound()!=null && ucSeqDiagram.getResponsePropertiesFound().contains("gray") && displayView.equals(AppConstants.FULL_ACCESS_VIEW)
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<a  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand info\" title=\"Information\" alt=\"InformationLL\" src=\"");
+                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  class=\"mousetoHand\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-info-circle\"></i></a>");
+                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null && ucSeqDiagram.getResponsePropertiesFound().contains("gray")
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"InformationMM\" src=\"");
+                htmlStr.append("<img  id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\" title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\"   height=\"20\" width=\"20\">");            
                 
             }else if(ucSeqDiagram.getResponsePropertiesFound()!=null
                     &&ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<a class=\"mousetoHand at\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationSS\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
-                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\"><i class=\"fas fa-at\"></i></a>");
+                htmlStr.append("/images/"+ucSeqDiagram.getResponsePropertiesFound()+".png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
             }else if(ucSeqDiagram.getSystemType()!=null && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_IF.toString()) && !ucSeqDiagram.getSystemType().contains(UcObjectEnum.SEQ_SECTION.toString())){
-                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"InformationC\" src=\"");
+                htmlStr.append("<img class=\"mousetoHand\" id=\"RES_"+ucSeqDiagram.getRowNo()+"_"+ucSeqDiagram.getColNo()+"\"  title=\"Information\" alt=\"Information\" src=\"");
                 htmlStr.append((CONTEXT_PATH.equals("/") ? "":CONTEXT_PATH));
                 htmlStr.append("/images/information_injection_gray.png\" onclick=\"showProperties('"+responseIdPart1+idPart2+responseIdPart3+idPart4+"', event);updateRwoCol( "+ucSeqDiagram.getSeqItemId()+", "+ucSeqDiagram.getRowNo()+", "+ucSeqDiagram.getColNo()+", '"+ucSeqDiagram.getAsynchSourceDestination()+"', '"+ucSeqDiagram.getSystemName()+"');\" height=\"20\" width=\"20\">");
             }
@@ -1578,7 +1578,7 @@ public class DisplayUtil {
             colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
         }
         colouredBoundries.append("');");
-        colouredBoundries.append(" background-repeat: no-repeat; background-position: center; background-size: 80px;");
+        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
         
         ucDisplayObject.setUcSeqDiagram(ucSeqDiagram);
@@ -1614,7 +1614,7 @@ public class DisplayUtil {
 //            colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
 //        }
 //        colouredBoundries.append("');");
-//        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;");
+//        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
 //        ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
 //        
 //        
@@ -1739,7 +1739,7 @@ public class DisplayUtil {
             colouredBoundries.append(AppConstants.SYSTEM_DEFAULT_IMAGE);
         }
         colouredBoundries.append("');");
-        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;");
+        colouredBoundries.append(" background-repeat: no-repeat; background-position: center;background-size: 100px 100px;");
         ucDisplayObject.setHtmlStr("style=\""+colouredBoundries+"\"");
 
         
